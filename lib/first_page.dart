@@ -16,7 +16,7 @@ class FirstPage extends StatelessWidget {
             image: AssetImage(
               'images/Background 5.png',
             ),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
         ),
         child: Container(
@@ -54,7 +54,7 @@ class FirstPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               SizedBox(
                 width: 360,
