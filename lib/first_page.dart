@@ -13,11 +13,11 @@ class FirstPage extends StatelessWidget {
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(
-                'images/Background 1.png',
-              ),
-              fit: BoxFit.cover,
-              alignment: Alignment(0, 0.5)),
+            image: AssetImage(
+              'images/Background 5.png',
+            ),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Container(
           margin: EdgeInsets.fromLTRB(
@@ -29,7 +29,7 @@ class FirstPage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 30,
+                height: 10,
               ),
               Text(
                 "SEMPL!",
@@ -39,10 +39,10 @@ class FirstPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 140,
+                height: 150,
               ),
               SizedBox(
-                width: 379,
+                width: 390,
                 child: Text(
                   "ВКЛЮЧИТЕ                        УВЕДОМЛЕНИЯ, ЧТОБЫ                   БЫТЬ В КУРСЕ ВСЕХ                     НОВЫХ ПРОДУКТОВ",
                   style: TextStyle(

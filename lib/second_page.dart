@@ -13,10 +13,9 @@ class SecondPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'images/Background 3.png',
+              'images/Background 4.png',
             ),
-            fit: BoxFit.cover,
-            alignment: Alignment.topLeft,
+            fit: BoxFit.fill,
           ),
         ),
         child: Container(
@@ -29,7 +28,7 @@ class SecondPage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               Text(
                 "SEMPL!",
@@ -39,7 +38,7 @@ class SecondPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 160,
+                height: 190,
               ),
               SizedBox(
                 width: 379,
@@ -54,7 +53,7 @@ class SecondPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 10,
               ),
               SizedBox(
                 height: 200,
