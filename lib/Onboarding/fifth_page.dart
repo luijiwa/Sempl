@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'second_page.dart';
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+class FifthPage extends StatelessWidget {
+  const FifthPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFCFF3E9),
+      backgroundColor: Color(0xFFFFEF7D),
       body: Container(
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
@@ -29,7 +28,7 @@ class FirstPage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Text(
                 "SEMPL!",
@@ -39,12 +38,12 @@ class FirstPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 150,
+                height: 190,
               ),
               SizedBox(
-                width: 390,
+                width: 379,
                 child: Text(
-                  "ВКЛЮЧИТЕ                        УВЕДОМЛЕНИЯ, ЧТОБЫ                   БЫТЬ В КУРСЕ ВСЕХ                     НОВЫХ ПРОДУКТОВ",
+                  "АНКЕТА",
                   style: TextStyle(
                     fontSize: 40,
                     fontFamily: 'DrukCyr',
@@ -54,27 +53,26 @@ class FirstPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 5,
               ),
               SizedBox(
-                width: 360,
+                width: 400,
                 child: Text(
-                  "Вы будете получать push-                                              уведомления с информацией о новых                        доступных товарах, акциях, скидках                                       и других событиях",
-                  textAlign: TextAlign.right,
+                  "Наше приложение включает  функцию опроса, которая позволяет                                              нам лучше понять ваши предпочтения                                                и интересы пользователей",
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 13,
                     fontFamily: 'SourceSansPro',
                   ),
                 ),
               ),
               SizedBox(
-                height: 140,
+                height: 200,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '03/05',
+                    '05/05',
                     style: TextStyle(
                       fontSize: 20,
                       fontFamily: 'SourceSansProBold',
@@ -90,14 +88,7 @@ class FirstPage extends StatelessWidget {
                       ),
                     ),
                     child: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SecondPage(),
-                          ),
-                        );
-                      },
+                      onPressed: () {},
                       icon: Icon(Icons.arrow_forward_ios_rounded),
                     ),
                   ),

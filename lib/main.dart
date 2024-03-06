@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'first_page.dart';
+import 'Onboarding/third_page.dart';
+import 'Onboarding/second_page.dart';
+import 'Onboarding/first_page.dart';
 
 void main() {
   runApp(const MyApp());

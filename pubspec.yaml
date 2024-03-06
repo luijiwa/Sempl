@@ -71,10 +71,10 @@ flutter:
         - asset: assets/SourceSansPro-Bold.ttf
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/Background 1.png
-    - images/Background 2.png
     - images/Background 3.png
     - images/Background 4.png
+    - images/Background 2.png
+    - images/Background 1.png
     - images/Background 5.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
