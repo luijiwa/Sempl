@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'fourth_page.dart';
 
 class ThirdPage extends StatelessWidget {
@@ -29,7 +29,7 @@ class ThirdPage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Text(
                 "SEMPL!",
@@ -54,7 +54,7 @@ class ThirdPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               SizedBox(
                 width: 360,
@@ -68,7 +68,7 @@ class ThirdPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 100,
+                height: 159,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

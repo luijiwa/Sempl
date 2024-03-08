@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:my_app/Onboarding/third_page.dart';
+
+import 'package:my_app/onboarding/third_page.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -59,7 +59,7 @@ class SecondPage extends StatelessWidget {
               SizedBox(
                 width: 400,
                 child: Text(
-                  "Получайте баллы за отзывы о продукте  и приглашения новых пользователей,  покупайте на них продукты",
+                  "Получайте баллы за отзывы о продукте и приглашения новых пользователей, покупайте на них продукты",
                   style: TextStyle(
                     fontSize: 13,
                     fontFamily: 'SourceSansPro',
@@ -67,7 +67,7 @@ class SecondPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 126,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

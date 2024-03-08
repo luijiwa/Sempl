@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:my_app/Onboarding/fifth_page.dart';
+
+import 'package:my_app/onboarding/fifth_page.dart';
 
 class FourthPage extends StatelessWidget {
   const FourthPage({super.key});
@@ -57,7 +57,7 @@ class FourthPage extends StatelessWidget {
                 height: 10,
               ),
               SizedBox(
-                height: 150,
+                height: 208,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

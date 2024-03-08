@@ -35,7 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   salomon_bottom_bar: ^3.3.2
-  google_fonts: ^6.1.0
+
   flutter_svg: ^2.0.9
 
 dev_dependencies:
@@ -76,6 +76,13 @@ flutter:
     - images/Background 2.png
     - images/Background 1.png
     - images/Background 5.png
+    - images/serum.png
+    - images/serum.svg
+    - images/serum.jpg
+    - images/Frame.svg
+    - images/Frame 2.svg
+    - images/Frame 3.png
+    - images/Frame 3.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

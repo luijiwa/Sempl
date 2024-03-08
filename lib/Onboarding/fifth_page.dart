@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FifthPage extends StatelessWidget {
   const FifthPage({super.key});
@@ -15,7 +14,7 @@ class FifthPage extends StatelessWidget {
             image: AssetImage(
               'images/Background 5.png',
             ),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
         child: Container(
@@ -58,7 +57,7 @@ class FifthPage extends StatelessWidget {
               SizedBox(
                 width: 400,
                 child: Text(
-                  "Наше приложение включает  функцию опроса, которая позволяет                                              нам лучше понять ваши предпочтения                                                и интересы пользователей",
+                  "Наше приложение включает  функцию опроса, которая позволяет                                                 нам лучше понять ваши предпочтения                                                      и интересы пользователей",
                   style: TextStyle(
                     fontSize: 13,
                     fontFamily: 'SourceSansPro',
@@ -66,7 +65,7 @@ class FifthPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 200,
+                height: 258,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
