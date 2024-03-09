@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'onboarding/third_page.dart';
 import 'onboarding/second_page.dart';
 import 'onboarding/first_page.dart';
@@ -18,10 +18,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'First Page',
-      debugShowCheckedModeBanner: false,
-      home: const FirstPage(),
+    return ScreenUtilInit(
+      designSize: Size(375, 812),
+      builder: (context, child) => MaterialApp(
+        title: 'First Page',
+        debugShowCheckedModeBanner: false,
+        home: const FirstPage(),
+      ),
     );
   }
 }

@@ -16,7 +16,7 @@ class SecondPage extends StatelessWidget {
             image: AssetImage(
               'images/Background 2.png',
             ),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
         child: Container(

@@ -16,7 +16,7 @@ class FourthPage extends StatelessWidget {
             image: AssetImage(
               'images/Background 4.png',
             ),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
         child: Container(

@@ -16,7 +16,7 @@ class ThirdPage extends StatelessWidget {
             image: AssetImage(
               'images/Background 3.png',
             ),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
         child: Container(

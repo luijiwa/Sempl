@@ -17,7 +17,7 @@ class FirstPage extends StatelessWidget {
             image: AssetImage(
               'images/Background 1.png',
             ),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
         child: Container(
@@ -70,51 +70,47 @@ class FirstPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Column(
-                children: [
-                  Container(
-                    width: 330,
-                    height: 370,
-                    child: Stack(
-                      children: [
-                        Container(
-                          width: 343,
-                          height: 313,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(40),
+              Container(
+                width: 330,
+                height: 370,
+                child: Stack(
+                  children: [
+                    Container(
+                      width: 343,
+                      height: 313,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'images/serum.png',
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'images/serum.png',
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              SvgPicture.asset('images/Frame 3.svg'),
-                              SizedBox(
-                                height: 25,
-                              )
-                            ],
+                          SizedBox(
+                            height: 5,
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Positioned(
-                          top: 200,
-                          child: Container(
-                            width: 144,
-                            height: 200,
-                            child: SvgPicture.asset('images/Frame 2.svg'),
-                          ),
-                        ),
-                      ],
+                          SvgPicture.asset('images/Frame 3.svg'),
+                          SizedBox(
+                            height: 25,
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Positioned(
+                      top: 200,
+                      child: Container(
+                        width: 144,
+                        height: 200,
+                        child: SvgPicture.asset('images/Frame 2.svg'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 17,
