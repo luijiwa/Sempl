@@ -18,9 +18,9 @@ class HeaderWidget extends StatelessWidget {
                 fit: BoxFit.cover,
                 image: AssetImage("images/login_header_background.png"),
               ),
-              color: Colors.blueGrey),
+              color: Color(0xFF99BFD4)),
           child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 36.0),
+            padding: EdgeInsets.symmetric(horizontal: 22.0, vertical: 36.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
