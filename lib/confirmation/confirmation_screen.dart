@@ -29,6 +29,7 @@ class ConfirmationScreen extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'DrukCyr',
                     fontSize: 32,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -44,7 +45,7 @@ class ConfirmationScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                   image: AssetImage("images/confirmation_body_background.png"),
                 ),
-                color: Colors.blueGrey,
+                color: Color(0xFF99BFD4),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
