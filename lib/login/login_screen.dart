@@ -5,7 +5,7 @@ import 'package:my_app/login/input_code_widget.dart';
 import 'package:my_app/login/phone_input_widget.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -30,81 +30,78 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: Stack(
+      resizeToAvoidBottomInset:
+          false, // Не прокручивать при открытии клавиатуры
+
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(268),
+        child: HeaderWidget(),
+      ),
+      body: SafeArea(
+        maintainBottomViewPadding: true,
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
             children: [
-              const HeaderWidget(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 22)
-                    .copyWith(top: 268, bottom: 56),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 36),
-                    SizedBox(
-                      height: 360,
-                      child: PageView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        controller: _pageViewController,
-                        children: const [
-                          PhoneInputWidget(),
-                          InputCodeWidget(),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    const TermOfUse(),
-                    const SizedBox(height: 25),
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_currentPageIndex == 1) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const ConfirmationScreen(),
-                              ),
-                            );
-                          } else {
-                            _currentPageIndex++;
-                            _pageViewController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeIn,
-                            );
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          shape: const StadiumBorder(),
-                          padding: const EdgeInsets.symmetric(vertical: 15),
-                          foregroundColor:
-                              const Color.fromARGB(255, 183, 222, 243),
-                          backgroundColor: const Color(0xFF99BFD4),
-                        ),
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('ПРОДОЛЖИТЬ',
-                                style: TextStyle(
-                                  fontFamily: 'SourceSansPro',
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                )),
-                            Icon(
-                              size: 15,
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+              const SizedBox(height: 36),
+              SizedBox(
+                height: 160,
+                child: PageView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _pageViewController,
+                  children: const [
+                    PhoneInputWidget(),
+                    InputCodeWidget(),
                   ],
                 ),
-              )
+              ),
+              const Spacer(),
+              const TermOfUse(),
+              const SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  if (_currentPageIndex == 1) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ConfirmationScreen(),
+                      ),
+                    );
+                  } else {
+                    setState(() {
+                      _currentPageIndex++;
+                    });
+                    _pageViewController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeIn,
+                    );
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  foregroundColor: Colors.white,
+                  backgroundColor: const Color(0xFF99BFD4),
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'ПРОДОЛЖИТЬ',
+                      style: TextStyle(
+                        fontFamily: 'SourceSansPro',
+                        fontSize: 15,
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward,
+                      size: 15,
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(height: 56),
             ],
           ),
         ),
@@ -112,44 +109,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-// class ContinueButton extends StatelessWidget {
-//   const ContinueButton({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       width: double.maxFinite,
-//       child: ElevatedButton(
-//         onPressed: () {},
-//         style: ElevatedButton.styleFrom(
-//           shape: const StadiumBorder(),
-//           padding: const EdgeInsets.symmetric(vertical: 15),
-//           foregroundColor: const Color.fromARGB(255, 183, 222, 243),
-//           backgroundColor: const Color(0xFF99BFD4),
-//         ),
-//         child: const Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Text('ПРОДОЛЖИТЬ',
-//                 style: TextStyle(
-//                   fontFamily: 'SourceSansPro',
-//                   fontSize: 15,
-//                   color: Colors.white,
-//                 )),
-//             Icon(
-//               size: 15,
-//               Icons.arrow_forward,
-//               color: Colors.white,
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 class TermOfUse extends StatefulWidget {
   const TermOfUse({super.key});
@@ -176,66 +135,73 @@ class _TermOfUseState extends State<TermOfUse> {
       color: Colors.black,
     );
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Checkbox(
-          value: isChecked,
-          activeColor: const Color(0xFF99BFD4),
-          side: MaterialStateBorderSide.resolveWith(
-            (states) => const BorderSide(color: Color(0xFF99BFD4)),
+    return InkWell(
+      onTap: () {
+        setState(() {
+          isChecked = !isChecked;
+        });
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Checkbox(
+            value: isChecked,
+            activeColor: const Color(0xFF99BFD4),
+            side: MaterialStateBorderSide.resolveWith(
+              (states) => const BorderSide(color: Color(0xFF99BFD4)),
+            ),
+            onChanged: (value) {
+              if (value == null) return;
+              setState(() {
+                isChecked = value;
+              });
+            },
           ),
-          onChanged: (value) {
-            if (value == null) return;
-            setState(() {
-              isChecked = value;
-            });
-          },
-        ),
-        Flexible(
-          child: RichText(
-            text: TextSpan(
-              style: termOfUseTextStyle,
-              children: [
-                const TextSpan(text: 'Я соглашаюсь с '),
-                WidgetSpan(
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Text(
-                      'Условиями Пользовательского',
-                      style: linkTextStyle,
-                      overflow: TextOverflow.clip,
+          Flexible(
+            child: RichText(
+              text: TextSpan(
+                style: termOfUseTextStyle,
+                children: [
+                  const TextSpan(text: 'Я соглашаюсь с '),
+                  WidgetSpan(
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: const Text(
+                        'Условиями Пользовательского',
+                        style: linkTextStyle,
+                        overflow: TextOverflow.clip,
+                      ),
                     ),
                   ),
-                ),
-                WidgetSpan(
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Text(
-                      'Соглашения',
-                      style: linkTextStyle,
-                      overflow: TextOverflow.clip,
+                  WidgetSpan(
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: const Text(
+                        'Соглашения',
+                        style: linkTextStyle,
+                        overflow: TextOverflow.clip,
+                      ),
                     ),
                   ),
-                ),
-                const TextSpan(text: ' и '),
-                WidgetSpan(
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Text(
-                      'Политикой Конфиденциальности',
-                      style: linkTextStyle,
-                      overflow: TextOverflow.clip,
+                  const TextSpan(text: ' и '),
+                  WidgetSpan(
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: const Text(
+                        'Политикой Конфиденциальности',
+                        style: linkTextStyle,
+                        overflow: TextOverflow.clip,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
