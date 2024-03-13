@@ -5,7 +5,7 @@ import 'package:my_app/login/input_code_widget.dart';
 import 'package:my_app/login/phone_input_widget.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -169,7 +169,7 @@ class _TermOfUseState extends State<TermOfUse> {
                     child: GestureDetector(
                       onTap: () {},
                       child: const Text(
-                        'Условиями Пользовательского',
+                        'Условиями Пользовательского ',
                         style: linkTextStyle,
                         overflow: TextOverflow.clip,
                       ),
