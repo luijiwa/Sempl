@@ -39,7 +39,7 @@ class ConfirmationScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: double.maxFinite,
-              height: 559,
+              height: MediaQuery.of(context).size.height - 270,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -67,32 +67,35 @@ class ConfirmationScreen extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  SizedBox(
-                    width: double.maxFinite,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        shape: const StadiumBorder(),
-                        padding: const EdgeInsets.symmetric(vertical: 15),
-                        foregroundColor:
-                            const Color.fromARGB(255, 183, 222, 243),
-                        backgroundColor: Colors.white,
-                      ),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('НАЧАТЬ',
-                              style: TextStyle(
-                                fontFamily: 'SourceSansPro',
-                                fontSize: 15,
-                                color: Color(0xFF86A6B8),
-                              )),
-                          Icon(
-                            size: 15,
-                            Icons.arrow_forward,
-                            color: Color(0xFF86A6B8),
-                          )
-                        ],
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      width: double.maxFinite,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          shape: const StadiumBorder(),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          foregroundColor:
+                              const Color.fromARGB(255, 183, 222, 243),
+                          backgroundColor: Colors.white,
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('НАЧАТЬ',
+                                style: TextStyle(
+                                  fontFamily: 'SourceSansPro',
+                                  fontSize: 15,
+                                  color: Color(0xFF86A6B8),
+                                )),
+                            Icon(
+                              size: 15,
+                              Icons.arrow_forward,
+                              color: Color(0xFF86A6B8),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
