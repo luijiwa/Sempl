@@ -11,7 +11,6 @@ class HeaderWidget extends StatelessWidget {
       alignment: AlignmentDirectional.center,
       children: [
         Container(
-          height: 268,
           width: double.maxFinite,
           decoration: const BoxDecoration(
               image: DecorationImage(
