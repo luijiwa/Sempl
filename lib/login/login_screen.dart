@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/confirmation/confirmation_screen.dart';
 import 'package:my_app/login/header_widget.dart';
+import 'package:my_app/login/input_code_widget.dart';
 import 'package:my_app/login/phone_input_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,6 +12,21 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  late PageController _pageViewController;
+  int _currentPageIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageViewController = PageController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageViewController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,15 +40,68 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22)
                     .copyWith(top: 268, bottom: 56),
-                child: const Column(
+                child: Column(
                   children: [
-                    SizedBox(height: 36),
-                    PhoneInputWidget(),
-                    Spacer(),
-                    // const InputCodeWidget(),
-                    TermOfUse(),
-                    SizedBox(height: 25),
-                    ContinueButton(),
+                    const SizedBox(height: 36),
+                    SizedBox(
+                      height: 360,
+                      child: PageView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        controller: _pageViewController,
+                        children: const [
+                          PhoneInputWidget(),
+                          InputCodeWidget(),
+                        ],
+                      ),
+                    ),
+                    const Spacer(),
+                    const TermOfUse(),
+                    const SizedBox(height: 25),
+                    SizedBox(
+                      width: double.maxFinite,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_currentPageIndex == 1) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ConfirmationScreen(),
+                              ),
+                            );
+                          } else {
+                            _currentPageIndex++;
+                            _pageViewController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeIn,
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: const StadiumBorder(),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          foregroundColor:
+                              const Color.fromARGB(255, 183, 222, 243),
+                          backgroundColor: const Color(0xFF99BFD4),
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('ПРОДОЛЖИТЬ',
+                                style: TextStyle(
+                                  fontFamily: 'SourceSansPro',
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                )),
+                            Icon(
+                              size: 15,
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               )
@@ -43,43 +113,43 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class ContinueButton extends StatelessWidget {
-  const ContinueButton({
-    super.key,
-  });
+// class ContinueButton extends StatelessWidget {
+//   const ContinueButton({
+//     super.key,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.maxFinite,
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          shape: const StadiumBorder(),
-          padding: const EdgeInsets.symmetric(vertical: 15),
-          foregroundColor: const Color.fromARGB(255, 183, 222, 243),
-          backgroundColor: const Color(0xFF99BFD4),
-        ),
-        child: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('ПРОДОЛЖИТЬ',
-                style: TextStyle(
-                  fontFamily: 'SourceSansPro',
-                  fontSize: 15,
-                  color: Colors.white,
-                )),
-            Icon(
-              size: 15,
-              Icons.arrow_forward,
-              color: Colors.white,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       width: double.maxFinite,
+//       child: ElevatedButton(
+//         onPressed: () {},
+//         style: ElevatedButton.styleFrom(
+//           shape: const StadiumBorder(),
+//           padding: const EdgeInsets.symmetric(vertical: 15),
+//           foregroundColor: const Color.fromARGB(255, 183, 222, 243),
+//           backgroundColor: const Color(0xFF99BFD4),
+//         ),
+//         child: const Row(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Text('ПРОДОЛЖИТЬ',
+//                 style: TextStyle(
+//                   fontFamily: 'SourceSansPro',
+//                   fontSize: 15,
+//                   color: Colors.white,
+//                 )),
+//             Icon(
+//               size: 15,
+//               Icons.arrow_forward,
+//               color: Colors.white,
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class TermOfUse extends StatefulWidget {
   const TermOfUse({super.key});
@@ -101,7 +171,10 @@ class _TermOfUseState extends State<TermOfUse> {
       color: Color(0xFF99BFD4),
     );
     const termOfUseTextStyle = TextStyle(
-        fontSize: 12, fontFamily: 'SourceSansPro', color: Colors.black);
+      fontSize: 12,
+      fontFamily: 'SourceSansPro',
+      color: Colors.black,
+    );
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
