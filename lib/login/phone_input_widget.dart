@@ -37,17 +37,15 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                 ),
               ),
             Positioned(
-              left: 0,
+              right: 0,
               child: Container(
                 height: 60,
-                width: 140,
+                width: 240,
                 decoration: BoxDecoration(
-                  color: _phoneError
-                      ? const Color(0xFFf9dee3)
-                      : const Color(0xFFF8F8F8),
+                  color: _phoneError ? const Color(0xFFf9dee3) : Colors.white,
                   borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      bottomLeft: Radius.circular(30)),
+                      topRight: Radius.circular(30),
+                      bottomRight: Radius.circular(30)),
                 ),
                 child: const Row(
                   children: [
@@ -61,15 +59,17 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
               ),
             ),
             Positioned(
-              right: 0,
+              left: 0,
               child: Container(
                 height: 60,
-                width: 240,
+                width: 140,
                 decoration: BoxDecoration(
-                  color: _phoneError ? const Color(0xFFf9dee3) : Colors.white,
+                  color: _phoneError
+                      ? const Color(0xFFf9dee3)
+                      : const Color(0xFFF8F8F8),
                   borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(30),
-                      bottomRight: Radius.circular(30)),
+                      topLeft: Radius.circular(30),
+                      bottomLeft: Radius.circular(30)),
                 ),
                 child: const Row(
                   children: [
@@ -94,7 +94,7 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: InternationalPhoneNumberInput(
-                spaceBetweenSelectorAndTextField: 2,
+                spaceBetweenSelectorAndTextField: 12,
                 selectorConfig: const SelectorConfig(
                   // selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
                   setSelectorButtonAsPrefixIcon: false,
