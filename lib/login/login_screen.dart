@@ -1,51 +1,99 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/login/header_widget.dart';
-import 'package:pinput/pinput.dart';
+import 'package:my_app/login/input_code_widget.dart';
+import 'package:my_app/login/phone_input_widget.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _isChecked = false;
+
+  @override
   Widget build(BuildContext context) {
+    const linkTextStyle = TextStyle(
+      fontSize: 12,
+      fontFamily: 'SourceSansPro',
+      decoration: TextDecoration.underline,
+      decorationColor: Color(0xFF99BFD4),
+      color: Color(0xFF99BFD4),
+    );
+    const termOfUseTextStyle =
+        TextStyle(fontSize: 12, fontFamily: 'SourceSansPro');
+
     return Scaffold(
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
-          child: Column(
+          child: Stack(
             children: [
               const HeaderWidget(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 22)
+                    .copyWith(top: 268, bottom: 56),
                 child: Column(
                   children: [
                     const SizedBox(height: 36),
                     const PhoneInputWidget(),
+                    const Spacer(),
+                    // const InputCodeWidget(),
 
-                    const InputCodeWidget(),
-
-                    const SizedBox(height: 8), // Добавлен отступ
-                    Wrap(
-                      runSpacing: 6,
-                      children: [
-                        Checkbox(value: false, onChanged: (_) {}),
-                        const Text('Я соглашаюсь с'),
-                        const Flexible(
-                          child: Text(
-                            'Условиями Пользовательского Соглашения',
-                            overflow: TextOverflow.clip,
+                    RichText(
+                      text: TextSpan(
+                        style: termOfUseTextStyle,
+                        children: [
+                          WidgetSpan(
+                            child: Checkbox(
+                              value: _isChecked,
+                              activeColor: const Color(0xFF99BFD4),
+                              side: MaterialStateBorderSide.resolveWith(
+                                (states) =>
+                                    const BorderSide(color: Color(0xFF99BFD4)),
+                              ),
+                              onChanged: (value) {
+                                if (value == null) return;
+                                setState(() {
+                                  _isChecked = value;
+                                });
+                              },
+                            ),
                           ),
-                        ),
-                        const Text('и'),
-                        const Flexible(
-                          child: Text(
-                            'Политикой Конфиденциальности',
-                            overflow: TextOverflow.clip,
+                          const TextSpan(text: 'Я соглашаюсь с '),
+                          WidgetSpan(
+                            child: GestureDetector(
+                              onTap: () {
+                                // Add action for clicking on the text
+                              },
+                              child: const Text(
+                                'Условиями Пользовательского',
+                                style: linkTextStyle,
+                                overflow: TextOverflow.clip,
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                          const TextSpan(text: 'Соглашения и '),
+                          WidgetSpan(
+                            child: GestureDetector(
+                              onTap: () {
+                                // Add action for clicking on the text
+                              },
+                              child: const Text(
+                                'Политикой Конфиденциальности',
+                                style: linkTextStyle,
+                                overflow: TextOverflow.clip,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 8), // Добавлен отступ
+                    const SizedBox(height: 25),
                     SizedBox(
                       width: double.maxFinite,
                       child: ElevatedButton(
@@ -79,92 +127,6 @@ class LoginScreen extends StatelessWidget {
                 ),
               )
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class InputCodeWidget extends StatelessWidget {
-  const InputCodeWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Pinput(
-          length: 5,
-          defaultPinTheme: _pinStyle(),
-          errorPinTheme: _pinStyle().copyWith(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: const Color(0xFFE36F6F),
-                width: 0.5,
-              ),
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          validator: (value) {
-            return value == '22222' ? null : 'Pin is incorrect';
-          },
-        ),
-        const SizedBox(height: 8),
-        Row(
-          children: [
-            const Text('Не получили код?'),
-            TextButton(onPressed: () {}, child: const Text('Отправь еще раз')),
-          ],
-        )
-      ],
-    );
-  }
-
-  PinTheme _pinStyle() {
-    return PinTheme(
-      width: 60,
-      height: 60,
-      textStyle: const TextStyle(fontSize: 20),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: const Color(0xFF99BFD4),
-          width: 0.5,
-        ),
-        borderRadius: BorderRadius.circular(10),
-      ),
-    );
-  }
-}
-
-class PhoneInputWidget extends StatelessWidget {
-  const PhoneInputWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
-        // errorText: 'пожалуйста, заполните это поле',
-        hintText: '000 000 00 00',
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            width: 0.5,
-            color: Color(0xFF99BFD4),
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(30),
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(30),
-          ),
-          borderSide: BorderSide(
-            width: 0.5,
-            color: Color(0xFF99BFD4),
           ),
         ),
       ),
