@@ -78,7 +78,7 @@ class ConfirmationScreen extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(
                         width: maxWidth,
-                        height: maxHeight * 0.05,
+                        height: 0.06 * maxHeight,
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
