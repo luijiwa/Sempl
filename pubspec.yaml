@@ -41,6 +41,7 @@ dependencies:
   pinput: ^4.0.0
   intl_phone_number_input: ^0.7.4
   auto_size_text: ^3.0.0
+  mask_text_input_formatter: ^2.9.0
 
 dev_dependencies:
   flutter_test:
@@ -94,6 +95,8 @@ flutter:
     - images/login_header_background.png
     - images/confirmation_header_background.png
     - images/confirmation_body_background.png
+    - images/flag.png
+   
 
 
 
