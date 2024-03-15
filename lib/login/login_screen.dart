@@ -32,86 +32,89 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       final maxHeight = constraints.maxHeight.toDouble();
-      return Scaffold(
-        resizeToAvoidBottomInset:
-            false, // Не прокручивать при открытии клавиатуры
+      return GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          resizeToAvoidBottomInset:
+              false, // Не прокручивать при открытии клавиатуры
 
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(
-            maxHeight * 0.35,
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(
+              maxHeight * 0.276,
+            ),
+            child: const HeaderWidget(),
           ),
-          child: const HeaderWidget(),
-        ),
-        body: SafeArea(
-          maintainBottomViewPadding: true,
-          top: false,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                // ConstrainedBox(constraints: const BoxConstraints(maxHeight: 36)),
-                SizedBox(height: 0.05 * maxHeight),
+          body: SafeArea(
+            maintainBottomViewPadding: true,
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  // ConstrainedBox(constraints: const BoxConstraints(maxHeight: 36)),
+                  SizedBox(height: 0.045 * maxHeight),
 
-                SizedBox(
-                  height: 0.3 * maxHeight,
-                  child: PageView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    controller: _pageViewController,
-                    children: const [
-                      PhoneInputWidget(),
-                      InputCodeWidget(),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                const TermOfUse(),
-                SizedBox(height: 0.02 * maxHeight),
-                SizedBox(
-                  height: 0.06 * maxHeight,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_currentPageIndex == 1) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ConfirmationScreen(),
-                          ),
-                        );
-                      } else {
-                        setState(() {
-                          _currentPageIndex++;
-                        });
-                        _pageViewController.nextPage(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeIn,
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      backgroundColor: const Color(0xFF99BFD4),
-                    ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AutoSizeText(
-                          'ПРОДОЛЖИТЬ',
-                          style: TextStyle(
-                            fontFamily: 'SourceSansPro',
-                            fontSize: 15,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                          size: 15,
-                        )
+                  SizedBox(
+                    height: 0.3 * maxHeight,
+                    child: PageView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      controller: _pageViewController,
+                      children: const [
+                        PhoneInputWidget(),
+                        InputCodeWidget(),
                       ],
                     ),
                   ),
-                ),
-                SizedBox(height: 0.06 * maxHeight),
-              ],
+                  const Spacer(),
+                  const TermOfUse(),
+                  SizedBox(height: 0.02 * maxHeight),
+                  SizedBox(
+                    height: 0.06 * maxHeight,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_currentPageIndex == 1) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ConfirmationScreen(),
+                            ),
+                          );
+                        } else {
+                          setState(() {
+                            _currentPageIndex++;
+                          });
+                          _pageViewController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn,
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: const Color(0xFF99BFD4),
+                      ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AutoSizeText(
+                            'ПРОДОЛЖИТЬ',
+                            style: TextStyle(
+                              fontFamily: 'SourceSansPro',
+                              fontSize: 15,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward,
+                            size: 15,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 0.06 * maxHeight),
+                ],
+              ),
             ),
           ),
         ),

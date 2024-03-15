@@ -43,7 +43,7 @@ class ConfirmationScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.maxFinite,
-                height: maxHeight * 0.65,
+                height: maxHeight * 0.675,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
