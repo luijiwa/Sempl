@@ -14,9 +14,7 @@ class PhoneInputWidget extends StatefulWidget {
 }
 
 class _PhoneInputWidgetState extends State<PhoneInputWidget> {
-  final TextEditingController _phoneController = TextEditingController();
   bool _phoneError = false;
-  final initialPhone = PhoneNumber(isoCode: "RU");
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +80,6 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                           '  (+7) ▼',
                           style: TextStyle(
                             fontSize: 15,
-                            fontWeight: FontWeight.w500,
                             fontFamily: 'SourceSansPro',
                           ),
                         ),
@@ -114,22 +111,6 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                   ),
                 ]),
               ),
-
-              //       }
-              //     });
-              //   },
-              //   initialValue: initialPhone,
-              //   inputDecoration: const InputDecoration(
-              //     border: InputBorder.none,
-              //     hintStyle: TextStyle(
-              //       color: Color(0xFFCECECE),
-              //       fontFamily: 'SourceSansPro',
-              //     ),
-              //     hintText: '000 000 00 00',
-              //   ),
-              // ),
-              // ),
-              // ),
             ],
           ),
           if (_phoneError)
