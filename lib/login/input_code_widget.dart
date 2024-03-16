@@ -71,7 +71,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
     );
     var pinTheme = PinTheme(
       width: MediaQuery.of(context).size.width - 32,
-      height: 65,
+      height: MediaQuery.of(context).size.height * 0.078,
       textStyle: const TextStyle(fontSize: 20),
       decoration: BoxDecoration(
         border: Border.all(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/confirmation/confirmation_screen.dart';
@@ -32,6 +34,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       final maxHeight = constraints.maxHeight.toDouble();
+      final bottomOffset =
+          (maxHeight * 0.07) - MediaQuery.of(context).viewPadding.bottom;
       return GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
@@ -70,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const TermOfUse(),
                   SizedBox(height: 0.02 * maxHeight),
                   SizedBox(
-                    height: 0.06 * maxHeight,
+                    height: 0.058 * maxHeight,
                     child: ElevatedButton(
                       onPressed: () {
                         if (_currentPageIndex == 1) {
@@ -112,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 0.06 * maxHeight),
+                  SizedBox(height: bottomOffset),
                 ],
               ),
             ),
