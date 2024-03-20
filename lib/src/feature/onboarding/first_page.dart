@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:my_app/onboarding/second_page.dart';
+import 'package:my_app/src/feature/onboarding/second_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FirstPage extends StatelessWidget {

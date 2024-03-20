@@ -2,10 +2,11 @@ import 'dart:developer';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/confirmation/confirmation_screen.dart';
-import 'package:my_app/login/header_widget.dart';
-import 'package:my_app/login/input_code_widget.dart';
-import 'package:my_app/login/phone_input_widget.dart';
+import 'package:my_app/src/feature/confirmation/confirmation_screen.dart';
+import 'package:my_app/src/feature/login/header_widget.dart';
+import 'package:my_app/src/feature/login/input_code_widget.dart';
+
+import 'package:my_app/src/feature/login/phone_input_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

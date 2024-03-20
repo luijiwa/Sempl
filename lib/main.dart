@@ -2,11 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_app/confirmation/confirmation_screen.dart';
-import 'package:my_app/login/login_screen.dart';
-import 'onboarding/third_page.dart';
-import 'onboarding/second_page.dart';
-import 'onboarding/first_page.dart';
+import 'package:my_app/src/feature/survey/survey_screen.dart';
+import 'package:my_app/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,12 +23,39 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: Size(375, 812),
-      builder: (context, child) => MaterialApp(
-        title: 'First Page',
-        debugShowCheckedModeBanner: false,
-        home: const LoginScreen(),
+    final theme = Theme.of(context);
+    return MaterialApp(
+      theme: theme.copyWith(
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(40)),
+            borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(40)),
+            borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
+          ),
+          hintStyle: TextStyle(
+            fontFamily: 'SourceSansPro',
+            fontSize: 14,
+            color: AppThemeColor.gris,
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(40)),
+            borderSide: BorderSide(
+              width: 0.5,
+              color: AppThemeColor.gris,
+            ),
+          ),
+        ),
+      ),
+      home: ScreenUtilInit(
+        designSize: const Size(375, 812),
+        builder: (context, child) => const MaterialApp(
+          title: 'First Page',
+          debugShowCheckedModeBanner: false,
+          home: SurveyScreen(),
+        ),
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:my_app/onboarding/fifth_page.dart';
+import 'package:my_app/src/feature/onboarding/fifth_page.dart';
 
 class FourthPage extends StatelessWidget {
   const FourthPage({super.key});
@@ -8,10 +7,10 @@ class FourthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFEF7D),
+      backgroundColor: const Color(0xFFFFEF7D),
       body: Container(
         alignment: Alignment.topCenter,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               'images/Background 4.png',
@@ -20,7 +19,7 @@ class FourthPage extends StatelessWidget {
           ),
         ),
         child: Container(
-          margin: EdgeInsets.fromLTRB(
+          margin: const EdgeInsets.fromLTRB(
             16,
             0,
             16,
@@ -28,20 +27,20 @@ class FourthPage extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "SEMPL!",
                 style: TextStyle(
                   fontFamily: 'DrukCyr',
                   fontSize: 32,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 190,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 379,
                 child: Text(
                   "НАШЕ ПРИЛОЖЕНИЕ                    РАБОТАЕТ В МОСКВЕ                          И МОСКОВСКОЙ                ОБЛАСТИ",
@@ -53,16 +52,16 @@ class FourthPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 208,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     '04/05',
                     style: TextStyle(
                       fontSize: 20,
@@ -83,11 +82,11 @@ class FourthPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => FifthPage(),
+                            builder: (context) => const FifthPage(),
                           ),
                         );
                       },
-                      icon: Icon(Icons.arrow_forward_ios_rounded),
+                      icon: const Icon(Icons.arrow_forward_ios_rounded),
                     ),
                   ),
                 ],
