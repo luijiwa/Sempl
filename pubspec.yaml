@@ -16,7 +16,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 0.0.1+1
 
 environment:
   sdk: ">=3.1.4 <4.0.0"
@@ -42,6 +42,7 @@ dependencies:
   intl_phone_number_input: ^0.7.4
   auto_size_text: ^3.0.0
   mask_text_input_formatter: ^2.9.0
+  logger: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -67,36 +68,36 @@ flutter:
   fonts:
     - family: DrukCyr
       fonts:
-        - asset: assets/DrukCyr-Bold.ttf
+        - asset: assets/fonts/DrukCyr-Bold.ttf
     - family: SourceSansPro
       fonts:
-        - asset: assets/SourceSansPro-Regular.ttf
+        - asset: assets/fonts/SourceSansPro-Regular.ttf
     - family: SourceSansProBold
       fonts:
-        - asset: assets/SourceSansPro-Bold.ttf
+        - asset: assets/fonts/SourceSansPro-Bold.ttf
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/1.5x/
-    - images/2.0x/
-    - images/3.0x/
-    - images/4.0x/
-    - images/Background 3.png
-    - images/Background 4.png
-    - images/Background 2.png
-    - images/Background 1.png
-    - images/Background 5.png
-    - images/serum.png
-    - images/serum.svg
-    - images/serum.jpg
-    - images/Frame.svg
-    - images/Frame 2.svg
-    - images/Frame 3.png
-    - images/Frame 3.svg
-    - images/login_header_background.png
-    - images/confirmation_header_background.png
-    - images/confirmation_body_background.png
-    - images/flag.png
-   
+    - assets/images/1.5x/
+    - assets/images/2.0x/
+    - assets/images/3.0x/
+    - assets/images/4.0x/
+    - assets/images/Background 3.png
+    - assets/images/Background 4.png
+    - assets/images/Background 2.png
+    - assets/images/Background 1.png
+    - assets/images/Background 5.png
+    - assets/images/serum.png
+    - assets/images/serum.svg
+    - assets/images/serum.jpg
+    - assets/images/Frame.svg
+    - assets/images/Frame 2.svg
+    - assets/images/Frame 3.png
+    - assets/images/Frame 3.svg
+    - assets/images/login_header_background.png
+    - assets/images/confirmation_header_background.png
+    - assets/images/confirmation_body_background.png
+    - assets/images/flag.png
+    - assets/images/pick_photo_image.png   
 
 
 
