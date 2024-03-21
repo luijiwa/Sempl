@@ -1,42 +1,57 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
+import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/feature/survey/first_step_widget.dart';
 import 'package:my_app/src/core/components/checkbox_row.dart';
 
 class ThirthStepWidget extends StatelessWidget {
-  const ThirthStepWidget({super.key});
+  const ThirthStepWidget({super.key, required this.onNextPage});
+  final VoidCallback onNextPage;
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    return const Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        AutoSizeText(
-          'НЕМНОГО ИНФОРМАЦИИ О ТЕБЕ',
-          style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
-          maxLines: 1,
+    final double bottomOffset =
+        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 22),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: height * 0.035),
+            const AutoSizeText(
+              'НЕМНОГО ИНФОРМАЦИИ О ТЕБЕ',
+              style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
+              maxLines: 1,
+            ),
+            const QuestionsPadding(),
+            const QuestionWidget(
+              title: 'Сколько человек живет с вами?',
+              child: DropdownCustomWidget(
+                listItems: ['1', '2', '3'],
+                hint: 'Выберите количество',
+              ),
+            ),
+            const QuestionsPadding(),
+            const ChildrenQuestionUntilEighteen(),
+            const QuestionsPadding(),
+            const PetsWidget(),
+            const QuestionsPadding(),
+            const FamilyIncomeQuestionWidget(),
+            const QuestionsPadding(),
+            const PercentQuestion(),
+            const QuestionsPadding(),
+            NextStepButton(title: 'ШАГ 2', onPressed: onNextPage),
+            SizedBox(height: bottomOffset),
+            SizedBox(height: MediaQuery.of(context).padding.bottom),
+          ],
         ),
-        QuestionsPadding(),
-        QuestionWidget(
-          title: 'Сколько человек живет с вами?',
-          child: DropdownCustomWidget(
-            listItems: ['1', '2', '3'],
-            hint: 'Выберите количество',
-          ),
-        ),
-        QuestionsPadding(),
-        ChildrenQuestionUntilEighteen(),
-        QuestionsPadding(),
-        PetsWidget(),
-        QuestionsPadding(),
-        FamilyIncomeQuestionWidget(),
-        QuestionsPadding(),
-        PercentQuestion(),
-        QuestionsPadding(),
-      ],
+      ),
     );
   }
 }

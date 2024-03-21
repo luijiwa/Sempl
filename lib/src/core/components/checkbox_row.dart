@@ -7,9 +7,12 @@ class CheckboxRow extends StatelessWidget {
     super.key,
     required this.title,
     required this.value,
+    this.maxLines = 1,
   });
   final String title;
+  final int maxLines;
   final bool value;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -25,13 +28,15 @@ class CheckboxRow extends StatelessWidget {
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           visualDensity: VisualDensity.compact,
         ),
-        AutoSizeText(
-          title,
-          style: TextStyle(
-              fontFamily: 'SourceSansPro',
-              color: value ? Colors.black : AppThemeColor.gris,
-              fontSize: 15),
-          maxLines: 1,
+        Flexible(
+          child: AutoSizeText(
+            title,
+            style: TextStyle(
+                fontFamily: 'SourceSansPro',
+                color: value ? Colors.black : AppThemeColor.gris,
+                fontSize: 15),
+            maxLines: maxLines,
+          ),
         ),
       ],
     );

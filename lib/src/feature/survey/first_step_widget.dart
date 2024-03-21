@@ -24,73 +24,74 @@ class FirstStepWidget extends StatelessWidget {
         height * 0.0639 - MediaQuery.of(context).padding.bottom;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: height * 0.05),
-          SizedBox(height: height * 0.03),
-          const AutoSizeText(
-            'ПЕРСОНАЛЬНАЯ ИНФОРМАЦИЯ',
-            style: TextStyle(
-              fontSize: 30,
-              fontFamily: 'DrukCyr',
-              color: Colors.black,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: height * 0.035),
+            const AutoSizeText(
+              'ПЕРСОНАЛЬНАЯ ИНФОРМАЦИЯ',
+              style: TextStyle(
+                fontSize: 30,
+                fontFamily: 'DrukCyr',
+                color: Colors.black,
+              ),
+              maxLines: 1,
             ),
-            maxLines: 1,
-          ),
-          SizedBox(height: 0.01 * height),
-          const TextInputField(hintText: 'Имя'),
-          SizedBox(height: 0.01 * height),
-          const TextInputField(hintText: 'Фамилия'),
-          SizedBox(height: 0.01 * height),
-          const DropdownCustomWidget(
-              hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
-          const QuestionsPadding(),
-          const TextInputField(hintText: 'Дата рождения'),
-          const QuestionsPadding(),
-          const TextInputField(hintText: 'Имя в приложении'),
-          const QuestionsPadding(),
-          const TextInputField(hintText: 'Почта'),
-          const QuestionsPadding(),
-          const PasswordGroupWidget(),
-          const QuestionsPadding(),
-          const Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AutoSizeText(
-                'Коммуникация:',
-                textAlign: TextAlign.start,
-              ),
-              CheckboxRow(
-                title:
-                    'Я хочу получать рекламные электронные письма и информацию о приложениях',
-                value: false,
-                maxLines: 2,
-              )
-            ],
-          ),
-          const Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AutoSizeText(
-                'Конфиденциальность:',
-                textAlign: TextAlign.start,
-              ),
-              CheckboxRow(
-                title: 'Я принимаю все правила',
-                value: false,
-                maxLines: 2,
-              )
-            ],
-          ),
-          // SizedBox(height: height * 0.0681),
-          // NextStepButton(title: 'ШАГ 2', onPressed: onNextPage),
-          // SizedBox(height: bottomOffset),
-          // SizedBox(height: MediaQuery.of(context).padding.bottom),
-        ],
+            SizedBox(height: 0.01 * height),
+            const TextInputField(hintText: 'Имя'),
+            SizedBox(height: 0.01 * height),
+            const TextInputField(hintText: 'Фамилия'),
+            SizedBox(height: 0.01 * height),
+            const DropdownCustomWidget(
+                hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
+            const QuestionsPadding(),
+            const TextInputField(hintText: 'Дата рождения'),
+            const QuestionsPadding(),
+            const TextInputField(hintText: 'Имя в приложении'),
+            const QuestionsPadding(),
+            const TextInputField(hintText: 'Почта'),
+            const QuestionsPadding(),
+            const PasswordGroupWidget(),
+            const QuestionsPadding(),
+            const Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AutoSizeText(
+                  'Коммуникация:',
+                  textAlign: TextAlign.start,
+                ),
+                CheckboxRow(
+                  title:
+                      'Я хочу получать рекламные электронные письма и информацию о приложениях',
+                  value: false,
+                  maxLines: 2,
+                )
+              ],
+            ),
+            const Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AutoSizeText(
+                  'Конфиденциальность:',
+                  textAlign: TextAlign.start,
+                ),
+                CheckboxRow(
+                  title: 'Я принимаю все правила',
+                  value: false,
+                  maxLines: 2,
+                )
+              ],
+            ),
+            SizedBox(height: height * 0.0681),
+            NextStepButton(title: 'ШАГ 2', onPressed: onNextPage),
+            SizedBox(height: bottomOffset),
+            SizedBox(height: MediaQuery.of(context).padding.bottom),
+          ],
+        ),
       ),
     );
   }
@@ -108,14 +109,16 @@ class PasswordCheckItem extends StatelessWidget {
   final bool status;
   @override
   Widget build(BuildContext context) {
+    final textColor = status ? AppThemeColor.blueColor : AppThemeColor.grisTwo;
     return SizedBox(
       width: double.maxFinite,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(
+          Icon(
             Icons.check_rounded,
             size: 24,
+            color: textColor,
           ),
           const SizedBox(
             width: 5,
@@ -123,8 +126,7 @@ class PasswordCheckItem extends StatelessWidget {
           Flexible(
             child: AutoSizeText(
               text,
-              style: const TextStyle(
-                  fontFamily: 'SourceSansPro', color: Colors.black),
+              style: TextStyle(fontFamily: 'SourceSansPro', color: textColor),
               maxLines: maxLines,
             ),
           ),

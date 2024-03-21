@@ -1,12 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 
 abstract final class AppThemeColor {
   static const Color primaryColor = Color(0xFFE91E63);
   static const Color blueColor = Color(0xFF99BFD4);
   static const Color gris = Color(0xFFCECECE);
+  static const Color grisTwo = Color(0xFF8E8E8E);
   static const Color rose = Color(0xFFE25C74);
 }
 
@@ -41,4 +39,3 @@ const linkTextStyle = TextStyle(
   decorationColor: Color(0xFF99BFD4),
   color: Color(0xFF99BFD4),
 );
-final logger = Logger();

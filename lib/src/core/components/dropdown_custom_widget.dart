@@ -1,23 +1,34 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:my_app/theme.dart';
 
-class TextInputField extends StatelessWidget {
-  const TextInputField({
+class DropdownCustomWidget extends StatelessWidget {
+  const DropdownCustomWidget({
     super.key,
-    required this.hintText,
+    required this.listItems,
+    required this.hint,
   });
-
-  final String hintText;
+  final List<String> listItems;
+  final String hint;
 
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final padding = height * 0.0161; // 15
-    log(padding.toString());
 
-    return TextField(
+    return DropdownButtonFormField<String>(
+      dropdownColor: Colors.white,
+      isExpanded: true,
+      iconSize: 24,
+      icon:
+          const Icon(Icons.expand_more_rounded, color: AppThemeColor.blueColor),
+      items: listItems
+          .map((item) => DropdownMenuItem(
+              value: item,
+              child: Text(item,
+                  style: const TextStyle(fontFamily: 'SourceSansPro'))))
+          .toList(),
+      hint: Text(hint,
+          style: const TextStyle(
+              fontFamily: 'SourceSansPro', color: AppThemeColor.gris)),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
             vertical: height * 0.014, horizontal: height * 0.023),
@@ -29,7 +40,6 @@ class TextInputField extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(40)),
           borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
         ),
-        hintText: hintText,
         hintStyle: const TextStyle(
           fontFamily: 'SourceSansPro',
           fontSize: 14,
@@ -43,10 +53,18 @@ class TextInputField extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(40)),
           borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
         ),
-        alignLabelWithHint: true,
-        filled: true,
         fillColor: Colors.white,
+        filled: true,
       ),
+      value: null,
+      onChanged: (_) {},
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Выберите из списка';
+        }
+        return null;
+      },
+      onTap: () {},
     );
   }
 }

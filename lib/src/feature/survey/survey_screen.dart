@@ -41,26 +41,22 @@ class _SurveyScreenState extends State<SurveyScreen> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: const Color(0xffff8f8f8),
+            title: Text(
+              'SEMPL!',
+              style: TextStyle(
+                fontFamily: 'DrukCyr',
+                fontSize: 32,
+              ),
+            ),
+            centerTitle: true,
+          ),
           backgroundColor: const Color(0xffff8f8f8),
           body: SafeArea(
-            child: CustomScrollView(slivers: [
-              const SliverAppBar(
-                title: Text(
-                  'SEMPL!',
-                  style: TextStyle(
-                    fontFamily: 'DrukCyr',
-                    fontSize: 32,
-                  ),
-                ),
-                centerTitle: true,
-                floating: true,
-                snap: true,
-              ),
-              SliverToBoxAdapter(
-                  child:
-                      PageIndicatorWidget(currentPageIndex: _currentPageIndex)),
-              SliverFillRemaining(
-                fillOverscroll: true,
+            child: Column(children: [
+              PageIndicatorWidget(currentPageIndex: _currentPageIndex),
+              Expanded(
                 child: PageView.builder(
                   controller: _pageViewController,
                   itemBuilder: (_, index) {
