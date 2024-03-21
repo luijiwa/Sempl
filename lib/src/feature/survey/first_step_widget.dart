@@ -2,71 +2,96 @@ import 'dart:developer';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/checkbox_row.dart';
+import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
+import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
+import 'package:my_app/src/feature/survey/thirth_step_widget.dart';
 import 'package:my_app/theme.dart';
 
 class FirstStepWidget extends StatelessWidget {
   const FirstStepWidget({
     super.key,
+    required this.onNextPage,
   });
+  final VoidCallback onNextPage;
 
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    final double bottomOffset = 0.001 * height;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: height * 0.05),
-        SizedBox(height: height * 0.03),
-        const AutoSizeText(
-          'ПЕРСОНАЛЬНАЯ ИНФОРМАЦИЯ',
-          style: TextStyle(
-            fontSize: 30,
-            fontFamily: 'DrukCyr',
-            color: Colors.black,
+    final double bottomOffset =
+        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 22),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: height * 0.05),
+          SizedBox(height: height * 0.03),
+          const AutoSizeText(
+            'ПЕРСОНАЛЬНАЯ ИНФОРМАЦИЯ',
+            style: TextStyle(
+              fontSize: 30,
+              fontFamily: 'DrukCyr',
+              color: Colors.black,
+            ),
+            maxLines: 1,
           ),
-          maxLines: 1,
-        ),
-        SizedBox(height: 0.01 * height),
-        const TextInputField(hintText: 'Имя'),
-        const TextInputField(hintText: 'Фамилия'),
-        const DropdownCustomWidget(
-            hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
-        SizedBox(height: 0.001 * height),
-        const TextInputField(hintText: 'Дата рождения'),
-        SizedBox(height: 0.001 * height),
-        const TextInputField(hintText: 'Имя в приложении'),
-        SizedBox(height: 0.001 * height),
-        const TextInputField(hintText: 'Почта'),
-        SizedBox(height: 0.001 * height),
-        const PasswordGroupWidget(),
-        SizedBox(height: 0.01 * height),
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const AutoSizeText(
-              'Коммуникация',
-              textAlign: TextAlign.start,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Checkbox(value: false, onChanged: (value) {}),
-                const Flexible(
-                  child: AutoSizeText(
+          SizedBox(height: 0.01 * height),
+          const TextInputField(hintText: 'Имя'),
+          SizedBox(height: 0.01 * height),
+          const TextInputField(hintText: 'Фамилия'),
+          SizedBox(height: 0.01 * height),
+          const DropdownCustomWidget(
+              hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
+          const QuestionsPadding(),
+          const TextInputField(hintText: 'Дата рождения'),
+          const QuestionsPadding(),
+          const TextInputField(hintText: 'Имя в приложении'),
+          const QuestionsPadding(),
+          const TextInputField(hintText: 'Почта'),
+          const QuestionsPadding(),
+          const PasswordGroupWidget(),
+          const QuestionsPadding(),
+          const Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AutoSizeText(
+                'Коммуникация:',
+                textAlign: TextAlign.start,
+              ),
+              CheckboxRow(
+                title:
                     'Я хочу получать рекламные электронные письма и информацию о приложениях',
-                    maxLines: 3,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
+                value: false,
+                maxLines: 2,
+              )
+            ],
+          ),
+          const Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AutoSizeText(
+                'Конфиденциальность:',
+                textAlign: TextAlign.start,
+              ),
+              CheckboxRow(
+                title: 'Я принимаю все правила',
+                value: false,
+                maxLines: 2,
+              )
+            ],
+          ),
+          // SizedBox(height: height * 0.0681),
+          // NextStepButton(title: 'ШАГ 2', onPressed: onNextPage),
+          // SizedBox(height: bottomOffset),
+          // SizedBox(height: MediaQuery.of(context).padding.bottom),
+        ],
+      ),
     );
   }
 }
@@ -76,9 +101,11 @@ class PasswordCheckItem extends StatelessWidget {
     super.key,
     required this.text,
     this.maxLines = 1,
+    required this.status,
   });
   final String text;
   final int maxLines;
+  final bool status;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -107,86 +134,28 @@ class PasswordCheckItem extends StatelessWidget {
   }
 }
 
-class DropdownCustomWidget extends StatelessWidget {
-  const DropdownCustomWidget({
-    super.key,
-    required this.listItems,
-    required this.hint,
-  });
-  final List<String> listItems;
-  final String hint;
-
-  @override
-  Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-
-    return DropdownButtonFormField<String>(
-      dropdownColor: Colors.white,
-      isExpanded: true,
-      iconSize: 24,
-      icon:
-          const Icon(Icons.expand_more_rounded, color: AppThemeColor.blueColor),
-      items: listItems
-          .map((item) => DropdownMenuItem(
-              value: item,
-              child: Text(item,
-                  style: const TextStyle(fontFamily: 'SourceSansPro'))))
-          .toList(),
-      hint: Text(hint,
-          style: const TextStyle(
-              fontFamily: 'SourceSansPro', color: AppThemeColor.gris)),
-      decoration: const InputDecoration(
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-        ),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris)),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
-        ),
-      ),
-      value: null,
-      onChanged: (_) {},
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Выберите из списка';
-        }
-        return null;
-      },
-      onTap: () {
-        final RenderBox? renderBox = context.findRenderObject() as RenderBox?;
-        final rect = renderBox!.localToGlobal(Offset.zero) & renderBox.size;
-        if (rect != null &&
-            rect.bottom > height &&
-            rect.bottom < height - 150) {
-          Scrollable.of(context).position.jumpTo(150 - (height - rect.bottom));
-        }
-      },
-    );
-  }
-}
-
 class PasswordGroupWidget extends StatelessWidget {
   const PasswordGroupWidget({super.key});
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextInputField(hintText: 'Пароль'),
-        PasswordCheckItem(text: 'Заглавные латинские буквы: от А до Я'),
-        PasswordCheckItem(text: 'Строчные латинские буквы: от A до Z'),
-        PasswordCheckItem(text: 'Числа от 0 до 9'),
-        PasswordCheckItem(
+        const TextInputField(hintText: 'Пароль'),
+        const PasswordCheckItem(
+            text: 'Заглавные латинские буквы: от А до Я', status: true),
+        const PasswordCheckItem(
+            text: 'Строчные латинские буквы: от A до Z', status: false),
+        const PasswordCheckItem(text: 'Числа от 0 до 9', status: false),
+        const PasswordCheckItem(
           text:
               '''Символы: (пробел) ! " # \$ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _\` { | } ~''',
           maxLines: 2,
+          status: false,
         ),
-        TextInputField(hintText: 'Повторите пароль'),
+        SizedBox(height: height * 0.021),
+        const TextInputField(hintText: 'Повторите пароль'),
       ],
     );
   }

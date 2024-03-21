@@ -1,105 +1,112 @@
 import 'dart:developer';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_app/src/core/utils/logger.dart';
+import 'package:my_app/src/feature/survey/fifth_step_widget.dart';
+import 'package:my_app/src/feature/survey/first_step_widget.dart';
+import 'package:my_app/src/feature/survey/four_step_widget.dart';
+import 'package:my_app/src/feature/survey/page_indicator_widget.dart';
+import 'package:my_app/src/feature/survey/second_step_widget.dart';
 
 import 'package:my_app/src/feature/survey/thirth_step_widget.dart';
 
-class SurveyScreen extends StatelessWidget {
+class SurveyScreen extends StatefulWidget {
   const SurveyScreen({super.key});
+
+  @override
+  State<SurveyScreen> createState() => _SurveyScreenState();
+}
+
+class _SurveyScreenState extends State<SurveyScreen> {
+  late final PageController _pageViewController;
+  int _currentPageIndex = 0;
+  @override
+  void initState() {
+    _pageViewController = PageController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    final double bottomOffset = 0.001 * height;
+
+    logger.w(height * 0.0639);
+
     // log(bottomOffset.toString());
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'SEMPL!',
-            style: TextStyle(
-              fontFamily: 'DrukCyr',
-              fontSize: 32,
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
-          child: SingleChildScrollView(
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            child: SafeArea(
-              top: false,
-              bottom: true,
-              left: false,
-              right: false,
-              maintainBottomViewPadding: true,
-              child: Column(
-                children: [
-                  // const FirstStepWidget(),
-                  const ThirthStepWidget(),
-                  const NextStepButton(),
-
-                  SizedBox(height: bottomOffset),
-                ],
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+          backgroundColor: const Color(0xffff8f8f8),
+          body: SafeArea(
+            child: CustomScrollView(slivers: [
+              const SliverAppBar(
+                title: Text(
+                  'SEMPL!',
+                  style: TextStyle(
+                    fontFamily: 'DrukCyr',
+                    fontSize: 32,
+                  ),
+                ),
+                centerTitle: true,
+                floating: true,
+                snap: true,
               ),
-            ),
-          ),
-        ));
+              SliverToBoxAdapter(
+                  child:
+                      PageIndicatorWidget(currentPageIndex: _currentPageIndex)),
+              SliverFillRemaining(
+                fillOverscroll: true,
+                child: PageView.builder(
+                  controller: _pageViewController,
+                  itemBuilder: (_, index) {
+                    switch (index) {
+                      case 0:
+                        return FirstStepWidget(
+                          onNextPage: () => _nextPage(),
+                        );
+                      case 1:
+                        return SecondStepWidget(
+                          onNextPage: () => _nextPage(),
+                        );
+                      case 2:
+                        return ThirthStepWidget(
+                          onNextPage: () => _nextPage(),
+                        );
+                      case 3:
+                        return FourStepWidget(
+                          onNextPage: () => _nextPage(),
+                        );
+                      case 4:
+                        return FifthStepWidget(onNextPage: () {
+                          setState(() {
+                            _currentPageIndex = 0;
+                          });
+                          _pageViewController.jumpToPage(0);
+                        });
+                      default:
+                        return Container();
+                    }
+                  },
+                  itemCount: 5,
+                ),
+              ),
+            ]),
+          )),
+    );
   }
-}
 
-class NextStepButton extends StatelessWidget {
-  const NextStepButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    return SizedBox(
-      height: 0.058 * height,
-      child: ElevatedButton(
-        onPressed: () {
-          // if (_currentPageIndex == 1) {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(
-          //       builder: (context) => const ConfirmationScreen(),
-          //     ),
-          //   );
-          // } else {
-          //   setState(() {
-          //     _currentPageIndex++;
-          //   });
-          //   _pageViewController.nextPage(
-          //     duration: const Duration(milliseconds: 300),
-          //     curve: Curves.easeIn,
-          //   );
-          // }
-        },
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: const Color(0xFF99BFD4),
-        ),
-        child: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AutoSizeText(
-              'ПРОДОЛЖИТЬ',
-              style: TextStyle(
-                fontFamily: 'SourceSansPro',
-                fontSize: 15,
-              ),
-            ),
-            Icon(
-              Icons.arrow_forward,
-              size: 15,
-            )
-          ],
-        ),
-      ),
+  void _nextPage() {
+    setState(() {
+      _currentPageIndex++;
+    });
+    _pageViewController.nextPage(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,
     );
   }
 }
