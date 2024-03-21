@@ -10,10 +10,16 @@ import 'package:my_app/theme.dart';
 import 'dart:io';
 import 'dart:async';
 
-class FifthStepWidget extends StatelessWidget {
+class FifthStepWidget extends StatefulWidget {
   const FifthStepWidget({super.key, required this.onNextPage});
   final VoidCallback onNextPage;
 
+  @override
+  State<FifthStepWidget> createState() => _FifthStepWidgetState();
+}
+
+class _FifthStepWidgetState extends State<FifthStepWidget> {
+  File? image;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -35,30 +41,40 @@ class FifthStepWidget extends StatelessWidget {
           const AutoSizeText('Если хотите, добавьте фотографию профиля'),
           const Spacer(),
           Center(
-            child: InkWell(
-              onTap: () async {
-                final ImagePicker picker = ImagePicker();
+              child: image == null
+                  ? InkWell(
+                      onTap: () async {
+                        final ImagePicker picker = ImagePicker();
 
-                final XFile? image =
-                    await picker.pickImage(source: ImageSource.gallery);
-              },
-              child: Container(
-                margin: const EdgeInsets.only(top: 20),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset(
-                      'assets/images/pick_photo_image.png',
-                    ),
-                    const SizedBox(height: 8),
-                    const Text('Выбрать фото', style: linkTextStyle),
-                  ],
-                ),
-              ),
-            ),
-          ),
+                        final imagePick =
+                            await picker.pickImage(source: ImageSource.gallery);
+                        setState(() {
+                          if (imagePick != null) {
+                            image = File(imagePick.path);
+                          }
+                        });
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 20),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Image.asset(
+                              'assets/images/pick_photo_image.png',
+                            ),
+                            const SizedBox(height: 8),
+                            const Text('Выбрать фото', style: linkTextStyle),
+                          ],
+                        ),
+                      ),
+                    )
+                  : CircleAvatar(
+                      radius: width * 0.5,
+                      backgroundImage: FileImage(image!),
+                      backgroundColor: Colors.transparent,
+                    )),
           const Spacer(),
-          NextStepButton(title: 'ПРОДОЛЖИТЬ', onPressed: onNextPage),
+          NextStepButton(title: 'ПРОДОЛЖИТЬ', onPressed: widget.onNextPage),
           SizedBox(height: bottomOffset),
           SizedBox(height: MediaQuery.of(context).padding.bottom),
         ],
