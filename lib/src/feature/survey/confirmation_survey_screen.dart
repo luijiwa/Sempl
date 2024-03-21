@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-class ConfirmationScreen extends StatelessWidget {
-  const ConfirmationScreen({super.key});
+class ConfirmationSurveyScreen extends StatelessWidget {
+  const ConfirmationSurveyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +16,13 @@ class ConfirmationScreen extends StatelessWidget {
               alignment: AlignmentDirectional.center,
               children: [
                 Container(
-                  height: maxHeight * 0.61,
+                  height: maxHeight * 0.45,
                   width: double.maxFinite,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage(
-                          "assets/images/confirmation_header_background.png"),
+                          "assets/images/survey_confirm_header_background.png"),
                     ),
                   ),
                 ),
@@ -43,7 +43,7 @@ class ConfirmationScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.maxFinite,
-                height: maxHeight * 0.675,
+                height: maxHeight * 0.6,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -63,14 +63,27 @@ class ConfirmationScreen extends StatelessWidget {
                   child: Column(children: [
                     const Padding(
                       padding: EdgeInsets.only(right: 32),
-                      child: AutoSizeText(
-                        'Мы рады приветствовать Вас в нашем приложении. Чтобы предложить вам подходящие тесты продуктов, пройдите небольшой опрос и заполните личные данные',
-                        style: TextStyle(
-                          fontFamily: 'SourceSansPro',
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
-                        maxLines: 5,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "БРАВО!",
+                            style: TextStyle(
+                              fontFamily: 'DrukCyr',
+                              fontSize: 50,
+                              color: Colors.white,
+                            ),
+                          ),
+                          AutoSizeText(
+                            'Регистрация завершена, теперь можно начинать пробовать продукцию',
+                            style: TextStyle(
+                              fontFamily: 'SourceSansPro',
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
+                            maxLines: 5,
+                          ),
+                        ],
                       ),
                     ),
                     const Spacer(),

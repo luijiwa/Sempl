@@ -27,28 +27,33 @@ class SecondStepWidget extends StatelessWidget {
             style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
             maxLines: 1,
           ),
+          SizedBox(height: 0.01 * height),
           const RequiredInputField(
             hintText: 'Город',
           ),
+          SizedBox(height: height * 0.01),
           const RequiredInputField(
             hintText: 'Улица',
           ),
-          const Row(
+          SizedBox(height: height * 0.01),
+          Row(
             children: [
-              Expanded(
+              const Expanded(
                 child: RequiredInputField(hintText: 'Номер дома'),
               ),
-              Expanded(
+              SizedBox(width: width * 0.01),
+              const Expanded(
                 child: RequiredInputField(hintText: 'Номер квартиры'),
               ),
             ],
           ),
           SizedBox(height: height * 0.01),
-          const Row(
+          Row(
             children: [
               Expanded(
                 child: RequiredInputField(hintText: 'Подъезд'),
               ),
+              SizedBox(width: width * 0.01),
               Expanded(
                 child: RequiredInputField(hintText: 'Почтовый индекс'),
               ),
