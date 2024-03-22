@@ -49,7 +49,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
-                        "assets/images/confirmation_body_background.png"),
+                        "assets/images/survey_suggestion_background.png"),
                   ),
                   color: Color(0xFF99BFD4),
                   borderRadius: BorderRadius.only(
