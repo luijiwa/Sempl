@@ -15,7 +15,7 @@ class OutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: 0.058 * height,
+      height: 0.055 * height,
       width: double.infinity,
       child: OutlinedButton(
         onPressed: onPressed,

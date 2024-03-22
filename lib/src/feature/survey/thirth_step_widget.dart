@@ -136,7 +136,7 @@ class ChildrenQuestionUntilEighteen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const AutoSizeText('У вас есть дети до 18 лет?'),
-        SizedBox(height: height * 0.012),
+        SizedBox(height: height * 0.009),
         const CheckboxRow(title: 'Да', value: true),
         const CheckboxRow(title: 'Нет', value: false),
       ],
@@ -189,7 +189,7 @@ class PetsWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const AutoSizeText('Какие у вас есть животные?'),
-        SizedBox(height: height * 0.012),
+        SizedBox(height: height * 0.009),
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
