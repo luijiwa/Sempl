@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
+import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/feature/survey/confirmation_survey_screen.dart';
 
 class SetPhotoWidget extends StatefulWidget {
@@ -23,6 +24,16 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
         height * 0.0639 - MediaQuery.of(context).padding.bottom;
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios_outlined,
+            size: 18,
+          ),
+          onPressed: () {
+            // Обработчик нажатия кнопки назад
+            Navigator.of(context).pop();
+          },
+        ),
         centerTitle: true,
         title: Text(
           'CROP',
@@ -38,7 +49,9 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Spacer(),
+            SizedBox(
+              height: height * 0.035,
+            ),
             Stack(
               alignment: AlignmentDirectional.bottomEnd,
               children: [
@@ -61,8 +74,8 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
-                        Icons.arrow_back_ios_new,
-                        size: 20,
+                        Icons.undo,
+                        size: 15,
                         color: Colors.black,
                       ),
                     ),
@@ -78,7 +91,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
               ),
             ),
             const Spacer(),
-            NextStepButton(title: 'ОТМЕНА', onPressed: () {}),
+            OutButton(title: 'ОТМЕНА', onPressed: () {}),
             SizedBox(height: height * 0.01),
             NextStepButton(
                 title: 'СОХРАНИТЬ И ОПУБЛИКОВАТЬ',

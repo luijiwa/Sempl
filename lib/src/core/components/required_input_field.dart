@@ -4,13 +4,40 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/theme.dart';
 
-class RequiredInputField extends StatelessWidget {
+class RequiredInputField extends StatefulWidget {
   const RequiredInputField({
     super.key,
     required this.hintText,
   });
 
   final String hintText;
+
+  @override
+  State<RequiredInputField> createState() => _RequiredInputFieldState();
+}
+
+class _RequiredInputFieldState extends State<RequiredInputField> {
+  late TextEditingController _controller;
+  bool _isTextEmpty = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+    _controller.addListener(_textListener);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _textListener() {
+    setState(() {
+      _isTextEmpty = _controller.text.isEmpty;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,30 +54,38 @@ class RequiredInputField extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: height * 0.014, horizontal: height * 0.023),
-                child: Align(
+              if (_isTextEmpty)
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: height * 0.014, horizontal: height * 0.023),
+                  child: Align(
                     alignment: Alignment.centerLeft,
                     child: AutoSizeText.rich(
-                      TextSpan(text: hintText, children: const [
-                        TextSpan(
+                      TextSpan(
+                        text: widget.hintText,
+                        children: const [
+                          TextSpan(
                             text: '*',
                             style: TextStyle(
                               color: Colors.red,
                               fontSize: 14,
                               fontFamily: 'SourceSansPro',
-                            ))
-                      ]),
+                            ),
+                          )
+                        ],
+                      ),
                       style: const TextStyle(
                         fontSize: 14,
                         fontFamily: 'SourceSansPro',
                         color: AppThemeColor.gris,
                       ),
                       minFontSize: 5,
-                    )),
-              ),
+                      maxLines: 1,
+                    ),
+                  ),
+                ),
               TextField(
+                controller: _controller,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                       vertical: height * 0.014, horizontal: height * 0.023),
