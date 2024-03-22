@@ -41,9 +41,10 @@ class _SurveyScreenState extends State<SurveyScreen> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+          resizeToAvoidBottomInset: _currentPageIndex == 0 ? true : false,
           appBar: AppBar(
             backgroundColor: const Color(0xffff8f8f8),
-            title: Text(
+            title: const Text(
               'SEMPL!',
               style: TextStyle(
                 fontFamily: 'DrukCyr',
@@ -51,48 +52,56 @@ class _SurveyScreenState extends State<SurveyScreen> {
               ),
             ),
             centerTitle: true,
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios_rounded,
+                size: 18,
+                weight: 500,
+              ),
+              onPressed: () {
+                _previousPage();
+              },
+            ),
           ),
           backgroundColor: const Color(0xffff8f8f8),
-          body: SafeArea(
-            child: Column(children: [
-              PageIndicatorWidget(currentPageIndex: _currentPageIndex),
-              Expanded(
-                child: PageView.builder(
-                  controller: _pageViewController,
-                  itemBuilder: (_, index) {
-                    switch (index) {
-                      case 0:
-                        return FirstStepWidget(
-                          onNextPage: () => _nextPage(),
-                        );
-                      case 1:
-                        return SecondStepWidget(
-                          onNextPage: () => _nextPage(),
-                        );
-                      case 2:
-                        return ThirthStepWidget(
-                          onNextPage: () => _nextPage(),
-                        );
-                      case 3:
-                        return FourStepWidget(
-                          onNextPage: () => _nextPage(),
-                        );
-                      case 4:
-                        return FifthStepWidget(onNextPage: () {
-                          setState(() {
-                            _currentPageIndex = 0;
-                          });
-                          _pageViewController.jumpToPage(0);
+          body: Column(children: [
+            PageIndicatorWidget(currentPageIndex: _currentPageIndex),
+            Expanded(
+              child: PageView.builder(
+                controller: _pageViewController,
+                itemBuilder: (_, index) {
+                  switch (index) {
+                    case 0:
+                      return FirstStepWidget(
+                        onNextPage: () => _nextPage(),
+                      );
+                    case 1:
+                      return SecondStepWidget(
+                        onNextPage: () => _nextPage(),
+                      );
+                    case 2:
+                      return ThirthStepWidget(
+                        onNextPage: () => _nextPage(),
+                      );
+                    case 3:
+                      return FourStepWidget(
+                        onNextPage: () => _nextPage(),
+                      );
+                    case 4:
+                      return FifthStepWidget(onNextPage: () {
+                        setState(() {
+                          _currentPageIndex = 0;
                         });
-                      default:
-                        return Container();
-                    }
-                  },
-                  itemCount: 5,
-                ),
+                        _pageViewController.jumpToPage(0);
+                      });
+                    default:
+                      return Container();
+                  }
+                },
+                itemCount: 5,
               ),
-            ]),
-          )),
+            ),
+          ])),
     );
   }
 
@@ -104,5 +113,17 @@ class _SurveyScreenState extends State<SurveyScreen> {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeIn,
     );
+  }
+
+  void _previousPage() {
+    if (_currentPageIndex > 0) {
+      setState(() {
+        _currentPageIndex--;
+      });
+      _pageViewController.previousPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    }
   }
 }

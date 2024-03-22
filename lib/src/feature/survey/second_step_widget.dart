@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/required_input_field.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
@@ -78,8 +79,7 @@ class SecondStepWidget extends StatelessWidget {
           ),
           const Spacer(),
           NextStepButton(title: 'ШАГ 3', onPressed: onNextPage),
-          SizedBox(height: bottomOffset),
-          SizedBox(height: MediaQuery.of(context).padding.bottom),
+          const BottomPadding(),
         ],
       ),
     );

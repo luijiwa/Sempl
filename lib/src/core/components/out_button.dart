@@ -24,7 +24,6 @@ class OutButton extends StatelessWidget {
             width: 1,
             color: AppThemeColor.blueColor,
           ),
-          backgroundColor: Colors.white,
         ),
         child: AutoSizeText(
           title,

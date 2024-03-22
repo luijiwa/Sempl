@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/bottom_padding.dart';
 
 class ConfirmationSurveyScreen extends StatelessWidget {
   const ConfirmationSurveyScreen({super.key});
@@ -91,7 +92,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(
                         width: maxWidth,
-                        height: 0.06 * maxHeight,
+                        height: 0.058 * maxHeight,
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
@@ -119,7 +120,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 0.06 * maxHeight),
+                    const BottomPadding(),
                   ]),
                 ),
               ),

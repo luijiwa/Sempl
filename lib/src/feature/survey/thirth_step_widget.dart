@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/feature/survey/first_step_widget.dart';
@@ -13,8 +14,6 @@ class ThirthStepWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    final double bottomOffset =
-        height * 0.059 - MediaQuery.of(context).padding.bottom;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -47,8 +46,7 @@ class ThirthStepWidget extends StatelessWidget {
             const PercentQuestion(),
             SizedBox(height: height * 0.0657),
             NextStepButton(title: 'ШАГ 4', onPressed: onNextPage),
-            SizedBox(height: bottomOffset),
-            SizedBox(height: MediaQuery.of(context).padding.bottom),
+            const BottomPadding(),
           ],
         ),
       ),

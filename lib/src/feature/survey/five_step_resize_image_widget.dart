@@ -23,7 +23,9 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
     final double bottomOffset =
         height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Scaffold(
+      backgroundColor: const Color(0xffff8f8f8),
       appBar: AppBar(
+        backgroundColor: const Color(0xffff8f8f8),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_outlined,
@@ -62,15 +64,14 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                   backgroundColor: Colors.transparent,
                 ),
                 Positioned(
-                  bottom: 0,
-                  right: 0,
+                  bottom: 10,
+                  right: 10,
                   child: GestureDetector(
                     onTap: () => Navigator.of(context).pop(),
                     child: Container(
                       height: 35,
                       width: 35,
                       decoration: const BoxDecoration(
-                        color: Colors.white,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(

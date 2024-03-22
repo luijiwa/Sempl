@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/core/utils/logger.dart';
@@ -47,9 +48,8 @@ class FourStepWidget extends StatelessWidget {
             hintText: 'Telegram',
           ),
           const Spacer(),
-          NextStepButton(title: 'ШАГ 4', onPressed: onNextPage),
-          SizedBox(height: bottomOffset),
-          SizedBox(height: MediaQuery.of(context).padding.bottom),
+          NextStepButton(title: 'ШАГ 5', onPressed: onNextPage),
+          const BottomPadding(),
         ],
       ),
     );

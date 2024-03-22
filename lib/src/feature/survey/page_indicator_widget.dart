@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
 class PageIndicatorWidget extends StatelessWidget {
@@ -13,7 +15,7 @@ class PageIndicatorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-
+    logger.w(width * 0.059);
     return Container(
       margin: const EdgeInsets.only(top: 20),
       child: Column(
@@ -25,9 +27,9 @@ class PageIndicatorWidget extends StatelessWidget {
               for (int i = 0; i < 5; i++)
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
+                  margin: const EdgeInsets.symmetric(horizontal: 1),
                   height: height * 0.007,
-                  width: height * 0.023,
+                  width: width * 0.059,
                   decoration: BoxDecoration(
                     color: _currentPageIndex == i
                         ? AppThemeColor.blueColor
@@ -39,6 +41,7 @@ class PageIndicatorWidget extends StatelessWidget {
                 )
             ],
           ),
+          const SizedBox(height: 5),
           Text('шаг ${_currentPageIndex + 1} из 5',
               style: const TextStyle(
                 fontSize: 12,
