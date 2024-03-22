@@ -68,6 +68,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
             PageIndicatorWidget(currentPageIndex: _currentPageIndex),
             Expanded(
               child: PageView.builder(
+                physics: const NeverScrollableScrollPhysics(),
                 controller: _pageViewController,
                 itemBuilder: (_, index) {
                   switch (index) {
