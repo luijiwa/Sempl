@@ -101,7 +101,9 @@ flutter:
     - assets/images/flag.png
     - assets/images/pick_photo_image.png   
     - assets/images/profile.jpg
-    - assets/images/survey_confirm_header_background.png
+    - assets/images/survey_confirm_header_background.png   
+    - assets/images/survey_suggestion_background.png
+
 
 
 
