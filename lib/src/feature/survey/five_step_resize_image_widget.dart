@@ -21,7 +21,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final double bottomOffset =
-        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+        height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

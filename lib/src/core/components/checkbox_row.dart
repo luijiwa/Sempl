@@ -23,7 +23,8 @@ class CheckboxRow extends StatelessWidget {
           onChanged: (value) {},
           activeColor: const Color(0xFF99BFD4),
           side: MaterialStateBorderSide.resolveWith(
-            (states) => const BorderSide(color: Color(0xFF99BFD4)),
+            (states) => BorderSide(
+                color: value ? AppThemeColor.blueColor : AppThemeColor.gris),
           ),
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           visualDensity: VisualDensity.compact,

@@ -15,7 +15,7 @@ class SecondStepWidget extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final double bottomOffset =
-        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+        height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Column(
@@ -27,39 +27,39 @@ class SecondStepWidget extends StatelessWidget {
             style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
             maxLines: 1,
           ),
-          SizedBox(height: 0.01 * height),
+          SizedBox(height: height * 0.0205),
           const RequiredInputField(
             hintText: 'Город',
           ),
-          SizedBox(height: height * 0.01),
+          const SizedBox(height: 4),
           const RequiredInputField(
             hintText: 'Улица',
           ),
-          SizedBox(height: height * 0.01),
-          Row(
+          const SizedBox(height: 4),
+          const Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: RequiredInputField(hintText: 'Номер дома'),
               ),
-              SizedBox(width: width * 0.01),
-              const Expanded(
+              SizedBox(width: 4),
+              Expanded(
                 child: RequiredInputField(hintText: 'Номер квартиры'),
               ),
             ],
           ),
-          SizedBox(height: height * 0.01),
-          Row(
+          const SizedBox(height: 4),
+          const Row(
             children: [
               Expanded(
                 child: RequiredInputField(hintText: 'Подъезд'),
               ),
-              SizedBox(width: width * 0.01),
+              SizedBox(width: 4),
               Expanded(
                 child: RequiredInputField(hintText: 'Почтовый индекс'),
               ),
             ],
           ),
-          SizedBox(height: height * 0.01),
+          const SizedBox(height: 8),
           const AutoSizeText(
             '*Поля обязательные для заполнения',
             style: TextStyle(

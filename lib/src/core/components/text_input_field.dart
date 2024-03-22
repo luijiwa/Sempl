@@ -20,7 +20,7 @@ class TextInputField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
-            vertical: height * 0.014, horizontal: height * 0.023),
+            vertical: height * 0.013, horizontal: height * 0.023),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(40)),
           borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),

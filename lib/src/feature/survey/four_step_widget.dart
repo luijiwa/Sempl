@@ -16,7 +16,7 @@ class FourStepWidget extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final double bottomOffset =
-        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+        height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Column(
@@ -29,7 +29,7 @@ class FourStepWidget extends StatelessWidget {
             style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
             maxLines: 1,
           ),
-          SizedBox(height: height * 0.022),
+          SizedBox(height: height * 0.0205),
           Padding(
             padding: EdgeInsets.only(right: width * 0.073), //30
 

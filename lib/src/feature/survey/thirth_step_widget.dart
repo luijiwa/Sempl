@@ -14,7 +14,7 @@ class ThirthStepWidget extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final double bottomOffset =
-        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+        height * 0.059 - MediaQuery.of(context).padding.bottom;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -29,7 +29,7 @@ class ThirthStepWidget extends StatelessWidget {
               style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
               maxLines: 1,
             ),
-            const QuestionsPadding(),
+            SizedBox(height: height * 0.0205),
             const QuestionWidget(
               title: 'Сколько человек живет с вами?',
               child: DropdownCustomWidget(
@@ -45,8 +45,8 @@ class ThirthStepWidget extends StatelessWidget {
             const FamilyIncomeQuestionWidget(),
             const QuestionsPadding(),
             const PercentQuestion(),
-            const QuestionsPadding(),
-            NextStepButton(title: 'ШАГ 2', onPressed: onNextPage),
+            SizedBox(height: height * 0.0657),
+            NextStepButton(title: 'ШАГ 4', onPressed: onNextPage),
             SizedBox(height: bottomOffset),
             SizedBox(height: MediaQuery.of(context).padding.bottom),
           ],
@@ -64,7 +64,7 @@ class QuestionsPadding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final standartPadding = height * 0.037;
+    final standartPadding = height * 0.0345;
     return SizedBox(height: standartPadding);
   }
 }
@@ -82,8 +82,11 @@ class PercentQuestion extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AutoSizeText(
-            'Какой процент общего семейного дохода вы тратите на покупку косметики и товаров для дома (средства для уборки)?'),
+        Padding(
+          padding: EdgeInsets.only(right: height * 0.05),
+          child: const AutoSizeText(
+              'Какой процент общего семейного дохода вы тратите на покупку косметики и товаров для дома (средства для уборки)?'),
+        ),
         SizedBox(height: height * 0.012),
         const DropdownCustomWidget(
           listItems: ['5%', '10%', '20%'],
@@ -107,7 +110,11 @@ class FamilyIncomeQuestionWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AutoSizeText('Каков средний ежемесячный доход вашей семьи?'),
+        Padding(
+          padding: EdgeInsets.only(right: height * 0.05),
+          child: const AutoSizeText(
+              'Каков средний ежемесячный доход вашей семьи?'),
+        ),
         SizedBox(height: height * 0.012),
         const DropdownCustomWidget(
           listItems: ['10 000', '20 000', '30 000'],

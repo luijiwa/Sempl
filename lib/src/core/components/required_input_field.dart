@@ -57,7 +57,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
               if (_isTextEmpty)
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: height * 0.014, horizontal: height * 0.023),
+                      vertical: height * 0.013, horizontal: height * 0.023),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: AutoSizeText.rich(
@@ -88,7 +88,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                 controller: _controller,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
-                      vertical: height * 0.014, horizontal: height * 0.023),
+                      vertical: height * 0.013, horizontal: height * 0.023),
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(40)),
                     borderSide:

@@ -21,7 +21,7 @@ class FirstStepWidget extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final double bottomOffset =
-        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+        height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: SingleChildScrollView(
@@ -39,11 +39,11 @@ class FirstStepWidget extends StatelessWidget {
               ),
               maxLines: 1,
             ),
-            SizedBox(height: 0.01 * height),
+            SizedBox(height: height * 0.0205),
             const TextInputField(hintText: 'Имя'),
-            SizedBox(height: 0.01 * height),
+            const SizedBox(height: 4),
             const TextInputField(hintText: 'Фамилия'),
-            SizedBox(height: 0.01 * height),
+            const SizedBox(height: 4),
             const DropdownCustomWidget(
                 hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
             const QuestionsPadding(),

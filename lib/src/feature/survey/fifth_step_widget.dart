@@ -26,7 +26,7 @@ class _FifthStepWidgetState extends State<FifthStepWidget> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final double bottomOffset =
-        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+        height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: PickerPhotoWidget(onNextPage: widget.onNextPage, image: image),
@@ -49,7 +49,7 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final double bottomOffset =
-        height * 0.0639 - MediaQuery.of(context).padding.bottom;
+        height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -60,8 +60,9 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
           style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
           maxLines: 1,
         ),
+        SizedBox(height: height * 0.01),
         const AutoSizeText('Если хотите, добавьте фотографию профиля'),
-        const Spacer(),
+        SizedBox(height: height * 0.098),
         Center(
             child: InkWell(
           onTap: () async {
