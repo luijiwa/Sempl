@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/feature/survey/confirmation_survey_screen.dart';
+import 'package:my_app/theme.dart';
 
 class SetPhotoWidget extends StatefulWidget {
   const SetPhotoWidget({
@@ -27,7 +29,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
       appBar: AppBar(
         backgroundColor: const Color(0xffff8f8f8),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_outlined,
             size: 18,
           ),
@@ -55,16 +57,23 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
               height: height * 0.035,
             ),
             Stack(
-              alignment: AlignmentDirectional.bottomEnd,
+              alignment: AlignmentDirectional.center,
               children: [
+                Container(
+                  height: height * 0.45,
+                  decoration: const BoxDecoration(
+                    color: AppThemeColor.blueColor,
+                    shape: BoxShape.circle,
+                  ),
+                ),
                 CircleAvatar(
-                  radius: width * 0.5,
+                  radius: width * 0.44,
                   backgroundImage:
                       Image.asset('assets/images/profile.jpg').image,
                   backgroundColor: Colors.transparent,
                 ),
                 Positioned(
-                  bottom: 10,
+                  bottom: 40,
                   right: 10,
                   child: GestureDetector(
                     onTap: () => Navigator.of(context).pop(),
@@ -75,8 +84,9 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
-                        Icons.undo,
-                        size: 15,
+                        CupertinoIcons.arrow_uturn_left,
+                        size: 30,
+                        weight: 100,
                         color: Colors.black,
                       ),
                     ),
@@ -93,12 +103,12 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
             ),
             const Spacer(),
             OutButton(title: 'ОТМЕНА', onPressed: () {}),
-            SizedBox(height: height * 0.01),
+            SizedBox(height: height * 0.005),
             NextStepButton(
                 title: 'СОХРАНИТЬ И ОПУБЛИКОВАТЬ',
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return ConfirmationSurveyScreen();
+                    return const ConfirmationSurveyScreen();
                   }));
                 }),
             SizedBox(height: bottomOffset),

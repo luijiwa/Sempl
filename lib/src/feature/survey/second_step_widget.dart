@@ -25,10 +25,13 @@ class SecondStepWidget extends StatelessWidget {
           SizedBox(height: height * 0.035),
           const AutoSizeText(
             'АДРЕС ДОСТАВКИ',
-            style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
+            style: TextStyle(
+              fontSize: 36,
+              fontFamily: 'DrukCyr',
+            ),
             maxLines: 1,
           ),
-          SizedBox(height: height * 0.0205),
+          SizedBox(height: height * 0.016),
           const RequiredInputField(
             hintText: 'Город',
           ),

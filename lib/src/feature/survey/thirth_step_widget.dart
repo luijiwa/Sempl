@@ -25,10 +25,10 @@ class ThirthStepWidget extends StatelessWidget {
             SizedBox(height: height * 0.035),
             const AutoSizeText(
               'НЕМНОГО ИНФОРМАЦИИ О ТЕБЕ',
-              style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
+              style: TextStyle(fontSize: 36, fontFamily: 'DrukCyr'),
               maxLines: 1,
             ),
-            SizedBox(height: height * 0.0205),
+            SizedBox(height: height * 0.016),
             const QuestionWidget(
               title: 'Сколько человек живет с вами?',
               child: DropdownCustomWidget(
@@ -40,7 +40,6 @@ class ThirthStepWidget extends StatelessWidget {
             const ChildrenQuestionUntilEighteen(),
             const QuestionsPadding(),
             const PetsWidget(),
-            const QuestionsPadding(),
             const FamilyIncomeQuestionWidget(),
             const QuestionsPadding(),
             const PercentQuestion(),
@@ -54,15 +53,15 @@ class ThirthStepWidget extends StatelessWidget {
   }
 }
 
-class QuestionsPadding extends StatelessWidget {
-  const QuestionsPadding({
+class _CustomPadding extends StatelessWidget {
+  const _CustomPadding({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final standartPadding = height * 0.0345;
+    final standartPadding = height * 0.0001;
     return SizedBox(height: standartPadding);
   }
 }

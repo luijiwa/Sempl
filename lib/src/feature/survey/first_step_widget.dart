@@ -34,13 +34,13 @@ class FirstStepWidget extends StatelessWidget {
             const AutoSizeText(
               'ПЕРСОНАЛЬНАЯ ИНФОРМАЦИЯ',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 36,
                 fontFamily: 'DrukCyr',
                 color: Colors.black,
               ),
               maxLines: 1,
             ),
-            SizedBox(height: height * 0.0205),
+            SizedBox(height: height * 0.016),
             const TextInputField(hintText: 'Имя'),
             const SizedBox(height: 4),
             const TextInputField(hintText: 'Фамилия'),
@@ -56,31 +56,34 @@ class FirstStepWidget extends StatelessWidget {
             const QuestionsPadding(),
             const PasswordGroupWidget(),
             const QuestionsPadding(),
-            const Column(
+            Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                const AutoSizeText(
                   'Коммуникация:',
                   textAlign: TextAlign.start,
                 ),
-                CheckboxRow(
+                SizedBox(height: height * 0.006),
+                const CheckboxRow(
                   title:
                       'Я хочу получать рекламные электронные письма и информацию о приложениях',
-                  value: false,
+                  value: true,
                   maxLines: 2,
                 )
               ],
             ),
-            const Column(
+            SizedBox(height: height * 0.02),
+            Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
+                const AutoSizeText(
                   'Конфиденциальность:',
                   textAlign: TextAlign.start,
                 ),
-                CheckboxRow(
+                SizedBox(height: height * 0.006),
+                const CheckboxRow(
                   title: 'Я принимаю все правила',
                   value: false,
                   maxLines: 2,
@@ -88,7 +91,11 @@ class FirstStepWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: height * 0.0681),
-            NextStepButton(title: 'ШАГ 2', onPressed: onNextPage),
+            NextStepButton(
+              title: 'ШАГ 2',
+              onPressed: onNextPage,
+              enable: false,
+            ),
             const BottomPadding(),
           ],
         ),
@@ -110,27 +117,32 @@ class PasswordCheckItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textColor = status ? AppThemeColor.blueColor : AppThemeColor.grisTwo;
-    return SizedBox(
-      width: double.maxFinite,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.check_rounded,
-            size: 24,
-            color: textColor,
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          Flexible(
-            child: AutoSizeText(
-              text,
-              style: TextStyle(fontFamily: 'SourceSansPro', color: textColor),
-              maxLines: maxLines,
+    final checkColor = status ? AppThemeColor.blueColor : AppThemeColor.gris;
+    final weight = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: EdgeInsets.only(right: weight * 0.07),
+      child: SizedBox(
+        width: double.maxFinite,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.check_rounded,
+              size: 24,
+              color: checkColor,
             ),
-          ),
-        ],
+            const SizedBox(
+              width: 5,
+            ),
+            Flexible(
+              child: AutoSizeText(
+                text,
+                style: TextStyle(fontFamily: 'SourceSansPro', color: textColor),
+                maxLines: maxLines,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -141,15 +153,21 @@ class PasswordGroupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TextInputField(hintText: 'Пароль'),
+        const SizedBox(height: 3),
         const PasswordCheckItem(
             text: 'Заглавные латинские буквы: от А до Я', status: true),
+        const SizedBox(height: 5),
         const PasswordCheckItem(
             text: 'Строчные латинские буквы: от A до Z', status: false),
+        const SizedBox(height: 5),
         const PasswordCheckItem(text: 'Числа от 0 до 9', status: false),
+        const SizedBox(height: 5),
         const PasswordCheckItem(
           text:
               '''Символы: (пробел) ! " # \$ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _\` { | } ~''',
@@ -160,5 +178,18 @@ class PasswordGroupWidget extends StatelessWidget {
         const TextInputField(hintText: 'Повторите пароль'),
       ],
     );
+  }
+}
+
+class QuestionsPadding extends StatelessWidget {
+  const QuestionsPadding({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final standartPadding = height * 0.0345;
+    return SizedBox(height: standartPadding);
   }
 }

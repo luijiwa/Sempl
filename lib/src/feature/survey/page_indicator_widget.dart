@@ -35,7 +35,7 @@ class PageIndicatorWidget extends StatelessWidget {
                         ? AppThemeColor.blueColor
                         : _currentPageIndex > i
                             ? Colors.black
-                            : AppThemeColor.gris,
+                            : Color(0xFFE3E3E3),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 )

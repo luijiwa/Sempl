@@ -27,10 +27,10 @@ class FourStepWidget extends StatelessWidget {
           SizedBox(height: height * 0.035),
           const AutoSizeText(
             'ВАШИ СОЦИАЛЬНЫЕ СЕТИ',
-            style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
+            style: TextStyle(fontSize: 36, fontFamily: 'DrukCyr'),
             maxLines: 1,
           ),
-          SizedBox(height: height * 0.0205),
+          SizedBox(height: height * 0.016),
           Padding(
             padding: EdgeInsets.only(right: width * 0.073), //30
 

@@ -57,11 +57,11 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
       children: [
         SizedBox(height: height * 0.035),
         const AutoSizeText(
-          'И ПОСЛЕДНЕЕ',
-          style: TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
+          'И ПОСЛЕДНЕЕ!',
+          style: TextStyle(fontSize: 36, fontFamily: 'DrukCyr'),
           maxLines: 1,
         ),
-        SizedBox(height: height * 0.01),
+        SizedBox(height: height * 0.009),
         const AutoSizeText('Если хотите, добавьте фотографию профиля'),
         SizedBox(height: height * 0.098),
         Center(

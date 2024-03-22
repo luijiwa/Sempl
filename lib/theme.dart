@@ -6,6 +6,7 @@ abstract final class AppThemeColor {
   static const Color gris = Color(0xFFCECECE);
   static const Color grisTwo = Color(0xFF8E8E8E);
   static const Color rose = Color(0xFFE25C74);
+  static const Color grey = Color(0xFFF8F8F8);
 }
 
 const inputDecoration = InputDecoration(

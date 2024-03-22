@@ -8,7 +8,7 @@ class BottomPadding extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
 
     final double bottomOffset =
-        height * 0.059 - MediaQuery.of(context).padding.bottom;
+        height * 0.058 - MediaQuery.of(context).padding.bottom;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

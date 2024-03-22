@@ -53,8 +53,8 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                   ),
                   color: Color(0xFF99BFD4),
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
                   ),
                 ),
                 child: Padding(
@@ -62,20 +62,21 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                     top: 0.03 * maxHeight,
                   ),
                   child: Column(children: [
-                    const Padding(
-                      padding: EdgeInsets.only(right: 32),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 32),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "БРАВО!",
                             style: TextStyle(
                               fontFamily: 'DrukCyr',
-                              fontSize: 50,
+                              fontSize: 58,
                               color: Colors.white,
                             ),
                           ),
-                          AutoSizeText(
+                          SizedBox(height: maxHeight * 0.01),
+                          const AutoSizeText(
                             'Регистрация завершена, теперь можно начинать пробовать продукцию',
                             style: TextStyle(
                               fontFamily: 'SourceSansPro',
@@ -92,7 +93,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(
                         width: maxWidth,
-                        height: 0.058 * maxHeight,
+                        height: 0.055 * maxHeight,
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(

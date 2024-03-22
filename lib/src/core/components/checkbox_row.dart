@@ -17,6 +17,7 @@ class CheckboxRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      // crossAxisAlignment : CrossAxisAlignment.start
       children: [
         Checkbox(
           value: value,
