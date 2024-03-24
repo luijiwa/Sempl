@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_app/src/feature/main/main_screen.dart';
 import 'package:my_app/src/feature/survey/survey_screen.dart';
 import 'package:my_app/theme.dart';
 
@@ -54,7 +55,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, child) => const MaterialApp(
           title: 'First Page',
           debugShowCheckedModeBanner: false,
-          home: SurveyScreen(),
+          home: MainScreen(),
         ),
       ),
     );
