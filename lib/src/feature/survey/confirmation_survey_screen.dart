@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
+import 'package:my_app/src/core/utils/logger.dart';
+import 'package:my_app/theme.dart';
 
 class ConfirmationSurveyScreen extends StatelessWidget {
   const ConfirmationSurveyScreen({super.key});
@@ -11,6 +14,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
       body: LayoutBuilder(builder: (context, constraints) {
         final maxHeight = constraints.maxHeight.toDouble();
         final maxWidth = constraints.maxWidth.toDouble();
+        logger.w(maxWidth * 0.078);
         return Stack(
           children: [
             Stack(
@@ -63,7 +67,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                   ),
                   child: Column(children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 32),
+                      padding: EdgeInsets.only(right: maxWidth * 0.078),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -83,7 +87,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                               fontSize: 15,
                               color: Colors.white,
                             ),
-                            maxLines: 5,
+                            maxLines: 2,
                           ),
                         ],
                       ),
@@ -102,20 +106,20 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                                 const Color.fromARGB(255, 183, 222, 243),
                             backgroundColor: Colors.white,
                           ),
-                          child: const Row(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              AutoSizeText('НАЧАТЬ',
+                              const AutoSizeText('НАЧАТЬ ',
                                   style: TextStyle(
                                     fontFamily: 'SourceSansPro',
                                     fontSize: 15,
                                     color: Color(0xFF86A6B8),
                                   )),
-                              Icon(
-                                size: 15,
-                                Icons.arrow_forward,
-                                color: Color(0xFF86A6B8),
-                              )
+                              SvgPicture.asset(
+                                colorFilter: const ColorFilter.mode(
+                                    AppThemeColor.blueColor, BlendMode.srcIn),
+                                'assets/images/arrow_right.svg',
+                              ),
                             ],
                           ),
                         ),

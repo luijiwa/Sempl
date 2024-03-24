@@ -103,6 +103,9 @@ flutter:
     - assets/images/profile.jpg
     - assets/images/survey_confirm_header_background.png   
     - assets/images/survey_suggestion_background.png
+    - assets/images/arrow_right.png
+    - assets/images/arrow_return.png
+    - assets/images/arrow_right.svg
 
 
 

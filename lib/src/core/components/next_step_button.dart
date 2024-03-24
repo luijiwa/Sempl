@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/theme.dart';
 
 class NextStepButton extends StatelessWidget {
@@ -28,18 +29,18 @@ class NextStepButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AutoSizeText(
-              title,
+              '$title ',
               style: TextStyle(
                 fontFamily: 'SourceSansPro',
                 fontSize: 15,
                 color: enable ? AppThemeColor.grey : AppThemeColor.gris,
               ),
             ),
-            Icon(
-              Icons.arrow_forward,
-              size: 15,
-              color: enable ? AppThemeColor.grey : AppThemeColor.gris,
-            )
+            SvgPicture.asset(
+              colorFilter:
+                  const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              'assets/images/arrow_right.svg',
+            ),
           ],
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/out_button.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/survey/confirmation_survey_screen.dart';
 import 'package:my_app/theme.dart';
 
@@ -24,6 +25,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
     final double width = MediaQuery.of(context).size.width;
     final double bottomOffset =
         height * 0.059 - MediaQuery.of(context).padding.bottom;
+    logger.f(width * 0.02);
     return Scaffold(
       backgroundColor: const Color(0xffff8f8f8),
       appBar: AppBar(
@@ -60,21 +62,24 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
               alignment: AlignmentDirectional.center,
               children: [
                 Container(
-                  height: height * 0.45,
-                  decoration: const BoxDecoration(
-                    color: AppThemeColor.blueColor,
+                  width: width,
+                  height: width,
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
+                    color: const Color(0xff7c94b6),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/profile.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    border: Border.all(
+                      color: AppThemeColor.blueColor,
+                      width: 3.0,
+                    ),
                   ),
                 ),
-                CircleAvatar(
-                  radius: width * 0.44,
-                  backgroundImage:
-                      Image.asset('assets/images/profile.jpg').image,
-                  backgroundColor: Colors.transparent,
-                ),
                 Positioned(
-                  bottom: 40,
-                  right: 10,
+                  bottom: height * 0.045,
+                  right: width * 0.02,
                   child: GestureDetector(
                     onTap: () => Navigator.of(context).pop(),
                     child: Container(
@@ -83,12 +88,14 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(
-                        CupertinoIcons.arrow_uturn_left,
-                        size: 30,
-                        weight: 100,
-                        color: Colors.black,
-                      ),
+                      child: Image.asset('assets/images/arrow_return.png'),
+
+                      // const Icon(
+                      //   CupertinoIcons.arrow_uturn_left,
+                      //   size: 30,
+                      //   weight: 100,
+                      //   color: Colors.black,
+                      // ),
                     ),
                   ),
                 ),
@@ -104,13 +111,29 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
             const Spacer(),
             OutButton(title: 'ОТМЕНА', onPressed: () {}),
             SizedBox(height: height * 0.005),
-            NextStepButton(
-                title: 'СОХРАНИТЬ И ОПУБЛИКОВАТЬ',
+            SizedBox(
+              height: 0.055 * height,
+              width: double.infinity,
+              child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return const ConfirmationSurveyScreen();
                   }));
-                }),
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: const Color(0xFF99BFD4),
+                ),
+                child: const AutoSizeText(
+                  'СОХРАНИТЬ И ОПУБЛИКОВАТЬ',
+                  style: TextStyle(
+                    fontFamily: 'SourceSansPro',
+                    fontSize: 15,
+                    color: AppThemeColor.grey,
+                  ),
+                ),
+              ),
+            ),
             SizedBox(height: bottomOffset),
             SizedBox(height: MediaQuery.of(context).padding.bottom),
           ],
