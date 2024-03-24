@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/core/utils/logger.dart';
@@ -23,8 +24,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    final double bottomOffset =
-        height * 0.059 - MediaQuery.of(context).padding.bottom;
+
     logger.f(width * 0.02);
     return Scaffold(
       backgroundColor: const Color(0xffff8f8f8),
@@ -102,10 +102,15 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.15),
+              padding: EdgeInsets.symmetric(horizontal: width * 0.13),
               child: const AutoSizeText(
                 'Выберите новую фотографию, загрузите её и измените ее размер с помощью пальцев',
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'SourceSansPro',
+                  fontSize: 15,
+                ),
+                maxLines: 3,
               ),
             ),
             const Spacer(),
@@ -134,8 +139,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                 ),
               ),
             ),
-            SizedBox(height: bottomOffset),
-            SizedBox(height: MediaQuery.of(context).padding.bottom),
+            const BottomPadding(),
           ],
         ),
       ),
