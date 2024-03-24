@@ -30,7 +30,7 @@ class OutButton extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'SourceSansPro',
             fontSize: 15,
-            color: Colors.black,
+            color: AppThemeColor.black,
           ),
         ),
       ),
