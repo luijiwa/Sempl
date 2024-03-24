@@ -74,7 +74,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                 ),
                 Positioned(
                   bottom: 40,
-                  right: 10,
+                  right: 8,
                   child: GestureDetector(
                     onTap: () => Navigator.of(context).pop(),
                     child: Container(

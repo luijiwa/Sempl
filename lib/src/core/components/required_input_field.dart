@@ -53,6 +53,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
             borderRadius: BorderRadius.all(Radius.circular(40)),
           ),
           child: Stack(
+            alignment: AlignmentDirectional.center,
             children: [
               if (_isTextEmpty)
                 Padding(
