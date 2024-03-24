@@ -109,11 +109,11 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const AutoSizeText('НАЧАТЬ ',
+                              AutoSizeText('НАЧАТЬ ',
                                   style: TextStyle(
                                     fontFamily: 'SourceSansPro',
-                                    fontSize: 15,
-                                    color: Color(0xFF86A6B8),
+                                    fontSize: maxWidth > 320 ? 15 : 12,
+                                    color: const Color(0xFF86A6B8),
                                   )),
                               SvgPicture.asset(
                                 colorFilter: const ColorFilter.mode(

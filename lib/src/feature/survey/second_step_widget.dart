@@ -54,9 +54,7 @@ class SecondStepWidget extends StatelessWidget {
           const SizedBox(height: 4),
           const Row(
             children: [
-              Expanded(
-                child: RequiredInputField(hintText: 'Подъезд'),
-              ),
+              Expanded(child: TextInputField(hintText: 'Подъезд')),
               SizedBox(width: 4),
               Expanded(
                 child: RequiredInputField(hintText: 'Почтовый индекс'),

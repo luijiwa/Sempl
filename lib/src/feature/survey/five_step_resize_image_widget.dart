@@ -129,11 +129,11 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFF99BFD4),
                 ),
-                child: const AutoSizeText(
+                child: AutoSizeText(
                   'СОХРАНИТЬ И ОПУБЛИКОВАТЬ',
                   style: TextStyle(
                     fontFamily: 'SourceSansPro',
-                    fontSize: 15,
+                    fontSize: width > 320 ? 15 : 12,
                     color: AppThemeColor.grey,
                   ),
                 ),

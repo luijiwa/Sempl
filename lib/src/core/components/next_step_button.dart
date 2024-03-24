@@ -16,6 +16,7 @@ class NextStepButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 0.055 * height,
       child: ElevatedButton(
@@ -32,7 +33,7 @@ class NextStepButton extends StatelessWidget {
               '$title ',
               style: TextStyle(
                 fontFamily: 'SourceSansPro',
-                fontSize: 15,
+                fontSize: width > 320 ? 15 : 12,
                 color: enable ? AppThemeColor.grey : AppThemeColor.gris,
               ),
             ),

@@ -14,6 +14,7 @@ class OutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 0.055 * height,
       width: double.infinity,
@@ -27,9 +28,9 @@ class OutButton extends StatelessWidget {
         ),
         child: AutoSizeText(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'SourceSansPro',
-            fontSize: 15,
+            fontSize: width > 320 ? 15 : 12,
             color: AppThemeColor.black,
           ),
         ),
