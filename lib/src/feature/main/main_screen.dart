@@ -19,16 +19,17 @@ class MainScreen extends StatelessWidget {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-              width: double.infinity,
-              height: height * 0.6,
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40),
-                  )),
-              child: const Column(children: [
-                Padding(
+            width: double.infinity,
+            height: height * 0.6,
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                )),
+            child: Column(
+              children: [
+                const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 22.0),
                   child: AutoSizeText(
                     "НЕДАВНО ОПРОБОВАННЫЕ ПРОДУКТЫ",
@@ -39,7 +40,24 @@ class MainScreen extends StatelessWidget {
                     maxLines: 2,
                   ),
                 ),
-              ])),
+                ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/images/item_image.png"),
+                          const Text("Vinopure"),
+                          const AutoSizeText(
+                              "Sérum salicylique Anti-imperfections 30ml - Caudalie"),
+                          const Text("5.0 из 89 отзывов"),
+                        ],
+                      );
+                    }),
+              ],
+            ),
+          ),
         )
       ],
     ));
