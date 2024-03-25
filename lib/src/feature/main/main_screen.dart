@@ -12,54 +12,120 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-        body: Stack(
-      children: [
-        const MainScreenHeaderWidget(),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            width: double.infinity,
-            height: height * 0.6,
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(40),
-                )),
-            child: Column(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 22.0),
-                  child: AutoSizeText(
-                    "НЕДАВНО ОПРОБОВАННЫЕ ПРОДУКТЫ",
-                    style: TextStyle(
-                      fontFamily: 'DrukCyr',
-                      fontSize: 50,
+    return MaterialApp(
+      home: Scaffold(
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: height * 0.5,
+              actions: [
+                Container(
+                    height: height * 0.03,
+                    decoration: const BoxDecoration(
+                      color: AppThemeColor.yellow,
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
-                    maxLines: 2,
+                    child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      child: Text('50 баллов',
+                          style: TextStyle(
+                              fontFamily: 'SourceSansPro',
+                              fontSize: 12,
+                              color: AppThemeColor.purple)),
+                    )),
+                SizedBox(width: width * 0.02),
+                Container(
+                  width: width * 0.1,
+                  height: width * 0.1,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: const Color(0xff7c94b6),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/profile.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    border: Border.all(
+                      color: AppThemeColor.blueColor,
+                      width: 1.0,
+                    ),
                   ),
                 ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/images/item_image.png"),
-                          const Text("Vinopure"),
-                          const AutoSizeText(
-                              "Sérum salicylique Anti-imperfections 30ml - Caudalie"),
-                          const Text("5.0 из 89 отзывов"),
-                        ],
-                      );
-                    }),
               ],
+              backgroundColor: const Color(0xFFB5A3F8),
+              flexibleSpace: FlexibleSpaceBar(
+                background: Container(
+                    alignment: Alignment.bottomLeft,
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AutoSizeText(
+                          'SEMPL!',
+                          style: TextStyle(
+                            fontFamily: 'DrukCyr',
+                            fontSize: 48,
+                            color: Colors.white,
+                          ),
+                          maxLines: 1,
+                        ),
+                        AutoSizeText(
+                          'ПОПРОБУЙТЕ НОВОЕ СРЕДСТВО ДЛЯ ЧИСТКИ ЗУБОВ БЕСПЛАТНО',
+                          style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                            fontSize: 27,
+                            color: Colors.white,
+                          ),
+                          maxLines: 3,
+                        ),
+                      ],
+                    )),
+              ),
             ),
-          ),
-        )
-      ],
-    ));
+
+            ///Добавь текстовый виджет в этой части
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 22.0),
+                child: AutoSizeText(
+                  "НЕДАВНО ОПРОБОВАННЫЕ ПРОДУКТЫ",
+                  style: TextStyle(
+                    fontFamily: 'DrukCyr',
+                    fontSize: 50,
+                  ),
+                  maxLines: 2,
+                ),
+              ),
+            ),
+            SliverFixedExtentList(
+              itemExtent: 300.0, // Высота каждого элемента в списке
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/images/item_image.png"),
+                        const Text("Vinopure"),
+                        const AutoSizeText(
+                            "Sérum salicylique Anti-imperfections 30ml - Caudalie"),
+                        const Text("5.0 из 89 отзывов"),
+                      ],
+                    ),
+                  );
+                },
+                childCount: 4, // Количество элементов в списке
+              ),
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Container(
+                color: Colors.white, // Белый фон для оставшегося места
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
