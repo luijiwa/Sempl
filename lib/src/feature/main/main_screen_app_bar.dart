@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/theme.dart';
 
 class MainScreenAppBar extends StatelessWidget {
@@ -53,11 +54,11 @@ class MainScreenAppBar extends StatelessWidget {
             background: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
                 alignment: Alignment.bottomLeft,
-                child: const Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AutoSizeText(
+                    const AutoSizeText(
                       'SEMPL!',
                       style: TextStyle(
                         fontFamily: 'DrukCyr',
@@ -66,7 +67,7 @@ class MainScreenAppBar extends StatelessWidget {
                       ),
                       maxLines: 1,
                     ),
-                    AutoSizeText(
+                    const AutoSizeText(
                       'ПОПРОБУЙТЕ НОВОЕ СРЕДСТВО ДЛЯ ЧИСТКИ ЗУБОВ БЕСПЛАТНО',
                       style: TextStyle(
                         fontFamily: 'SourceSansPro',
@@ -74,6 +75,38 @@ class MainScreenAppBar extends StatelessWidget {
                         color: Colors.white,
                       ),
                       maxLines: 3,
+                    ),
+                    Row(
+                      children: [
+                        const Spacer(),
+                        SizedBox(
+                          height: 0.055 * height,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.grey,
+                                backgroundColor: AppThemeColor.yellow),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                AutoSizeText(
+                                  'заказать сейчас '.toUpperCase(),
+                                  style: TextStyle(
+                                    fontFamily: 'SourceSansPro',
+                                    fontSize: width > 320 ? 15 : 12,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SvgPicture.asset(
+                                  colorFilter: const ColorFilter.mode(
+                                      Colors.black, BlendMode.srcIn),
+                                  'assets/images/arrow_right.svg',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 )),
