@@ -6,6 +6,7 @@ import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/main/main_screen_app_bar.dart';
 import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
+import 'package:my_app/theme.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -16,6 +17,7 @@ class MainScreen extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width;
     logger.w(height * 0.346);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: <Widget>[
           const MainScreenAppBar(),

@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_app/src/core/components/custom_sliver_app_bar.dart';
 import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
@@ -15,42 +16,7 @@ class RecentProductsScreen extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
-            actions: [
-              Container(
-                  height: height * 0.03,
-                  decoration: const BoxDecoration(
-                    color: AppThemeColor.yellow,
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  ),
-                  child: const Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                    child: Text('50 баллов',
-                        style: TextStyle(
-                            fontFamily: 'SourceSansPro',
-                            fontSize: 12,
-                            color: AppThemeColor.purple)),
-                  )),
-              SizedBox(width: width * 0.02),
-              Container(
-                width: width * 0.1,
-                height: width * 0.1,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xff7c94b6),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/profile.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                  border: Border.all(
-                    color: AppThemeColor.blueColor,
-                    width: 1.0,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          const CustomSliverAppBar(),
           const SliverPadding(
             padding: EdgeInsets.symmetric(horizontal: 22),
             sliver: SliverToBoxAdapter(
