@@ -13,21 +13,24 @@ class MainScreenAppBar extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return SliverAppBar(
-      expandedHeight: height * 0.5,
+      expandedHeight: height * 0.32,
       actions: [
         Container(
-            height: height * 0.03,
+            height: height * 0.025,
             decoration: const BoxDecoration(
               color: AppThemeColor.yellow,
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              borderRadius: BorderRadius.all(Radius.circular(30.0)),
             ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-              child: Text('50 баллов',
-                  style: TextStyle(
-                      fontFamily: 'SourceSansPro',
-                      fontSize: 12,
-                      color: AppThemeColor.purple)),
+            child: const Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                child: Text('50 баллов',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'SourceSansPro',
+                        fontSize: 12,
+                        color: AppThemeColor.purple)),
+              ),
             )),
         SizedBox(width: width * 0.02),
         Container(
@@ -46,10 +49,17 @@ class MainScreenAppBar extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(width: 22),
       ],
       backgroundColor: const Color(0xFFB5A3F8),
       flexibleSpace: Stack(
         children: [
+          Image.asset(
+            'assets/images/main_header.png',
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
           FlexibleSpaceBar(
             background: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -58,29 +68,33 @@ class MainScreenAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(height: height * 0.04),
                     const AutoSizeText(
                       'SEMPL!',
                       style: TextStyle(
                         fontFamily: 'DrukCyr',
-                        fontSize: 48,
+                        fontSize: 32,
                         color: Colors.white,
                       ),
                       maxLines: 1,
                     ),
+                    SizedBox(height: height * 0.008),
                     const AutoSizeText(
                       'ПОПРОБУЙТЕ НОВОЕ СРЕДСТВО ДЛЯ ЧИСТКИ ЗУБОВ БЕСПЛАТНО',
                       style: TextStyle(
                         fontFamily: 'SourceSansPro',
                         fontSize: 27,
                         color: Colors.white,
+                        height: 0.9,
                       ),
                       maxLines: 3,
                     ),
+                    SizedBox(height: height * 0.03),
                     Row(
                       children: [
                         const Spacer(),
                         SizedBox(
-                          height: 0.055 * height,
+                          height: 0.05 * height,
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
@@ -93,7 +107,7 @@ class MainScreenAppBar extends StatelessWidget {
                                   'заказать сейчас '.toUpperCase(),
                                   style: TextStyle(
                                     fontFamily: 'SourceSansPro',
-                                    fontSize: width > 320 ? 15 : 12,
+                                    fontSize: width > 320 ? 14 : 12,
                                     color: Colors.black,
                                   ),
                                 ),
@@ -116,7 +130,7 @@ class MainScreenAppBar extends StatelessWidget {
             left: 0,
             right: 0,
             child: Container(
-              height: 40,
+              height: 36,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.vertical(

@@ -29,13 +29,14 @@ class MainScreen extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'DrukCyr',
                   fontSize: 50,
+                  height: 0.95,
                 ),
                 maxLines: 2,
               ),
             ),
           ),
           SliverFixedExtentList(
-            itemExtent: height * 0.346, // Высота каждого элемента в списке
+            itemExtent: height * 0.372, // Высота каждого элемента в списке
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return const ItemInListWidget();

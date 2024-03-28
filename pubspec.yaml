@@ -44,6 +44,8 @@ dependencies:
   mask_text_input_formatter: ^2.9.0
   logger: ^2.1.0
   image_picker: ^1.0.7
+  video_player: ^2.8.3
+  share_plus: ^7.2.2
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +78,9 @@ flutter:
     - family: SourceSansProBold
       fonts:
         - asset: assets/fonts/SourceSansPro-Bold.ttf
+    - family: SourceSansProSemiBold
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Semibold.ttf
   # To add assets to your application, add an assets section, like this:
   assets:
 
@@ -107,6 +112,17 @@ flutter:
     - assets/images/arrow_return.png
     - assets/images/arrow_right.svg
     - assets/images/item_image.png
+    - assets/images/item_image_in_detail.png
+    - assets/images/main_header.png
+    - assets/images/item_in_list_image.jpeg
+    - assets/images/step_into.svg
+    - assets/images/step_into_up.svg
+    - assets/images/share_icon.svg
+
+    - assets/images/review_photo1.png
+    - assets/images/review_photo2.png
+    - assets/images/rewiew_video_preview.png
+
 
 
 

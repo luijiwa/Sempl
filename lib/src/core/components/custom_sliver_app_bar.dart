@@ -42,6 +42,7 @@ class CustomSliverAppBar extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(width: 22),
       ],
     );
   }

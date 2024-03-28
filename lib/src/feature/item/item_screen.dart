@@ -1,8 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_sliver_app_bar.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
+import 'package:my_app/src/core/components/star_rating_widget.dart';
+import 'package:my_app/src/feature/delivery/delivery_screen.dart';
+import 'package:my_app/src/feature/item/full_screen_image.dart';
+import 'package:my_app/src/feature/item/full_screen_review_widget.dart';
+import 'package:my_app/src/feature/item/full_screen_video.dart';
 import 'package:my_app/theme.dart';
+import 'package:video_player/video_player.dart';
 
 class ItemScreen extends StatelessWidget {
   const ItemScreen({super.key});
@@ -12,11 +20,28 @@ class ItemScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final double height = size.height;
     final double width = size.width;
+    final List<String> images = [
+      "assets/images/review_photo1.png",
+      "assets/images/review_photo2.png",
+    ];
+    final String video =
+        "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4";
+
     return Scaffold(
         backgroundColor: AppThemeColor.grey,
         body: CustomScrollView(
           slivers: [
-            const CustomSliverAppBar(),
+            SliverAppBar(
+              backgroundColor: AppThemeColor.grey,
+              title: Text(
+                'Страница продукта',
+                style: TextStyle(
+                    fontSize: width > 320 ? 18 : 15,
+                    fontFamily: 'SourceSansProBold'),
+              ),
+              centerTitle: true,
+            ),
+            SliverPadding(padding: EdgeInsets.only(top: height * 0.02)),
             SliverToBoxAdapter(
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 22),
@@ -24,8 +49,9 @@ class ItemScreen extends StatelessWidget {
                     .copyWith(top: 25, bottom: 35),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: const BorderRadius.all(Radius.circular(40.0)),
-                  border: Border.all(width: 0.5, color: AppThemeColor.gris),
+                  borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+                  border: Border.all(
+                      width: 0.5, color: AppThemeColor.gris.withOpacity(0.5)),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -34,39 +60,83 @@ class ItemScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                for (int i = 0; i < 5; i++)
-                                  const Icon(
-                                    Icons.star_rounded,
-                                    color: AppThemeColor.blueColor,
-                                    size: 20.0,
-                                  ),
-                              ],
-                            ),
-                            const AutoSizeText('5,0 по 89 отзывам')
+                            StarRatingWidget(),
+                            AutoSizeText('5,0 по 89 отзывам')
                           ],
                         ),
                         const Spacer(),
                         IconButton(
                             onPressed: () {},
-                            icon: const Icon(Icons.favorite_outline_rounded)),
+                            icon: const Icon(
+                              Icons.favorite_outline_rounded,
+                              color: AppThemeColor.blueColor,
+                            )),
                         IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.ios_share_rounded)),
+                          padding: EdgeInsets.zero,
+                          onPressed: () {},
+                          icon: SvgPicture.asset(
+                            'assets/images/share_icon.svg',
+                            colorFilter: const ColorFilter.mode(
+                                AppThemeColor.blueColor, BlendMode.srcIn),
+                          ),
+                        ),
                       ],
                     ),
-                    Image.asset("assets/images/item_image.png"),
-                    const Text("Vinopure"),
-                    const AutoSizeText(
-                      "Гель-концентрат для стирки Универсальный Французская орхидея, 0,9 л",
-                      textAlign: TextAlign.center,
+                    SizedBox(height: height * 0.01),
+                    Image.asset(
+                      "assets/images/item_image_in_detail.png",
+                      height: height * 0.22,
                     ),
-                    NextStepButton(title: 'КУПИТЬ ЗА БАЛЛЫ', onPressed: () {})
+                    SizedBox(height: height * 0.01),
+                    Text(
+                      "Aromenage".toUpperCase(),
+                      style: const TextStyle(
+                          fontSize: 15, fontFamily: 'SourceSansProBold'),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: width * 0.1),
+                      child: AutoSizeText(
+                          "Гель-концентрат для стирки Универсальный Французская орхидея, 0,9 л"
+                              .toUpperCase(),
+                          textAlign: TextAlign.center,
+                          maxLines: 3,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'SourceSansPro',
+                            height: 1,
+                          )),
+                    ),
+                    SizedBox(height: height * 0.016),
+                    SizedBox(
+                      height: 0.055 * height,
+                      width: double.maxFinite,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const DeliveryScreen(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: const Color(0xFF99BFD4),
+                        ),
+                        child: AutoSizeText(
+                          'КУПИТЬ ЗА БАЛЛЫ',
+                          style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                            fontSize: width > 320 ? 15 : 12,
+                            color: AppThemeColor.grey,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: height * 0.007),
                   ],
                 ),
               ),
@@ -77,19 +147,31 @@ class ItemScreen extends StatelessWidget {
               sliver: SliverToBoxAdapter(
                   child: Row(
                 children: [
-                  const AutoSizeText('Комментарии (387)'),
+                  AutoSizeText(
+                    'Комментарии (387)'.toUpperCase(),
+                    style: const TextStyle(
+                        fontFamily: 'SourceSansProSemiBold', fontSize: 15),
+                  ),
                   const Spacer(),
-                  const Wrap(
+                  Wrap(
                     children: [
-                      AutoSizeText('Новые'),
-                      Icon(Icons.ac_unit_outlined),
+                      const AutoSizeText('новые'),
+                      SvgPicture.asset(
+                        colorFilter: const ColorFilter.mode(
+                            AppThemeColor.blueColor, BlendMode.srcIn),
+                        'assets/images/step_into.svg',
+                      ),
                     ],
                   ),
                   SizedBox(width: width * 0.02),
-                  const Wrap(
+                  Wrap(
                     children: [
-                      AutoSizeText('Рейтинг'),
-                      Icon(Icons.ac_unit_outlined),
+                      const AutoSizeText('рейтинг'),
+                      SvgPicture.asset(
+                        colorFilter: const ColorFilter.mode(
+                            AppThemeColor.blueColor, BlendMode.srcIn),
+                        'assets/images/step_into_up.svg',
+                      ),
                     ],
                   )
                 ],
@@ -101,11 +183,11 @@ class ItemScreen extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                 decoration: BoxDecoration(
-                  color: Colors.white,
                   borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-                  border: Border.all(width: 0.5, color: AppThemeColor.gris),
+                  border: Border.all(width: 1, color: AppThemeColor.blueColor),
                 ),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(
                       children: [
@@ -114,7 +196,7 @@ class ItemScreen extends StatelessWidget {
                           height: width * 0.1,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: const Color(0xff7c94b6),
+                            color: AppThemeColor.blueColor,
                             image: const DecorationImage(
                               image: AssetImage('assets/images/profile.jpg'),
                               fit: BoxFit.cover,
@@ -128,57 +210,140 @@ class ItemScreen extends StatelessWidget {
                         SizedBox(width: width * 0.02),
                         AutoSizeText(
                           "@wolflikemeee".toUpperCase(),
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'SourceSansProBold',
+                            color: AppThemeColor.blueColor,
+                          ),
                           maxLines: 1,
                         ),
                       ],
                     ),
+                    SizedBox(height: height * 0.01),
                     const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("29/08/2023"),
+                        StarRatingWidget(),
+                        Text(
+                          "29/08/2023",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'SourceSansPro',
+                              color: AppThemeColor.grisTwo),
+                        ),
                       ],
                     ),
+                    SizedBox(height: height * 0.01),
                     const AutoSizeText(
-                        "Средство просто супер! Шикарный аромат, хорошо отстирывает, белье не сушит. Красивая упаковка) Однозначно будем брать еще! Спасибо! Было бы классно если бы появились еще саше, кондиционеры для белья, аромадиффузоры. Ароматы просто 🔥🔥🔥 "),
-                    SizedBox(height: height * 0.005),
-                    ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 2,
-                        itemBuilder: (context, index) {
-                          return Row(
+                      "Средство просто супер! Шикарный аромат, хорошо отстирывает, белье не сушит. Красивая упаковка) Однозначно будем брать еще! Спасибо! Было бы классно если бы появились еще саше, кондиционеры для белья, аромадиффузоры. Ароматы просто 🔥🔥🔥 ",
+                      style:
+                          TextStyle(fontSize: 15, fontFamily: 'SourceSansPro'),
+                    ),
+                    SizedBox(height: height * 0.02),
+                    Column(
+                      children: [
+                        for (int i = 0; i < 2; i++)
+                          Row(
                             children: [
                               const Icon(
                                 Icons.add,
+                                size: 12,
                                 color: AppThemeColor.blueColor,
                               ),
                               SizedBox(
                                 width: width * 0.01,
                               ),
-                              const Text("Запах"),
+                              const Text(
+                                "Хорошо отстирывает одежду",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontFamily: 'SourceSansPro',
+                                ),
+                              ),
                             ],
-                          );
-                        }),
-                    SizedBox(height: height * 0.005),
-
-                    ///Add clicable mini preview image and video
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: height * 0.2,
-                        width: height * 0.2,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: const DecorationImage(
-                            image: NetworkImage(
-                                "https://images.unsplash.com/photo-1656408308602-05835d990fb1?q=80&w=2728&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
                           ),
+                      ],
+                    ),
+                    SizedBox(height: height * 0.02),
+                    Row(
+                      children: [
+                        Wrap(
+                          spacing: 10.0,
+                          runSpacing: 10.0,
+                          children: [
+                            ...images.map((imageUrl) {
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => FullScreenPageView(
+                                        images: images,
+                                        videoUrl: video,
+                                        index: images.indexOf(imageUrl),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: SizedBox(
+                                  width: 77,
+                                  height: 77,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(7.0),
+                                    child: Image.asset(
+                                      imageUrl,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => FullScreenPageView(
+                                      images: images,
+                                      videoUrl: video,
+                                      index: 2,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                width: 77,
+                                height: 77,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7.0),
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                      images[0],
+                                    ),
+                                  ),
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.play_arrow_rounded,
+                                    color: Colors.white,
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
+                        const Spacer(),
+                      ],
                     ),
                   ],
                 ),
               ),
             ),
+            const SliverToBoxAdapter(
+              child: BottomPadding(),
+            )
           ],
         ));
   }

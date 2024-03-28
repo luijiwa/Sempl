@@ -36,6 +36,31 @@ const inputDecoration = InputDecoration(
     borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
   ),
 );
+
+InputDecoration dropdownDecoration = const InputDecoration(
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(40)),
+    borderSide: BorderSide(width: 1, color: AppThemeColor.blueColor),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(40)),
+    borderSide: BorderSide(width: 1, color: AppThemeColor.blueColor),
+  ),
+  hintStyle: TextStyle(
+    fontFamily: 'SourceSansPro',
+    fontSize: 14,
+    color: Colors.black,
+  ),
+  disabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(40)),
+    borderSide: BorderSide(width: 1, color: AppThemeColor.gris),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(40)),
+    borderSide: BorderSide(width: 1, color: AppThemeColor.gris),
+  ),
+);
+
 const linkTextStyle = TextStyle(
   fontSize: 12,
   fontFamily: 'SourceSansPro',
