@@ -2,9 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
+import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/core/components/required_input_field.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/feature/delivery/delivery_app_bar.dart';
+import 'package:my_app/src/feature/delivery/delivery_modal_widget.dart';
 import 'package:my_app/theme.dart';
 
 class DeliveryScreen extends StatelessWidget {
@@ -101,33 +103,12 @@ class DeliveryScreen extends StatelessWidget {
                   minFontSize: 10,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               NextStepButton(
                 title: 'ПРОДОЛЖИТЬ',
                 onPressed: () => showDialog(
                     context: context,
-                    builder: (context) => AlertDialog(
-                            content: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Text(
-                              'Подтвердите адрес',
-                              maxLines: 2,
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            ElevatedButton(
-                              child: const Text('НЕТ'),
-                              onPressed: () => Navigator.of(context).pop(),
-                            ),
-                            ElevatedButton(
-                              child: const Text('ДА'),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                          ],
-                        ))),
+                    builder: (context) => const DeliveryModalWidget()),
               ),
               const BottomPadding(),
             ],
