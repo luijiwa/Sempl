@@ -17,7 +17,7 @@ class HeaderWidget extends StatelessWidget {
           decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage("images/login_header_background.png"),
+                image: AssetImage("assets/images/login_header_background.png"),
               ),
               color: Color(0xFF99BFD4)),
           child: Padding(

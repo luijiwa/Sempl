@@ -96,7 +96,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.13),
               child: const AutoSizeText(
-                'Выберите новую фотографию, загрузите её и измените ее размер с помощью пальцев',
+                'Выберите новую фотографию, загрузите её и измените размер с помощью пальцев',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'SourceSansPro',

@@ -23,7 +23,7 @@ class DeliveryScreen extends StatelessWidget {
         backgroundColor: AppThemeColor.grey,
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(
-              height * 0.276,
+              height * 0.24,
             ),
             child: const DeliveryAppBar()),
         body: Padding(
@@ -56,7 +56,7 @@ class DeliveryScreen extends StatelessWidget {
               const RequiredInputField(
                 hintText: 'Улица',
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 5),
               const Row(
                 children: [
                   Expanded(
@@ -68,7 +68,7 @@ class DeliveryScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 5),
               const Row(
                 children: [
                   Expanded(child: TextInputField(hintText: 'Подъезд')),

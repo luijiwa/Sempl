@@ -28,15 +28,14 @@ class MainScreen extends StatelessWidget {
                 "НЕДАВНО ОПРОБОВАННЫЕ ПРОДУКТЫ",
                 style: TextStyle(
                   fontFamily: 'DrukCyr',
-                  fontSize: 50,
+                  fontSize: 42,
                   height: 0.95,
                 ),
                 maxLines: 2,
               ),
             ),
           ),
-          SliverFixedExtentList(
-            itemExtent: height * 0.3999, // Высота каждого элемента в списке
+          SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return const ItemInListWidget();

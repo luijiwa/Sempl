@@ -14,7 +14,7 @@ class ThirdPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'images/Background 3.png',
+              'assets/images/Background 3.png',
             ),
             fit: BoxFit.cover,
           ),

@@ -9,40 +9,35 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFEF7D),
+      backgroundColor: const Color(0xFFFFEF7D),
       body: Container(
         alignment: Alignment.topCenter,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'images/Background 1.png',
+              'assets/images/Background 1.png',
             ),
             fit: BoxFit.cover,
           ),
         ),
         child: Container(
-          margin: EdgeInsets.fromLTRB(
-            16,
-            0,
-            16,
-            0,
-          ),
+          margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "SEMPL!",
                 style: TextStyle(
                   fontFamily: 'DrukCyr',
                   fontSize: 32,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 379,
                 child: Text(
                   "КАК ЭТО РАБОТАЕТ?",
@@ -54,10 +49,10 @@ class FirstPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 400,
                 child: Text(
                   "Посмотрите доступные образцы продуктов,             заполните форму, получите заказ, оставьте отзыв и получите накопительные баллы",
@@ -67,10 +62,10 @@ class FirstPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 width: 330,
                 height: 370,
                 child: Stack(
@@ -86,39 +81,39 @@ class FirstPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
-                            'images/serum.png',
+                            'assets/images/serum.png',
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
-                          SvgPicture.asset('images/Frame 3.svg'),
-                          SizedBox(
+                          SvgPicture.asset('assets/images/Frame 3.svg'),
+                          const SizedBox(
                             height: 25,
                           )
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Positioned(
                       top: 200,
-                      child: Container(
+                      child: SizedBox(
                         width: 144,
                         height: 200,
-                        child: SvgPicture.asset('images/Frame 2.svg'),
+                        child: SvgPicture.asset('assets/images/Frame 2.svg'),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 17,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     '01/05',
                     style: TextStyle(
                       fontSize: 20,
@@ -139,11 +134,11 @@ class FirstPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SecondPage(),
+                            builder: (context) => const SecondPage(),
                           ),
                         );
                       },
-                      icon: Icon(Icons.arrow_forward_ios_rounded),
+                      icon: const Icon(Icons.arrow_forward_ios_rounded),
                     ),
                   ),
                 ],

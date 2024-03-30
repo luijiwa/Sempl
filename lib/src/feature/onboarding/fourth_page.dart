@@ -13,7 +13,7 @@ class FourthPage extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'images/Background 4.png',
+              'assets/images/Background 4.png',
             ),
             fit: BoxFit.cover,
           ),

@@ -40,6 +40,7 @@ class ThirthStepWidget extends StatelessWidget {
             const ChildrenQuestionUntilEighteen(),
             const QuestionsPadding(),
             const PetsWidget(),
+            const QuestionsPadding(),
             const FamilyIncomeQuestionWidget(),
             const QuestionsPadding(),
             const PercentQuestion(),
@@ -191,6 +192,7 @@ class PetsWidget extends StatelessWidget {
         const AutoSizeText('Какие у вас есть животные?'),
         SizedBox(height: height * 0.009),
         ListView.builder(
+          padding: EdgeInsets.zero,
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: pets.length,

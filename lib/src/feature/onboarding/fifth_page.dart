@@ -12,7 +12,7 @@ class FifthPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'images/Background 5.png',
+              'assets/images/Background 5.png',
             ),
             fit: BoxFit.cover,
           ),

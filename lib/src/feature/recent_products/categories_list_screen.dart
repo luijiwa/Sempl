@@ -16,7 +16,7 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
   String? selectedCategory;
 
   final Map<String, List<String>> categoriesData = {
-    'Категория 1': ['Продукт 1', 'Продукт 2', 'Продукт 3'],
+    'Косметика для волос': ['Продукт 1', 'Продукт 2', 'Продукт 3'],
     'Категория 2': ['Продукт 4', 'Продукт 5', 'Продукт 6'],
     'Категория 3': ['Продукт 12', 'Продукт 13', 'Продукт 14', 'Продукт 14'],
     'Категория 4': ['Продукт 7', 'Продукт 5', 'Продукт 6'],
@@ -24,6 +24,7 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -48,50 +49,77 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
                 child: SearchInputWidget(),
               ),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  final category = categoriesData.keys.elementAt(index);
-                  final products = categoriesData[category]!;
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(),
-                        child: ListTile(
-                          title: Text(category,
-                              style: const TextStyle(
-                                  fontFamily: 'SourceSansProSemibold',
-                                  fontSize: 15)),
-                          trailing: CustomRadioButton(
-                            value: index % 3 == 0,
-                            onChanged: (value) {},
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 22),
+              sliver: SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  childCount: categoriesData.length,
+                  (context, index) {
+                    final category = categoriesData.keys.elementAt(index);
+                    final products = categoriesData[category]!;
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2.5),
+                                    child: Text(category,
+                                        style: const TextStyle(
+                                            fontFamily: 'SourceSansProSemibold',
+                                            fontSize: 15)),
+                                  ),
+                                ),
+                                CustomRadioButton(
+                                  value: index % 3 == 0,
+                                  onChanged: (value) {},
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: products.length,
-                        itemBuilder: (context, index) {
-                          final product = products[index];
-                          return Padding(
-                            padding: const EdgeInsets.only(left: 22),
-                            child: ListTile(
-                              title: Text(product),
-                              trailing: CustomRadioButton(
-                                value: index % 3 == 0,
-                                onChanged: (value) {},
+                        SizedBox(height: height * 0.01),
+                        ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: products.length,
+                          itemBuilder: (context, index) {
+                            final product = products[index];
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 22),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 4),
+                                      child: Text(product,
+                                          style: const TextStyle(
+                                              fontFamily: 'SourceSansPro',
+                                              fontSize: 15)),
+                                    ),
+                                  ),
+                                  CustomRadioButton(
+                                    value: index % 3 == 0,
+                                    onChanged: (value) {},
+                                  ),
+                                ],
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  );
-                },
-                childCount: categoriesData.length,
+                            );
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ],

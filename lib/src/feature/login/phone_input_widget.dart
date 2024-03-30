@@ -75,7 +75,7 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                     child: Row(
                       children: [
                         SizedBox(width: width * 0.04),
-                        Image.asset('images/flag.png'),
+                        Image.asset('assets/images/flag.png'),
                         const Text(
                           '  (+7) ▼',
                           style: TextStyle(

@@ -14,7 +14,7 @@ class SecondPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'images/Background 2.png',
+              'assets/images/Background 2.png',
             ),
             fit: BoxFit.cover,
           ),

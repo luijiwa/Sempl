@@ -16,6 +16,7 @@ class DeliveryAppBar extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage("assets/images/main_header.png"),
+          alignment: Alignment.topCenter,
         ),
         color: Color(0xFF99BFD4),
       ),
@@ -58,7 +59,6 @@ class DeliveryAppBar extends StatelessWidget {
               const SizedBox(width: 22),
             ],
           ),
-          const Spacer(),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 22.0),
             child: AutoSizeText(
@@ -85,7 +85,6 @@ class DeliveryAppBar extends StatelessWidget {
               maxLines: 3,
             ),
           ),
-          SizedBox(height: height * 0.05),
         ],
       ),
     );

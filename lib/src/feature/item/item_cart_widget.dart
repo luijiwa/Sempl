@@ -47,22 +47,17 @@ class ItemCard extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                IconButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.favorite_outline_rounded,
-                      color: AppThemeColor.blueColor,
-                    )),
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/images/share_icon.svg',
-                    colorFilter: const ColorFilter.mode(
-                        AppThemeColor.blueColor, BlendMode.srcIn),
-                  ),
+                const Icon(
+                  Icons.favorite_outline_rounded,
+                  color: AppThemeColor.blueColor,
                 ),
+                SizedBox(width: width * 0.03),
+                SvgPicture.asset(
+                  'assets/images/share_icon.svg',
+                  colorFilter: const ColorFilter.mode(
+                      AppThemeColor.blueColor, BlendMode.srcIn),
+                ),
+                SizedBox(width: width * 0.02),
               ],
             ),
             SizedBox(height: height * 0.01),
@@ -116,7 +111,6 @@ class ItemCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: height * 0.007),
           ],
         ),
       ),

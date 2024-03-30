@@ -60,14 +60,16 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
   @override
   Widget build(BuildContext context) {
     const blueColor = Color(0xFF99BFD4);
-    const richTextStyle = TextStyle(
-        fontSize: 14, fontFamily: 'SourceSansPro', color: Colors.black);
-    const linkTextStyle = TextStyle(
+    final richTextStyle = TextStyle(
+        fontSize: 14,
+        fontFamily: 'SourceSansPro',
+        color: _start == 0 ? Colors.black : const Color(0xFFB9B9B9));
+    final linkTextStyle = TextStyle(
       fontSize: 14,
       fontFamily: 'SourceSansPro',
       decoration: TextDecoration.underline,
-      decorationColor: blueColor,
-      color: blueColor,
+      decorationColor: _start == 0 ? blueColor : const Color(0xFFDEEAF1),
+      color: _start == 0 ? blueColor : const Color(0xFFDEEAF1),
     );
     var pinTheme = PinTheme(
       width: MediaQuery.of(context).size.width - 32,

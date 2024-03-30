@@ -25,13 +25,13 @@ class RecentProductsScreen extends StatelessWidget {
           const CustomSliverAppBar(),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 22)
-                .copyWith(top: height * 0.03),
+                .copyWith(top: height * 0.02),
             sliver: const SliverToBoxAdapter(
               child: AutoSizeText(
                 "НЕДАВНО ОПРОБОВАННЫЕ ПРОДУКТЫ",
                 style: TextStyle(
                   fontFamily: 'DrukCyr',
-                  fontSize: 50,
+                  fontSize: 44,
                   height: 0.95,
                 ),
                 maxLines: 2,
@@ -40,7 +40,7 @@ class RecentProductsScreen extends StatelessWidget {
           ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 22)
-                .copyWith(top: height * 0.03, right: width * 0.1),
+                .copyWith(top: height * 0.025, right: width * 0.1),
             sliver: const SliverToBoxAdapter(
               child: AutoSizeText(
                 "В этом разделе вы можете ознакомиться с уже рассмотренными товарами и оставленными на них отзывами",
@@ -59,7 +59,7 @@ class RecentProductsScreen extends StatelessWidget {
                 .copyWith(top: height * 0.05),
             sliver: SliverToBoxAdapter(
                 child: SizedBox(
-              height: 0.055 * height,
+              height: 0.051 * height,
               width: double.infinity,
               child: OutlinedButton(
                 onPressed: () {
@@ -124,8 +124,7 @@ class RecentProductsScreen extends StatelessWidget {
           ),
           SliverPadding(
             padding: EdgeInsets.only(top: height * 0.04),
-            sliver: SliverFixedExtentList(
-              itemExtent: height * 0.3999, // Высота каждого элемента в списке
+            sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
                   logger.w(index);

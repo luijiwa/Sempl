@@ -17,7 +17,7 @@ class MainScreenAppBar extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width;
     logger.w('${height * 0.32} ${MediaQuery.of(context).padding.top}');
     return SliverAppBar(
-      expandedHeight: height * 0.32,
+      expandedHeight: height * 0.31,
       actions: [
         const PointsWidget(),
         SizedBox(width: width * 0.02),
@@ -50,7 +50,9 @@ class MainScreenAppBar extends StatelessWidget {
           ),
           FlexibleSpaceBar(
             background: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
+                padding: const EdgeInsets.symmetric(horizontal: 22).copyWith(
+                  top: height * 0.07,
+                ),
                 alignment: Alignment.bottomLeft,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -83,33 +85,33 @@ class MainScreenAppBar extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          SizedBox(
-                            height: 0.05 * height,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  foregroundColor: Colors.grey,
-                                  backgroundColor: AppThemeColor.yellow),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  AutoSizeText(
-                                    'заказать сейчас '.toUpperCase(),
-                                    style: TextStyle(
-                                      fontFamily: 'SourceSansPro',
-                                      fontSize: width > 320 ? 14 : 12,
-                                      color: Colors.black,
-                                    ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: width * 0.04,
+                                    vertical: height * 0.01),
+                                elevation: 0,
+                                foregroundColor: Colors.grey,
+                                backgroundColor: AppThemeColor.yellow),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                AutoSizeText(
+                                  'заказать сейчас '.toUpperCase(),
+                                  style: TextStyle(
+                                    fontFamily: 'SourceSansPro',
+                                    fontSize: width > 320 ? 14 : 12,
+                                    color: Colors.black,
                                   ),
-                                  SvgPicture.asset(
-                                    colorFilter: const ColorFilter.mode(
-                                        Colors.black, BlendMode.srcIn),
-                                    'assets/images/arrow_right.svg',
-                                  ),
-                                ],
-                              ),
+                                ),
+                                SvgPicture.asset(
+                                  colorFilter: const ColorFilter.mode(
+                                      Colors.black, BlendMode.srcIn),
+                                  'assets/images/arrow_right.svg',
+                                ),
+                              ],
                             ),
                           ),
                         ],
