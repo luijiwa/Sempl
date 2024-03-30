@@ -78,7 +78,18 @@ class _FullScreenPageViewState extends State<FullScreenPageView> {
                 height: kToolbarHeight + MediaQuery.of(context).padding.top,
                 child: AppBar(
                   backgroundColor: Colors.transparent,
-                  leading: const BackButton(color: Colors.white),
+                  leading: IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back_ios_rounded,
+                      size: 18,
+                      weight: 500,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  centerTitle: true,
                   title: Text(
                     '${_currentPageIndex + 1}/${widget.images.length + 1}',
                     style: const TextStyle(color: Colors.white),

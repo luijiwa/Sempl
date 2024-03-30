@@ -36,13 +36,16 @@ class MainScreen extends StatelessWidget {
             ),
           ),
           SliverFixedExtentList(
-            itemExtent: height * 0.372, // Высота каждого элемента в списке
+            itemExtent: height * 0.3999, // Высота каждого элемента в списке
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return const ItemInListWidget();
               },
               childCount: 4, // Количество элементов в списке
             ),
+          ),
+          const SliverToBoxAdapter(
+            child: BottomPadding(),
           ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 22),

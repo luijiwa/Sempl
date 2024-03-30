@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/theme.dart';
 
 class DeliveryAppBar extends StatelessWidget {
@@ -18,53 +19,49 @@ class DeliveryAppBar extends StatelessWidget {
         ),
         color: Color(0xFF99BFD4),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(height: MediaQuery.of(context).padding.top),
-            Row(
-              children: [
-                const BackButton(),
-                const Spacer(),
-                Container(
-                    height: height * 0.03,
-                    decoration: const BoxDecoration(
-                      color: AppThemeColor.yellow,
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    child: const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                      child: Text('50 баллов',
-                          style: TextStyle(
-                              fontFamily: 'SourceSansPro',
-                              fontSize: 12,
-                              color: AppThemeColor.purple)),
-                    )),
-                SizedBox(width: width * 0.02),
-                Container(
-                  width: width * 0.1,
-                  height: width * 0.1,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: const Color(0xff7c94b6),
-                    image: const DecorationImage(
-                      image: AssetImage('assets/images/profile.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                    border: Border.all(
-                      color: AppThemeColor.blueColor,
-                      width: 1.0,
-                    ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(height: MediaQuery.of(context).padding.top),
+          Row(
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.arrow_back_ios_rounded,
+                  size: 18,
+                  weight: 600,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              const Spacer(),
+              const PointsWidget(),
+              SizedBox(width: width * 0.02),
+              Container(
+                width: width * 0.1,
+                height: width * 0.1,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0xff7c94b6),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/profile.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                  border: Border.all(
+                    color: AppThemeColor.blueColor,
+                    width: 1.0,
                   ),
                 ),
-              ],
-            ),
-            const Spacer(),
-            const AutoSizeText(
+              ),
+              const SizedBox(width: 22),
+            ],
+          ),
+          const Spacer(),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 22.0),
+            child: AutoSizeText(
               'SEMPL!',
               style: TextStyle(
                 fontFamily: 'DrukCyr',
@@ -73,8 +70,11 @@ class DeliveryAppBar extends StatelessWidget {
               ),
               maxLines: 1,
             ),
-            SizedBox(height: height * 0.008),
-            const AutoSizeText(
+          ),
+          SizedBox(height: height * 0.008),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 22.0),
+            child: AutoSizeText(
               'ПОПРОБУЙТЕ НОВОЕ СРЕДСТВО ДЛЯ ЧИСТКИ ЗУБОВ БЕСПЛАТНО',
               style: TextStyle(
                 fontFamily: 'SourceSansPro',
@@ -84,9 +84,9 @@ class DeliveryAppBar extends StatelessWidget {
               ),
               maxLines: 3,
             ),
-            SizedBox(height: height * 0.05),
-          ],
-        ),
+          ),
+          SizedBox(height: height * 0.05),
+        ],
       ),
     );
   }

@@ -77,14 +77,13 @@ class ItemCard extends StatelessWidget {
                   fontSize: 15, fontFamily: 'SourceSansProBold'),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.115),
-              child: AutoSizeText(
-                  "Гель-концентрат для стирки Универсальный Французская орхидея, 0,9 л"
-                      .toUpperCase(),
+              padding: EdgeInsets.symmetric(horizontal: width * 0.12),
+              child: const AutoSizeText(
+                  "Гель-концентрат для стирки Универсальный Французская орхидея, 0,9 л",
                   textAlign: TextAlign.center,
                   maxLines: 3,
-                  style: const TextStyle(
-                    fontSize: 13,
+                  style: TextStyle(
+                    fontSize: 14,
                     fontFamily: 'SourceSansPro',
                     height: 1.2,
                   )),
@@ -103,6 +102,7 @@ class ItemCard extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFF99BFD4),
                 ),

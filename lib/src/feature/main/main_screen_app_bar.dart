@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_app/src/core/components/points_widget.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
 class MainScreenAppBar extends StatelessWidget {
@@ -12,26 +15,11 @@ class MainScreenAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+    logger.w('${height * 0.32} ${MediaQuery.of(context).padding.top}');
     return SliverAppBar(
       expandedHeight: height * 0.32,
       actions: [
-        Container(
-            height: height * 0.025,
-            decoration: const BoxDecoration(
-              color: AppThemeColor.yellow,
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
-            ),
-            child: const Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                child: Text('50 баллов',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontFamily: 'SourceSansPro',
-                        fontSize: 12,
-                        color: AppThemeColor.purple)),
-              ),
-            )),
+        const PointsWidget(),
         SizedBox(width: width * 0.02),
         Container(
           width: width * 0.1,
@@ -89,38 +77,43 @@ class MainScreenAppBar extends StatelessWidget {
                       ),
                       maxLines: 3,
                     ),
-                    SizedBox(height: height * 0.03),
-                    Row(
-                      children: [
-                        const Spacer(),
-                        SizedBox(
-                          height: 0.05 * height,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.grey,
-                                backgroundColor: AppThemeColor.yellow),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AutoSizeText(
-                                  'заказать сейчас '.toUpperCase(),
-                                  style: TextStyle(
-                                    fontFamily: 'SourceSansPro',
-                                    fontSize: width > 320 ? 14 : 12,
-                                    color: Colors.black,
+                    SizedBox(height: height * 0.02),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 38),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            height: 0.05 * height,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  foregroundColor: Colors.grey,
+                                  backgroundColor: AppThemeColor.yellow),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  AutoSizeText(
+                                    'заказать сейчас '.toUpperCase(),
+                                    style: TextStyle(
+                                      fontFamily: 'SourceSansPro',
+                                      fontSize: width > 320 ? 14 : 12,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                                SvgPicture.asset(
-                                  colorFilter: const ColorFilter.mode(
-                                      Colors.black, BlendMode.srcIn),
-                                  'assets/images/arrow_right.svg',
-                                ),
-                              ],
+                                  SvgPicture.asset(
+                                    colorFilter: const ColorFilter.mode(
+                                        Colors.black, BlendMode.srcIn),
+                                    'assets/images/arrow_right.svg',
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 )),

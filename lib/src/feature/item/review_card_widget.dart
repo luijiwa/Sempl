@@ -23,10 +23,10 @@ class ReviewCardWidget extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 22),
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-          border: Border.all(width: 1, color: AppThemeColor.blueColor),
+        padding: const EdgeInsets.symmetric(horizontal: 15)
+            .copyWith(top: 15, bottom: 30),
+        decoration: const BoxDecoration(
+          color: Colors.white,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -175,7 +175,7 @@ class ReviewCardWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Spacer(),
+                SizedBox(height: 30),
               ],
             ),
           ],

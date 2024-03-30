@@ -11,10 +11,18 @@ class DeliveryModalWidget extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Dialog(
+        insetPadding: const EdgeInsets.symmetric(horizontal: 22),
         backgroundColor: Colors.white,
         child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+            color: Colors.white,
+          ),
           width: double.maxFinite,
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 22),
+          padding: const EdgeInsets.symmetric(horizontal: 22).copyWith(
+            top: 16,
+            bottom: 20,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,7 +57,7 @@ class DeliveryModalWidget extends StatelessWidget {
                     'НЕ МЕНЯТЬ',
                     style: TextStyle(
                       fontFamily: 'SourceSansPro',
-                      fontSize: width > 320 ? 15 : 12,
+                      fontSize: width > 320 ? 14 : 12,
                       color: AppThemeColor.black,
                     ),
                   ),
@@ -62,6 +70,7 @@ class DeliveryModalWidget extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
+                    elevation: 0,
                     foregroundColor: Colors.white,
                     backgroundColor: const Color(0xFF99BFD4),
                   ),
@@ -69,7 +78,7 @@ class DeliveryModalWidget extends StatelessWidget {
                     'СОХРАНИТЬ И ПРОДОЛЖИТЬ',
                     style: TextStyle(
                       fontFamily: 'SourceSansPro',
-                      fontSize: width > 320 ? 15 : 12,
+                      fontSize: width > 320 ? 14 : 12,
                       color: AppThemeColor.grey,
                     ),
                   ),

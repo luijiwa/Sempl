@@ -1,10 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_sliver_app_bar.dart';
 import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
 import 'package:my_app/src/core/components/item_in_list_widget.dart';
+import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/core/utils/logger.dart';
+import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/theme.dart';
 
 class RecentProductsScreen extends StatelessWidget {
@@ -55,43 +58,74 @@ class RecentProductsScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 22)
                 .copyWith(top: height * 0.05),
             sliver: SliverToBoxAdapter(
-              child: DropdownButtonFormField<String>(
-                isExpanded: false,
-                iconSize: 24,
-                icon:
-                    const Icon(Icons.expand_more_rounded, color: Colors.black),
-                items: ['Крем', 'Сыворотка', 'Масло', 'Спреи', 'Кондиционер']
-                    .map((item) => DropdownMenuItem(
-                        value: item,
-                        child: Text(item,
-                            style:
-                                const TextStyle(fontFamily: 'SourceSansPro'))))
-                    .toList(),
-                hint: const Text('Категории',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'SourceSansPro',
-                    )),
-                decoration: dropdownDecoration.copyWith(
-                  contentPadding: EdgeInsets.symmetric(
-                      vertical: height * 0.014, horizontal: height * 0.023),
-                ),
-                value: null,
-                onChanged: (_) {},
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Выберите из списка';
-                  }
-                  return null;
+                child: SizedBox(
+              height: 0.055 * height,
+              width: double.infinity,
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CategoriesListScreen(),
+                    ),
+                  );
                 },
-                onTap: () {},
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(
+                    width: 1,
+                    color: AppThemeColor.blueColor,
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/images/subject_icon.svg',
+                      colorFilter: const ColorFilter.mode(
+                          AppThemeColor.blueColor, BlendMode.srcIn),
+                    ),
+                    const SizedBox(width: 5),
+                    AutoSizeText(
+                      'Категории',
+                      style: TextStyle(
+                        fontFamily: 'SourceSansPro',
+                        fontSize: width > 320 ? 15 : 12,
+                        color: AppThemeColor.black,
+                      ),
+                    ),
+                    const Spacer(),
+                    const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 15,
+                      weight: 500,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+              ),
+            )),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 22).copyWith(
+              top: 10,
+            ),
+            sliver: const SliverToBoxAdapter(
+              child: Wrap(
+                spacing: 3.0,
+                runSpacing: 3.0,
+                children: [
+                  BlueItemWithCross(text: 'Категории: шампуни'),
+                  BlueItemWithCross(text: 'Шапмпуни для волос'),
+                  BlueItemWithCross(text: 'Item 3'),
+                  BlueItemWithCross(text: 'Item 4'),
+                  BlueItemWithCross(text: 'Item 5'),
+                ],
               ),
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.only(top: 22),
+            padding: EdgeInsets.only(top: height * 0.04),
             sliver: SliverFixedExtentList(
-              itemExtent: height * 0.372, // Высота каждого элемента в списке
+              itemExtent: height * 0.3999, // Высота каждого элемента в списке
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
                   logger.w(index);
@@ -105,6 +139,50 @@ class RecentProductsScreen extends StatelessWidget {
           ),
           const SliverToBoxAdapter(child: BottomPadding())
         ],
+      ),
+    );
+  }
+}
+
+class BlueItemWithCross extends StatelessWidget {
+  final String text;
+
+  const BlueItemWithCross({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40.0),
+        color: AppThemeColor.blueColor,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 6),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.black.withOpacity(0.2),
+              ),
+              padding: const EdgeInsets.all(4.0),
+              child: const Icon(
+                Icons.close,
+                color: AppThemeColor.blueColor,
+                size: 14.0,
+              ),
+            ),
+            const SizedBox(width: 4.0),
+            Text(
+              text,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12.0,
+                  fontFamily: 'SourceSansPro'),
+            ),
+          ],
+        ),
       ),
     );
   }

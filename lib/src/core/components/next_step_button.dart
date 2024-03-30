@@ -22,6 +22,7 @@ class NextStepButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
+          elevation: 0,
           foregroundColor: enable ? Colors.white : Colors.grey,
           backgroundColor:
               enable ? const Color(0xFF99BFD4) : AppThemeColor.grisTwo,

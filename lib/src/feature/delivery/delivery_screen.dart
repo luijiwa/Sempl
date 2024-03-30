@@ -107,6 +107,7 @@ class DeliveryScreen extends StatelessWidget {
               NextStepButton(
                 title: 'ПРОДОЛЖИТЬ',
                 onPressed: () => showDialog(
+                    useSafeArea: false,
                     context: context,
                     builder: (context) => const DeliveryModalWidget()),
               ),

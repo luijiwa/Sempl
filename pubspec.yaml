@@ -46,6 +46,8 @@ dependencies:
   image_picker: ^1.0.7
   video_player: ^2.8.3
   share_plus: ^7.2.2
+  auto_route: ^8.0.2
+  build_runner: ^2.4.9
 
 dev_dependencies:
   flutter_test:
@@ -118,6 +120,8 @@ flutter:
     - assets/images/step_into.svg
     - assets/images/step_into_up.svg
     - assets/images/share_icon.svg
+    - assets/images/subject_icon.svg
+
 
     - assets/images/review_photo1.png
     - assets/images/review_photo2.png

@@ -4,6 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
+import 'package:my_app/src/core/components/custom_back_button.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/core/utils/logger.dart';
@@ -30,16 +31,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
       backgroundColor: const Color(0xffff8f8f8),
       appBar: AppBar(
         backgroundColor: const Color(0xffff8f8f8),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_outlined,
-            size: 18,
-          ),
-          onPressed: () {
-            // Обработчик нажатия кнопки назад
-            Navigator.of(context).pop();
-          },
-        ),
+        leading: const CustomBackButton(),
         centerTitle: true,
         title: Text(
           'CROP',
@@ -126,6 +118,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                   }));
                 },
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFF99BFD4),
                 ),

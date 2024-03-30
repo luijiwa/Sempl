@@ -101,6 +101,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
+                            elevation: 0,
                             shape: const StadiumBorder(),
                             foregroundColor:
                                 const Color.fromARGB(255, 183, 222, 243),
