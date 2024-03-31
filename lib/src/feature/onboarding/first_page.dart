@@ -8,6 +8,7 @@ class FirstPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color(0xFFFFEF7D),
       body: Container(
@@ -24,18 +25,8 @@ class FirstPage extends StatelessWidget {
           margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: Column(
             children: [
-              const SizedBox(
-                height: 20,
-              ),
-              const Text(
-                "SEMPL!",
-                style: TextStyle(
-                  fontFamily: 'DrukCyr',
-                  fontSize: 32,
-                ),
-              ),
-              const SizedBox(
-                height: 60,
+              SizedBox(
+                height: height * 0.2,
               ),
               const SizedBox(
                 width: 379,
@@ -109,39 +100,6 @@ class FirstPage extends StatelessWidget {
               ),
               const SizedBox(
                 height: 17,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    '01/05',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'SourceSansProBold',
-                    ),
-                  ),
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(
-                        15,
-                      ),
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SecondPage(),
-                          ),
-                        );
-                      },
-                      icon: const Icon(Icons.arrow_forward_ios_rounded),
-                    ),
-                  ),
-                ],
               ),
             ],
           ),

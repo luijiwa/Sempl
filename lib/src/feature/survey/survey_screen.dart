@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/survey/fifth_step_widget.dart';
@@ -8,6 +9,7 @@ import 'package:my_app/src/feature/survey/second_step_widget.dart';
 
 import 'package:my_app/src/feature/survey/thirth_step_widget.dart';
 
+@RoutePage()
 class SurveyScreen extends StatefulWidget {
   const SurveyScreen({super.key});
 

@@ -1,11 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_app/src/feature/login/login_screen.dart';
-import 'package:my_app/src/feature/main/main_screen.dart';
-import 'package:my_app/src/feature/onboarding/first_page.dart';
-import 'package:my_app/src/feature/survey/survey_screen.dart';
+import 'package:my_app/src/core/router/app_router.dart';
 import 'package:my_app/theme.dart';
 
 void main() {
@@ -24,10 +20,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _router = AppRouter().router;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return MaterialApp(
+    return MaterialApp.router(
       theme: theme.copyWith(
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(
@@ -52,14 +50,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      home: ScreenUtilInit(
-        designSize: const Size(375, 812),
-        builder: (context, child) => const MaterialApp(
-          title: 'First Page',
-          debugShowCheckedModeBanner: false,
-          home: FirstPage(),
-        ),
-      ),
+      routerConfig: _router,
     );
   }
 }

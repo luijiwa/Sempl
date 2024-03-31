@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({super.key, this.onPressed});
@@ -17,7 +18,7 @@ class CustomBackButton extends StatelessWidget {
         if (onPressed != null) {
           onPressed!();
         } else {
-          Navigator.pop(context);
+          context.pop();
         }
       },
     );

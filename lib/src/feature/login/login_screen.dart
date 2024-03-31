@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/feature/confirmation/confirmation_screen.dart';
@@ -8,6 +9,7 @@ import 'package:my_app/src/feature/login/input_code_widget.dart';
 
 import 'package:my_app/src/feature/login/phone_input_widget.dart';
 
+@RoutePage()
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
