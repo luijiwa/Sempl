@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
@@ -10,7 +9,6 @@ import 'package:my_app/src/feature/delivery/delivery_app_bar.dart';
 import 'package:my_app/src/feature/delivery/delivery_modal_widget.dart';
 import 'package:my_app/theme.dart';
 
-@RoutePage()
 class DeliveryScreen extends StatelessWidget {
   const DeliveryScreen({super.key});
 

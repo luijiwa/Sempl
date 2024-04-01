@@ -1,7 +1,9 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:my_app/src/feature/onboarding/second_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -9,6 +11,8 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    logger.w(height * 0.403);
     return Scaffold(
       backgroundColor: const Color(0xFFFFEF7D),
       body: Container(
@@ -19,87 +23,73 @@ class FirstPage extends StatelessWidget {
               'assets/images/Background 1.png',
             ),
             fit: BoxFit.cover,
+            alignment: Alignment.bottomCenter,
           ),
         ),
-        child: Container(
-          margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
               SizedBox(
-                height: height * 0.2,
+                height: height * 0.18,
               ),
-              const SizedBox(
-                width: 379,
-                child: Text(
+              Align(
+                alignment: Alignment.centerLeft,
+                child: AutoSizeText(
                   "КАК ЭТО РАБОТАЕТ?",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontFamily: 'DrukCyr',
-                    height: 1,
-                    letterSpacing: 1.2,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge,
+                  maxLines: 1,
                 ),
               ),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: height * 0.02,
               ),
-              const SizedBox(
-                width: 400,
-                child: Text(
-                  "Посмотрите доступные образцы продуктов,             заполните форму, получите заказ, оставьте отзыв и получите накопительные баллы",
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontFamily: 'SourceSansPro',
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(right: width * 0.1),
+                  child: AutoSizeText(
+                    "Посмотрите доступные образцы продуктов,\nзаполните форму, получите заказ, оставьте отзыв и получите накопительные баллы",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    maxLines: 3,
                   ),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                width: 330,
-                height: 370,
+              Expanded(
                 child: Stack(
                   children: [
                     Container(
-                      width: 343,
-                      height: 313,
+                      width: double.maxFinite,
+                      height: height * 0.38,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(40),
                       ),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
+                          SizedBox(height: height * 0.017),
                           Image.asset(
                             'assets/images/serum.png',
                           ),
-                          const SizedBox(
-                            height: 5,
-                          ),
+                          const SizedBox(height: 5),
                           SvgPicture.asset('assets/images/Frame 3.svg'),
-                          const SizedBox(
-                            height: 25,
-                          )
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     Positioned(
-                      top: 200,
+                      bottom: height * 0.21,
+                      left: width * 0.01,
                       child: SizedBox(
-                        width: 144,
-                        height: 200,
                         child: SvgPicture.asset('assets/images/Frame 2.svg'),
                       ),
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 17,
               ),
             ],
           ),

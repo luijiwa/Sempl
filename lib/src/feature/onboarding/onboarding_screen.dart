@@ -1,57 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/feature/onboarding/fifth_page.dart';
-import 'package:my_app/src/feature/onboarding/first_page.dart';
-import 'package:my_app/src/feature/onboarding/fourth_page.dart';
-import 'package:my_app/src/feature/onboarding/second_page.dart';
-import 'package:my_app/src/feature/onboarding/third_page.dart';
+import 'package:my_app/src/core/utils/logger.dart';
+import 'package:my_app/src/feature/onboarding/widgets/fifth_page.dart';
+import 'package:my_app/src/feature/onboarding/widgets/first_page.dart';
+import 'package:my_app/src/feature/onboarding/widgets/fourth_page.dart';
 
-class OnboardinScreen extends StatelessWidget {
+import 'package:my_app/src/feature/onboarding/widgets/second_page.dart';
+import 'package:my_app/src/feature/onboarding/widgets/third_page.dart';
+
+class OnboardinScreen extends StatefulWidget {
   const OnboardinScreen({super.key});
 
   @override
+  State<OnboardinScreen> createState() => _OnboardinScreenState();
+}
+
+class _OnboardinScreenState extends State<OnboardinScreen> {
+  late final PageController _pageViewController;
+  int _currentPageIndex = 0;
+  @override
+  void initState() {
+    _pageViewController = PageController();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final double basisBottomOffset =
-        MediaQuery.of(context).size.height * 0.058 -
-                    MediaQuery.of(context).padding.bottom >
-                0
-            ? MediaQuery.of(context).size.height * 0.058 -
-                MediaQuery.of(context).padding.bottom
-            : 0;
+    final double basisBottomOffset = MediaQuery.of(context).size.height * 0.13 -
+                MediaQuery.of(context).padding.bottom >
+            0
+        ? MediaQuery.of(context).size.height * 0.13 -
+            MediaQuery.of(context).padding.bottom
+        : 0;
     final bottomOffset =
         MediaQuery.of(context).padding.bottom + basisBottomOffset;
-
+    logger.w(MediaQuery.of(context).size.height * 0.071);
+    final height = MediaQuery.of(context).size.height;
+    final listScreens = [
+      const FirstPage(),
+      const SecondPage(),
+      const ThirdPage(),
+      const FourthPage(),
+      const FifthPage()
+    ];
     return Scaffold(
       body: Stack(
         children: [
           PageView.builder(
-            itemCount: 5,
-            itemBuilder: (BuildContext context, int index) {
-              switch (index) {
-                case 1:
-                  return const SecondPage();
-                case 2:
-                  return const ThirdPage();
-                case 3:
-                  return const FourthPage();
-                case 4:
-                  return const FifthPage();
-
-                default:
-                  return const FirstPage();
-              }
-            },
+            // physics: const NeverScrollableScrollPhysics(),
+            controller: _pageViewController,
+            itemCount: listScreens.length,
+            itemBuilder: (BuildContext context, int index) =>
+                listScreens[index],
           ),
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
               padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-              child: const Text(
-                "SEMPL!",
-                style: TextStyle(
-                  fontFamily: 'DrukCyr',
-                  fontSize: 32,
-                ),
-              ),
+              child: Text("SEMPL!",
+                  style: Theme.of(context).textTheme.titleMedium),
             ),
           ),
           Padding(
@@ -59,30 +65,44 @@ class OnboardinScreen extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  const Text(
-                    '01/05',
-                    style: TextStyle(
+                  Text(
+                    '0${_currentPageIndex + 1}/05',
+                    style: const TextStyle(
                       fontSize: 20,
                       fontFamily: 'SourceSansProBold',
                     ),
                   ),
-                  FloatingActionButton(onPressed: () {})
-                  // Container(
-                  //   height: 60,
-                  //   width: 60,
-                  //   decoration: BoxDecoration(
-                  //     color: Colors.white,
-                  //     borderRadius: BorderRadius.circular(
-                  //       15,
-                  //     ),
-                  //   ),
-                  //   child: IconButton(
-                  //     onPressed: () {},
-                  //     icon: const Icon(Icons.arrow_forward_ios_rounded),
-                  //   ),
-                  // ),
+                  const Spacer(),
+                  Container(
+                    height: height * 0.071,
+                    width: height * 0.071,
+                    constraints: const BoxConstraints(
+                        minHeight: 50,
+                        minWidth: 50,
+                        maxHeight: 70,
+                        maxWidth: 70),
+                    child: FloatingActionButton(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                      ),
+                      elevation: 0,
+                      onPressed: () {
+                        _nextPage();
+                      },
+                      backgroundColor: Colors.white,
+                      child: const Padding(
+                        padding: EdgeInsets.all(0.0),
+                        child: Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 24,
+                          weight: 700,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -90,5 +110,17 @@ class OnboardinScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _nextPage() {
+    if (_currentPageIndex < 4) {
+      setState(() {
+        _currentPageIndex++;
+      });
+      _pageViewController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    }
   }
 }

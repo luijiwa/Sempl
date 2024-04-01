@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/router/app_router.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/theme.dart';
 
 void main() {
@@ -24,32 +25,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = getAppThemeData(); // Получаем нашу тему из отдельного файла
+
     return MaterialApp.router(
-      theme: theme.copyWith(
-        inputDecorationTheme: const InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
-          ),
-          hintStyle: TextStyle(
-            fontFamily: 'SourceSansPro',
-            fontSize: 14,
-            color: AppThemeColor.gris,
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            borderSide: BorderSide(
-              width: 0.5,
-              color: AppThemeColor.gris,
-            ),
-          ),
-        ),
-      ),
+      theme: theme,
       routerConfig: _router,
     );
   }
