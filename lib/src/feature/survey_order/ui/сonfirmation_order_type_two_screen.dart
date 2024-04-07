@@ -7,8 +7,8 @@ import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
-class ConfirmationOrderSurveyScreen extends StatelessWidget {
-  const ConfirmationOrderSurveyScreen({super.key});
+class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
+  const ConfirmationOrderTypeTwoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,7 @@ class ConfirmationOrderSurveyScreen extends StatelessWidget {
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(
-                          "assets/images/survey_confirm_header_background.png"),
+                      image: AssetImage("assets/images/cream_header.png"),
                     ),
                   ),
                 ),
@@ -40,7 +39,7 @@ class ConfirmationOrderSurveyScreen extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'DrukCyr',
                       fontSize: 32,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                 ),
@@ -73,23 +72,27 @@ class ConfirmationOrderSurveyScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            "БРАВО!",
-                            style: TextStyle(
-                              fontFamily: 'DrukCyr',
-                              fontSize: 58,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(height: maxHeight * 0.01),
-                          const AutoSizeText(
-                            'Регистрация завершена, теперь можно начинать пробовать продукцию',
-                            style: TextStyle(
-                              fontFamily: 'SourceSansPro',
-                              fontSize: 15,
-                              color: Colors.white,
-                            ),
+                          AutoSizeText(
+                            "Спасибо за ваши ответы!".toUpperCase(),
+                            style: const TextStyle(
+                                fontFamily: 'DrukCyr',
+                                fontSize: 50,
+                                color: Colors.white,
+                                height: 1),
                             maxLines: 2,
+                          ),
+                          SizedBox(height: maxHeight * 0.0237),
+                          Padding(
+                            padding: EdgeInsets.only(right: maxWidth * 0.06),
+                            child: const AutoSizeText(
+                              'Мы рассмотрим ваш запрос и предоставим ответ как можно скорее',
+                              style: TextStyle(
+                                fontFamily: 'SourceSansPro',
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                              maxLines: 2,
+                            ),
                           ),
                         ],
                       ),
@@ -114,7 +117,7 @@ class ConfirmationOrderSurveyScreen extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              AutoSizeText('НАЧАТЬ ',
+                              AutoSizeText('НА ГЛАВНЫЙ ЭКРАН ',
                                   style: TextStyle(
                                     fontFamily: 'SourceSansPro',
                                     fontSize: maxWidth > 320 ? 15 : 12,

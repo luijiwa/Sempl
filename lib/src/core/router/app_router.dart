@@ -10,7 +10,8 @@ import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
 import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
 import 'package:my_app/src/feature/survey/survey_screen.dart';
-import 'package:my_app/src/feature/survey_order/ui/survey_confirmation.dart';
+import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_one_screen.dart';
+import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_two_screen.dart';
 import 'package:my_app/src/feature/survey_order/ui/survey_order_screen.dart';
 
 class AppRouter {
@@ -90,16 +91,16 @@ class AppRouter {
                   },
                   routes: <GoRoute>[
                     GoRoute(
-                        name: AppRoutes.surveyOrderConfirmTypeOne.name,
-                        path: AppRoutes.surveyOrderConfirmTypeOne.path,
+                        name: AppRoutes.confirmationOrderTypeOneScreen.name,
+                        path: AppRoutes.confirmationOrderTypeOneScreen.path,
                         builder: (context, state) {
-                          return const ConfirmationOrderSurveyTypeOneScreen();
+                          return const ConfirmationOrderTypeOneScreen();
                         }),
                     GoRoute(
-                        name: AppRoutes.surveyOrderConfirmTypeTwo.name,
-                        path: AppRoutes.surveyOrderConfirmTypeTwo.path,
+                        name: AppRoutes.confirmationOrderTypeTwoScreen.name,
+                        path: AppRoutes.confirmationOrderTypeTwoScreen.path,
                         builder: (context, state) {
-                          return const ConfirmationOrderSurveyTypeOneScreen();
+                          return const ConfirmationOrderTypeTwoScreen();
                         }),
                   ],
                 )

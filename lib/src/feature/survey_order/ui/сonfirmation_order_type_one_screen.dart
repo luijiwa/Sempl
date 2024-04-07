@@ -7,8 +7,8 @@ import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
-class ConfirmationOrderSurveyTypeOneScreen extends StatelessWidget {
-  const ConfirmationOrderSurveyTypeOneScreen({super.key});
+class ConfirmationOrderTypeOneScreen extends StatelessWidget {
+  const ConfirmationOrderTypeOneScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +105,8 @@ class ConfirmationOrderSurveyTypeOneScreen extends StatelessWidget {
                         height: 0.055 * maxHeight,
                         child: ElevatedButton(
                           onPressed: () {
-                            context.goNamed(AppRoutes.main.name);
+                            context.goNamed(
+                                AppRoutes.confirmationOrderTypeTwoScreen.name);
                           },
                           style: ElevatedButton.styleFrom(
                             elevation: 0,

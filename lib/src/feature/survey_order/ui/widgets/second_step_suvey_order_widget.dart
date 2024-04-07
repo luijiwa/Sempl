@@ -107,7 +107,7 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
             child: NextStepButton(
               title: 'continue'.toUpperCase(),
               onPressed: () {
-                context.goNamed(AppRoutes.surveyOrderConfirmTypeOne.name);
+                context.goNamed(AppRoutes.confirmationOrderTypeOneScreen.name);
               },
             ),
           ),

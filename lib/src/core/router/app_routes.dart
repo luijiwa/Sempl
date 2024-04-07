@@ -40,13 +40,14 @@ enum AppRoutes {
     name: 'surveyOrder',
     path: 'survey_order',
   ),
-  surveyOrderConfirmTypeOne(
-    name: 'surveyOrderConfirmTypeOne',
-    path: 'survey_order_confirm_type_one',
+
+  confirmationOrderTypeOneScreen(
+    name: 'confirmationOrderTypeOneScreen',
+    path: 'confirmation_order_type_one_screen',
   ),
-  surveyOrderConfirmTypeTwo(
-    name: 'surveyOrderConfirmTypeTwo',
-    path: 'survey_order_confirm_type_two',
+  confirmationOrderTypeTwoScreen(
+    name: 'confirmationOrderTypeTwoScreen',
+    path: 'confirmation_order_type_two_screen',
   ),
   ;
 
