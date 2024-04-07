@@ -1,15 +1,20 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
-class DeliveryAppBar extends StatelessWidget {
-  const DeliveryAppBar({super.key});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height.toDouble();
     final width = MediaQuery.of(context).size.width.toDouble();
+    logger.w(width * 0.18);
+
     return Container(
       width: double.maxFinite,
       decoration: const BoxDecoration(
@@ -26,8 +31,10 @@ class DeliveryAppBar extends StatelessWidget {
         children: [
           SizedBox(height: MediaQuery.of(context).padding.top),
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
+                splashRadius: 0.2,
                 icon: const Icon(
                   Icons.arrow_back_ios_rounded,
                   size: 18,
@@ -72,19 +79,31 @@ class DeliveryAppBar extends StatelessWidget {
             ),
           ),
           SizedBox(height: height * 0.008),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22.0),
-            child: AutoSizeText(
-              'ПОПРОБУЙТЕ НОВОЕ СРЕДСТВО ДЛЯ ЧИСТКИ ЗУБОВ БЕСПЛАТНО',
-              style: TextStyle(
-                fontFamily: 'SourceSansPro',
-                fontSize: 29,
-                color: Colors.white,
-                height: 0.9,
-              ),
-              maxLines: 3,
+          SizedBox(
+            width: width,
+            child: Row(
+              children: [
+                const Flexible(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 22),
+                    child: AutoSizeText(
+                      'ПОПРОБУЙТЕ НОВОЕ\nСРЕДСТВО ДЛЯ ЧИСТКИ\nЗУБОВ БЕСПЛАТНО',
+                      style: TextStyle(
+                        fontFamily: 'SourceSansPro',
+                        fontSize: 29,
+                        color: Colors.white,
+                        height: 0.9,
+                      ),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                SizedBox(width: width * 0.155),
+              ],
             ),
           ),
+          const Spacer(),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class FifthPage extends StatelessWidget {
   const FifthPage({super.key});
@@ -27,7 +28,7 @@ class FifthPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: AutoSizeText(
                   "АНКЕТА",
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.appBodyLarge,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.011),
@@ -38,7 +39,7 @@ class FifthPage extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: AutoSizeText(
                     "Наше приложение включает\nфункцию опроса, которая позволяет\nнам лучше понять ваши предпочтения\nи интересы пользователей",
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    style: Theme.of(context).textTheme.appBodyMedium,
                   ),
                 ),
               ),

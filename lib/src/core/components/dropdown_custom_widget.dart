@@ -13,33 +13,6 @@ class DropdownCustomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    InputDecoration inputDecoration = InputDecoration(
-      contentPadding: EdgeInsets.symmetric(
-          vertical: height * 0.014, horizontal: height * 0.023),
-      border: const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
-        borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-      ),
-      focusedBorder: const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
-        borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
-      ),
-      hintStyle: const TextStyle(
-        fontFamily: 'SourceSansPro',
-        fontSize: 14,
-        color: AppThemeColor.gris,
-      ),
-      disabledBorder: const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
-        borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-      ),
-      enabledBorder: const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
-        borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-      ),
-      fillColor: Colors.white,
-      filled: true,
-    );
 
     return DropdownButtonFormField<String>(
       dropdownColor: Colors.white,
@@ -51,11 +24,19 @@ class DropdownCustomWidget extends StatelessWidget {
           .map((item) => DropdownMenuItem(
               value: item,
               child: Text(item,
-                  style: const TextStyle(fontFamily: 'SourceSansPro'))))
+                  maxLines: 1,
+                  style: const TextStyle(
+                    fontFamily: 'SourceSansPro',
+                    overflow:
+                        TextOverflow.ellipsis, // добавлено обрезание текста
+                    // установлено максимальное количество строк
+                  ))))
           .toList(),
       hint: Text(hint,
           style: const TextStyle(
-              fontFamily: 'SourceSansPro', color: AppThemeColor.gris)),
+            fontFamily: 'SourceSansPro',
+            color: AppThemeColor.gris,
+          )),
       decoration: inputDecoration,
       value: null,
       onChanged: (_) {},

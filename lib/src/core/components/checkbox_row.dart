@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/theme.dart';
 
-class CheckboxRow extends StatelessWidget {
-  const CheckboxRow({
+class CheckboxRowWidget extends StatelessWidget {
+  const CheckboxRowWidget({
     super.key,
     required this.title,
     required this.value,

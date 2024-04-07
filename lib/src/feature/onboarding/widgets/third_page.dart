@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
@@ -32,7 +33,7 @@ class ThirdPage extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: AutoSizeText(
                     "ВКЛЮЧИТЕ\nУВЕДОМЛЕНИЯ, ЧТОБЫ\nБЫТЬ В КУРСЕ ВСЕХ\nНОВЫХ ПРОДУКТОВ",
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.appBodyLarge,
                     maxLines: 4,
                   ),
                 ),
@@ -45,7 +46,7 @@ class ThirdPage extends StatelessWidget {
                   child: AutoSizeText(
                     "Вы будете получать push-\nуведомления с информацией о новых\nдоступных товарах, акциях, скидках\nи других событиях",
                     textAlign: TextAlign.right,
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    style: Theme.of(context).textTheme.appBodyMedium,
                     maxLines: 4,
                   ),
                 ),

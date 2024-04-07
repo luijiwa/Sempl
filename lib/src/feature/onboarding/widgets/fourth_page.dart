@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class FourthPage extends StatelessWidget {
   const FourthPage({super.key});
@@ -29,7 +30,7 @@ class FourthPage extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: AutoSizeText(
               "НАШЕ ПРИЛОЖЕНИЕ\nРАБОТАЕТ В МОСКВЕ\nИ МОСКОВСКОЙ\nОБЛАСТИ",
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.appBodyLarge,
               maxLines: 4,
             ),
           ),

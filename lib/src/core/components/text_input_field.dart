@@ -1,16 +1,18 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_app/theme.dart';
 
 class TextInputField extends StatelessWidget {
   const TextInputField({
     super.key,
     required this.hintText,
+    this.inputFormatter,
   });
 
   final String hintText;
-
+  final TextInputFormatter? inputFormatter;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -18,6 +20,7 @@ class TextInputField extends StatelessWidget {
     log(padding.toString());
 
     return TextField(
+      inputFormatters: inputFormatter != null ? [inputFormatter!] : null,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
             vertical: height * 0.013, horizontal: height * 0.023),

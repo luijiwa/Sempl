@@ -5,7 +5,7 @@ import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/core/components/required_input_field.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
-import 'package:my_app/src/feature/delivery/delivery_app_bar.dart';
+import 'package:my_app/src/core/components/custom_app_bar.dart';
 import 'package:my_app/src/feature/delivery/delivery_modal_widget.dart';
 import 'package:my_app/theme.dart';
 
@@ -25,7 +25,7 @@ class DeliveryScreen extends StatelessWidget {
             preferredSize: Size.fromHeight(
               height * 0.24,
             ),
-            child: const DeliveryAppBar()),
+            child: const CustomAppBar()),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22.0),
           child: Column(

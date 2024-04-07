@@ -5,6 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class PhoneInputWidget extends StatefulWidget {
   const PhoneInputWidget({super.key});
@@ -98,14 +99,15 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                       ),
                       child: TextField(
                         inputFormatters: [maskFormatter],
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: '000 000 00 00',
-                          hintStyle: TextStyle(
-                            color: Color(0xFFCECECE),
-                            fontFamily: 'SourceSansPro',
-                          ),
-                        ),
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: '000 000 00 00',
+                            hintStyle: Theme.of(context)
+                                .textTheme
+                                .appBodyMedium
+                                .copyWith(
+                                  color: const Color(0xFFCECECE),
+                                )),
                       ),
                     ),
                   ),

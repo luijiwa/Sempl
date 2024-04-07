@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -29,7 +30,7 @@ class SecondPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "НАБИРАЙТЕ ОЧКИ",
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.appBodyLarge,
                 ),
               ),
               const SizedBox(
@@ -41,7 +42,7 @@ class SecondPage extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: AutoSizeText(
                     "Получайте баллы за отзывы о продукте\nи приглашения новых пользователей, покупайте на них продукты",
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    style: Theme.of(context).textTheme.appBodyMedium,
                     maxLines: 3,
                   ),
                 ),

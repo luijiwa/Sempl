@@ -36,6 +36,10 @@ enum AppRoutes {
     name: 'delivery',
     path: 'delivery',
   ),
+  surveyOrder(
+    name: 'surveyOrder',
+    path: '/survey_order',
+  ),
   ;
 
   const AppRoutes({

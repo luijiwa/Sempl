@@ -30,7 +30,7 @@ class RecentProductsScreen extends StatelessWidget {
                 .copyWith(top: height * 0.02),
             sliver: const SliverToBoxAdapter(
               child: AutoSizeText(
-                "НЕДАВНО ОПРОБОВАННЫЕ ПРОДУКТЫ",
+                "НЕДАВНО ОПРОБОВАЛИ",
                 style: TextStyle(
                   fontFamily: 'DrukCyr',
                   fontSize: 44,

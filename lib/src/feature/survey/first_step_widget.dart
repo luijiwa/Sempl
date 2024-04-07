@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/checkbox_row.dart';
 import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
@@ -48,7 +49,13 @@ class FirstStepWidget extends StatelessWidget {
             const DropdownCustomWidget(
                 hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
             const QuestionsPadding(),
-            const TextInputField(hintText: 'Дата рождения'),
+            TextInputField(
+              hintText: 'Дата рождения',
+              inputFormatter: MaskTextInputFormatter(
+                  mask: '##/##/##',
+                  filter: {"#": RegExp(r'[0-9]')},
+                  type: MaskAutoCompletionType.lazy),
+            ),
             const QuestionsPadding(),
             const TextInputField(hintText: 'Имя в приложении'),
             const QuestionsPadding(),
@@ -65,7 +72,7 @@ class FirstStepWidget extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 SizedBox(height: height * 0.006),
-                const CheckboxRow(
+                const CheckboxRowWidget(
                   title:
                       'Я хочу получать рекламные электронные письма и информацию о приложениях',
                   value: true,
@@ -83,7 +90,7 @@ class FirstStepWidget extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 SizedBox(height: height * 0.006),
-                const CheckboxRow(
+                const CheckboxRowWidget(
                   title: 'Я принимаю все правила',
                   value: false,
                   maxLines: 2,

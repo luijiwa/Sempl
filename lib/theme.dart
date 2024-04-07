@@ -13,6 +13,8 @@ abstract final class AppThemeColor {
 }
 
 const inputDecoration = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
   contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(40)),

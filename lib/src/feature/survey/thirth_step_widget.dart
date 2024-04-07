@@ -32,7 +32,7 @@ class ThirthStepWidget extends StatelessWidget {
             const QuestionWidget(
               title: 'Сколько человек живет с вами?',
               child: DropdownCustomWidget(
-                listItems: ['1', '2', '3'],
+                listItems: ['1', '2', 'Другое'],
                 hint: 'Выберите количество',
               ),
             ),
@@ -87,7 +87,7 @@ class PercentQuestion extends StatelessWidget {
         ),
         SizedBox(height: height * 0.012),
         const DropdownCustomWidget(
-          listItems: ['5%', '10%', '20%'],
+          listItems: ['5%', '10%', 'Другое'],
           hint: 'Выберите количество',
         ),
       ],
@@ -115,7 +115,7 @@ class FamilyIncomeQuestionWidget extends StatelessWidget {
         ),
         SizedBox(height: height * 0.012),
         const DropdownCustomWidget(
-          listItems: ['10 000', '20 000', '30 000'],
+          listItems: ['10 000', '20 000', 'Другое'],
           hint: 'Выберите количество',
         ),
       ],
@@ -138,8 +138,8 @@ class ChildrenQuestionUntilEighteen extends StatelessWidget {
       children: [
         const AutoSizeText('У вас есть дети до 18 лет?'),
         SizedBox(height: height * 0.009),
-        const CheckboxRow(title: 'Да', value: true),
-        const CheckboxRow(title: 'Нет', value: false),
+        const CheckboxRowWidget(title: 'Да', value: true),
+        const CheckboxRowWidget(title: 'Нет', value: false),
       ],
     );
   }
@@ -197,7 +197,7 @@ class PetsWidget extends StatelessWidget {
           shrinkWrap: true,
           itemCount: pets.length,
           itemBuilder: (context, index) {
-            return CheckboxRow(title: pets[index], value: index == 1);
+            return CheckboxRowWidget(title: pets[index], value: index == 1);
           },
         )
       ],

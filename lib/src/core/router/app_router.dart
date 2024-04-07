@@ -10,11 +10,19 @@ import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
 import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
 import 'package:my_app/src/feature/survey/survey_screen.dart';
+import 'package:my_app/src/feature/survey_order/ui/survey_order_screen.dart';
 
 class AppRouter {
   late final router = GoRouter(
     initialLocation: AppRoutes.onboarding.path,
     routes: <GoRoute>[
+      GoRoute(
+        name: AppRoutes.surveyOrder.name,
+        path: AppRoutes.surveyOrder.path,
+        builder: (context, state) {
+          return const SurveyOrderScreen();
+        },
+      ),
       GoRoute(
         name: AppRoutes.login.name,
         path: AppRoutes.login.path,
@@ -74,12 +82,12 @@ class AppRouter {
         },
         routes: <GoRoute>[
           GoRoute(
-            name: AppRoutes.delivery.name,
-            path: AppRoutes.delivery.path,
-            builder: (BuildContext context, GoRouterState state) {
-              return const DeliveryScreen();
-            },
-          ),
+              name: AppRoutes.delivery.name,
+              path: AppRoutes.delivery.path,
+              builder: (BuildContext context, GoRouterState state) {
+                return const DeliveryScreen();
+              },
+              routes: <GoRoute>[]),
         ],
       ),
     ],

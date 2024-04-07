@@ -27,7 +27,7 @@ class MainScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 22),
             sliver: SliverToBoxAdapter(
               child: AutoSizeText(
-                "НЕДАВНО ОПРОБОВАННЫЕ ПРОДУКТЫ",
+                "НЕДАВНО ОПРОБОВАЛИ",
                 style: TextStyle(
                   fontFamily: 'DrukCyr',
                   fontSize: 42,

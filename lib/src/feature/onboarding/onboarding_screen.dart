@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_app/src/core/router/app_routes.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/onboarding/widgets/fifth_page.dart';
 import 'package:my_app/src/feature/onboarding/widgets/first_page.dart';
@@ -46,7 +49,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
       body: Stack(
         children: [
           PageView.builder(
-            // physics: const NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             controller: _pageViewController,
             itemCount: listScreens.length,
             itemBuilder: (BuildContext context, int index) =>
@@ -57,7 +60,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
             child: Padding(
               padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
               child: Text("SEMPL!",
-                  style: Theme.of(context).textTheme.titleMedium),
+                  style: Theme.of(context).textTheme.appTitleMedium),
             ),
           ),
           Padding(
@@ -121,6 +124,8 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
+    } else {
+      context.goNamed(AppRoutes.login.name);
     }
   }
 }
