@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
 import 'package:my_app/src/core/components/custom_radio_button.dart';
-import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/feature/recent_products/search_input_widget.dart';
 import 'package:my_app/theme.dart';
 
 class CategoriesListScreen extends StatefulWidget {
-  const CategoriesListScreen({Key? key}) : super(key: key);
+  const CategoriesListScreen({super.key});
 
   @override
   _CategoriesListScreenState createState() => _CategoriesListScreenState();

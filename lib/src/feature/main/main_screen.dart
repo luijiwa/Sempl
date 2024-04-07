@@ -7,8 +7,6 @@ import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/main/main_screen_app_bar.dart';
-import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
-import 'package:my_app/theme.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});

@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:my_app/src/core/components/checkbox_row.dart';
 import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
-import 'package:my_app/src/feature/survey/thirth_step_widget.dart';
 import 'package:my_app/theme.dart';
 
 class FirstStepWidget extends StatelessWidget {
@@ -177,7 +175,7 @@ class PasswordGroupWidget extends StatelessWidget {
         const SizedBox(height: 5),
         const PasswordCheckItem(
           text:
-              '''Символы: (пробел) ! " # \$ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _\` { | } ~''',
+              '''Символы: (пробел) ! " # \$ % & ' ( ) * + , - . / : ; < = > ? @ [  ] ^ _` { | } ~''',
           maxLines: 2,
           status: false,
         ),

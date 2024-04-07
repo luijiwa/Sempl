@@ -55,9 +55,7 @@ class ThirthStepWidget extends StatelessWidget {
 }
 
 class _CustomPadding extends StatelessWidget {
-  const _CustomPadding({
-    super.key,
-  });
+  const _CustomPadding();
 
   @override
   Widget build(BuildContext context) {

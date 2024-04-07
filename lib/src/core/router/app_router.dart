@@ -87,7 +87,7 @@ class AppRouter {
               builder: (BuildContext context, GoRouterState state) {
                 return const DeliveryScreen();
               },
-              routes: <GoRoute>[]),
+              routes: const <GoRoute>[]),
         ],
       ),
     ],

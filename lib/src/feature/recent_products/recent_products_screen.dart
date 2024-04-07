@@ -4,12 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_sliver_app_bar.dart';
-import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
 import 'package:my_app/src/core/components/item_in_list_widget.dart';
-import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/utils/logger.dart';
-import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/theme.dart';
 
 class RecentProductsScreen extends StatelessWidget {

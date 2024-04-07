@@ -1,8 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';

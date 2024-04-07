@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
@@ -35,7 +34,7 @@ class PageIndicatorWidget extends StatelessWidget {
                         ? AppThemeColor.blueColor
                         : _currentPageIndex > i
                             ? Colors.black
-                            : Color(0xFFE3E3E3),
+                            : const Color(0xFFE3E3E3),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 )

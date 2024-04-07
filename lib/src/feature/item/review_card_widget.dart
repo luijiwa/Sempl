@@ -17,7 +17,7 @@ class ReviewCardWidget extends StatelessWidget {
       "assets/images/review_photo1.png",
       "assets/images/review_photo2.png",
     ];
-    final String video =
+    const String video =
         "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4";
 
     return SliverToBoxAdapter(
@@ -175,7 +175,7 @@ class ReviewCardWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
               ],
             ),
           ],
