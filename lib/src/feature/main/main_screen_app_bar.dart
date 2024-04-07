@@ -1,14 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
 class MainScreenAppBar extends StatelessWidget {
-  const MainScreenAppBar({
-    super.key,
-  });
+  const MainScreenAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +30,9 @@ class MainScreenAppBar extends StatelessWidget {
             background: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(height: MediaQuery.of(context).padding.top),
                   Row(
@@ -57,19 +58,24 @@ class MainScreenAppBar extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const AutoSizeText(
-                    'SEMPL!',
-                    style: TextStyle(
-                      fontFamily: 'DrukCyr',
-                      fontSize: 32,
-                      color: Colors.white,
-                    ),
-                    maxLines: 1,
-                  ),
-                  SizedBox(height: height * 0.008),
                   SizedBox(
-                    width: width,
+                    height: height * 0.06,
+                    width: 0.2 * width,
+                    child: const AutoSizeText(
+                      'SEMPL!',
+                      style: TextStyle(
+                        fontFamily: 'DrukCyr',
+                        fontSize: 32,
+                        color: Colors.white,
+                      ),
+                      maxLines: 1,
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: height * 0.09,
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Flexible(
                           child: AutoSizeText(
@@ -83,49 +89,50 @@ class MainScreenAppBar extends StatelessWidget {
                             maxLines: 3,
                           ),
                         ),
-                        SizedBox(width: width * 0.155),
-                      ],
-                    ),
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 38),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: width * 0.04,
-                                  vertical: height * 0.01),
-                              elevation: 0,
-                              foregroundColor: Colors.grey,
-                              backgroundColor: AppThemeColor.yellow),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              AutoSizeText(
-                                'заказать сейчас '.toUpperCase(),
-                                style: TextStyle(
-                                  fontFamily: 'SourceSansPro',
-                                  fontSize: width > 320 ? 14 : 12,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              SvgPicture.asset(
-                                colorFilter: const ColorFilter.mode(
-                                    Colors.black, BlendMode.srcIn),
-                                'assets/images/arrow_right.svg',
-                              ),
-                            ],
-                          ),
+                        SizedBox(
+                          width: width * 0.155,
                         ),
                       ],
                     ),
                   ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Spacer(),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: width * 0.04,
+                              vertical: height * 0.01),
+                          elevation: 0,
+                          foregroundColor: Colors.grey,
+                          backgroundColor: AppThemeColor.yellow,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            AutoSizeText(
+                              'заказать сейчас '.toUpperCase(),
+                              style: TextStyle(
+                                fontFamily: 'SourceSansPro',
+                                fontSize: width > 320 ? 14 : 12,
+                                color: Colors.black,
+                              ),
+                            ),
+                            SvgPicture.asset(
+                              'assets/images/arrow_right.svg',
+                              colorFilter: const ColorFilter.mode(
+                                  Colors.black, BlendMode.srcIn),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                   const Spacer(),
+                  const SizedBox(height: 36),
                 ],
               ),
             ),

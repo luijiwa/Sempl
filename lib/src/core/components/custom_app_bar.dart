@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -66,41 +67,47 @@ class CustomAppBar extends StatelessWidget {
               const SizedBox(width: 22),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22.0),
-            child: AutoSizeText(
-              'SEMPL!',
-              style: TextStyle(
-                fontFamily: 'DrukCyr',
-                fontSize: 34,
-                color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 22.0),
+            child: SizedBox(
+              height: height * 0.06,
+              width: 0.2 * width,
+              child: const AutoSizeText(
+                'SEMPL!',
+                style: TextStyle(
+                  fontFamily: 'DrukCyr',
+                  fontSize: 32,
+                  color: Colors.white,
+                ),
+                maxLines: 1,
               ),
-              maxLines: 1,
             ),
           ),
-          SizedBox(height: height * 0.008),
-          SizedBox(
-            width: width,
-            child: Row(
-              children: [
-                const Flexible(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 22),
+          Padding(
+            padding: const EdgeInsets.only(left: 22.0),
+            child: SizedBox(
+              width: double.infinity,
+              height: height * 0.1,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Flexible(
                     child: AutoSizeText(
                       'ПОПРОБУЙТЕ НОВОЕ\nСРЕДСТВО ДЛЯ ЧИСТКИ\nЗУБОВ БЕСПЛАТНО',
                       style: TextStyle(
                         fontFamily: 'SourceSansPro',
-                        fontSize: 29,
+                        fontSize: 27,
                         color: Colors.white,
                         height: 0.9,
                       ),
                       maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                ),
-                SizedBox(width: width * 0.155),
-              ],
+                  SizedBox(
+                    width: width * 0.155,
+                  ),
+                ],
+              ),
             ),
           ),
           const Spacer(),
