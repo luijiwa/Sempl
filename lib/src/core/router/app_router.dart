@@ -10,19 +10,13 @@ import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
 import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
 import 'package:my_app/src/feature/survey/survey_screen.dart';
+import 'package:my_app/src/feature/survey_order/ui/survey_confirmation.dart';
 import 'package:my_app/src/feature/survey_order/ui/survey_order_screen.dart';
 
 class AppRouter {
   late final router = GoRouter(
     initialLocation: AppRoutes.onboarding.path,
     routes: <GoRoute>[
-      GoRoute(
-        name: AppRoutes.surveyOrder.name,
-        path: AppRoutes.surveyOrder.path,
-        builder: (context, state) {
-          return const SurveyOrderScreen();
-        },
-      ),
       GoRoute(
         name: AppRoutes.login.name,
         path: AppRoutes.login.path,
@@ -87,7 +81,29 @@ class AppRouter {
               builder: (BuildContext context, GoRouterState state) {
                 return const DeliveryScreen();
               },
-              routes: const <GoRoute>[]),
+              routes: <GoRoute>[
+                GoRoute(
+                  name: AppRoutes.surveyOrder.name,
+                  path: AppRoutes.surveyOrder.path,
+                  builder: (context, state) {
+                    return const SurveyOrderScreen();
+                  },
+                  routes: <GoRoute>[
+                    GoRoute(
+                        name: AppRoutes.surveyOrderConfirmTypeOne.name,
+                        path: AppRoutes.surveyOrderConfirmTypeOne.path,
+                        builder: (context, state) {
+                          return const ConfirmationOrderSurveyTypeOneScreen();
+                        }),
+                    GoRoute(
+                        name: AppRoutes.surveyOrderConfirmTypeTwo.name,
+                        path: AppRoutes.surveyOrderConfirmTypeTwo.path,
+                        builder: (context, state) {
+                          return const ConfirmationOrderSurveyTypeOneScreen();
+                        }),
+                  ],
+                )
+              ]),
         ],
       ),
     ],

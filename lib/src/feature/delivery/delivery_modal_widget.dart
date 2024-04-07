@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/theme.dart';
 
 class DeliveryModalWidget extends StatelessWidget {
@@ -68,7 +70,9 @@ class DeliveryModalWidget extends StatelessWidget {
                 height: 0.055 * height,
                 width: double.maxFinite,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.goNamed(AppRoutes.surveyOrder.name);
+                  },
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     foregroundColor: Colors.white,

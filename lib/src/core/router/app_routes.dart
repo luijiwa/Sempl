@@ -38,7 +38,15 @@ enum AppRoutes {
   ),
   surveyOrder(
     name: 'surveyOrder',
-    path: '/survey_order',
+    path: 'survey_order',
+  ),
+  surveyOrderConfirmTypeOne(
+    name: 'surveyOrderConfirmTypeOne',
+    path: 'survey_order_confirm_type_one',
+  ),
+  surveyOrderConfirmTypeTwo(
+    name: 'surveyOrderConfirmTypeTwo',
+    path: 'survey_order_confirm_type_two',
   ),
   ;
 
