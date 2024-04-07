@@ -16,7 +16,7 @@ class DropdownCustomWidget extends StatelessWidget {
 
     return DropdownButtonFormField<String>(
       dropdownColor: Colors.white,
-      isExpanded: false,
+      isExpanded: true,
       iconSize: 24,
       icon:
           const Icon(Icons.expand_more_rounded, color: AppThemeColor.blueColor),
