@@ -2,9 +2,7 @@ import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/components/stack2.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
@@ -104,7 +102,7 @@ class ItemInFirstOnboardingPage extends StatelessWidget {
             width: width * 0.507,
             child: Image.asset(
               'assets/images/serum.png',
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
           SizedBox(height: height * 0.0059),
@@ -144,33 +142,46 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    const textStyle = TextStyle(fontFamily: 'SourceSansProBold', fontSize: 10);
+
+    final boxPadding = EdgeInsets.all(height * 0.011738);
+    final double fontSize = min(width * 0.03, height * 0.011738);
+
+    const textStyle = TextStyle(fontFamily: 'SourceSansProBold');
+
     final boxStyle = BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(width * 0.027),
     );
-    const boxPadding = EdgeInsets.symmetric(horizontal: 10, vertical: 10);
-    logger.w(width * 0.01273);
+
+    // Пропорциональные значения для позиционирования
+    final box1Bottom = height * 0.011738;
+    final box2Bottom = height * 0.023476;
+    final box3Bottom = height * 0.076297;
+    final box2Left = width * 0.14003;
+    final box3Left = width * 0.10184;
+    logger.w(height * 0.011738);
+
     return SizedBox(
       height: height * 0.18,
       width: width * 0.364,
       child: Stack(
         children: [
           Positioned(
-            bottom: height * 0.011738,
+            bottom: box1Bottom,
             left: width * 0.01273,
             child: Container(
               padding: boxPadding,
               decoration: boxStyle.copyWith(color: const Color(0xFFFFBBF4)),
               child: Text(
                 'попробовать продукт'.toUpperCase(),
-                style: textStyle.copyWith(color: const Color(0xFFFAF379)),
+                style: textStyle.copyWith(
+                    fontSize: fontSize, color: const Color(0xFFFAF379)),
               ),
             ),
           ),
           Positioned(
-            bottom: height * 0.023476, // 0.011738
-            left: width * 0.14003,
+            bottom: box2Bottom,
+            left: box2Left,
             child: Transform.rotate(
               angle: -110 * (pi / 180),
               child: Container(
@@ -180,15 +191,16 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
                   quarterTurns: 1,
                   child: Text(
                     'читать отзывы'.toUpperCase(),
-                    style: textStyle.copyWith(color: const Color(0xFFB5A3F8)),
+                    style: textStyle.copyWith(
+                        fontSize: fontSize, color: const Color(0xFFB5A3F8)),
                   ),
                 ),
               ),
             ),
           ),
           Positioned(
-            bottom: height * 0.076297,
-            left: width * 0.10184,
+            bottom: box3Bottom,
+            left: box3Left,
             child: Transform.rotate(
               angle: -70 * (pi / 180),
               child: Container(
@@ -198,7 +210,8 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
                   quarterTurns: 1,
                   child: Text(
                     'оставить оценку'.toUpperCase(),
-                    style: textStyle.copyWith(color: const Color(0xFF496969)),
+                    style: textStyle.copyWith(
+                        fontSize: fontSize, color: const Color(0xFF496969)),
                   ),
                 ),
               ),
