@@ -38,7 +38,7 @@ enum AppRoutes {
   ),
   surveyOrder(
     name: 'surveyOrder',
-    path: 'survey_order',
+    path: '/survey_order',
   ),
 
   confirmationOrderTypeOneScreen(
@@ -48,6 +48,10 @@ enum AppRoutes {
   confirmationOrderTypeTwoScreen(
     name: 'confirmationOrderTypeTwoScreen',
     path: 'confirmation_order_type_two_screen',
+  ),
+  profile(
+    name: 'profile',
+    path: 'profile',
   ),
   ;
 

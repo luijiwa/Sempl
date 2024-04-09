@@ -7,6 +7,7 @@ import 'package:my_app/src/feature/item/item_screen.dart';
 import 'package:my_app/src/feature/login/login_screen.dart';
 import 'package:my_app/src/feature/main/main_screen.dart';
 import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
+import 'package:my_app/src/feature/profile/ui/profile_screen.dart';
 import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
 import 'package:my_app/src/feature/survey/survey_screen.dart';
@@ -16,8 +17,29 @@ import 'package:my_app/src/feature/survey_order/ui/survey_order_screen.dart';
 
 class AppRouter {
   late final router = GoRouter(
-    initialLocation: AppRoutes.onboarding.path,
+    initialLocation: AppRoutes.surveyOrder.path,
     routes: <GoRoute>[
+      GoRoute(
+        name: AppRoutes.surveyOrder.name,
+        path: AppRoutes.surveyOrder.path,
+        builder: (context, state) {
+          return const SurveyOrderScreen();
+        },
+        routes: <GoRoute>[
+          GoRoute(
+              name: AppRoutes.confirmationOrderTypeOneScreen.name,
+              path: AppRoutes.confirmationOrderTypeOneScreen.path,
+              builder: (context, state) {
+                return const ConfirmationOrderTypeOneScreen();
+              }),
+          GoRoute(
+              name: AppRoutes.confirmationOrderTypeTwoScreen.name,
+              path: AppRoutes.confirmationOrderTypeTwoScreen.path,
+              builder: (context, state) {
+                return const ConfirmationOrderTypeTwoScreen();
+              }),
+        ],
+      ),
       GoRoute(
         name: AppRoutes.login.name,
         path: AppRoutes.login.path,
@@ -54,6 +76,12 @@ class AppRouter {
             const MainScreen(),
         routes: <GoRoute>[
           GoRoute(
+              name: AppRoutes.profile.name,
+              path: AppRoutes.profile.path,
+              builder: (context, state) {
+                return const ProfileScreen();
+              }),
+          GoRoute(
             name: AppRoutes.recentProducts.name,
             path: AppRoutes.recentProducts.path,
             builder: (BuildContext context, GoRouterState state) =>
@@ -83,27 +111,27 @@ class AppRouter {
                 return const DeliveryScreen();
               },
               routes: <GoRoute>[
-                GoRoute(
-                  name: AppRoutes.surveyOrder.name,
-                  path: AppRoutes.surveyOrder.path,
-                  builder: (context, state) {
-                    return const SurveyOrderScreen();
-                  },
-                  routes: <GoRoute>[
-                    GoRoute(
-                        name: AppRoutes.confirmationOrderTypeOneScreen.name,
-                        path: AppRoutes.confirmationOrderTypeOneScreen.path,
-                        builder: (context, state) {
-                          return const ConfirmationOrderTypeOneScreen();
-                        }),
-                    GoRoute(
-                        name: AppRoutes.confirmationOrderTypeTwoScreen.name,
-                        path: AppRoutes.confirmationOrderTypeTwoScreen.path,
-                        builder: (context, state) {
-                          return const ConfirmationOrderTypeTwoScreen();
-                        }),
-                  ],
-                )
+                // GoRoute(
+                //   name: AppRoutes.surveyOrder.name,
+                //   path: AppRoutes.surveyOrder.path,
+                //   builder: (context, state) {
+                //     return const SurveyOrderScreen();
+                //   },
+                //   routes: <GoRoute>[
+                //     GoRoute(
+                //         name: AppRoutes.confirmationOrderTypeOneScreen.name,
+                //         path: AppRoutes.confirmationOrderTypeOneScreen.path,
+                //         builder: (context, state) {
+                //           return const ConfirmationOrderTypeOneScreen();
+                //         }),
+                //     GoRoute(
+                //         name: AppRoutes.confirmationOrderTypeTwoScreen.name,
+                //         path: AppRoutes.confirmationOrderTypeTwoScreen.path,
+                //         builder: (context, state) {
+                //           return const ConfirmationOrderTypeTwoScreen();
+                //         }),
+                //   ],
+                // ),
               ]),
         ],
       ),
