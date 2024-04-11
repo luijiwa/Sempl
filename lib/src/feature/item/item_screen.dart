@@ -39,9 +39,9 @@ class ItemScreen extends StatelessWidget {
               sliver: SliverToBoxAdapter(
                   child: Row(
                 children: [
-                  AutoSizeText(
-                    'Комментарии (387)'.toUpperCase(),
-                    style: const TextStyle(
+                  const AutoSizeText(
+                    'КОММЕНТАРИИ (387)',
+                    style: TextStyle(
                         fontFamily: 'SourceSansProSemiBold', fontSize: 15),
                   ),
                   const Spacer(),

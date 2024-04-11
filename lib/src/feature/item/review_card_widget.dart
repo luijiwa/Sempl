@@ -50,9 +50,9 @@ class ReviewCardWidget extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: width * 0.02),
-                AutoSizeText(
-                  "@wolflikemeee".toUpperCase(),
-                  style: const TextStyle(
+                const AutoSizeText(
+                  "@WOLFLIKEMEEE",
+                  style: TextStyle(
                     fontSize: 12,
                     fontFamily: 'SourceSansProBold',
                     color: AppThemeColor.blueColor,

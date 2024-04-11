@@ -23,6 +23,7 @@ class _SurveyOrderScreenState extends State<SurveyOrderScreen> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: PageView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         controller: _pageViewController,
         itemCount: 2,
         itemBuilder: (context, index) {
@@ -31,7 +32,8 @@ class _SurveyOrderScreenState extends State<SurveyOrderScreen> {
               onNextPage: () => _nextPage(),
             );
           } else {
-            return const SecondStepSurveyOrderWidget();
+            return SecondStepSurveyOrderWidget(
+                onPreviousPage: () => _previousPage());
           }
         },
       ),
