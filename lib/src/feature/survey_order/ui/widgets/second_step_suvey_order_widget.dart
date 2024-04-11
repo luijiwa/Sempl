@@ -9,14 +9,16 @@ import 'package:my_app/src/core/components/custom_radio_button.dart';
 import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
+import 'package:my_app/src/core/theme/text_theme.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/survey/first_step_widget.dart';
+import 'package:my_app/src/feature/survey_order/ui/widgets/question_widget.dart';
 import 'package:my_app/theme.dart';
 
 class SecondStepSurveyOrderWidget extends StatelessWidget {
-  const SecondStepSurveyOrderWidget({super.key});
-
+  const SecondStepSurveyOrderWidget({super.key, required this.onPreviousPage});
+  final VoidCallback onPreviousPage;
   @override
   Widget build(BuildContext context) {
     final text = [
@@ -27,6 +29,8 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
       'Помогает поддерживать крепкие зубы и здоровые десны'
     ];
     final height = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
+
     logger.i(height * 0.029345);
     return SingleChildScrollView(
       child: Column(
@@ -35,7 +39,9 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
         children: [
           SizedBox(
             height: height * 0.31,
-            child: const CustomAppBar(),
+            child: CustomAppBar(
+              onTapBack: () => onPreviousPage,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -60,14 +66,16 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
                   .copyWith(color: AppThemeColor.blueColor),
             ),
           ),
+          SizedBox(height: height * 0.009),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22.0)
-                .copyWith(bottom: height * 0.0083),
+                .copyWith(bottom: height * 0.009),
             child: AutoSizeText(
               'Какую главную особенность вы ищете в ополаскивателе для рта?',
               style: Theme.of(context).textTheme.appBodyMedium,
             ),
           ),
+          SizedBox(height: height * 0.009),
           ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -83,11 +91,12 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
                           style: Theme.of(context).textTheme.appBodyMedium,
                           overflow: TextOverflow.fade),
                     ),
+                    SizedBox(width: width * 0.05),
                   ],
                 );
               },
               separatorBuilder: (context, index) {
-                return SizedBox(height: height * 0.011738);
+                return SizedBox(height: height * 0.015);
               }),
           const QuestionsPadding(),
           ListView.separated(
@@ -99,13 +108,13 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
                 return QuestionWidget(text: text, index: index + 2);
               },
               separatorBuilder: (BuildContext context, int index) {
-                return SizedBox(height: height * 0.029345);
+                return SizedBox(height: height * 0.03);
               }),
           SizedBox(height: height * 0.068),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22.0),
             child: NextStepButton(
-              title: 'continue'.toUpperCase(),
+              title: 'receive the goods'.toUpperCase(),
               onPressed: () {
                 context.goNamed(AppRoutes.confirmationOrderTypeOneScreen.name);
               },
@@ -114,48 +123,6 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
           const BottomPadding(),
         ],
       ),
-    );
-  }
-}
-
-class QuestionWidget extends StatelessWidget {
-  const QuestionWidget({
-    super.key,
-    required this.text,
-    required this.index,
-  });
-
-  final List<String> text;
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height;
-    final width = MediaQuery.sizeOf(context).width;
-    logger.w(height * 0.0083);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: height * 0.0083),
-          child: AutoSizeText(
-            'Вопрос $index',
-            style: Theme.of(context)
-                .textTheme
-                .appBodyMedium
-                .copyWith(color: AppThemeColor.blueColor),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: height * 0.0083),
-          child: AutoSizeText(
-            'Какую главную особенность вы ищете в ополаскивателе для рта?',
-            style: Theme.of(context).textTheme.appBodyMedium,
-          ),
-        ),
-        DropdownCustomWidget(listItems: text, hint: 'Выберите ответ'),
-      ],
     );
   }
 }
