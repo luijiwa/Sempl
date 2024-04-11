@@ -1,11 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/src/core/theme/text_theme.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/core/utils/logger.dart';
+import 'package:my_app/src/feature/profile/ui/widgets/complete_example_list_widget.dart';
 import 'package:my_app/theme.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -15,7 +14,9 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
+    logger.w(height * 0.0153);
     return Scaffold(
+      backgroundColor: AppThemeColor.grey,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -27,6 +28,7 @@ class ProfileScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 22),
             sliver: SliverToBoxAdapter(
                 child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Stack(
                   clipBehavior: Clip.none,
@@ -60,12 +62,11 @@ class ProfileScreen extends StatelessWidget {
                               color: Colors.white,
                               width: 1.0,
                             )),
-                        child: Expanded(
-                            child: Icon(
+                        child: Icon(
                           Icons.edit,
                           color: Colors.white,
                           size: width * 0.03,
-                        )),
+                        ),
                       ),
                     ),
                   ],
@@ -88,14 +89,29 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('ИЗМЕНИТЬ'),
-                )
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppThemeColor.blueColor,
+                      // shape: const StadiumBorder(),
+                      elevation: 0,
+                      textStyle: Theme.of(context)
+                          .textTheme
+                          .appBodyMedium
+                          .copyWith(color: Colors.white, fontSize: 12),
+                    ),
+                    child: const Row(
+                      children: [
+                        Text('ИЗМЕНИТЬ '),
+                        Icon(Icons.padding),
+                      ],
+                    ))
               ],
             )),
           ),
+          SliverToBoxAdapter(child: SizedBox(height: height * 0.0388)),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
+            padding: const EdgeInsets.symmetric(horizontal: 22)
+                .copyWith(bottom: height * 0.0153),
             sliver: SliverToBoxAdapter(
               child: Text(
                 'МОИ ОЖИДАЕМЫЕ ОБРАЗЦЫ',
@@ -105,9 +121,11 @@ class ProfileScreen extends StatelessWidget {
           ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 22),
-            sliver: SliverToBoxAdapter(
-              child: Material(
+            sliver: SliverList.separated(
+              itemCount: 1,
+              itemBuilder: (context, index) => Material(
                 elevation: 10,
+                shadowColor: Colors.black.withOpacity(0.16),
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
                 child: Container(
@@ -118,60 +136,98 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset('assets/images/serum.png'),
-                      const Text(
-                        'СЕКРЕТНЫЙ ПРОДУКТ ТОЛЬКО ДЛЯ ТЕБЯ',
-                        textAlign: TextAlign.center,
-                      ),
                       Text(
-                        'ожидаемое время доставки: 15 января в 18:00'
-                            .toUpperCase(),
+                        'СЕКРЕТНЫЙ ПРОДУКТ ТОЛЬКО ДЛЯ ТЕБЯ',
+                        style: Theme.of(context).textTheme.appBodySemiBold,
                         textAlign: TextAlign.center,
                       ),
+                      Text('Ожидаемое время доставки: 15 января в 18:00',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .appBodyMedium
+                              .copyWith(
+                                  fontSize: 13, color: AppThemeColor.grisTwo)),
                     ],
                   ),
                 ),
               ),
+              separatorBuilder: (context, index) => const SizedBox(height: 12),
             ),
           ),
+          SliverToBoxAdapter(child: SizedBox(height: height * 0.0388)),
           SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 22),
-              sliver: SliverToBoxAdapter(
-                child: Container(
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                      color: Color(0xffCFF3E9),
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(
-                            'assets/images/Background 3.png',
-                          ))),
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(
-                      top: 10, bottom: 24, left: 20, right: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
+            padding: const EdgeInsets.symmetric(horizontal: 22),
+            sliver: SliverToBoxAdapter(
+              child: Container(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    color: Color(0xffCFF3E9),
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                          'assets/images/Background 3.png',
+                        ))),
+                width: double.infinity,
+                padding: const EdgeInsets.only(
+                    top: 10, bottom: 24, left: 20, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+                      child: Text(
                         'МЫ СОБРАЛИ ПРОДУКТЫ, ЧТОБЫ ПОПРОБОВАТЬ СПЕЦИАЛЬНО ДЛЯ ВАС!',
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.appTitleMedium,
                       ),
-                      Text(
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: height * 0.01888),
+                      child: Text(
                         'НА ОСНОВЕ ДАННЫХ ВАШЕЙ АНКЕТЫ МЫ СОБРАЛИ ДЛЯ ВАС КОРЗИНУ ИНТЕРЕСНЫХ ТОВАРОВ'
                             .toUpperCase(),
                         textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .appBodyMedium
+                            .copyWith(fontSize: 13),
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('ХОЧУ ЭТО!'),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          padding:
+                              EdgeInsets.symmetric(vertical: height * 0.018),
+                          textStyle: Theme.of(context).textTheme.appBodyMedium,
                         ),
-                      )
-                    ],
-                  ),
+                        onPressed: () {},
+                        child: Text('ХОЧУ ЭТО!',
+                            style: Theme.of(context).textTheme.appBodyMedium),
+                      ),
+                    )
+                  ],
                 ),
-              ))
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: height * 0.0388)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 22)
+                .copyWith(bottom: height * 0.0153),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                'МОИ ЗАВЕРШЁННЫЕ ОБРАЗЦЫ',
+                style: Theme.of(context).textTheme.appTitleMedium,
+              ),
+            ),
+          ),
+          const CompleteExampleListWidget(),
+          const SliverToBoxAdapter(
+            child: BottomPadding(),
+          )
         ],
       ),
     );
