@@ -10,6 +10,7 @@ abstract final class AppThemeColor {
   static const Color black = Color(0xFF252525);
   static const Color purple = Color(0xFFB5A3F8);
   static const Color yellow = Color(0xFFFFEF7D);
+  static const Color greyTwo = Color(0xFF545454);
 }
 
 const inputDecoration = InputDecoration(
