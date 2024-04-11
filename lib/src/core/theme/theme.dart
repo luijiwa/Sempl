@@ -1,38 +1,5 @@
 import 'package:flutter/material.dart';
 
-extension CustomStyles on TextTheme {
-  TextStyle get appBodyMedium {
-    return const TextStyle(
-      fontFamily: 'SourceSansPro',
-      fontWeight: FontWeight.w400,
-      fontSize: 15.0,
-      height: 1.2,
-      color: Colors.black,
-    );
-  }
-
-  TextStyle get appBodyLarge {
-    return const TextStyle(
-      fontFamily: 'DrukCyr',
-      fontWeight: FontWeight.w700,
-      fontSize: 40.0,
-      height: 1.05,
-      letterSpacing: 0.02 * 40, // Межбуквенное расстояние, 2% от 40px
-      color: Colors.black,
-    );
-  }
-
-  TextStyle get appTitleMedium {
-    return const TextStyle(
-      fontFamily: 'DrukCyr',
-      fontWeight: FontWeight.w700,
-      fontSize: 31.55,
-      height: 1.273,
-      color: Colors.black,
-    );
-  }
-}
-
 ThemeData getAppThemeData() {
   final baseTheme = ThemeData.light(); // Базовая тема
 
