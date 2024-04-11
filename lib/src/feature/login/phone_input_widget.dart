@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:my_app/src/core/theme/text_theme.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
 class PhoneInputWidget extends StatefulWidget {
