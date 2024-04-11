@@ -127,7 +127,7 @@ flutter:
     - assets/images/yellow_star.png
     - assets/images/sun_bottom.png
     - assets/images/sign_bottom.png
-
+    - assets/images/secret_item_image.png
 
     - assets/images/review_photo1.png
     - assets/images/review_photo2.png
