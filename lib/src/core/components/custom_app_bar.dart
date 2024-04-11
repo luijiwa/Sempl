@@ -1,11 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, this.onTapBack});
+  final VoidCallback? onTapBack;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,13 @@ class CustomAppBar extends StatelessWidget {
                   weight: 600,
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  if (onTapBack == null) {
+                    if (context.canPop()) {
+                      context.pop();
+                    }
+                  } else {
+                    onTapBack;
+                  }
                 },
               ),
               const Spacer(),
