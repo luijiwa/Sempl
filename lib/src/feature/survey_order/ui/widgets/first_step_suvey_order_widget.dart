@@ -47,7 +47,7 @@ class FirstStepSurveyOrderWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22.0),
           child: NextStepButton(
-            title: 'continue'.toUpperCase(),
+            title: 'Продолжить '.toUpperCase(),
             onPressed: onNextPage,
           ),
         ),

@@ -18,7 +18,6 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
         final maxWidth = constraints.maxWidth.toDouble();
         final bodyHeight = maxHeight * 0.58;
 
-        logger.w(maxWidth * 0.078);
         return Stack(
           children: [
             Stack(

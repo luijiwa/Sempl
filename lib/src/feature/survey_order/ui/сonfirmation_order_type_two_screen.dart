@@ -18,7 +18,6 @@ class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
         final maxWidth = constraints.maxWidth.toDouble();
         final bodyHeight = maxHeight * 0.58;
 
-        logger.w(maxWidth * 0.078);
         return Stack(
           children: [
             Stack(
@@ -133,7 +132,7 @@ class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
                             height: 0.055 * maxHeight,
                             child: ElevatedButton(
                               onPressed: () {
-                                context.goNamed(AppRoutes.main.name);
+                                context.pushNamed(AppRoutes.profile.name);
                               },
                               style: ElevatedButton.styleFrom(
                                 elevation: 0,

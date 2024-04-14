@@ -66,16 +66,16 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
                   .copyWith(color: AppThemeColor.blueColor),
             ),
           ),
-          SizedBox(height: height * 0.009),
+          SizedBox(height: height * 0.01),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22.0)
-                .copyWith(bottom: height * 0.009),
+                .copyWith(bottom: height * 0.01),
             child: AutoSizeText(
               'Какую главную особенность вы ищете в ополаскивателе для рта?',
               style: Theme.of(context).textTheme.appBodyMedium,
             ),
           ),
-          SizedBox(height: height * 0.009),
+          SizedBox(height: height * 0.01),
           ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -84,7 +84,7 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Row(
                   children: [
-                    CustomRadioButton(value: true, onChanged: (index) {}),
+                    CustomRadioButton(),
                     const SizedBox(width: 6.0),
                     Flexible(
                       child: Text(text[index],
@@ -114,7 +114,7 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22.0),
             child: NextStepButton(
-              title: 'receive the goods'.toUpperCase(),
+              title: 'Получить товар '.toUpperCase(),
               onPressed: () {
                 context.goNamed(AppRoutes.confirmationOrderTypeOneScreen.name);
               },
