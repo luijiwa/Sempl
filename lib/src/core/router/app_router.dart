@@ -119,7 +119,7 @@ class AppRouter {
               builder: (BuildContext context, GoRouterState state) {
                 return const DeliveryScreen();
               },
-              routes: <GoRoute>[
+              routes: const <GoRoute>[
                 // GoRoute(
                 //   name: AppRoutes.surveyOrder.name,
                 //   path: AppRoutes.surveyOrder.path,

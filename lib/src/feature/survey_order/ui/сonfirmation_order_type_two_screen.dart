@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
-import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
 class ConfirmationOrderTypeTwoScreen extends StatelessWidget {

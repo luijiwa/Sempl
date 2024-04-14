@@ -29,11 +29,11 @@ class _SurveyOrderScreenState extends State<SurveyOrderScreen> {
         itemBuilder: (context, index) {
           if (index == 0) {
             return FirstStepSurveyOrderWidget(
-              onNextPage: () => _nextPage(),
+              onNextPage: _nextPage,
             );
           } else {
             return SecondStepSurveyOrderWidget(
-                onPreviousPage: () => _previousPage());
+                onPreviousPage: _previousPage);
           }
         },
       ),

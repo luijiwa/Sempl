@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/theme/text_theme.dart';
-import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/onboarding/widgets/fifth_page.dart';
 import 'package:my_app/src/feature/onboarding/widgets/first_page.dart';
 import 'package:my_app/src/feature/onboarding/widgets/fourth_page.dart';
@@ -92,9 +90,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                       ),
                       elevation: 0,
-                      onPressed: () {
-                        _nextPage();
-                      },
+                      onPressed: _nextPage,
                       backgroundColor: Colors.white,
                       child: const Padding(
                         padding: EdgeInsets.all(0.0),

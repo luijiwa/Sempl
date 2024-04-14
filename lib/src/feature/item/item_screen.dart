@@ -35,7 +35,7 @@ class ItemScreen extends StatelessWidget {
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 22)
               .copyWith(top: 27, bottom: 15),
-          sliver: CommentsRowWidget(),
+          sliver: const CommentsRowWidget(),
         ),
         const ReviewCardWidget(),
         const SliverToBoxAdapter(

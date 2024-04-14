@@ -50,9 +50,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
                 size: 18,
                 weight: 500,
               ),
-              onPressed: () {
-                _previousPage();
-              },
+              onPressed: _previousPage,
             ),
           ),
           backgroundColor: const Color(0xffff8f8f8),
@@ -66,19 +64,19 @@ class _SurveyScreenState extends State<SurveyScreen> {
                   switch (index) {
                     case 0:
                       return FirstStepWidget(
-                        onNextPage: () => _nextPage(),
+                        onNextPage: _nextPage,
                       );
                     case 1:
                       return SecondStepWidget(
-                        onNextPage: () => _nextPage(),
+                        onNextPage: _nextPage,
                       );
                     case 2:
                       return ThirthStepWidget(
-                        onNextPage: () => _nextPage(),
+                        onNextPage: _nextPage,
                       );
                     case 3:
                       return FourStepWidget(
-                        onNextPage: () => _nextPage(),
+                        onNextPage: _nextPage,
                       );
                     case 4:
                       return FifthStepWidget(onNextPage: () {

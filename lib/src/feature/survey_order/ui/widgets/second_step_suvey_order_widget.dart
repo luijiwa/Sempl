@@ -1,16 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_app_bar.dart';
 import 'package:my_app/src/core/components/custom_radio_button.dart';
-import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/theme/text_theme.dart';
-import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/survey/first_step_widget.dart';
 import 'package:my_app/src/feature/survey_order/ui/widgets/question_widget.dart';
@@ -84,7 +80,7 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Row(
                   children: [
-                    CustomRadioButton(),
+                    const CustomRadioButton(),
                     const SizedBox(width: 6.0),
                     Flexible(
                       child: Text(text[index],

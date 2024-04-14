@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
 class PageIndicatorWidget extends StatelessWidget {
