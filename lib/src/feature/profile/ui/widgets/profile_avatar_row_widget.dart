@@ -1,7 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/src/core/theme/text_theme.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/theme.dart';
 
 class ProfileAvatarRowWidget extends StatelessWidget {
@@ -10,90 +13,114 @@ class ProfileAvatarRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-
+    final height = MediaQuery.sizeOf(context).height;
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       sliver: SliverToBoxAdapter(
-          child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Container(
-                width: width * 0.2,
-                height: width * 0.2,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xff7c94b6),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/profile.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                  border: Border.all(
-                    color: AppThemeColor.blueColor,
-                    width: 1.0,
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 0,
-                right: 0,
-                child: Container(
-                  width: width * 0.05,
-                  height: width * 0.05,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  width: width * 0.2,
+                  height: width * 0.2,
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle,
+                    shape: BoxShape.circle,
+                    color: const Color(0xff7c94b6),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/profile.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    border: Border.all(
                       color: AppThemeColor.blueColor,
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 1.0,
-                      )),
-                  child: Icon(
-                    Icons.edit,
-                    color: Colors.white,
-                    size: width * 0.03,
+                      width: 1.0,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('КАСИА ЛАНГЕР',
-                  style: Theme.of(context).textTheme.appTitleMedium),
-              const AutoSizeText(
-                "@WOLFLIKEMEEE",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontFamily: 'SourceSansProBold',
-                  color: AppThemeColor.blueColor,
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    width: width * 0.05,
+                    height: width * 0.05,
+                    padding: EdgeInsets.all(width * 0.005),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppThemeColor.blueColor,
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1.0,
+                        )),
+                    child: SvgPicture.asset(
+                      'assets/icons/pen_write.svg',
+                      colorFilter:
+                          const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                    ),
+                  ),
                 ),
-                maxLines: 1,
-              ),
-              const PointsWidget(),
-            ],
-          ),
-          ElevatedButton(
+              ],
+            ),
+            const SizedBox(width: 5),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text('КАСИА ЛАНГЕР',
+                    style: Theme.of(context).textTheme.appTitleMedium),
+                SizedBox(height: height * 0.0059),
+                const AutoSizeText(
+                  "@WOLFLIKEMEEE",
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontFamily: 'SourceSansProBold',
+                    color: AppThemeColor.blueColor,
+                  ),
+                  maxLines: 1,
+                ),
+                SizedBox(height: height * 0.0059),
+                const PointsWidget(),
+              ],
+            ),
+            const Spacer(),
+            ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
+                minimumSize: Size.zero,
+                padding: EdgeInsets.symmetric(
+                    horizontal: width * 0.0357, vertical: height * 0.0059),
                 backgroundColor: AppThemeColor.blueColor,
-                // shape: const StadiumBorder(),
                 elevation: 0,
                 textStyle: Theme.of(context)
                     .textTheme
                     .appBodyMedium
-                    .copyWith(color: Colors.white, fontSize: 12),
+                    .copyWith(color: Colors.white, fontSize: 8, height: 0),
               ),
-              child: const Row(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('ИЗМЕНИТЬ '),
-                  Icon(Icons.padding),
+                  Text(
+                    'Изменить ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .appBodyMedium
+                        .copyWith(color: Colors.white, fontSize: 12, height: 0),
+                  ),
+                  SvgPicture.asset(
+                    'assets/images/settings.svg',
+                    colorFilter:
+                        const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                  ),
                 ],
-              ))
-        ],
-      )),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
