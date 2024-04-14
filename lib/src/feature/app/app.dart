@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/router/app_router.dart';
+import 'package:my_app/theme.dart';
+
+/// TODO: По ширине 10px   width * 0.02545
+/// TODO: По высоте 10px  height * 0.0118
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -14,7 +18,9 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = ThemeData();
+    final theme = ThemeData(
+      scaffoldBackgroundColor: AppThemeColor.grey,
+    );
 
     return MaterialApp.router(
       theme: theme,
