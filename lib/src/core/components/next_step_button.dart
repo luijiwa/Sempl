@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class NextStepButton extends StatelessWidget {
   const NextStepButton({
@@ -41,7 +41,7 @@ class NextStepButton extends StatelessWidget {
             SvgPicture.asset(
               colorFilter:
                   const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-              'assets/images/arrow_right.svg',
+              'assets/icons/arrow_right.svg',
             ),
           ],
         ),

@@ -1,4 +1,3 @@
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
@@ -13,8 +12,7 @@ class FourStepWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    final double bottomOffset =
-        height * 0.059 - MediaQuery.of(context).padding.bottom;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Column(

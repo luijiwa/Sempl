@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/theme/text_theme.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ItemWithDateWidget extends StatelessWidget {
   const ItemWithDateWidget({
@@ -60,7 +59,7 @@ class ItemWithDateWidget extends StatelessWidget {
                 SizedBox(width: width * 0.02),
                 const Icon(Icons.check_outlined,
                     color: AppThemeColor.green, size: 20),
-                // SvgPicture.asset('assets/images/review_icon.svg'),
+                // SvgPicture.asset('assets/icons/review_icon.svg'),
               ],
             ),
           ],

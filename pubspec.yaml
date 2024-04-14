@@ -86,7 +86,11 @@ flutter:
         - asset: assets/fonts/SourceSans3-SemiBold.ttf
   # To add assets to your application, add an assets section, like this:
   assets:
+
+    # Иконки SVG 
     - assets/icons/
+    
+    # Изображения
     - assets/images/1.5x/
     - assets/images/2.0x/
     - assets/images/3.0x/
@@ -97,11 +101,6 @@ flutter:
     - assets/images/Background 1.png
     - assets/images/Background 5.png
     - assets/images/serum.png
-    - assets/images/serum.svg
-    - assets/images/Frame.svg
-    - assets/images/Frame 2.svg
-    - assets/images/Frame 3.png
-    - assets/images/Frame 3.svg
     - assets/images/login_header_background.png
     - assets/images/confirmation_header_background.png
     - assets/images/confirmation_body_background.png
@@ -112,15 +111,10 @@ flutter:
     - assets/images/survey_suggestion_background.png
     - assets/images/arrow_right.png
     - assets/images/arrow_return.png
-    - assets/images/arrow_right.svg
     - assets/images/item_image.png
     - assets/images/item_image_in_detail.png
     - assets/images/main_header.png
     - assets/images/item_in_list_image.jpeg
-    - assets/images/step_into.svg
-    - assets/images/step_into_up.svg
-    - assets/images/share_icon.svg
-    - assets/images/subject_icon.svg
     - assets/images/face_header.png
     - assets/images/cream_header.png
     - assets/images/green_triangle.png
@@ -129,13 +123,11 @@ flutter:
     - assets/images/sun_bottom.png
     - assets/images/sign_bottom.png
     - assets/images/secret_item_image.png  
-    - assets/images/settings.svg
     - assets/images/gift.png
-
-
     - assets/images/review_photo1.png
     - assets/images/review_photo2.png
     - assets/images/rewiew_video_preview.png
+
 
 
 

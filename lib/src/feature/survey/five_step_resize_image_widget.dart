@@ -1,15 +1,10 @@
-import 'dart:io';
-
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
-import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/out_button.dart';
-import 'package:my_app/src/core/utils/logger.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/survey/confirmation_survey_screen.dart';
-import 'package:my_app/theme.dart';
 
 class SetPhotoWidget extends StatefulWidget {
   const SetPhotoWidget({
@@ -26,11 +21,8 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
-    logger.f(width * 0.02);
     return Scaffold(
-      backgroundColor: const Color(0xffff8f8f8),
       appBar: AppBar(
-        backgroundColor: const Color(0xffff8f8f8),
         leading: const CustomBackButton(),
         centerTitle: true,
         title: Text(

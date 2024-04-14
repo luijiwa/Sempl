@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/survey/fifth_step_widget.dart';
 import 'package:my_app/src/feature/survey/first_step_widget.dart';
 import 'package:my_app/src/feature/survey/four_step_widget.dart';
@@ -26,16 +25,12 @@ class _SurveyScreenState extends State<SurveyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
-
     // log(bottomOffset.toString());
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
           resizeToAvoidBottomInset: _currentPageIndex == 0 ? true : false,
           appBar: AppBar(
-            backgroundColor: const Color(0xffff8f8f8),
             title: const Text(
               'SEMPL!',
               style: TextStyle(

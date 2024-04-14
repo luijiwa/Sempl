@@ -6,7 +6,7 @@ import 'package:my_app/src/core/components/required_input_field.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/core/components/custom_app_bar.dart';
 import 'package:my_app/src/feature/delivery/delivery_modal_widget.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class DeliveryScreen extends StatelessWidget {
   const DeliveryScreen({super.key});
@@ -14,7 +14,6 @@ class DeliveryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(

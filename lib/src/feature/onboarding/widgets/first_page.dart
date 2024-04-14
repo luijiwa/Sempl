@@ -2,10 +2,10 @@ import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 import 'package:my_app/src/core/components/stack2.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
-import 'package:my_app/src/core/theme/text_theme.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});

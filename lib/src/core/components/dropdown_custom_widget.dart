@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class DropdownCustomWidget extends StatelessWidget {
   const DropdownCustomWidget({
@@ -12,8 +12,6 @@ class DropdownCustomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-
     return DropdownButtonFormField<String>(
       dropdownColor: Colors.white,
       isExpanded: true,

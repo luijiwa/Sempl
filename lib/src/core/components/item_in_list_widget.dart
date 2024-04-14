@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ItemInListWidget extends StatelessWidget {
   const ItemInListWidget({super.key, this.applyColorFilter = false});

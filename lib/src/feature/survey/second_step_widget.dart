@@ -4,7 +4,7 @@ import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/required_input_field.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class SecondStepWidget extends StatelessWidget {
   const SecondStepWidget({super.key, required this.onNextPage});
@@ -12,11 +12,7 @@ class SecondStepWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final inputDecorationTheme = Theme.of(context).inputDecorationTheme;
     final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
-    final double bottomOffset =
-        height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Column(

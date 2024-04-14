@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../theme.dart';
 
 abstract final class AppThemeColor {
   static const Color primaryColor = Color(0xFFE91E63);
@@ -42,7 +42,7 @@ const inputDecoration = InputDecoration(
   ),
 );
 
-InputDecoration dropdownDecoration = const InputDecoration(
+const dropdownDecoration = InputDecoration(
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(40)),
     borderSide: BorderSide(width: 1, color: AppThemeColor.blueColor),

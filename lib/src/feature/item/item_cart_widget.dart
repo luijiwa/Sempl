@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
@@ -54,7 +54,7 @@ class ItemCard extends StatelessWidget {
                 ),
                 SizedBox(width: width * 0.03),
                 SvgPicture.asset(
-                  'assets/images/share_icon.svg',
+                  'assets/icons/share_icon.svg',
                   colorFilter: const ColorFilter.mode(
                       AppThemeColor.blueColor, BlendMode.srcIn),
                 ),

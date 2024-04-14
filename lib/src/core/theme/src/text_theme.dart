@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:my_app/theme.dart';
+part of '../theme.dart';
 
 extension CustomStyles on TextTheme {
   TextStyle get appBodyMedium {

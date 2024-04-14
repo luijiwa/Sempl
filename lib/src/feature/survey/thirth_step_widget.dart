@@ -13,7 +13,6 @@ class ThirthStepWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -51,17 +50,6 @@ class ThirthStepWidget extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _CustomPadding extends StatelessWidget {
-  const _CustomPadding();
-
-  @override
-  Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final standartPadding = height * 0.0001;
-    return SizedBox(height: standartPadding);
   }
 }
 

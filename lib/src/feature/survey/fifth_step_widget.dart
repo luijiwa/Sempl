@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/feature/survey/five_step_resize_image_widget.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 import 'dart:io';
 
 class FifthStepWidget extends StatefulWidget {
@@ -19,10 +19,6 @@ class _FifthStepWidgetState extends State<FifthStepWidget> {
   File? image;
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
-    final double bottomOffset =
-        height * 0.059 - MediaQuery.of(context).padding.bottom;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: PickerPhotoWidget(onNextPage: widget.onNextPage, image: image),
@@ -43,9 +39,7 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
-    final double bottomOffset =
-        height * 0.059 - MediaQuery.of(context).padding.bottom;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,

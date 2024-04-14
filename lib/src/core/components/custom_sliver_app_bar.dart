@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return SliverAppBar(
       backgroundColor: AppThemeColor.grey,

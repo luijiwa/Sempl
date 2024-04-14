@@ -4,7 +4,7 @@ import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/checkbox_row.dart';
 import 'package:my_app/src/core/components/custom_app_bar.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
-import 'package:my_app/src/core/theme/text_theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class FirstStepSurveyOrderWidget extends StatelessWidget {
   const FirstStepSurveyOrderWidget({super.key, required this.onNextPage});

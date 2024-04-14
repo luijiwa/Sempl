@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
 import 'package:my_app/src/feature/item/full_screen_review_widget.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ReviewCardWidget extends StatelessWidget {
   const ReviewCardWidget({

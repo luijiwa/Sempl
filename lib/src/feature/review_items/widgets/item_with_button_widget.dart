@@ -1,8 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/theme/button_theme.dart';
-import 'package:my_app/src/core/theme/text_theme.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ItemWithButtonWidget extends StatelessWidget {
   const ItemWithButtonWidget({

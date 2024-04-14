@@ -2,8 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
-import 'package:my_app/src/core/theme/text_theme.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ProfileAvatarRowWidget extends StatelessWidget {
   const ProfileAvatarRowWidget({super.key});
@@ -109,7 +108,7 @@ class ProfileAvatarRowWidget extends StatelessWidget {
                         .copyWith(color: Colors.white, fontSize: 12, height: 0),
                   ),
                   SvgPicture.asset(
-                    'assets/images/settings.svg',
+                    'assets/icons/settings.svg',
                     colorFilter:
                         const ColorFilter.mode(Colors.white, BlendMode.srcIn),
                   ),

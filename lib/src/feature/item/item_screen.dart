@@ -5,7 +5,7 @@ import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
 import 'package:my_app/src/feature/item/item_cart_widget.dart';
 import 'package:my_app/src/feature/item/review_card_widget.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ItemScreen extends StatelessWidget {
   const ItemScreen({super.key});
@@ -69,7 +69,7 @@ class CommentsRowWidget extends StatelessWidget {
             SvgPicture.asset(
               colorFilter: const ColorFilter.mode(
                   AppThemeColor.blueColor, BlendMode.srcIn),
-              'assets/images/step_into.svg',
+              'assets/icons/step_into.svg',
             ),
           ],
         ),
@@ -80,7 +80,7 @@ class CommentsRowWidget extends StatelessWidget {
             SvgPicture.asset(
               colorFilter: const ColorFilter.mode(
                   AppThemeColor.blueColor, BlendMode.srcIn),
-              'assets/images/step_into_up.svg',
+              'assets/icons/step_into_up.svg',
             ),
           ],
         )

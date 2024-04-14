@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class MainScreenAppBar extends StatelessWidget {
   const MainScreenAppBar({super.key});
@@ -125,7 +125,7 @@ class MainScreenAppBar extends StatelessWidget {
                               ),
                             ),
                             SvgPicture.asset(
-                              'assets/images/arrow_right.svg',
+                              'assets/icons/arrow_right.svg',
                               colorFilter: const ColorFilter.mode(
                                   Colors.black, BlendMode.srcIn),
                             ),

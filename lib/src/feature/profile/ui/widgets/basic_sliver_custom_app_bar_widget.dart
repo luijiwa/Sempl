@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
-import 'package:my_app/src/core/theme/text_theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class BasicSliverCustomAppBarWidget extends StatelessWidget {
   const BasicSliverCustomAppBarWidget({

@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
   const ConfirmationOrderTypeTwoScreen({super.key});
@@ -153,7 +153,7 @@ class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
                                     colorFilter: const ColorFilter.mode(
                                         AppThemeColor.blueColor,
                                         BlendMode.srcIn),
-                                    'assets/images/arrow_right.svg',
+                                    'assets/icons/arrow_right.svg',
                                   ),
                                 ],
                               ),

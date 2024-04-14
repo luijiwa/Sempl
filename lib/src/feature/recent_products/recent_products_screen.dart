@@ -7,7 +7,7 @@ import 'package:my_app/src/core/components/custom_sliver_app_bar.dart';
 import 'package:my_app/src/core/components/item_in_list_widget.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/utils/logger.dart';
-import 'package:my_app/theme.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class RecentProductsScreen extends StatelessWidget {
   const RecentProductsScreen({super.key});
@@ -73,7 +73,7 @@ class RecentProductsScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      'assets/images/subject_icon.svg',
+                      'assets/icons/subject_icon.svg',
                       colorFilter: const ColorFilter.mode(
                           AppThemeColor.blueColor, BlendMode.srcIn),
                     ),
