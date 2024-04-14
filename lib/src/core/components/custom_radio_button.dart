@@ -4,13 +4,11 @@ import 'package:my_app/theme.dart';
 class CustomRadioButton extends StatefulWidget {
   const CustomRadioButton({
     super.key,
-    required this.value,
-    required this.onChanged,
+    this.onChanged,
     this.activeColor = AppThemeColor.blueColor,
     this.inactiveColor = AppThemeColor.blueColor,
     this.size = 19.0,
   });
-  final bool value;
   final ValueChanged<bool>? onChanged;
   final Color activeColor;
   final Color inactiveColor;
@@ -20,13 +18,15 @@ class CustomRadioButton extends StatefulWidget {
 }
 
 class _CustomRadioButtonState extends State<CustomRadioButton> {
+  bool _value = true;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (widget.onChanged != null) {
-          widget.onChanged!(!widget.value);
-        }
+        setState(() {
+          _value = !_value;
+        });
       },
       child: Container(
         width: widget.size,
@@ -34,30 +34,27 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(
-            color: widget.value ? widget.activeColor : widget.inactiveColor,
+            color: _value ? widget.activeColor : widget.inactiveColor,
             width: 1.0,
           ),
         ),
-        child: Container(
-          margin: const EdgeInsets.all(2.0),
-          child: widget.value
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 200),
+          child: _value
               ? Container(
+                  key: const ValueKey<bool>(true),
                   height: widget.size * 0.7,
                   width: widget.size * 0.7,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: widget.value
-                        ? widget.activeColor
-                        : widget.inactiveColor,
+                    color: _value ? widget.activeColor : widget.inactiveColor,
                     border: Border.all(
-                      color: widget.value
-                          ? widget.activeColor
-                          : widget.inactiveColor,
+                      color: _value ? widget.activeColor : widget.inactiveColor,
                       width: 2.0,
                     ),
                   ),
                 )
-              : null,
+              : Container(key: const ValueKey<bool>(false)),
         ),
       ),
     );
