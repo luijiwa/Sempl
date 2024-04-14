@@ -14,7 +14,6 @@ class PageIndicatorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    logger.w(width * 0.059);
     return Container(
       margin: const EdgeInsets.only(top: 20),
       child: Column(

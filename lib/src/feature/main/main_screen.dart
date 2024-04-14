@@ -15,7 +15,6 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    logger.w(height * 0.346);
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(

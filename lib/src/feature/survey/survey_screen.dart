@@ -29,8 +29,6 @@ class _SurveyScreenState extends State<SurveyScreen> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
-    logger.w(height * 0.0639);
-
     // log(bottomOffset.toString());
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),

@@ -121,7 +121,6 @@ class RecentProductsScreen extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
-                  logger.w(index);
                   return const ItemInListWidget(
                     applyColorFilter: true,
                   );

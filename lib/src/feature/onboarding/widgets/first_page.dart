@@ -16,7 +16,6 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    logger.w(width * 0.364); //height * 0.0118
     return Scaffold(
       backgroundColor: const Color(0xFFFFEF7D),
       body: Container(
@@ -87,7 +86,6 @@ class ItemInFirstOnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    logger.w(width * 0.583);
     return Container(
       width: double.maxFinite,
       decoration: BoxDecoration(
@@ -160,7 +158,6 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
     final box3Bottom = height * 0.076297;
     final box2Left = width * 0.14003;
     final box3Left = width * 0.10184;
-    logger.w(height * 0.011738);
 
     return SizedBox(
       height: height * 0.18,

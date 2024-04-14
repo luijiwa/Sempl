@@ -16,7 +16,6 @@ class ConfirmationSurveyScreen extends StatelessWidget {
       body: LayoutBuilder(builder: (context, constraints) {
         final maxHeight = constraints.maxHeight.toDouble();
         final maxWidth = constraints.maxWidth.toDouble();
-        logger.w(maxWidth * 0.078);
         return Stack(
           children: [
             Stack(

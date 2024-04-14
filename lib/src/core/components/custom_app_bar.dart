@@ -13,7 +13,6 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height.toDouble();
     final width = MediaQuery.of(context).size.width.toDouble();
-    logger.w(width * 0.18);
 
     return Container(
       width: double.maxFinite,

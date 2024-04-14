@@ -37,7 +37,6 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
         : 0;
     final bottomOffset =
         MediaQuery.of(context).padding.bottom + basisBottomOffset;
-    logger.w(MediaQuery.of(context).size.height * 0.071);
     final height = MediaQuery.of(context).size.height;
     final listScreens = [
       const FirstPage(),
