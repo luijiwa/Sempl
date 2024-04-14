@@ -45,9 +45,10 @@ dependencies:
   logger: ^2.1.0
   image_picker: ^1.0.7
   video_player: ^2.8.3
-  share_plus: ^7.2.2
+  share_plus: ^8.0.3
   build_runner: ^2.4.9
   go_router: ^13.2.2
+  dropdown_button2: ^2.3.9
 
 dev_dependencies:
   flutter_test:
@@ -85,7 +86,7 @@ flutter:
         - asset: assets/fonts/SourceSans3-SemiBold.ttf
   # To add assets to your application, add an assets section, like this:
   assets:
-
+    - assets/icons/
     - assets/images/1.5x/
     - assets/images/2.0x/
     - assets/images/3.0x/
@@ -127,7 +128,10 @@ flutter:
     - assets/images/yellow_star.png
     - assets/images/sun_bottom.png
     - assets/images/sign_bottom.png
-    - assets/images/secret_item_image.png
+    - assets/images/secret_item_image.png  
+    - assets/images/settings.svg
+    - assets/images/gift.png
+
 
     - assets/images/review_photo1.png
     - assets/images/review_photo2.png
