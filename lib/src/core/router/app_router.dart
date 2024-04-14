@@ -8,6 +8,7 @@ import 'package:my_app/src/feature/login/login_screen.dart';
 import 'package:my_app/src/feature/main/main_screen.dart';
 import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
 import 'package:my_app/src/feature/profile/ui/profile_screen.dart';
+import 'package:my_app/src/feature/review_items/widgets/review_items_screen.dart';
 import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
 import 'package:my_app/src/feature/survey/survey_screen.dart';
@@ -80,7 +81,15 @@ class AppRouter {
               path: AppRoutes.profile.path,
               builder: (context, state) {
                 return const ProfileScreen();
-              }),
+              },
+              routes: <GoRoute>[
+                GoRoute(
+                    name: AppRoutes.reviewItemsScreen.name,
+                    path: AppRoutes.reviewItemsScreen.path,
+                    builder: (context, state) {
+                      return const ReviewItemsScreen();
+                    }),
+              ]),
           GoRoute(
             name: AppRoutes.recentProducts.name,
             path: AppRoutes.recentProducts.path,

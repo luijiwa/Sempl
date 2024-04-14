@@ -53,6 +53,10 @@ enum AppRoutes {
     name: 'profile',
     path: 'profile',
   ),
+  reviewItemsScreen(
+    name: 'reviewItemsScreen',
+    path: 'review_items_screen',
+  ),
   ;
 
   const AppRoutes({
