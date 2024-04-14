@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/theme.dart';
 
-extension CustomStyles on ButtonTheme {
+extension CustomElevatedButtonStyles on ElevatedButtonThemeData {
   ButtonStyle get appButton {
     return ElevatedButton.styleFrom(
       elevation: 0,
       foregroundColor: Colors.white,
-      backgroundColor: const Color(0xFF99BFD4),
+      backgroundColor: AppThemeColor.blueColor,
     );
   }
 }

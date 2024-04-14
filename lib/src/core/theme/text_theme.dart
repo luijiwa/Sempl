@@ -38,4 +38,22 @@ extension CustomStyles on TextTheme {
       color: Colors.black,
     );
   }
+
+  TextStyle get itemRemainingDayNotifier {
+    return const TextStyle(
+      fontFamily: 'SourceSansPro',
+      fontWeight: FontWeight.w400,
+      fontSize: 8.0,
+      color: AppThemeColor.rose,
+    );
+  }
+
+  TextStyle get itemDateDelivery {
+    return const TextStyle(
+      fontFamily: 'SourceSansPro',
+      fontWeight: FontWeight.w400,
+      fontSize: 13.0,
+      color: AppThemeColor.grisTwo,
+    );
+  }
 }
