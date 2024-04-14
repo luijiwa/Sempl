@@ -17,63 +17,74 @@ class ItemScreen extends StatelessWidget {
     final double width = size.width;
 
     return Scaffold(
-        backgroundColor: AppThemeColor.grey,
         body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              leading: const CustomBackButton(),
-              backgroundColor: AppThemeColor.grey,
-              title: Text(
-                'Страница продукта',
-                style: TextStyle(
-                    fontSize: width > 320 ? 18 : 15,
-                    fontFamily: 'SourceSansProBold'),
-              ),
-              centerTitle: true,
+      slivers: [
+        SliverAppBar(
+          leading: const CustomBackButton(),
+          backgroundColor: AppThemeColor.grey,
+          title: Text(
+            'Страница продукта',
+            style: TextStyle(
+                fontSize: width > 320 ? 18 : 15,
+                fontFamily: 'SourceSansProBold'),
+          ),
+          centerTitle: true,
+        ),
+        SliverPadding(padding: EdgeInsets.only(top: height * 0.02)),
+        const ItemCard(),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 22)
+              .copyWith(top: 27, bottom: 15),
+          sliver: CommentsRowWidget(),
+        ),
+        const ReviewCardWidget(),
+        const SliverToBoxAdapter(
+          child: BottomPadding(),
+        )
+      ],
+    ));
+  }
+}
+
+class CommentsRowWidget extends StatelessWidget {
+  const CommentsRowWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+
+    return SliverToBoxAdapter(
+        child: Row(
+      children: [
+        const AutoSizeText(
+          'КОММЕНТАРИИ (387)',
+          style: TextStyle(fontFamily: 'SourceSansProSemiBold', fontSize: 15),
+        ),
+        const Spacer(),
+        Wrap(
+          children: [
+            const AutoSizeText('новые'),
+            SvgPicture.asset(
+              colorFilter: const ColorFilter.mode(
+                  AppThemeColor.blueColor, BlendMode.srcIn),
+              'assets/images/step_into.svg',
             ),
-            SliverPadding(padding: EdgeInsets.only(top: height * 0.02)),
-            const ItemCard(),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 22)
-                  .copyWith(top: 27, bottom: 15),
-              sliver: SliverToBoxAdapter(
-                  child: Row(
-                children: [
-                  const AutoSizeText(
-                    'КОММЕНТАРИИ (387)',
-                    style: TextStyle(
-                        fontFamily: 'SourceSansProSemiBold', fontSize: 15),
-                  ),
-                  const Spacer(),
-                  Wrap(
-                    children: [
-                      const AutoSizeText('новые'),
-                      SvgPicture.asset(
-                        colorFilter: const ColorFilter.mode(
-                            AppThemeColor.blueColor, BlendMode.srcIn),
-                        'assets/images/step_into.svg',
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: width * 0.02),
-                  Wrap(
-                    children: [
-                      const AutoSizeText('рейтинг'),
-                      SvgPicture.asset(
-                        colorFilter: const ColorFilter.mode(
-                            AppThemeColor.blueColor, BlendMode.srcIn),
-                        'assets/images/step_into_up.svg',
-                      ),
-                    ],
-                  )
-                ],
-              )),
-            ),
-            const ReviewCardWidget(),
-            const SliverToBoxAdapter(
-              child: BottomPadding(),
-            )
           ],
-        ));
+        ),
+        SizedBox(width: width * 0.02),
+        Wrap(
+          children: [
+            const AutoSizeText('рейтинг'),
+            SvgPicture.asset(
+              colorFilter: const ColorFilter.mode(
+                  AppThemeColor.blueColor, BlendMode.srcIn),
+              'assets/images/step_into_up.svg',
+            ),
+          ],
+        )
+      ],
+    ));
   }
 }
