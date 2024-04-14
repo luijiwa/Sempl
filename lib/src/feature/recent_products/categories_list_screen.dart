@@ -77,7 +77,6 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
                                   ),
                                 ),
                                 CustomRadioButton(
-                                  value: index % 3 == 0,
                                   onChanged: (value) {},
                                 ),
                               ],
@@ -107,7 +106,6 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
                                     ),
                                   ),
                                   CustomRadioButton(
-                                    value: index % 3 == 0,
                                     onChanged: (value) {},
                                   ),
                                 ],

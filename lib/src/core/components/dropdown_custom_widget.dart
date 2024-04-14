@@ -27,9 +27,7 @@ class DropdownCustomWidget extends StatelessWidget {
                   maxLines: 1,
                   style: const TextStyle(
                     fontFamily: 'SourceSansPro',
-                    overflow:
-                        TextOverflow.ellipsis, // добавлено обрезание текста
-                    // установлено максимальное количество строк
+                    overflow: TextOverflow.ellipsis,
                   ))))
           .toList(),
       hint: Text(hint,
