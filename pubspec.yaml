@@ -89,12 +89,13 @@ flutter:
 
     # Иконки SVG 
     - assets/icons/
-    
-    # Изображения
+
+    # Изображения для разной плотности экранов экранов
     - assets/images/1.5x/
     - assets/images/2.0x/
     - assets/images/3.0x/
     - assets/images/4.0x/
+    
     - assets/images/Background 3.png
     - assets/images/Background 4.png
     - assets/images/Background 2.png
