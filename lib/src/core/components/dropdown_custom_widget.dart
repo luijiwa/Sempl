@@ -19,14 +19,19 @@ class DropdownCustomWidget extends StatelessWidget {
       icon:
           const Icon(Icons.expand_more_rounded, color: AppThemeColor.blueColor),
       items: listItems
-          .map((item) => DropdownMenuItem(
+          .map(
+            (item) => DropdownMenuItem(
               value: item,
-              child: Text(item,
-                  maxLines: 1,
-                  style: const TextStyle(
-                    fontFamily: 'SourceSansPro',
-                    overflow: TextOverflow.ellipsis,
-                  ))))
+              child: Text(
+                item,
+                maxLines: 1,
+                style: const TextStyle(
+                  fontFamily: 'SourceSansPro',
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+          )
           .toList(),
       hint: Text(hint,
           style: const TextStyle(
