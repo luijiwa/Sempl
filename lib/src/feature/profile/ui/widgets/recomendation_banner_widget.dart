@@ -69,10 +69,8 @@ class RecomendationBannerWidget extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    padding: EdgeInsets.symmetric(vertical: height * 0.018),
-                    textStyle: Theme.of(context).textTheme.appBodyMedium,
-                  ),
+                      padding: EdgeInsets.symmetric(vertical: height * 0.018),
+                      backgroundColor: Colors.white),
                   onPressed: () {},
                   child: Text('ХОЧУ ЭТО!',
                       style: Theme.of(context).textTheme.appBodyMedium),

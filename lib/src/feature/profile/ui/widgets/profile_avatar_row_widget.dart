@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/feature/profile/ui/profile_screen2.dart';
+import 'package:my_app/src/feature/profile/ui/profile_screen3.dart';
 
 class ProfileAvatarRowWidget extends StatelessWidget {
-  const ProfileAvatarRowWidget({super.key});
-
+  const ProfileAvatarRowWidget({super.key, this.index = 0});
+  final int index;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -65,8 +67,11 @@ class ProfileAvatarRowWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('КАСИА ЛАНГЕР',
-                    style: Theme.of(context).textTheme.appTitleMedium),
+                AutoSizeText(
+                  'КАСИА ЛАНГЕР',
+                  style: Theme.of(context).textTheme.appProfileTitle,
+                  maxLines: 1,
+                ),
                 SizedBox(height: height * 0.0059),
                 const AutoSizeText(
                   "@WOLFLIKEMEEE",
@@ -83,7 +88,14 @@ class ProfileAvatarRowWidget extends StatelessWidget {
             ),
             const Spacer(),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  if (index == 3)
+                    return const ProfileScreen3();
+                  else
+                    return const ProfileScreen2();
+                }));
+              },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size.zero,
                 padding: EdgeInsets.symmetric(

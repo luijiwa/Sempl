@@ -17,11 +17,13 @@ class CompleteExampleListWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 22),
       sliver: SliverMainAxisGroup(slivers: [
         SliverPadding(
-          padding: EdgeInsets.only(bottom: height * 0.0153),
+          padding:
+              EdgeInsets.only(bottom: height * 0.0153, right: width * 0.08),
           sliver: SliverToBoxAdapter(
-            child: Text(
+            child: AutoSizeText(
               'МОИ ЗАВЕРШЁННЫЕ ОБРАЗЦЫ:',
-              style: Theme.of(context).textTheme.appTitleMedium,
+              style: Theme.of(context).textTheme.appProfileTitle,
+              maxLines: 1,
             ),
           ),
         ),

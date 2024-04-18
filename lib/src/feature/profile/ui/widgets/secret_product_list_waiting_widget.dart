@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/feature/review_items/widgets/item_with_button_widget.dart';
 
 class SecretProductWaitingListWidget extends StatelessWidget {
   const SecretProductWaitingListWidget({
+    this.index = 0,
     super.key,
   });
-
+  final int index;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -18,25 +20,26 @@ class SecretProductWaitingListWidget extends StatelessWidget {
       sliver: SliverMainAxisGroup(slivers: [
         SliverPadding(
           padding:
-              EdgeInsets.only(bottom: height * 0.0153, right: width * 0.25),
+              EdgeInsets.only(bottom: height * 0.0153, right: width * 0.08),
           sliver: SliverToBoxAdapter(
             child: AutoSizeText(
-              'МОИ ОЖИДАЕМЫЕ ОБРАЗЦЫ',
-              style: Theme.of(context).textTheme.appTitleMedium,
+              'МОИ ОЖИДАЕМЫЕ ОБРАЗЦЫ:',
+              style: Theme.of(context).textTheme.appProfileTitle,
               maxLines: 1,
             ),
           ),
         ),
-        // const ItemWithButtonWidget(
-        //   imageUrl:
-        //       'https://raw.githubusercontent.com/luijiwa/trash_for_project/main/diamond.png',
-        //   title: 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ',
-        //   subtitle: 'Ожидаемое время доставки: 15 января в 18:00',
-        //   withDate: false,
-        // ),
+        if (index == 2)
+          const ItemWithButtonWidget(
+            imageUrl: 'assets/images/diamond.png',
+            title: 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ',
+            subtitle: 'Ожидаемое время доставки: 15 января в 18:00',
+            withDate: false,
+          ),
+
         ///TODO Если нет товаров для отзывов
-        // const EmptyReviewWidget(),
-        const ReviewListWidget(),
+        if (index == 3) const EmptyReviewWidget(),
+        if (index == 0) const ReviewListWidget(),
       ]),
     );
   }
