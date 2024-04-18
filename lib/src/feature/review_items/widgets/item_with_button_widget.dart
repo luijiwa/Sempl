@@ -1,13 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/feature/feedback/ui/feedback_screen.dart';
 
 class ItemWithButtonWidget extends StatelessWidget {
   const ItemWithButtonWidget({
     super.key,
     this.withDate = true,
-    this.imageUrl =
-        'https://raw.githubusercontent.com/luijiwa/trash_for_project/main/dng_parfume.jpeg',
+    this.imageUrl = 'assets/images/dng_parfume.jpeg',
     this.padding,
     this.title = 'ОЧИСТИТЕЛЬ ЗУБОВ',
     this.subtitle = 'Доставлено 15 января 2023г.',
@@ -35,7 +35,7 @@ class ItemWithButtonWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: height * 0.01),
-            Image.network(
+            Image.asset(
               imageUrl,
               height: height * 0.22,
             ),
@@ -66,6 +66,10 @@ class ItemWithButtonWidget extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     // context.pushNamed(AppRoutes.delivery.name);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FeedbackScreen()));
                   },
                   style: Theme.of(context)
                       .elevatedButtonTheme

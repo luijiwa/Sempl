@@ -24,8 +24,8 @@ class ItemWithDateWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: height * 0.01),
-            Image.network(
-              "https://raw.githubusercontent.com/luijiwa/trash_for_project/main/listerine.jpeg",
+            Image.asset(
+              "assets/images/listerine.jpeg",
               height: height * 0.22,
             ),
             SizedBox(height: height * 0.016),
