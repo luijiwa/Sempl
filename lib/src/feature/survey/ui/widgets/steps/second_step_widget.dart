@@ -5,6 +5,7 @@ import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/required_input_field.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/address_data_fields_widget.dart';
 
 class SecondStepWidget extends StatelessWidget {
   const SecondStepWidget({super.key, required this.onNextPage});
@@ -19,44 +20,7 @@ class SecondStepWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: height * 0.035),
-          const AutoSizeText(
-            'АДРЕС ДОСТАВКИ',
-            style: TextStyle(
-              fontSize: 36,
-              fontFamily: 'DrukCyr',
-            ),
-            maxLines: 1,
-          ),
-          SizedBox(height: height * 0.016),
-          const RequiredInputField(
-            hintText: 'Город',
-          ),
-          const SizedBox(height: 4),
-          const RequiredInputField(
-            hintText: 'Улица',
-          ),
-          const SizedBox(height: 4),
-          const Row(
-            children: [
-              Expanded(
-                child: RequiredInputField(hintText: 'Номер дома'),
-              ),
-              SizedBox(width: 4),
-              Expanded(
-                child: RequiredInputField(hintText: 'Номер квартиры'),
-              ),
-            ],
-          ),
-          const SizedBox(height: 4),
-          const Row(
-            children: [
-              Expanded(child: TextInputField(hintText: 'Подъезд')),
-              SizedBox(width: 4),
-              Expanded(
-                child: RequiredInputField(hintText: 'Почтовый индекс'),
-              ),
-            ],
-          ),
+          const AddressDataFieldsWidget(),
           const SizedBox(height: 8),
           const AutoSizeText(
             '*Поля обязательные для заполнения',
