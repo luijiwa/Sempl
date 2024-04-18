@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
-import 'package:my_app/src/feature/item/item_screen.dart';
 import 'package:my_app/src/feature/profile/ui/widgets/basic_sliver_custom_app_bar_widget.dart';
 import 'package:my_app/src/feature/review_items/widgets/item_with_button_widget.dart';
 import 'package:my_app/src/feature/review_items/widgets/item_with_date_widget.dart';
@@ -24,16 +23,15 @@ class ReviewItemsScreen extends StatelessWidget {
             SliverPadding(
               padding: EdgeInsets.only(
                   top: height * 0.03068,
-                  bottom: height * 0.03068,
-                  right: width * 0.12),
+                  bottom: width * 0.04,
+                  right: width * 0.05),
               sliver: SliverToBoxAdapter(
                   child: AutoSizeText(
                 'СЕКРЕТНЫЙ ЛОТ СPEЦИАЛЬНО ДЛЯ ВАС!',
-                style: Theme.of(context).textTheme.appTitleMedium,
+                style: Theme.of(context).textTheme.appProfileTitle,
                 maxLines: 2,
               )),
             ),
-            const CommentsRowWidget(),
             SliverPadding(padding: EdgeInsets.only(top: height * 0.0177)),
             const ItemWithDateWidget(),
             const SliverPadding(padding: EdgeInsets.only(top: 4)),

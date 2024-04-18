@@ -25,14 +25,13 @@ class RecentProductsScreen extends StatelessWidget {
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 22)
                 .copyWith(top: height * 0.02),
-            sliver: const SliverToBoxAdapter(
+            sliver: SliverToBoxAdapter(
               child: AutoSizeText(
                 "НЕДАВНО ОПРОБОВАЛИ",
-                style: TextStyle(
-                  fontFamily: 'DrukCyr',
-                  fontSize: 44,
-                  height: 0.95,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .appTitleMedium
+                    .copyWith(fontSize: 28),
                 maxLines: 2,
               ),
             ),
@@ -149,7 +148,7 @@ class BlueItemWithCross extends StatelessWidget {
         color: AppThemeColor.blueColor,
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
