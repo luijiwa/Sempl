@@ -40,20 +40,18 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
   );
 
   final DropdownStyleData dropdownDropdownStyleData = DropdownStyleData(
+    elevation: 0,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(40),
+      borderRadius: BorderRadius.circular(20),
       color: Colors.white,
+      border: Border.all(color: AppThemeColor.gris, width: 0.5),
     ),
     offset: const Offset(0, -2),
     scrollbarTheme: ScrollbarThemeData(
-      radius: const Radius.circular(40),
+      radius: const Radius.circular(20),
       thickness: MaterialStateProperty.all(6),
       thumbVisibility: MaterialStateProperty.all(true),
     ),
-  );
-
-  final MenuItemStyleData dropdownMenuItemStyleData = const MenuItemStyleData(
-    padding: EdgeInsets.only(left: 14, right: 14),
   );
 
   @override
@@ -61,8 +59,14 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
     return LayoutBuilder(builder: (context, constraints) {
       final height = MediaQuery.of(context).size.height;
       final width = MediaQuery.of(context).size.width;
-
+      final MenuItemStyleData dropdownMenuItemStyleData = MenuItemStyleData(
+        padding: const EdgeInsets.symmetric(vertical: 3).copyWith(
+          left: 14,
+          right: 14,
+        ),
+      );
       final ButtonStyleData dropdownButtonStyleData = ButtonStyleData(
+        height: height * 0.05,
         padding: EdgeInsets.symmetric(
                 vertical: height * 0.0, horizontal: height * 0.01)
             .copyWith(right: width * 0.05),
@@ -74,55 +78,55 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
       );
       final maxHeight = constraints.maxHeight.toDouble();
       final maxWidth = constraints.maxWidth.toDouble();
-      return DropdownButtonHideUnderline(
-        child: DropdownButton2<String>(
-          isExpanded: true,
-          hint: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  widget.hint,
-                  style: dropdownHintTextStyle,
+      return SizedBox(
+        height: width * 0.12216,
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton2<String>(
+            isExpanded: true,
+            hint: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    widget.hint,
+                    style: dropdownHintTextStyle,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          selectedItemBuilder: (context) => widget.listItems
-              .map((String item) => DropdownMenuItem<String>(
-                    value: item,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        item,
-                        style: dropdownItemTextStyle,
-                        overflow: TextOverflow.ellipsis,
+              ],
+            ),
+            selectedItemBuilder: (context) => widget.listItems
+                .map((String item) => DropdownMenuItem<String>(
+                      value: item,
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Text(
+                          item,
+                          style: dropdownItemTextStyle,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                    ),
-                  ))
-              .toList(),
-          items: widget.listItems
-              .map((String item) => DropdownMenuItem<String>(
-                    value: item,
-                    child: SizedBox(
-                      width: double.infinity,
+                    ))
+                .toList(),
+            items: widget.listItems
+                .map((String item) => DropdownMenuItem<String>(
+                      value: item,
                       child: Text(
                         item,
                         style: dropdownItemTextStyle,
                         overflow: TextOverflow.visible,
                       ),
-                    ),
-                  ))
-              .toList(),
-          value: selectedValue,
-          onChanged: (value) {
-            setState(() {
-              selectedValue = value;
-            });
-          },
-          buttonStyleData: dropdownButtonStyleData,
-          iconStyleData: dropdownIconStyleData,
-          dropdownStyleData: dropdownDropdownStyleData,
-          menuItemStyleData: dropdownMenuItemStyleData,
+                    ))
+                .toList(),
+            value: selectedValue,
+            onChanged: (value) {
+              setState(() {
+                selectedValue = value;
+              });
+            },
+            buttonStyleData: dropdownButtonStyleData,
+            iconStyleData: dropdownIconStyleData,
+            dropdownStyleData: dropdownDropdownStyleData,
+            menuItemStyleData: dropdownMenuItemStyleData,
+          ),
         ),
       );
     });
