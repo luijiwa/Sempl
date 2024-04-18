@@ -18,12 +18,8 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = ThemeData(
-      scaffoldBackgroundColor: AppThemeColor.grey,
-    );
-
     return MaterialApp.router(
-      theme: theme,
+      theme: createLightTheme(),
       routerConfig: _router,
       builder: (context, child) => MediaQuery.withClampedTextScaling(
         key: _globalKey,

@@ -49,6 +49,8 @@ dependencies:
   build_runner: ^2.4.9
   go_router: ^13.2.2
   dropdown_button2: ^2.3.9
+  expandable_page_view: ^1.0.17
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +86,53 @@ flutter:
     - family: SourceSansProSemiBold
       fonts:
         - asset: assets/fonts/SourceSans3-SemiBold.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Black.ttf
+          weight: 900
+        - asset: assets/fonts/inter/Inter-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/inter/Inter-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/inter/Inter-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/inter/Inter-Light.ttf
+          weight: 300
+        - asset: assets/fonts/inter/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/inter/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/inter/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/inter/Inter-Thin.ttf
+          weight: 100
+    - family: SourceSans3
+      fonts:
+        - asset: assets/fonts/sourse_sans_pro/SourceSans3-Black.ttf
+          weight: 900
+        - asset: assets/fonts/sourse_sans_pro/SourceSans3-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/sourse_sans_pro/SourceSans3-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/sourse_sans_pro/SourceSans3-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/sourse_sans_pro/SourceSans3-Light.ttf
+          weight: 300
+        - asset: assets/fonts/sourse_sans_pro/SourceSans3-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/sourse_sans_pro/SourceSans3-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/sourse_sans_pro/SourceSans3-SemiBold.ttf
+          weight: 600
+    - family: Cabin
+      fonts:
+        - asset: assets/fonts/Cabin-Regular.ttf
+          weight: 400
+   
+
+
+        
+
   # To add assets to your application, add an assets section, like this:
   assets:
 
@@ -95,7 +144,8 @@ flutter:
     - assets/images/2.0x/
     - assets/images/3.0x/
     - assets/images/4.0x/
-    
+    - assets/images/
+
     - assets/images/Background 3.png
     - assets/images/Background 4.png
     - assets/images/Background 2.png

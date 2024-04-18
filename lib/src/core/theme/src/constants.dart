@@ -41,7 +41,32 @@ const inputDecoration = InputDecoration(
     borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
   ),
 );
-
+const feedbackBiginputDecoration = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(20)),
+    borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(20)),
+    borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
+  ),
+  hintStyle: TextStyle(
+    fontFamily: 'SourceSansPro',
+    fontSize: 14,
+    color: AppThemeColor.gris,
+  ),
+  disabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(20)),
+    borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(20)),
+    borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
+  ),
+);
 const dropdownDecoration = InputDecoration(
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(40)),

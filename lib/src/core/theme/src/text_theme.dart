@@ -21,7 +21,7 @@ extension CustomStyles on TextTheme {
 
   TextStyle get appBodyLarge {
     return const TextStyle(
-      fontFamily: 'DrukCyr',
+      fontFamily: 'Inter',
       fontWeight: FontWeight.w700,
       fontSize: 15.0,
       color: Colors.black,
@@ -30,9 +30,19 @@ extension CustomStyles on TextTheme {
 
   TextStyle get appTitleMedium {
     return const TextStyle(
-      fontFamily: 'DrukCyr',
+      fontFamily: 'Inter',
       fontWeight: FontWeight.w700,
-      fontSize: 31.55,
+      fontSize: 26,
+      height: 1,
+      color: Colors.black,
+    );
+  }
+
+  TextStyle get appProfileTitle {
+    return const TextStyle(
+      fontFamily: 'Inter',
+      fontWeight: FontWeight.w700,
+      fontSize: 19,
       height: 1,
       color: Colors.black,
     );

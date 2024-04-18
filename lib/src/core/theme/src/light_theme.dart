@@ -1,9 +1,13 @@
 part of '../theme.dart';
 
-ThemeData createDarkTheme() {
+ThemeData createLightTheme() {
   return ThemeData(
-    fontFamily: 'OpenSans',
-    scaffoldBackgroundColor: AppThemeColor.black,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: AppThemeColor.blueColor,
+      brightness: Brightness.light,
+    ),
+    fontFamily: 'SourceSans3',
+    scaffoldBackgroundColor: AppThemeColor.grey,
     extensions: const <ThemeExtension<dynamic>>[
       // ThemeColors.dark,
     ],
@@ -13,9 +17,6 @@ ThemeData createDarkTheme() {
       centerTitle: true,
     ),
     inputDecorationTheme: const InputDecorationTheme(
-      filled: true,
-      fillColor: Colors.white,
-      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(40)),
         borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
@@ -25,7 +26,7 @@ ThemeData createDarkTheme() {
         borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
       ),
       hintStyle: TextStyle(
-        fontFamily: 'SourceSansPro',
+        fontFamily: 'SourceSans3',
         fontSize: 14,
         color: AppThemeColor.gris,
       ),
@@ -37,13 +38,29 @@ ThemeData createDarkTheme() {
         borderRadius: BorderRadius.all(Radius.circular(40)),
         borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
       ),
+      alignLabelWithHint: true,
+      filled: true,
+      fillColor: Colors.white,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppThemeColor.green,
-        // foregroundColor: AppThemeColor.white,
-        // textStyle: buttonTextStyle,
+        elevation: 0,
+        foregroundColor: Colors.white,
+        backgroundColor: AppThemeColor.blueColor,
       ),
+    ),
+    checkboxTheme: CheckboxThemeData(
+      checkColor: MaterialStateProperty.all<Color>(Colors.white),
+      side: MaterialStateBorderSide.resolveWith(
+        (states) {
+          if (states.contains(MaterialState.selected)) {
+            return const BorderSide(color: AppThemeColor.blueColor);
+          }
+          return const BorderSide(color: AppThemeColor.blueColor);
+        },
+      ),
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      visualDensity: VisualDensity.compact,
     ),
   );
 }
