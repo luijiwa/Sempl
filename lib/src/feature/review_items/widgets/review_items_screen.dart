@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
-import 'package:my_app/src/feature/profile/ui/widgets/basic_sliver_custom_app_bar_widget.dart';
+import 'package:my_app/src/core/components/custom_back_button.dart';
 import 'package:my_app/src/feature/review_items/widgets/item_with_button_widget.dart';
 import 'package:my_app/src/feature/review_items/widgets/item_with_date_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
@@ -16,7 +16,10 @@ class ReviewItemsScreen extends StatelessWidget {
     return Scaffold(
         body: CustomScrollView(
       slivers: [
-        const BasicSliverCustomAppBarWidget(),
+        const SliverAppBar(
+          leading: CustomBackButton(),
+          title: Text('SEMPL!'),
+        ),
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
           sliver: SliverMainAxisGroup(slivers: [

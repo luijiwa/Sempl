@@ -15,6 +15,13 @@ abstract final class AppThemeColor {
   static const Color green = Color(0xFF73B481);
 }
 
+const appBarTheme = TextStyle(
+  fontFamily: 'Inter',
+  fontWeight: FontWeight.w700,
+  fontSize: 26,
+  height: 1,
+  color: Colors.black,
+);
 const inputDecoration = InputDecoration(
   filled: true,
   fillColor: Colors.white,

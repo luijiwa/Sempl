@@ -12,9 +12,16 @@ ThemeData createLightTheme() {
       // ThemeColors.dark,
     ],
     appBarTheme: const AppBarTheme(
-      color: Colors.transparent,
-      // titleTextStyle: ,
+      scrolledUnderElevation: 0,
       centerTitle: true,
+      titleTextStyle: appBarTheme,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.light,
+      ),
     ),
     inputDecorationTheme: const InputDecorationTheme(
       border: OutlineInputBorder(

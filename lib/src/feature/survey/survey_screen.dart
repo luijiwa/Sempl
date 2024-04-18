@@ -31,13 +31,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
       child: Scaffold(
           resizeToAvoidBottomInset: _currentPageIndex == 0 ? true : false,
           appBar: AppBar(
-            title: const Text(
-              'SEMPL!',
-              style: TextStyle(
-                fontFamily: 'DrukCyr',
-                fontSize: 32,
-              ),
-            ),
+            title: const Text('SEMPL!'),
             centerTitle: true,
             leading: IconButton(
               icon: const Icon(

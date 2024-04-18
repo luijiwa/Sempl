@@ -3,7 +3,7 @@ part of '../theme.dart';
 extension CustomStyles on TextTheme {
   TextStyle get appBodyMedium {
     return const TextStyle(
-      fontFamily: 'SourceSansPro',
+      fontFamily: 'SourceSans3',
       fontWeight: FontWeight.w400,
       fontSize: 15.0,
       height: 1.2,
@@ -13,7 +13,8 @@ extension CustomStyles on TextTheme {
 
   TextStyle get appBodySemiBold {
     return const TextStyle(
-      fontFamily: 'SourceSansProSemiBold',
+      fontFamily: 'SourceSans3',
+      fontWeight: FontWeight.w600,
       fontSize: 15,
       color: AppThemeColor.greyTwo,
     );
@@ -50,7 +51,7 @@ extension CustomStyles on TextTheme {
 
   TextStyle get itemRemainingDayNotifier {
     return const TextStyle(
-      fontFamily: 'SourceSansPro',
+      fontFamily: 'SourceSans3',
       fontWeight: FontWeight.w400,
       fontSize: 8.0,
       color: AppThemeColor.rose,
@@ -59,7 +60,7 @@ extension CustomStyles on TextTheme {
 
   TextStyle get itemDateDelivery {
     return const TextStyle(
-      fontFamily: 'SourceSansPro',
+      fontFamily: 'SourceSans3',
       fontWeight: FontWeight.w400,
       fontSize: 13.0,
       color: AppThemeColor.grisTwo,
