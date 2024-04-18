@@ -8,6 +8,7 @@ import 'package:my_app/src/feature/login/login_screen.dart';
 import 'package:my_app/src/feature/main/main_screen.dart';
 import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
 import 'package:my_app/src/feature/profile/ui/profile_screen.dart';
+import 'package:my_app/src/feature/profile_edit/ui/profile_edit_screen.dart';
 import 'package:my_app/src/feature/review_items/widgets/review_items_screen.dart';
 import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
@@ -17,7 +18,10 @@ import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_
 import 'package:my_app/src/feature/survey_order/ui/survey_order_screen.dart';
 
 class AppRouter {
+  final GlobalKey<NavigatorState> _rootNavigatorKey =
+      GlobalKey<NavigatorState>(debugLabel: 'root');
   late final router = GoRouter(
+    navigatorKey: _rootNavigatorKey,
     initialLocation: AppRoutes.surveyOrder.path,
     routes: <GoRoute>[
       GoRoute(
@@ -88,6 +92,12 @@ class AppRouter {
                     path: AppRoutes.reviewItemsScreen.path,
                     builder: (context, state) {
                       return const ReviewItemsScreen();
+                    }),
+                GoRoute(
+                    name: AppRoutes.profileEdit.name,
+                    path: AppRoutes.profileEdit.path,
+                    builder: (context, state) {
+                      return const ProfileEditScreen();
                     }),
               ]),
           GoRoute(

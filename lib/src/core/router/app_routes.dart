@@ -53,6 +53,10 @@ enum AppRoutes {
     name: 'profile',
     path: 'profile',
   ),
+  profileEdit(
+    name: 'profileEdit',
+    path: 'edit',
+  ),
   reviewItemsScreen(
     name: 'reviewItemsScreen',
     path: 'review_items_screen',
