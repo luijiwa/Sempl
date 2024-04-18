@@ -35,12 +35,17 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     const standardPadding = 22.0;
+    final double bottomOffset =
+        (height * 0.058 - MediaQuery.of(context).padding.bottom) +
+            MediaQuery.of(context).padding.bottom;
 
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         floatingActionButton: Padding(
-          padding: const EdgeInsets.all(standardPadding),
+          padding: const EdgeInsets.symmetric(horizontal: standardPadding)
+              .copyWith(bottom: bottomOffset),
           child: NextStepButton(
             onPressed: _nextPage,
             title: 'ПРОДОЛЖИТЬ ',
@@ -48,22 +53,16 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: SingleChildScrollView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               AppBar(
-                  leading: const CustomBackButton(),
-                  scrolledUnderElevation: 0,
-                  title: const Text('SEMPL!'),
-                  centerTitle: true,
-                  titleTextStyle: Theme.of(context).textTheme.appTitleMedium,
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                  systemOverlayStyle: const SystemUiOverlayStyle(
-                    statusBarColor: Colors.transparent,
-                    statusBarIconBrightness: Brightness.light,
-                    statusBarBrightness: Brightness.light,
-                  )),
+                leading: CustomBackButton(
+                  onPressed: _currentPageIndex == 0 ? null : _previousPage,
+                ),
+                title: const Text('SEMPL!'),
+              ),
               Padding(
                 padding: const EdgeInsets.all(standardPadding),
                 child: AutoSizeText(
