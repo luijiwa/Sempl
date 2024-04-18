@@ -24,31 +24,7 @@ class TextInputField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
             vertical: height * 0.013, horizontal: height * 0.023),
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
-        ),
         hintText: hintText,
-        hintStyle: const TextStyle(
-          fontFamily: 'SourceSansPro',
-          fontSize: 14,
-          color: AppThemeColor.gris,
-        ),
-        disabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-        ),
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-        ),
-        alignLabelWithHint: true,
-        filled: true,
-        fillColor: Colors.white,
       ),
     );
   }
