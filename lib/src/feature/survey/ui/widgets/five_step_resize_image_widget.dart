@@ -4,7 +4,7 @@ import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
 import 'package:my_app/src/core/components/out_button.dart';
 import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/feature/survey/confirmation_survey_screen.dart';
+import 'package:my_app/src/feature/survey/ui/confirmation_survey_screen.dart';
 
 class SetPhotoWidget extends StatefulWidget {
   const SetPhotoWidget({
@@ -27,10 +27,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
         centerTitle: true,
         title: Text(
           'CROP',
-          style: Theme.of(context)
-              .textTheme
-              .titleLarge
-              ?.copyWith(fontFamily: 'SourceSansPro'),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
       body: Padding(

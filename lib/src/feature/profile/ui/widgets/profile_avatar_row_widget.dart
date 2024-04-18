@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
+import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/feature/profile/ui/profile_screen2.dart';
-import 'package:my_app/src/feature/profile/ui/profile_screen3.dart';
 
 class ProfileAvatarRowWidget extends StatelessWidget {
   const ProfileAvatarRowWidget({super.key, this.index = 0});
@@ -89,12 +89,7 @@ class ProfileAvatarRowWidget extends StatelessWidget {
             const Spacer(),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  if (index == 3)
-                    return const ProfileScreen3();
-                  else
-                    return const ProfileScreen2();
-                }));
+                context.goNamed(AppRoutes.profileEdit.name);
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size.zero,

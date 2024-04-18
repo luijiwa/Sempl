@@ -44,6 +44,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
       const FifthPage()
     ];
     return Scaffold(
+      extendBodyBehindAppBar: true,
       body: Stack(
         children: [
           PageView.builder(

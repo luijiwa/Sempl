@@ -12,7 +12,7 @@ import 'package:my_app/src/feature/profile_edit/ui/profile_edit_screen.dart';
 import 'package:my_app/src/feature/review_items/widgets/review_items_screen.dart';
 import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
 import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
-import 'package:my_app/src/feature/survey/survey_screen.dart';
+import 'package:my_app/src/feature/survey/ui/survey_screen.dart';
 import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_one_screen.dart';
 import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_two_screen.dart';
 import 'package:my_app/src/feature/survey_order/ui/survey_order_screen.dart';

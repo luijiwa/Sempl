@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/feature/survey/fifth_step_widget.dart';
-import 'package:my_app/src/feature/survey/first_step_widget.dart';
-import 'package:my_app/src/feature/survey/four_step_widget.dart';
-import 'package:my_app/src/feature/survey/page_indicator_widget.dart';
-import 'package:my_app/src/feature/survey/second_step_widget.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/steps/fifth_step_widget.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/steps/first_step_widget.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/steps/four_step_widget.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/page_indicator_widget.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/steps/second_step_widget.dart';
 
-import 'package:my_app/src/feature/survey/thirth_step_widget.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/steps/thirth_step_widget.dart';
 
 class SurveyScreen extends StatefulWidget {
   const SurveyScreen({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
-import 'package:my_app/src/feature/survey/five_step_resize_image_widget.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/five_step_resize_image_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 import 'dart:io';
 
