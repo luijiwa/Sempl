@@ -33,14 +33,8 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                 ),
                 Positioned(
                   top: MediaQuery.of(context).viewPadding.top,
-                  child: const Text(
-                    "SEMPL!",
-                    style: TextStyle(
-                      fontFamily: 'DrukCyr',
-                      fontSize: 32,
-                      color: Colors.white,
-                    ),
-                  ),
+                  child: Text("SEMPL!",
+                      style: Theme.of(context).appBarTheme.titleTextStyle),
                 ),
               ],
             ),
