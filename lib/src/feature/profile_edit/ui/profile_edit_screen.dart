@@ -50,6 +50,7 @@ class ProfileEditScreen extends StatelessWidget {
                   minFontSize: 10,
                 ),
               ),
+              SizedBox(height: width * 0.02),
               NextStepButton(title: 'СОХРАНИТЬ ИЗМЕНЕНИЯ ', onPressed: () {}),
               const BottomPadding(),
             ],
