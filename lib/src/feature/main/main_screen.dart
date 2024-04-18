@@ -5,6 +5,7 @@ import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/item_in_list_widget.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/main/main_screen_app_bar.dart';
 
 class MainScreen extends StatelessWidget {
@@ -12,21 +13,22 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: <Widget>[
           const MainScreenAppBar(),
-          const SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 22),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 22)
+                .copyWith(right: width * 0.2),
             sliver: SliverToBoxAdapter(
               child: AutoSizeText(
                 "НЕДАВНО ОПРОБОВАЛИ",
-                style: TextStyle(
-                  fontFamily: 'DrukCyr',
-                  fontSize: 42,
-                  height: 0.95,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .appTitleMedium
+                    .copyWith(fontSize: 28),
                 maxLines: 2,
               ),
             ),

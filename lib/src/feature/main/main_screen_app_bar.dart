@@ -62,21 +62,20 @@ class MainScreenAppBar extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: height * 0.06,
-                    width: 0.2 * width,
-                    child: const AutoSizeText(
+                    height: height * 0.04,
+                    width: 0.26 * width,
+                    child: AutoSizeText(
                       'SEMPL!',
-                      style: TextStyle(
-                        fontFamily: 'DrukCyr',
-                        fontSize: 32,
-                        color: Colors.white,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .appTitleMedium
+                          .copyWith(color: Colors.white),
                       maxLines: 1,
                     ),
                   ),
                   SizedBox(
                     width: double.infinity,
-                    height: height * 0.09,
+                    height: height * 0.097,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
