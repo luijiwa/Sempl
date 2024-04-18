@@ -88,28 +88,9 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
               TextField(
                 controller: _controller,
                 decoration: InputDecoration(
+                  filled: false,
                   contentPadding: EdgeInsets.symmetric(
                       vertical: height * 0.013, horizontal: height * 0.023),
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    borderSide:
-                        BorderSide(width: 0.5, color: AppThemeColor.gris),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    borderSide:
-                        BorderSide(width: 0.5, color: AppThemeColor.blueColor),
-                  ),
-                  disabledBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    borderSide:
-                        BorderSide(width: 0.5, color: AppThemeColor.gris),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    borderSide:
-                        BorderSide(width: 0.5, color: AppThemeColor.gris),
-                  ),
                 ),
               ),
             ],
