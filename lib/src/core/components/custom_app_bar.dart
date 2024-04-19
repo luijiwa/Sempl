@@ -73,15 +73,14 @@ class CustomAppBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22.0),
             child: SizedBox(
-              height: height * 0.06,
-              width: 0.2 * width,
-              child: const AutoSizeText(
+              height: height * 0.04,
+              width: 0.26 * width,
+              child: AutoSizeText(
                 'SEMPL!',
-                style: TextStyle(
-                  fontFamily: 'DrukCyr',
-                  fontSize: 32,
-                  color: Colors.white,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .appTitleMedium
+                    .copyWith(color: Colors.white),
                 maxLines: 1,
               ),
             ),
