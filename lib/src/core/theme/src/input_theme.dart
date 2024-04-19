@@ -27,6 +27,10 @@ extension CustomInputFormStyles on InputDecorationTheme {
       alignLabelWithHint: true,
       filled: true,
       fillColor: Colors.white,
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        borderSide: BorderSide(width: 0.5, color: AppThemeColor.rose),
+      ),
     );
   }
 }
