@@ -15,6 +15,8 @@ class PersonalDataFieldsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
 
+    final edgeInsets = EdgeInsets.symmetric(
+        vertical: height * 0.013, horizontal: height * 0.023);
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,30 +27,49 @@ class PersonalDataFieldsWidget extends StatelessWidget {
           maxLines: 1,
         ),
         SizedBox(height: height * 0.016),
-        const TextInputField(hintText: 'Имя'),
+        TextField(
+          decoration: InputDecoration(
+            contentPadding: edgeInsets,
+            hintText: 'Имя',
+          ),
+        ),
         const SizedBox(height: 4),
-        const TextInputField(hintText: 'Фамилия'),
+        TextField(
+          decoration: InputDecoration(
+            contentPadding: edgeInsets,
+            hintText: 'Фамилия',
+          ),
+        ),
         const SizedBox(height: 4),
         const DropdownCustomWidgetNew(
             hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
         const QuestionsPadding(),
-        TextInputField(
-          hintText: 'Дата рождения',
-          inputFormatter: MaskTextInputFormatter(
-              mask: '##/##/####',
-              filter: {"#": RegExp(r'[0-9]')},
-              type: MaskAutoCompletionType.lazy),
+        TextField(
+          inputFormatters: [
+            MaskTextInputFormatter(
+                mask: '##/##/####',
+                filter: {"#": RegExp(r'[0-9]')},
+                type: MaskAutoCompletionType.lazy),
+          ],
+          decoration: InputDecoration(
+            contentPadding: edgeInsets,
+            hintText: 'Дата рождения',
+          ),
         ),
         const QuestionsPadding(),
-        TextInputField(
-          hintText: 'Имя в приложении',
-          inputFormatter: MaskTextInputFormatter(
-              mask: '##/##/####',
-              filter: {"#": RegExp(r'[0-9]')},
-              type: MaskAutoCompletionType.lazy),
+        TextField(
+          decoration: InputDecoration(
+            contentPadding: edgeInsets,
+            hintText: 'Имя в приложении',
+          ),
         ),
         const QuestionsPadding(),
-        const TextInputField(hintText: 'Почта'),
+        TextField(
+          decoration: InputDecoration(
+            contentPadding: edgeInsets,
+            hintText: 'Почта',
+          ),
+        ),
       ],
     );
   }
