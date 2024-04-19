@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
 
@@ -42,16 +41,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: standardPadding)
-              .copyWith(bottom: bottomOffset),
-          child: NextStepButton(
-            onPressed: _nextPage,
-            title: 'ПРОДОЛЖИТЬ ',
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        resizeToAvoidBottomInset:
+            _currentPageIndex == 1 || _currentPageIndex == 2,
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
@@ -92,7 +83,15 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   }
                 },
               ),
-              SizedBox(height: width * 0.32),
+              SizedBox(height: width * 0.16797),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: standardPadding),
+                child: NextStepButton(
+                  onPressed: _nextPage,
+                  title: 'ПРОДОЛЖИТЬ ',
+                ),
+              ),
               const BottomPadding(),
             ],
           ),
