@@ -34,13 +34,9 @@ class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
                 ),
                 Positioned(
                   top: MediaQuery.of(context).viewPadding.top,
-                  child: const Text(
+                  child: Text(
                     "SEMPL!",
-                    style: TextStyle(
-                      fontFamily: 'DrukCyr',
-                      fontSize: 32,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).appBarTheme.titleTextStyle,
                   ),
                 ),
               ],
