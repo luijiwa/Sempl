@@ -20,7 +20,7 @@ class MainScreen extends StatelessWidget {
         slivers: <Widget>[
           const MainScreenAppBar(),
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 22)
+            padding: const EdgeInsets.symmetric(horizontal: 22)
                 .copyWith(right: width * 0.2),
             sliver: SliverToBoxAdapter(
               child: AutoSizeText(
