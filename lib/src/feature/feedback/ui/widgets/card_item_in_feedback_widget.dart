@@ -13,8 +13,7 @@ class CardItemInFeedbackWidget extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     const String title = 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ';
     const String subtitle = 'Доставлено: 15 января В 18:00';
-    const String imageUrl =
-        'https://s3-alpha-sig.figma.com/img/9813/6eb5/d7f50f5d7c326585b6a136c2f5303752?Expires=1714348800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GFD~GYA~T6K0zPtz4Wym7huMVyfLboQCv7Nev5VzzbSvR~8irhzjYqZZxIF-iPVtfdoOD7SxUfwHOhfo9nMN0veXBQ5hD17XetDvRRug9pJAIyKc43uACPsWT8AtnmOtJ4lU95wNqYtmUl-EU0KE~xawULqCIdFscTN3G4Q4UM1by9vos4u0sN-BdDw2tEeZQjwq2irhoJuOQGN5SNbUh~Yf-XgxmWOZbrHaXeCe520lD~OyYGbhnqQAxMbp0hXDJkqoup38L038yqRiAPcaBMPMOkZwAUxWkUUmvHgXBPnJTdrsxZ5RYQ9KZcMseKk97nHGNaKI7x6BnSqjRlenVQ__';
+    const String imageUrl = 'assets/images/diamond.png';
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -37,7 +36,7 @@ class CardItemInFeedbackWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.network(
+            Image.asset(
               imageUrl,
               height: width * 0.35,
             ),
