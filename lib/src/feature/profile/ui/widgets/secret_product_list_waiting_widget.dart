@@ -5,12 +5,20 @@ import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/review_items/widgets/item_with_button_widget.dart';
 
-class SecretProductWaitingListWidget extends StatelessWidget {
+class SecretProductWaitingListWidget extends StatefulWidget {
   const SecretProductWaitingListWidget({
-    this.index = 0,
     super.key,
   });
-  final int index;
+
+  @override
+  State<SecretProductWaitingListWidget> createState() =>
+      _SecretProductWaitingListWidgetState();
+}
+
+class _SecretProductWaitingListWidgetState
+    extends State<SecretProductWaitingListWidget> {
+  int _index = 0;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -22,14 +30,21 @@ class SecretProductWaitingListWidget extends StatelessWidget {
           padding:
               EdgeInsets.only(bottom: height * 0.0153, right: width * 0.08),
           sliver: SliverToBoxAdapter(
-            child: AutoSizeText(
-              'МОИ ОЖИДАЕМЫЕ ОБРАЗЦЫ:',
-              style: Theme.of(context).textTheme.appProfileTitle,
-              maxLines: 1,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _index = _index == 2 ? 0 : _index + 1;
+                });
+              },
+              child: AutoSizeText(
+                'МОИ ОЖИДАЕМЫЕ ОБРАЗЦЫ:',
+                style: Theme.of(context).textTheme.appProfileTitle,
+                maxLines: 1,
+              ),
             ),
           ),
         ),
-        if (index == 2)
+        if (_index == 2)
           const ItemWithButtonWidget(
             imageUrl: 'assets/images/diamond.png',
             title: 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ',
@@ -38,8 +53,8 @@ class SecretProductWaitingListWidget extends StatelessWidget {
           ),
 
         ///TODO Если нет товаров для отзывов
-        if (index == 3) const EmptyReviewWidget(),
-        if (index == 0) const ReviewListWidget(),
+        if (_index == 1) const EmptyReviewWidget(),
+        if (_index == 0) const ReviewListWidget(),
       ]),
     );
   }
