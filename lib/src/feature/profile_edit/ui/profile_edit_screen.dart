@@ -37,8 +37,15 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const AutoSizeText('Изменения будут сохранены в профиле '),
-                    SizedBox(height: width * 0.04581),
+                    Padding(
+                      padding: EdgeInsets.only(right: width * 0.15),
+                      child: const AutoSizeText(
+                        'Изменения будут сохранены в профиле',
+                        style: TextStyle(fontSize: 16),
+                        maxLines: 1,
+                      ),
+                    ),
+                    SizedBox(height: width * 0.0458),
                     const PersonalDataFieldsWidget(),
                     SizedBox(height: width * 0.13743),
                     const AddressDataFieldsWidget(),
