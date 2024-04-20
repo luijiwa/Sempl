@@ -14,6 +14,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.sizeOf(context).width;
 
     final edgeInsets = EdgeInsets.symmetric(
         vertical: height * 0.013, horizontal: height * 0.023);
@@ -26,7 +27,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
           style: Theme.of(context).textTheme.appProfileTitle,
           maxLines: 1,
         ),
-        SizedBox(height: height * 0.016),
+        SizedBox(height: width * 0.05),
         TextField(
           decoration: InputDecoration(
             contentPadding: edgeInsets,
@@ -43,7 +44,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
         const SizedBox(height: 4),
         const DropdownCustomWidgetNew(
             hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
-        const QuestionsPadding(),
+        SizedBox(height: width * 0.1),
         TextField(
           inputFormatters: [
             MaskTextInputFormatter(
@@ -56,14 +57,14 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             hintText: 'Дата рождения',
           ),
         ),
-        const QuestionsPadding(),
+        SizedBox(height: width * 0.1),
         TextField(
           decoration: InputDecoration(
             contentPadding: edgeInsets,
             hintText: 'Имя в приложении',
           ),
         ),
-        const QuestionsPadding(),
+        SizedBox(height: width * 0.1),
         TextField(
           decoration: InputDecoration(
             contentPadding: edgeInsets,

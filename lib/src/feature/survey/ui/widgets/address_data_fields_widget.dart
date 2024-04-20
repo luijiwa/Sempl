@@ -30,7 +30,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
             style: Theme.of(context).textTheme.appProfileTitle,
             maxLines: 1,
           ),
-          SizedBox(height: height * 0.016),
+          SizedBox(height: width * 0.05),
           const RequiredInputField(
             hintText: 'Город',
           ),
@@ -40,6 +40,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
           ),
           const SizedBox(height: 4),
           const Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
                 child: RequiredInputField(hintText: 'Номер дома'),
@@ -52,6 +53,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
           ),
           const SizedBox(height: 4),
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               const Expanded(child: TextInputField(hintText: 'Подъезд')),
               const SizedBox(width: 4),

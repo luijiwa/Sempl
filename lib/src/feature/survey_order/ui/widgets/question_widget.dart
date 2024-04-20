@@ -16,12 +16,14 @@ class QuestionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
-          padding: EdgeInsets.only(bottom: height * 0.0083),
+          padding: EdgeInsets.only(bottom: width * 0.03),
           child: AutoSizeText(
             'Вопрос $index',
             style: Theme.of(context)
@@ -31,7 +33,7 @@ class QuestionWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(bottom: height * 0.0083),
+          padding: EdgeInsets.only(bottom: width * 0.03),
           child: AutoSizeText(
             'Какую главную особенность вы ищете в ополаскивателе для рта?',
             style: Theme.of(context).textTheme.appBodyMedium,

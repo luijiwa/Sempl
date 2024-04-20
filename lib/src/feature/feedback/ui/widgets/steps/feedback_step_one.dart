@@ -29,7 +29,7 @@ class FeedbackStepOne extends StatelessWidget {
             itemBuilder: (context, index) {
               return QuestionWidget(index: index + 1, text: text);
             },
-            separatorBuilder: (__, _) => SizedBox(height: width * 0.02545),
+            separatorBuilder: (__, _) => SizedBox(height: width * 0.035),
           ),
         ),
       ],
