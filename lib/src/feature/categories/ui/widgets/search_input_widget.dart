@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class SearchInputWidget extends StatefulWidget {
   const SearchInputWidget({
@@ -60,13 +61,13 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(right: 4),
-                          child: Icon(Icons.search, size: 24),
+                          child:
+                              Icon(Icons.search, size: 24, color: Colors.black),
                         ),
                         Text(
                           'Поиск в категориях',
                           style: TextStyle(
                             fontSize: 14,
-                            fontFamily: 'SourceSansPro',
                           ),
                         ),
                       ],
@@ -75,26 +76,12 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
                 ),
               TextField(
                 controller: _controller,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                      vertical: height * 0.013, horizontal: height * 0.023),
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    borderSide: BorderSide.none,
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    borderSide: BorderSide.none,
-                  ),
-                  disabledBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    borderSide: BorderSide.none,
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
+                decoration:
+                    Theme.of(context).inputDecorationTheme.searchInput.copyWith(
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: height * 0.013,
+                              horizontal: height * 0.023),
+                        ),
               ),
             ],
           ),

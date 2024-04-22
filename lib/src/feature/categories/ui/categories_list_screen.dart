@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
 import 'package:my_app/src/core/components/custom_radio_button.dart';
-import 'package:my_app/src/feature/recent_products/search_input_widget.dart';
+import 'package:my_app/src/feature/categories/ui/widgets/search_input_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
 class CategoriesListScreen extends StatefulWidget {
@@ -35,7 +35,7 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
               backgroundColor: AppThemeColor.grey,
               title: Text('Категории'),
               titleTextStyle: TextStyle(
-                fontFamily: 'SourceSansProBold',
+                fontWeight: FontWeight.w700,
                 fontSize: 18,
                 color: AppThemeColor.black,
               ),
@@ -72,7 +72,7 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
                                         vertical: 2.5),
                                     child: Text(category,
                                         style: const TextStyle(
-                                            fontFamily: 'SourceSansProSemibold',
+                                            fontWeight: FontWeight.w600,
                                             fontSize: 15)),
                                   ),
                                 ),
@@ -100,9 +100,7 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 4),
                                       child: Text(product,
-                                          style: const TextStyle(
-                                              fontFamily: 'SourceSansPro',
-                                              fontSize: 15)),
+                                          style: const TextStyle(fontSize: 15)),
                                     ),
                                   ),
                                   CustomRadioButton(
