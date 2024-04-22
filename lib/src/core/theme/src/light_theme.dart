@@ -56,6 +56,14 @@ ThemeData createLightTheme() {
         backgroundColor: AppThemeColor.blueColor,
       ),
     ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        side: const BorderSide(
+          width: 1,
+          color: AppThemeColor.blueColor,
+        ),
+      ),
+    ),
     checkboxTheme: CheckboxThemeData(
       checkColor: MaterialStateProperty.all<Color>(Colors.white),
       side: MaterialStateBorderSide.resolveWith(

@@ -33,4 +33,14 @@ extension CustomInputFormStyles on InputDecorationTheme {
       ),
     );
   }
+
+  InputDecoration get searchInput {
+    return const InputDecoration(
+      border: InputBorder.none,
+      focusedBorder: InputBorder.none,
+      disabledBorder: InputBorder.none,
+      enabledBorder: InputBorder.none,
+      filled: false,
+    );
+  }
 }
