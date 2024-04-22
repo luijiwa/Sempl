@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/app_bar_profile_icon_button_widget.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
@@ -15,22 +16,7 @@ class CustomSliverAppBar extends StatelessWidget {
       actions: [
         const PointsWidget(),
         SizedBox(width: width * 0.02),
-        Container(
-          width: width * 0.1,
-          height: width * 0.1,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: const Color(0xff7c94b6),
-            image: const DecorationImage(
-              image: AssetImage('assets/images/profile.jpg'),
-              fit: BoxFit.cover,
-            ),
-            border: Border.all(
-              color: AppThemeColor.blueColor,
-              width: 1.0,
-            ),
-          ),
-        ),
+        const AppBarProfileIconButtonWidget(),
         const SizedBox(width: 22),
       ],
     );

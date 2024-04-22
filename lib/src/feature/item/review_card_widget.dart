@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/components/app_bar_profile_icon_button_widget.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
 import 'package:my_app/src/feature/item/full_screen_review_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
@@ -33,22 +34,7 @@ class ReviewCardWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  width: width * 0.1,
-                  height: width * 0.1,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppThemeColor.blueColor,
-                    image: const DecorationImage(
-                      image: AssetImage('assets/images/profile.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                    border: Border.all(
-                      color: AppThemeColor.blueColor,
-                      width: 1.0,
-                    ),
-                  ),
-                ),
+                const AppBarProfileIconButtonWidget(),
                 SizedBox(width: width * 0.02),
                 const AutoSizeText(
                   "@WOLFLIKEMEEE",

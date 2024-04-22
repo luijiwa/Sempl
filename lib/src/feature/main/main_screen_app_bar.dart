@@ -1,9 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
+import 'package:my_app/src/core/components/app_bar_profile_icon_button_widget.dart';
 import 'package:my_app/src/core/components/points_widget.dart';
-import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
 class MainScreenAppBar extends StatelessWidget {
@@ -38,27 +37,7 @@ class MainScreenAppBar extends StatelessWidget {
                     children: [
                       const PointsWidget(),
                       SizedBox(width: width * 0.02),
-                      GestureDetector(
-                        onTap: () {
-                          context.pushNamed(AppRoutes.profile.name);
-                        },
-                        child: Container(
-                          width: width * 0.1,
-                          height: width * 0.1,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: const Color(0xff7c94b6),
-                            image: const DecorationImage(
-                              image: AssetImage('assets/images/profile.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            border: Border.all(
-                              color: AppThemeColor.blueColor,
-                              width: 1.0,
-                            ),
-                          ),
-                        ),
-                      ),
+                      const AppBarProfileIconButtonWidget(),
                     ],
                   ),
                   SizedBox(
