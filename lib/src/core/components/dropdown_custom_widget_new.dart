@@ -22,7 +22,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
 
   // Styles
   final TextStyle dropdownHintTextStyle = const TextStyle(
-    fontFamily: 'SourceSansPro',
     color: AppThemeColor.gris,
   );
 

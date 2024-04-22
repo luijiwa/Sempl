@@ -26,7 +26,6 @@ class DropdownCustomWidget extends StatelessWidget {
                 item,
                 maxLines: 1,
                 style: const TextStyle(
-                  fontFamily: 'SourceSansPro',
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -35,7 +34,6 @@ class DropdownCustomWidget extends StatelessWidget {
           .toList(),
       hint: Text(hint,
           style: const TextStyle(
-            fontFamily: 'SourceSansPro',
             color: AppThemeColor.gris,
           )),
       decoration: inputDecoration,
