@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/page_indicator_row_widget.dart';
-import 'package:my_app/src/core/theme/theme.dart';
 
 class PageIndicatorWidget extends StatelessWidget {
   const PageIndicatorWidget({

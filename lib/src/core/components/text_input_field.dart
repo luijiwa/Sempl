@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_app/src/core/theme/theme.dart';
 
 class TextInputField extends StatelessWidget {
   const TextInputField({

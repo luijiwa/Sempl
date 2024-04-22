@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/feature/survey_order/ui/widgets/question_widget.dart';
 
 class FeedbackStepOne extends StatelessWidget {

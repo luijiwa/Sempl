@@ -2,9 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:my_app/src/core/components/dropdown_custom_widget_new.dart';
-import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/feature/survey/ui/widgets/questions_padding.dart';
 
 class PersonalDataFieldsWidget extends StatelessWidget {
   const PersonalDataFieldsWidget({

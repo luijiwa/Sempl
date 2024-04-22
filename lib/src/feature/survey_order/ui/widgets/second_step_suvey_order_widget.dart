@@ -8,7 +8,6 @@ import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/survey/ui/widgets/questions_padding.dart';
-import 'package:my_app/src/feature/survey/ui/widgets/steps/first_step_widget.dart';
 import 'package:my_app/src/feature/survey_order/ui/widgets/question_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 

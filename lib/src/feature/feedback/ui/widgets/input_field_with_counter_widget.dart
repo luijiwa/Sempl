@@ -19,7 +19,7 @@ class _InputFieldWithCounterWidgetState
     extends State<InputFieldWithCounterWidget> {
   final TextEditingController _controller = TextEditingController();
   int _characterCount = 0;
-  int _maxLength = 140; // Максимальное количество символов
+  final int _maxLength = 140; // Максимальное количество символов
 
   @override
   void initState() {
