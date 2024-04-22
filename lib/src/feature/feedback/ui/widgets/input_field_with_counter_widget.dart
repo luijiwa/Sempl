@@ -6,8 +6,10 @@ class InputFieldWithCounterWidget extends StatefulWidget {
   const InputFieldWithCounterWidget({
     super.key,
     required this.hint,
+    this.enabled = true,
   });
   final String hint;
+  final bool enabled;
   @override
   State<InputFieldWithCounterWidget> createState() =>
       _InputFieldWithCounterWidgetState();
@@ -50,6 +52,7 @@ class _InputFieldWithCounterWidgetState
               LengthLimitingTextInputFormatter(140),
             ],
             controller: _controller,
+            enabled: widget.enabled,
             decoration:
                 Theme.of(context).inputDecorationTheme.defaultInput.copyWith(
                       hintStyle: const TextStyle(

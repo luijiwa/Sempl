@@ -5,8 +5,16 @@ import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/feedback_checkbox_row_widget.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/input_field_with_counter_widget.dart';
 
-class FeedbackStepThree extends StatelessWidget {
+class FeedbackStepThree extends StatefulWidget {
   const FeedbackStepThree({super.key});
+
+  @override
+  State<FeedbackStepThree> createState() => _FeedbackStepThreeState();
+}
+
+class _FeedbackStepThreeState extends State<FeedbackStepThree> {
+  bool noPlusChecked = false;
+  bool noMinusChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +36,21 @@ class FeedbackStepThree extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 17)
                   .copyWith(bottom: width * 0.01527),
-              child: const FeedbackCheckboxRowWidget(
+              child: FeedbackCheckboxRowWidget(
                 title: 'Нет плюсов',
-                value: false,
+                value: noPlusChecked,
+                onChanged: (value) {
+                  setState(() {
+                    noPlusChecked = value;
+                  });
+                },
               ),
             ),
-            const InputFieldWithCounterWidget(hint: 'Плюс 1'),
+            InputFieldWithCounterWidget(
+                hint: 'Плюс 1', enabled: !noPlusChecked),
             SizedBox(height: width * 0.02545),
-            const InputFieldWithCounterWidget(hint: 'Плюс 1'),
+            InputFieldWithCounterWidget(
+                hint: 'Плюс 1', enabled: !noPlusChecked),
           ],
         ),
         SizedBox(height: width * 0.06108),
@@ -53,14 +68,21 @@ class FeedbackStepThree extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 17)
                   .copyWith(bottom: width * 0.01527),
-              child: const FeedbackCheckboxRowWidget(
+              child: FeedbackCheckboxRowWidget(
                 title: 'Нет минусов',
-                value: false,
+                value: noPlusChecked,
+                onChanged: (value) {
+                  setState(() {
+                    noMinusChecked = value;
+                  });
+                },
               ),
             ),
-            const InputFieldWithCounterWidget(hint: 'Минус 1'),
+            InputFieldWithCounterWidget(
+                hint: 'Минус 1', enabled: !noMinusChecked),
             SizedBox(height: width * 0.02545),
-            const InputFieldWithCounterWidget(hint: 'Минус 1'),
+            InputFieldWithCounterWidget(
+                hint: 'Минус 1', enabled: !noMinusChecked),
           ],
         ),
       ],
