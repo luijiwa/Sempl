@@ -8,11 +8,12 @@ class FeedbackCheckboxRowWidget extends StatefulWidget {
     required this.title,
     required this.value,
     this.maxLines = 1,
+    required this.onChanged,
   });
   final String title;
   final int maxLines;
   final bool value;
-
+  final ValueChanged<bool>? onChanged;
   @override
   State<FeedbackCheckboxRowWidget> createState() =>
       _FeedbackCheckboxRowWidgetState();
