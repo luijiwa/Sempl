@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/feature/confirmation/confirmation_screen.dart';
 import 'package:my_app/src/feature/delivery/delivery_screen.dart';
+import 'package:my_app/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
 import 'package:my_app/src/feature/item/item_screen.dart';
 import 'package:my_app/src/feature/login/login_screen.dart';
 import 'package:my_app/src/feature/main/main_screen.dart';
@@ -10,8 +11,8 @@ import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
 import 'package:my_app/src/feature/profile/ui/profile_screen.dart';
 import 'package:my_app/src/feature/profile_edit/ui/profile_edit_screen.dart';
 import 'package:my_app/src/feature/review_items/widgets/review_items_screen.dart';
-import 'package:my_app/src/feature/recent_products/categories_list_screen.dart';
-import 'package:my_app/src/feature/recent_products/recent_products_screen.dart';
+import 'package:my_app/src/feature/categories/ui/categories_list_screen.dart';
+import 'package:my_app/src/feature/recent_products/ui/recent_products_screen.dart';
 import 'package:my_app/src/feature/survey/ui/survey_screen.dart';
 import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_one_screen.dart';
 import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_two_screen.dart';
@@ -98,6 +99,12 @@ class AppRouter {
                     path: AppRoutes.profileEdit.path,
                     builder: (context, state) {
                       return const ProfileEditScreen();
+                    }),
+                GoRoute(
+                    name: AppRoutes.finishedSempls.name,
+                    path: AppRoutes.finishedSempls.path,
+                    builder: (context, state) {
+                      return const FinishedSemplsScreen();
                     }),
               ]),
           GoRoute(

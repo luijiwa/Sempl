@@ -61,6 +61,10 @@ enum AppRoutes {
     name: 'reviewItemsScreen',
     path: 'review_items_screen',
   ),
+  finishedSempls(
+    name: 'finishedSempls',
+    path: 'finished_sempls',
+  ),
   ;
 
   const AppRoutes({
