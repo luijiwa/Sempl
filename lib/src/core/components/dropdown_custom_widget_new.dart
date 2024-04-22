@@ -53,19 +53,63 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
     ),
   );
 
+  List<DropdownMenuItem<String>> _addDividersAfterItems(List<String> items) {
+    final List<DropdownMenuItem<String>> menuItems = [];
+    for (final String item in items) {
+      menuItems.addAll(
+        [
+          DropdownMenuItem<String>(
+            value: item,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                item,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+          //If it's last item, we will not add Divider after it.
+          if (item != items.last)
+            const DropdownMenuItem<String>(
+              enabled: false,
+              child: Divider(),
+            ),
+        ],
+      );
+    }
+    return menuItems;
+  }
+
+  List<double> _getCustomItemsHeights() {
+    final List<double> itemsHeights = [];
+    for (int i = 0; i < (widget.listItems.length * 2) - 1; i++) {
+      if (i.isEven) {
+        itemsHeights.add(40);
+      }
+      //Dividers indexes will be the odd indexes
+      if (i.isOdd) {
+        itemsHeights.add(4);
+      }
+    }
+    return itemsHeights;
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       final height = MediaQuery.of(context).size.height;
       final width = MediaQuery.of(context).size.width;
       final MenuItemStyleData dropdownMenuItemStyleData = MenuItemStyleData(
+        customHeights: _getCustomItemsHeights(),
         padding: const EdgeInsets.symmetric(vertical: 3).copyWith(
           left: 14,
           right: 14,
         ),
       );
       final ButtonStyleData dropdownButtonStyleData = ButtonStyleData(
-        height: height * 0.05,
+        // height: height * 0.05,
         padding: EdgeInsets.symmetric(
                 vertical: height * 0.0, horizontal: height * 0.01)
             .copyWith(right: width * 0.05),
@@ -105,16 +149,18 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
                       ),
                     ))
                 .toList(),
-            items: widget.listItems
-                .map((String item) => DropdownMenuItem<String>(
-                      value: item,
-                      child: Text(
-                        item,
-                        style: dropdownItemTextStyle,
-                        overflow: TextOverflow.visible,
-                      ),
-                    ))
-                .toList(),
+            items: _addDividersAfterItems(widget.listItems),
+
+            // items: widget.listItems
+            //     .map((String item) => DropdownMenuItem<String>(
+            //           value: item,
+            //           child: Text(
+            //             item,
+            //             style: dropdownItemTextStyle,
+            //             overflow: TextOverflow.visible,
+            //           ),
+            //         ))
+            //     .toList(),
             value: selectedValue,
             onChanged: (value) {
               setState(() {
