@@ -11,6 +11,8 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
+    final defaultPadding = width * 0.0836830508;
     final bottomOffset =
         height * 0.13806 - MediaQuery.of(context).padding.bottom;
 
@@ -22,11 +24,11 @@ class ProfileScreen extends StatelessWidget {
             title: Text('SEMPL!'),
           ),
           const ProfileAvatarRowWidget(),
-          SliverToBoxAdapter(child: SizedBox(height: height * 0.0388)),
+          SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
           const SecretProductWaitingListWidget(),
-          SliverToBoxAdapter(child: SizedBox(height: height * 0.0388)),
+          SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
           const RecomendationBannerWidget(),
-          SliverToBoxAdapter(child: SizedBox(height: height * 0.0388)),
+          SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
           const CompleteExampleListWidget(),
           SliverToBoxAdapter(child: SizedBox(height: bottomOffset)),
           SliverToBoxAdapter(

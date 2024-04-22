@@ -15,7 +15,7 @@ class RecomendationBannerWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 22),
       sliver: SliverToBoxAdapter(
         child: Container(
-          height: height * 0.425,
+          height: 0.9166313559 * width,
           constraints: const BoxConstraints(minHeight: 335),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30.0)),
@@ -29,18 +29,18 @@ class RecomendationBannerWidget extends StatelessWidget {
           ),
           width: double.infinity,
           padding: EdgeInsets.only(
-              top: height * 0.0118,
-              bottom: height * 0.02832,
+              top: width * 0.02545,
+              bottom: width * 0.06108,
               left: width * 0.05,
               right: width * 0.05),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: height * 0.013)
+                padding: EdgeInsets.only(top: width * 0.0280381356)
                     .copyWith(left: width * 0.035, right: width * 0.035),
                 child: SizedBox(
-                  height: height * 0.11328,
+                  height: 0.24432 * width,
                   child: AutoSizeText(
                     'МЫ СОБРАЛИ ПРОДУКТЫ,\nЧТОБЫ ПОПРОБОВАТЬ\nСПЕЦИАЛЬНО ДЛЯ ВАС!',
                     textAlign: TextAlign.center,
@@ -51,9 +51,9 @@ class RecomendationBannerWidget extends StatelessWidget {
               ),
               const Spacer(),
               Padding(
-                padding: EdgeInsets.only(bottom: height * 0.01888),
+                padding: EdgeInsets.only(bottom: width * 0.04072),
                 child: SizedBox(
-                  height: height * 0.03776,
+                  height: 0.08144 * width,
                   child: AutoSizeText(
                     'НА ОСНОВЕ ДАННЫХ ВАШЕЙ АНКЕТЫ МЫ СОБРАЛИ ДЛЯ ВАС КОРЗИНУ ИНТЕРЕСНЫХ ТОВАРОВ',
                     textAlign: TextAlign.center,
@@ -69,7 +69,8 @@ class RecomendationBannerWidget extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: height * 0.018),
+                      padding:
+                          EdgeInsets.symmetric(vertical: width * 0.0388220339),
                       backgroundColor: Colors.white),
                   onPressed: () {},
                   child: Text('ХОЧУ ЭТО!',

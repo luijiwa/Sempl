@@ -82,8 +82,8 @@ class ReviewListWidget extends StatelessWidget {
           child: Container(
             width: double.infinity,
             padding: EdgeInsets.only(
-              top: 0.0118 * height,
-              bottom: 0.02832 * height,
+              top: 0.02545 * width,
+              bottom: 0.06108 * width,
               left: 0.0509 * width,
               right: 0.0509 * width,
             ),
@@ -91,7 +91,7 @@ class ReviewListWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  height: height * 0.1652,
+                  height: 0.3563 * width,
                   width: double.maxFinite,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
@@ -104,10 +104,10 @@ class ReviewListWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: height * 0.0153),
+                SizedBox(height: 0.0329987288 * width),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * 0.03)
-                      .copyWith(bottom: height * 0.0039),
+                      .copyWith(bottom: width * 0.0084114407),
                   child: AutoSizeText(
                     'СЕКРЕТНЫЙ ПРОДУКТ ТОЛЬКО ДЛЯ ТЕБЯ',
                     style: Theme.of(context).textTheme.appBodySemiBold,
@@ -149,8 +149,8 @@ class EmptyReviewWidget extends StatelessWidget {
     final height = MediaQuery.sizeOf(context).height;
     return SliverPadding(
       padding: EdgeInsets.only(
-        top: height * 0.0496,
-        bottom: height * 0.0261,
+        top: width * 0.1069762712,
+        bottom: 0.0562919492 * width,
         left: width * 0.065,
         right: width * 0.065,
       ),
