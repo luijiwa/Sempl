@@ -1,23 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
 class StarRatingWidget extends StatelessWidget {
   const StarRatingWidget({
     super.key,
     this.size = 20,
+    this.rating = 5,
   });
   final double size;
+  final int rating;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        for (int i = 0; i < 5; i++)
-          Icon(
-            Icons.star_rounded,
-            color: AppThemeColor.blueColor,
-            size: size,
+        ...List.generate(
+          rating,
+          (index) => SvgPicture.asset(
+            width: size,
+            'assets/icons/star_filled.svg',
+            colorFilter: const ColorFilter.mode(
+                AppThemeColor.blueColor, BlendMode.srcIn),
           ),
+        ),
+        ...List.generate(
+          5 - rating,
+          (index) => SvgPicture.asset(
+            width: size,
+            'assets/icons/star_outline.svg',
+            colorFilter: const ColorFilter.mode(
+                AppThemeColor.blueColor, BlendMode.srcIn),
+          ),
+        ),
       ],
     );
   }
