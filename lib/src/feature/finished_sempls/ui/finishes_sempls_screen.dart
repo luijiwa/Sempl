@@ -21,7 +21,8 @@ class FinishedSemplsScreen extends StatelessWidget {
             title: Text('SEMPL!'),
           ),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
+            padding: const EdgeInsets.symmetric(horizontal: 22)
+                .copyWith(top: width * 0.063625),
             sliver: SliverMainAxisGroup(
               slivers: [
                 SliverToBoxAdapter(
@@ -31,7 +32,11 @@ class FinishedSemplsScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.appTitleMedium,
                   ),
                 ),
-                const CategoriesButtonWidget(),
+                SliverPadding(
+                  padding: EdgeInsets.only(
+                      top: width * 0.063625, bottom: width * 0.02036),
+                  sliver: const CategoriesButtonWidget(),
+                ),
                 const SliverToBoxAdapter(
                   child: Wrap(
                     spacing: 3.0,
@@ -45,38 +50,42 @@ class FinishedSemplsScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SliverToBoxAdapter(
-                    child: Row(
-                  children: [
-                    const AutoSizeText(
-                      '87 СЕМПЛОВ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
-                    ),
-                    const Spacer(),
-                    Wrap(
-                      children: [
-                        const AutoSizeText('новые'),
-                        SvgPicture.asset(
-                          colorFilter: const ColorFilter.mode(
-                              AppThemeColor.blueColor, BlendMode.srcIn),
-                          'assets/icons/step_into.svg',
-                        ),
-                      ],
-                    ),
-                    SizedBox(width: width * 0.02),
-                    Wrap(
-                      children: [
-                        const AutoSizeText('оценка'),
-                        SvgPicture.asset(
-                          colorFilter: const ColorFilter.mode(
-                              AppThemeColor.blueColor, BlendMode.srcIn),
-                          'assets/icons/step_into_up.svg',
-                        ),
-                      ],
-                    )
-                  ],
-                )),
+                SliverPadding(
+                  padding: EdgeInsets.only(
+                      top: width * 0.08653, bottom: width * 0.03563),
+                  sliver: SliverToBoxAdapter(
+                      child: Row(
+                    children: [
+                      const AutoSizeText(
+                        '87 СЕМПЛОВ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 15),
+                      ),
+                      const Spacer(),
+                      Wrap(
+                        children: [
+                          const AutoSizeText('новые'),
+                          SvgPicture.asset(
+                            colorFilter: const ColorFilter.mode(
+                                AppThemeColor.blueColor, BlendMode.srcIn),
+                            'assets/icons/step_into.svg',
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: width * 0.02),
+                      Wrap(
+                        children: [
+                          const AutoSizeText('оценка'),
+                          SvgPicture.asset(
+                            colorFilter: const ColorFilter.mode(
+                                AppThemeColor.blueColor, BlendMode.srcIn),
+                            'assets/icons/step_into_up.svg',
+                          ),
+                        ],
+                      )
+                    ],
+                  )),
+                ),
                 SliverList.separated(
                     itemCount: 4,
                     itemBuilder: (BuildContext context, int index) {
