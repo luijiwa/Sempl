@@ -56,7 +56,6 @@ class _InputFieldWithCounterWidgetState
             decoration:
                 Theme.of(context).inputDecorationTheme.defaultInput.copyWith(
                       hintStyle: const TextStyle(
-                        fontFamily: 'SourceSansPro',
                         fontSize: 15,
                         color: AppThemeColor.gris,
                       ),

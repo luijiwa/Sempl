@@ -12,7 +12,6 @@ extension CustomInputFormStyles on InputDecorationTheme {
         borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
       ),
       hintStyle: TextStyle(
-        fontFamily: 'SourceSansPro',
         fontSize: 14,
         color: AppThemeColor.gris,
       ),

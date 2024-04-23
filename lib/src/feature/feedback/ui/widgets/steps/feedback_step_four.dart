@@ -124,7 +124,7 @@ class VideoPreviewWidget extends StatelessWidget {
         Container(
           foregroundDecoration: BoxDecoration(
             borderRadius: BorderRadius.circular(7.0),
-            color: Colors.black.withOpacity(0.2),
+            color: AppThemeColor.black.withOpacity(0.2),
           ),
           width: width * 0.195965,
           height: width * 0.195965,

@@ -35,7 +35,7 @@ class PasswordCheckItem extends StatelessWidget {
             Flexible(
               child: AutoSizeText(
                 text,
-                style: TextStyle(fontFamily: 'SourceSansPro', color: textColor),
+                style: TextStyle(color: textColor),
                 maxLines: maxLines,
               ),
             ),

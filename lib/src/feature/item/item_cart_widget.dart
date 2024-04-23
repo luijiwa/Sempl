@@ -41,7 +41,6 @@ class ItemCard extends StatelessWidget {
                     AutoSizeText(
                       '5,0 по 89 отзывам'.toUpperCase(),
                       style: const TextStyle(
-                        fontFamily: 'SourceSansPro',
                         fontSize: 12,
                       ),
                     )
@@ -80,7 +79,6 @@ class ItemCard extends StatelessWidget {
                   maxLines: 3,
                   style: TextStyle(
                     fontSize: 14,
-                    fontFamily: 'SourceSansPro',
                     height: 1.2,
                   )),
             ),
@@ -100,7 +98,6 @@ class ItemCard extends StatelessWidget {
                 child: AutoSizeText(
                   'КУПИТЬ ЗА БАЛЛЫ',
                   style: TextStyle(
-                    fontFamily: 'SourceSansPro',
                     fontSize: width > 320 ? 15 : 12,
                     color: AppThemeColor.grey,
                   ),

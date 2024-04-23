@@ -20,7 +20,7 @@ const appBarTheme = TextStyle(
   fontWeight: FontWeight.w700,
   fontSize: 26,
   height: 1,
-  color: Colors.black,
+  color: AppThemeColor.black,
 );
 const inputDecoration = InputDecoration(
   filled: true,
@@ -35,7 +35,6 @@ const inputDecoration = InputDecoration(
     borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
   ),
   hintStyle: TextStyle(
-    fontFamily: 'SourceSansPro',
     fontSize: 14,
     color: AppThemeColor.gris,
   ),
@@ -61,7 +60,6 @@ const feedbackBiginputDecoration = InputDecoration(
     borderSide: BorderSide(width: 0.5, color: AppThemeColor.blueColor),
   ),
   hintStyle: TextStyle(
-    fontFamily: 'SourceSansPro',
     fontSize: 14,
     color: AppThemeColor.gris,
   ),
@@ -84,9 +82,8 @@ const dropdownDecoration = InputDecoration(
     borderSide: BorderSide(width: 1, color: AppThemeColor.blueColor),
   ),
   hintStyle: TextStyle(
-    fontFamily: 'SourceSansPro',
     fontSize: 14,
-    color: Colors.black,
+    color: AppThemeColor.black,
   ),
   disabledBorder: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -100,7 +97,6 @@ const dropdownDecoration = InputDecoration(
 
 const linkTextStyle = TextStyle(
   fontSize: 12,
-  fontFamily: 'SourceSansPro',
   decoration: TextDecoration.underline,
   decorationColor: Color(0xFF99BFD4),
   color: Color(0xFF99BFD4),

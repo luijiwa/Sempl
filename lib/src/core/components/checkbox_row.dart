@@ -57,8 +57,7 @@ class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
             child: AutoSizeText(
               widget.title,
               style: TextStyle(
-                  fontFamily: 'SourceSansPro',
-                  color: _value ? Colors.black : AppThemeColor.gris,
+                  color: _value ? AppThemeColor.black : AppThemeColor.gris,
                   fontSize: 15),
               maxLines: widget.maxLines,
             ),

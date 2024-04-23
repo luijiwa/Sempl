@@ -25,9 +25,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
     color: AppThemeColor.gris,
   );
 
-  final TextStyle dropdownItemTextStyle = const TextStyle(
-    fontFamily: 'SourceSansPro',
-  );
+  final TextStyle dropdownItemTextStyle = const TextStyle();
 
   final IconStyleData dropdownIconStyleData = const IconStyleData(
     icon: Icon(

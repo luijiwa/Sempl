@@ -115,13 +115,14 @@ class ItemInFirstOnboardingPage extends StatelessWidget {
               maxLines: 2,
               style: const TextStyle(
                 fontSize: 14,
-                fontFamily: 'SourceSansPro',
                 height: 1.2,
               )),
           SizedBox(height: height * 0.01),
           AutoSizeText(
             "5.0 из 89 отзывов".toUpperCase(),
-            style: const TextStyle(fontSize: 8, fontFamily: 'SourceSansPro'),
+            style: const TextStyle(
+              fontSize: 8,
+            ),
           ),
           SizedBox(height: height * 0.01),
           StarRatingWidget(size: width * 0.04),
@@ -144,10 +145,10 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
     final double fontSize = min(width * 0.03, height * 0.011738);
 
     const textStyle = TextStyle(fontFamily: 'SourceSansProBold');
-
+    final double borderRadius = min(width * 0.027, 10);
     final boxStyle = BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(width * 0.027),
+      borderRadius: BorderRadius.circular(borderRadius),
     );
 
     // Пропорциональные значения для позиционирования
@@ -158,7 +159,7 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
     final box3Left = width * 0.10184;
 
     return SizedBox(
-      height: height * 0.18,
+      height: width * 0.38822,
       width: width * 0.364,
       child: Stack(
         children: [

@@ -62,7 +62,6 @@ class ConfirmationScreen extends StatelessWidget {
                       child: AutoSizeText(
                         'Мы рады приветствовать Вас в нашем приложении. Чтобы предложить вам подходящие тесты продуктов, пройдите небольшой опрос и заполните личные данные',
                         style: TextStyle(
-                          fontFamily: 'SourceSansPro',
                           fontSize: 15,
                           color: Colors.white,
                         ),
@@ -91,7 +90,6 @@ class ConfirmationScreen extends StatelessWidget {
                             children: [
                               AutoSizeText('НАЧАТЬ',
                                   style: TextStyle(
-                                    fontFamily: 'SourceSansPro',
                                     fontSize: 15,
                                     color: Color(0xFF86A6B8),
                                   )),

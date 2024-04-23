@@ -33,7 +33,6 @@ class NextStepButton extends StatelessWidget {
             AutoSizeText(
               '$title ',
               style: TextStyle(
-                fontFamily: 'SourceSansPro',
                 fontSize: width > 320 ? 15 : 12,
                 color: enable ? AppThemeColor.grey : AppThemeColor.gris,
               ),

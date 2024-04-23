@@ -20,7 +20,6 @@ class PageIndicatorWidget extends StatelessWidget {
           Text('шаг ${_currentPageIndex + 1} из 5',
               style: const TextStyle(
                 fontSize: 12,
-                fontFamily: 'SourceSansPro',
               )),
         ],
       ),

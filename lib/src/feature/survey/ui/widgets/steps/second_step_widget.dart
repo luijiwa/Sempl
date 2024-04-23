@@ -22,17 +22,13 @@ class SecondStepWidget extends StatelessWidget {
           const SizedBox(height: 8),
           const AutoSizeText(
             '*Поля обязательные для заполнения',
-            style: TextStyle(
-                color: AppThemeColor.rose,
-                fontFamily: 'SourceSansPro',
-                fontSize: 12),
+            style: TextStyle(color: AppThemeColor.rose, fontSize: 12),
             maxLines: 1,
             minFontSize: 10,
           ),
           const AutoSizeText(
             'После регистрации адрес можно изменить в личном кабинете',
-            style: TextStyle(
-                color: Colors.black, fontFamily: 'SourceSansPro', fontSize: 12),
+            style: TextStyle(color: AppThemeColor.black, fontSize: 12),
             maxLines: 1,
             minFontSize: 10,
           ),

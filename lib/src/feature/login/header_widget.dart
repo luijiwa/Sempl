@@ -41,7 +41,6 @@ class HeaderWidget extends StatelessWidget {
                   child: AutoSizeText(
                     'Для входа или регистрации в приложении введите свой номер телефона:',
                     style: TextStyle(
-                      fontFamily: 'SourceSansPro',
                       fontSize: 15,
                       color: Colors.white,
                     ),

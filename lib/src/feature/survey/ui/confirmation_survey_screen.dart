@@ -77,7 +77,6 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                           const AutoSizeText(
                             'Регистрация завершена, теперь можно начинать пробовать продукцию',
                             style: TextStyle(
-                              fontFamily: 'SourceSansPro',
                               fontSize: 15,
                               color: Colors.white,
                             ),
@@ -108,7 +107,6 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                             children: [
                               AutoSizeText('НАЧАТЬ ',
                                   style: TextStyle(
-                                    fontFamily: 'SourceSansPro',
                                     fontSize: maxWidth > 320 ? 15 : 12,
                                     color: const Color(0xFF86A6B8),
                                   )),

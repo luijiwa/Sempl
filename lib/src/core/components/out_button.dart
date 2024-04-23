@@ -28,7 +28,6 @@ class OutButton extends StatelessWidget {
         child: AutoSizeText(
           title,
           style: TextStyle(
-            fontFamily: 'SourceSansPro',
             fontSize: width > 320 ? 15 : 12,
             color: AppThemeColor.black,
           ),

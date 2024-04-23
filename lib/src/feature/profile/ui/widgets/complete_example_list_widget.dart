@@ -33,7 +33,7 @@ class CompleteExampleListWidget extends StatelessWidget {
           itemCount: 2,
           itemBuilder: (context, index) {
             return Material(
-              shadowColor: Colors.black.withOpacity(0.02),
+              shadowColor: AppThemeColor.black.withOpacity(0.02),
               elevation: 10,
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
@@ -59,7 +59,7 @@ class CompleteExampleListWidget extends StatelessWidget {
                             style: Theme.of(context)
                                 .textTheme
                                 .appBodySemiBold
-                                .copyWith(color: Colors.black),
+                                .copyWith(color: AppThemeColor.black),
                           ),
                           AutoSizeText(
                             'Доставлено 15 января 2023г.',

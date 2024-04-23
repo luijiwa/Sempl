@@ -61,8 +61,8 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(right: 4),
-                          child:
-                              Icon(Icons.search, size: 24, color: Colors.black),
+                          child: Icon(Icons.search,
+                              size: 24, color: AppThemeColor.black),
                         ),
                         Text(
                           'Поиск в категориях',

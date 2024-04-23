@@ -39,9 +39,9 @@ class DeliveryModalWidget extends StatelessWidget {
                 'Адрес доставки изменен, сохранить\n его как основной адрес доставки?',
                 maxLines: 2,
                 style: TextStyle(
-                    fontSize: width > 320 ? 15 : 12,
-                    height: 1.5,
-                    fontFamily: 'SourceSansPro'),
+                  fontSize: width > 320 ? 15 : 12,
+                  height: 1.5,
+                ),
               ),
               SizedBox(height: height * 0.02),
               SizedBox(
@@ -58,7 +58,6 @@ class DeliveryModalWidget extends StatelessWidget {
                   child: Text(
                     'НЕ МЕНЯТЬ',
                     style: TextStyle(
-                      fontFamily: 'SourceSansPro',
                       fontSize: width > 320 ? 14 : 12,
                       color: AppThemeColor.black,
                     ),
@@ -81,7 +80,6 @@ class DeliveryModalWidget extends StatelessWidget {
                   child: Text(
                     'СОХРАНИТЬ И ПРОДОЛЖИТЬ',
                     style: TextStyle(
-                      fontFamily: 'SourceSansPro',
                       fontSize: width > 320 ? 14 : 12,
                       color: AppThemeColor.grey,
                     ),

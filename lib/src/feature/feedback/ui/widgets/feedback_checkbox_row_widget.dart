@@ -63,10 +63,7 @@ class _FeedbackCheckboxRowWidgetState extends State<FeedbackCheckboxRowWidget> {
           Flexible(
             child: AutoSizeText(
               widget.title,
-              style: const TextStyle(
-                  fontFamily: 'SourceSansPro',
-                  color: Colors.black,
-                  fontSize: 15),
+              style: const TextStyle(color: AppThemeColor.black, fontSize: 15),
               maxLines: widget.maxLines,
             ),
           ),

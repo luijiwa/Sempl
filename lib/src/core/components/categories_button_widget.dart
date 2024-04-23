@@ -33,7 +33,6 @@ class CategoriesButtonWidget extends StatelessWidget {
             AutoSizeText(
               'Категории',
               style: TextStyle(
-                fontFamily: 'SourceSansPro',
                 fontSize: width > 320 ? 15 : 12,
                 color: AppThemeColor.black,
               ),
@@ -43,7 +42,7 @@ class CategoriesButtonWidget extends StatelessWidget {
               Icons.arrow_forward_ios_rounded,
               size: 15,
               weight: 500,
-              color: Colors.black,
+              color: AppThemeColor.black,
             ),
           ],
         ),

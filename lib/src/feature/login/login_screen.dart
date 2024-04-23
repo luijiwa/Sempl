@@ -1,6 +1,6 @@
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/confirmation/confirmation_screen.dart';
 import 'package:my_app/src/feature/login/header_widget.dart';
 import 'package:my_app/src/feature/login/input_code_widget.dart';
@@ -105,7 +105,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           AutoSizeText(
                             'ПРОДОЛЖИТЬ',
                             style: TextStyle(
-                              fontFamily: 'SourceSansPro',
                               fontSize: 15,
                             ),
                           ),
@@ -142,15 +141,13 @@ class _TermOfUseState extends State<TermOfUse> {
   Widget build(BuildContext context) {
     const linkTextStyle = TextStyle(
       fontSize: 12,
-      fontFamily: 'SourceSansPro',
       decoration: TextDecoration.underline,
       decorationColor: Color(0xFF99BFD4),
       color: Color(0xFF99BFD4),
     );
     const termOfUseTextStyle = TextStyle(
       fontSize: 12,
-      fontFamily: 'SourceSansPro',
-      color: Colors.black,
+      color: AppThemeColor.black,
     );
 
     return InkWell(

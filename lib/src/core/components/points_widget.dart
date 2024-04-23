@@ -17,10 +17,7 @@ class PointsWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
           child: Text('50 баллов'.toUpperCase(),
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontFamily: 'SourceSansPro',
-                  fontSize: 9,
-                  color: AppThemeColor.purple)),
+              style: const TextStyle(fontSize: 9, color: AppThemeColor.purple)),
         ));
   }
 }

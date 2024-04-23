@@ -42,8 +42,7 @@ class RecentProductsScreen extends StatelessWidget {
               child: AutoSizeText(
                 "В этом разделе вы можете ознакомиться с уже рассмотренными товарами и оставленными на них отзывами",
                 style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'SourceSansPro',
+                  color: AppThemeColor.black,
                   fontSize: 15,
                   height: 1.2,
                 ),

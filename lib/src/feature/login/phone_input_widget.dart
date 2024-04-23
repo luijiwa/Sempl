@@ -77,7 +77,6 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                           '  (+7) ▼',
                           style: TextStyle(
                             fontSize: 15,
-                            fontFamily: 'SourceSansPro',
                           ),
                         ),
                       ],
@@ -118,7 +117,6 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                 'пожалуйста, заполните это поле',
                 style: TextStyle(
                   color: Color(0xFFE25C74),
-                  fontFamily: 'SourceSansPro',
                   fontSize: 12,
                 ),
                 minFontSize: 8,

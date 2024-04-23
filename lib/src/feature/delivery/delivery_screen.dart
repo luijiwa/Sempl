@@ -34,7 +34,6 @@ class DeliveryScreen extends StatelessWidget {
                 'Сначала подтвердите свой адрес проживания',
                 style: TextStyle(
                   fontSize: 15,
-                  fontFamily: 'SourceSansPro',
                 ),
               ),
               SizedBox(height: height * 0.01),
@@ -81,10 +80,7 @@ class DeliveryScreen extends StatelessWidget {
                 child: AutoSizeText(
                   '*Не найдено такой улицы',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: AppThemeColor.rose,
-                      fontFamily: 'SourceSansPro',
-                      fontSize: 12),
+                  style: TextStyle(color: AppThemeColor.rose, fontSize: 12),
                   maxLines: 1,
                   minFontSize: 10,
                 ),
@@ -93,10 +89,7 @@ class DeliveryScreen extends StatelessWidget {
                 child: AutoSizeText(
                   '*Поля обязательные для заполнения',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: AppThemeColor.rose,
-                      fontFamily: 'SourceSansPro',
-                      fontSize: 12),
+                  style: TextStyle(color: AppThemeColor.rose, fontSize: 12),
                   maxLines: 1,
                   minFontSize: 10,
                 ),

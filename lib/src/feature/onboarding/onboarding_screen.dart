@@ -36,6 +36,8 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
     final bottomOffset =
         MediaQuery.of(context).padding.bottom + basisBottomOffset;
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.sizeOf(context).width;
+
     final listScreens = [
       const FirstPage(),
       const SecondPage(),
@@ -74,13 +76,13 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
                     '0${_currentPageIndex + 1}/05',
                     style: const TextStyle(
                       fontSize: 20,
-                      fontFamily: 'SourceSansProBold',
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const Spacer(),
                   Container(
-                    height: height * 0.071,
-                    width: height * 0.071,
+                    height: width * 0.153131,
+                    width: width * 0.153131,
                     constraints: const BoxConstraints(
                         minHeight: 50,
                         minWidth: 50,

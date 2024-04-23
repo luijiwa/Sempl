@@ -83,7 +83,6 @@ class CustomAppBar extends StatelessWidget {
                     child: AutoSizeText(
                       'ПОПРОБУЙТЕ НОВОЕ\nСРЕДСТВО ДЛЯ ЧИСТКИ\nЗУБОВ БЕСПЛАТНО',
                       style: TextStyle(
-                        fontFamily: 'SourceSansPro',
                         fontSize: 27,
                         color: Colors.white,
                         height: 0.9,

@@ -73,14 +73,12 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                             style: TextStyle(
                               color: Colors.red,
                               fontSize: 14,
-                              fontFamily: 'SourceSansPro',
                             ),
                           )
                         ],
                       ),
                       style: const TextStyle(
                         fontSize: 14,
-                        fontFamily: 'SourceSansPro',
                         color: AppThemeColor.gris,
                       ),
                       minFontSize: 5,

@@ -7,7 +7,7 @@ extension CustomStyles on TextTheme {
       fontWeight: FontWeight.w400,
       fontSize: 15.0,
       height: 1.2,
-      color: Colors.black,
+      color: AppThemeColor.black,
     );
   }
 
@@ -25,7 +25,7 @@ extension CustomStyles on TextTheme {
       fontFamily: 'Inter',
       fontWeight: FontWeight.w700,
       fontSize: 15.0,
-      color: Colors.black,
+      color: AppThemeColor.black,
     );
   }
 
@@ -35,7 +35,7 @@ extension CustomStyles on TextTheme {
       fontWeight: FontWeight.w700,
       fontSize: 26,
       height: 1,
-      color: Colors.black,
+      color: AppThemeColor.black,
     );
   }
 
@@ -45,7 +45,7 @@ extension CustomStyles on TextTheme {
       fontWeight: FontWeight.w700,
       fontSize: 19,
       height: 1,
-      color: Colors.black,
+      color: AppThemeColor.black,
     );
   }
 

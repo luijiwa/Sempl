@@ -16,14 +16,14 @@ class BlueItemWithCross extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: width * 0.02036, vertical: width * 0.01527),
+            horizontal: width * 0.0203, vertical: width * 0.01527),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.black.withOpacity(0.2),
+                color: AppThemeColor.black.withOpacity(0.2),
               ),
               padding: const EdgeInsets.all(4.0),
               child: const Icon(

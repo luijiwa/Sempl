@@ -54,17 +54,16 @@ class ReviewCardWidget extends StatelessWidget {
                 StarRatingWidget(),
                 Text(
                   "29/08/2023",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontFamily: 'SourceSansPro',
-                      color: AppThemeColor.grisTwo),
+                  style: TextStyle(fontSize: 12, color: AppThemeColor.grisTwo),
                 ),
               ],
             ),
             SizedBox(height: height * 0.01),
             const AutoSizeText(
               "Средство просто супер! Шикарный аромат, хорошо отстирывает, белье не сушит. Красивая упаковка) Однозначно будем брать еще! Спасибо! Было бы классно если бы появились еще саше, кондиционеры для белья, аромадиффузоры. Ароматы просто 🔥🔥🔥 ",
-              style: TextStyle(fontSize: 15, fontFamily: 'SourceSansPro'),
+              style: TextStyle(
+                fontSize: 15,
+              ),
             ),
             SizedBox(height: height * 0.02),
             Column(
@@ -84,7 +83,6 @@ class ReviewCardWidget extends StatelessWidget {
                         "Хорошо отстирывает одежду",
                         style: TextStyle(
                           fontSize: 15,
-                          fontFamily: 'SourceSansPro',
                         ),
                       ),
                     ],

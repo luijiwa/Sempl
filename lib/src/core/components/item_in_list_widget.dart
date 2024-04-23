@@ -36,7 +36,9 @@ class ItemInListWidget extends StatelessWidget {
               Image.asset("assets/images/item_image.png"),
             Text("Vinopure".toUpperCase(),
                 style: const TextStyle(
-                    fontSize: 15, fontFamily: 'SourceSansProBold')),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                )),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.25)
                   .copyWith(top: 4, bottom: 11),
@@ -47,13 +49,12 @@ class ItemInListWidget extends StatelessWidget {
                   maxLines: 3,
                   style: const TextStyle(
                     fontSize: 13,
-                    fontFamily: 'SourceSansPro',
                     height: 1,
                   )),
             ),
             Text(
               "5.0 из 89 отзывов".toUpperCase(),
-              style: const TextStyle(fontSize: 8, fontFamily: 'SourceSansPro'),
+              style: const TextStyle(fontSize: 8),
             ),
             const SizedBox(height: 11),
             const StarRatingWidget(),

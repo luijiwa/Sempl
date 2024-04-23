@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 import 'package:pinput/pinput.dart';
 
 class InputCodeWidget extends StatefulWidget {
@@ -62,11 +63,9 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
     const blueColor = Color(0xFF99BFD4);
     final richTextStyle = TextStyle(
         fontSize: 14,
-        fontFamily: 'SourceSansPro',
-        color: _start == 0 ? Colors.black : const Color(0xFFB9B9B9));
+        color: _start == 0 ? AppThemeColor.black : const Color(0xFFB9B9B9));
     final linkTextStyle = TextStyle(
       fontSize: 14,
-      fontFamily: 'SourceSansPro',
       decoration: TextDecoration.underline,
       decorationColor: _start == 0 ? blueColor : const Color(0xFFDEEAF1),
       color: _start == 0 ? blueColor : const Color(0xFFDEEAF1),
@@ -118,8 +117,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
           children: [
             Text(
               '${_start ~/ 60}:${(_start % 60).toString().padLeft(2, '0')}',
-              style: const TextStyle(
-                  color: blueColor, fontFamily: 'SourceSansPro', fontSize: 14),
+              style: const TextStyle(color: blueColor, fontSize: 14),
             ),
             Text(' Не получили код?',
                 style: richTextStyle.copyWith(fontSize: 12)),

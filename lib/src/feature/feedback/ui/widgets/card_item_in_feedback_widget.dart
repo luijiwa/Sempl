@@ -28,7 +28,7 @@ class CardItemInFeedbackWidget extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(30.0)),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.02),
+                color: AppThemeColor.black.withOpacity(0.02),
                 blurRadius: 10,
                 spreadRadius: 10,
               )

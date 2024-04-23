@@ -119,7 +119,6 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
                                 child: const AutoSizeText(
                                   'Товар будет отправлен в ближайшее время. Сроки и статус доставки можно отслеживать в личном кабинете',
                                   style: TextStyle(
-                                    fontFamily: 'SourceSansPro',
                                     fontSize: 15,
                                     color: Colors.white,
                                   ),
@@ -152,7 +151,6 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
                                 children: [
                                   AutoSizeText('НА ГЛАВНЫЙ ЭКРАН ',
                                       style: TextStyle(
-                                        fontFamily: 'SourceSansPro',
                                         fontSize: maxWidth > 320 ? 15 : 12,
                                         color: const Color(0xFF86A6B8),
                                       )),

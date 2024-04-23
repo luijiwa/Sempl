@@ -62,7 +62,6 @@ class MainScreenAppBar extends StatelessWidget {
                           child: AutoSizeText(
                             'ПОПРОБУЙТЕ НОВОЕ\nСРЕДСТВО ДЛЯ ЧИСТКИ\nЗУБОВ БЕСПЛАТНО',
                             style: TextStyle(
-                              fontFamily: 'SourceSansPro',
                               fontSize: 27,
                               color: Colors.white,
                               height: 0.9,
@@ -97,15 +96,14 @@ class MainScreenAppBar extends StatelessWidget {
                             AutoSizeText(
                               'ЗАКАЗАТЬ СЕЙЧАС ',
                               style: TextStyle(
-                                fontFamily: 'SourceSansPro',
                                 fontSize: width > 320 ? 14 : 12,
-                                color: Colors.black,
+                                color: AppThemeColor.black,
                               ),
                             ),
                             SvgPicture.asset(
                               'assets/icons/arrow_right.svg',
                               colorFilter: const ColorFilter.mode(
-                                  Colors.black, BlendMode.srcIn),
+                                  AppThemeColor.black, BlendMode.srcIn),
                             ),
                           ],
                         ),

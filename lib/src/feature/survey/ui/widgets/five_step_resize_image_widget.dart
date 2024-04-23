@@ -75,7 +75,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                       //   CupertinoIcons.arrow_uturn_left,
                       //   size: 30,
                       //   weight: 100,
-                      //   color: Colors.black,
+                      //   color: AppThemeColor.black,
                       // ),
                     ),
                   ),
@@ -88,7 +88,6 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                 'Выберите новую фотографию, загрузите её и измените размер с помощью пальцев',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'SourceSansPro',
                   fontSize: 15,
                 ),
                 maxLines: 3,
@@ -114,7 +113,6 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                 child: AutoSizeText(
                   'СОХРАНИТЬ И ОПУБЛИКОВАТЬ',
                   style: TextStyle(
-                    fontFamily: 'SourceSansPro',
                     fontSize: width > 320 ? 15 : 12,
                     color: AppThemeColor.grey,
                   ),

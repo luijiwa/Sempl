@@ -76,7 +76,7 @@ class ReviewListWidget extends StatelessWidget {
         onTap: () => context.goNamed(AppRoutes.reviewItemsScreen.name),
         child: Material(
           elevation: 10,
-          shadowColor: Colors.black.withOpacity(0.16),
+          shadowColor: AppThemeColor.black.withOpacity(0.16),
           color: Colors.white,
           borderRadius: BorderRadius.circular(30),
           child: Container(

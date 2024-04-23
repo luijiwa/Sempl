@@ -27,7 +27,7 @@ class PageIndicatorRowWidget extends StatelessWidget {
               color: _currentPageIndex == i
                   ? AppThemeColor.blueColor
                   : _currentPageIndex > i
-                      ? Colors.black
+                      ? AppThemeColor.black
                       : const Color(0xFFE3E3E3),
               borderRadius: BorderRadius.circular(10),
             ),

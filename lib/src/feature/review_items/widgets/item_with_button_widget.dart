@@ -80,7 +80,6 @@ class ItemWithButtonWidget extends StatelessWidget {
                   child: AutoSizeText(
                     'НАПИСАТЬ ОБЗОР',
                     style: TextStyle(
-                      fontFamily: 'SourceSansPro',
                       fontSize: width > 320 ? 15 : 12,
                       color: AppThemeColor.grey,
                     ),
