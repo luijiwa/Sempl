@@ -48,11 +48,11 @@ class ReviewCardWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: height * 0.01),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                StarRatingWidget(),
-                Text(
+                StarRatingWidget(size: width * 0.038175),
+                const Text(
                   "29/08/2023",
                   style: TextStyle(fontSize: 12, color: AppThemeColor.grisTwo),
                 ),
