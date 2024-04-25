@@ -13,6 +13,7 @@ class MainScreenAppBar extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return SliverAppBar(
+      automaticallyImplyLeading: false,
       expandedHeight: height * 0.31,
       backgroundColor: const Color(0xFFB5A3F8),
       flexibleSpace: Stack(
