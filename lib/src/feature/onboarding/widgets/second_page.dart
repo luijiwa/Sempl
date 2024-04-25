@@ -30,7 +30,7 @@ class SecondPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "НАБИРАЙТЕ ОЧКИ",
-                  style: Theme.of(context).textTheme.appBodyLarge,
+                  style: Theme.of(context).textTheme.appTitleMedium,
                 ),
               ),
               const SizedBox(

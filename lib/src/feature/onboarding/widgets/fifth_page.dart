@@ -28,7 +28,7 @@ class FifthPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: AutoSizeText(
                   "АНКЕТА",
-                  style: Theme.of(context).textTheme.appBodyLarge,
+                  style: Theme.of(context).textTheme.appTitleMedium,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.011),

@@ -2,10 +2,12 @@ import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
 import 'package:my_app/src/core/components/stack2.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -36,7 +38,7 @@ class FirstPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: AutoSizeText(
                   "КАК ЭТО РАБОТАЕТ?",
-                  style: Theme.of(context).textTheme.appBodyLarge,
+                  style: Theme.of(context).textTheme.appTitleMedium,
                   maxLines: 1,
                 ),
               ),
@@ -57,11 +59,13 @@ class FirstPage extends StatelessWidget {
               SizedBox(
                 height: height * 0.04,
               ),
-              Stack2(
+              Stack(
+                alignment: AlignmentDirectional.topStart,
+                clipBehavior: Clip.none,
                 children: [
                   const ItemInFirstOnboardingPage(),
                   Positioned(
-                      bottom: -height * 0.08,
+                      bottom: -height * 0.1,
                       left: width * 0.01,
                       child: const ColoredAdvantagesBoxes()),
                 ],
@@ -141,10 +145,10 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
-    final boxPadding = EdgeInsets.all(height * 0.011738);
-    final double fontSize = min(width * 0.03, height * 0.011738);
-
-    const textStyle = TextStyle(fontFamily: 'SourceSansProBold');
+    final boxPadding = EdgeInsets.all(height * 0.011);
+    final double fontSize = min(width * 0.033, height * 0.013);
+    logger.w('${width * 0.033} ${height * 0.013}');
+    const textStyle = TextStyle(fontWeight: FontWeight.w700);
     final double borderRadius = min(width * 0.027, 10);
     final boxStyle = BoxDecoration(
       color: Colors.white,
@@ -159,9 +163,10 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
     final box3Left = width * 0.10184;
 
     return SizedBox(
-      height: width * 0.38822,
-      width: width * 0.364,
+      height: width * 0.41,
+      width: width * 0.41,
       child: Stack(
+        alignment: AlignmentDirectional.topCenter,
         children: [
           Positioned(
             bottom: box1Bottom,

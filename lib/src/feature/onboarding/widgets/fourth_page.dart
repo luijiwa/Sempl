@@ -23,12 +23,12 @@ class FourthPage extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16)
-              .copyWith(bottom: height * 0.09),
+              .copyWith(bottom: height * 0.1),
           child: Align(
             alignment: Alignment.centerLeft,
             child: AutoSizeText(
               "НАШЕ ПРИЛОЖЕНИЕ\nРАБОТАЕТ В МОСКВЕ\nИ МОСКОВСКОЙ\nОБЛАСТИ",
-              style: Theme.of(context).textTheme.appBodyLarge,
+              style: Theme.of(context).textTheme.appTitleMedium,
               maxLines: 4,
             ),
           ),

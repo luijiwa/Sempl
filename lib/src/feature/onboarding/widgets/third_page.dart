@@ -26,19 +26,19 @@ class ThirdPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              SizedBox(height: height * 0.29),
+              SizedBox(height: width * 0.35),
               Padding(
-                padding: EdgeInsets.only(right: width * 0.073),
+                padding: EdgeInsets.only(right: width * 0.04),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: AutoSizeText(
                     "ВКЛЮЧИТЕ\nУВЕДОМЛЕНИЯ, ЧТОБЫ\nБЫТЬ В КУРСЕ ВСЕХ\nНОВЫХ ПРОДУКТОВ",
-                    style: Theme.of(context).textTheme.appBodyLarge,
+                    style: Theme.of(context).textTheme.appTitleMedium,
                     maxLines: 4,
                   ),
                 ),
               ),
-              SizedBox(height: height * 0.05),
+              SizedBox(height: width * 0.08),
               Padding(
                 padding: EdgeInsets.only(left: width * 0.073),
                 child: Align(
