@@ -6,6 +6,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_windows
   share_plus
   smart_auth
+  sqlite3_flutter_libs
   url_launcher_windows
 )
 
