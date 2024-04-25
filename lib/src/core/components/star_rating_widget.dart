@@ -15,24 +15,24 @@ class StarRatingWidget extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        ...List.generate(
-          rating,
-          (index) => SvgPicture.asset(
+        for (int i = 0; i < rating; i++) ...[
+          SvgPicture.asset(
             width: size,
             'assets/icons/star_filled.svg',
             colorFilter: const ColorFilter.mode(
                 AppThemeColor.blueColor, BlendMode.srcIn),
           ),
-        ),
-        ...List.generate(
-          5 - rating,
-          (index) => SvgPicture.asset(
+          SizedBox(width: size / 10),
+        ],
+        for (int i = 0; i < 5 - rating; i++) ...[
+          SvgPicture.asset(
             width: size,
             'assets/icons/star_outline.svg',
             colorFilter: const ColorFilter.mode(
                 AppThemeColor.blueColor, BlendMode.srcIn),
           ),
-        ),
+          SizedBox(width: size / 7),
+        ],
       ],
     );
   }
