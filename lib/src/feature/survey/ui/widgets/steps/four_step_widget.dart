@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class FourStepWidget extends StatelessWidget {
   const FourStepWidget({super.key, required this.onNextPage});
@@ -20,17 +21,17 @@ class FourStepWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: height * 0.035),
-          const AutoSizeText(
+          AutoSizeText(
             'ВАШИ СОЦИАЛЬНЫЕ СЕТИ',
-            style: TextStyle(fontSize: 36, fontFamily: 'DrukCyr'),
+            style: Theme.of(context).textTheme.appProfileTitle,
             maxLines: 1,
           ),
           SizedBox(height: height * 0.016),
           Padding(
-            padding: EdgeInsets.only(right: width * 0.073), //30
+            padding: EdgeInsets.only(right: width * 0.05), //30
 
             child: const AutoSizeText(
-              'Некоторые из наших тестов продукта будут включать участие в социальных сетях. \nУкажите ссылки на профили сейчас, чтобы получить признание и вознаграждение за ваш вклад',
+              'Некоторые из наших тестов продукта будут включать участие в социальных сетях.\nУкажите ссылки на профили сейчас, чтобы получить признание и вознаграждение за ваш вклад',
               maxLines: 5,
             ),
           ),

@@ -27,9 +27,9 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
       mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(height: height * 0.035),
-        const AutoSizeText(
+        AutoSizeText(
           'И ПОСЛЕДНЕЕ!',
-          style: TextStyle(fontSize: 36, fontFamily: 'DrukCyr'),
+          style: Theme.of(context).textTheme.appProfileTitle,
           maxLines: 1,
         ),
         SizedBox(height: height * 0.009),

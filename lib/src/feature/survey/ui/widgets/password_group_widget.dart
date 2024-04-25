@@ -7,11 +7,18 @@ class PasswordGroupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-
+    final edgeInsets = EdgeInsets.symmetric(
+        vertical: height * 0.013, horizontal: height * 0.023);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TextInputField(hintText: 'Пароль'),
+        TextField(
+          obscureText: true,
+          decoration: InputDecoration(
+            contentPadding: edgeInsets,
+            hintText: 'Пароль',
+          ),
+        ),
         const SizedBox(height: 3),
         const PasswordCheckItem(
             text: 'Заглавные латинские буквы: от А до Я', status: true),
@@ -28,7 +35,13 @@ class PasswordGroupWidget extends StatelessWidget {
           status: false,
         ),
         SizedBox(height: height * 0.021),
-        const TextInputField(hintText: 'Повторите пароль'),
+        TextField(
+          obscureText: true,
+          decoration: InputDecoration(
+            contentPadding: edgeInsets,
+            hintText: 'Повторите пароль',
+          ),
+        ),
       ],
     );
   }

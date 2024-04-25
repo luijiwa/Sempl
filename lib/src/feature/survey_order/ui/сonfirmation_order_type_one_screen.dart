@@ -105,11 +105,10 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
                             children: [
                               AutoSizeText(
                                 "Спасибо за ваши ответы!".toUpperCase(),
-                                style: const TextStyle(
-                                    fontFamily: 'DrukCyr',
-                                    fontSize: 50,
-                                    color: Colors.white,
-                                    height: 1),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .appTitleMedium
+                                    .copyWith(color: Colors.white),
                                 maxLines: 2,
                               ),
                               SizedBox(height: maxHeight * 0.0237),

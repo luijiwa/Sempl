@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_app/src/core/components/required_input_field.dart';
 import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/core/theme/theme.dart';
@@ -18,6 +19,8 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+    final edgeInsets = EdgeInsets.symmetric(
+        vertical: height * 0.013, horizontal: height * 0.023);
     return Form(
       key: widget.key, // Привязка формы к GlobalKey
 
@@ -33,21 +36,29 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
           SizedBox(height: width * 0.05),
           const RequiredInputField(
             hintText: 'Город',
+            keyboardType: TextInputType.streetAddress,
           ),
           const SizedBox(height: 4),
           const RequiredInputField(
             hintText: 'Улица',
+            keyboardType: TextInputType.streetAddress,
           ),
           const SizedBox(height: 4),
           const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
-                child: RequiredInputField(hintText: 'Номер дома'),
+                child: RequiredInputField(
+                  hintText: 'Номер дома',
+                  keyboardType: TextInputType.streetAddress,
+                ),
               ),
               SizedBox(width: 4),
               Expanded(
-                child: RequiredInputField(hintText: 'Номер квартиры'),
+                child: RequiredInputField(
+                  hintText: 'Номер квартиры',
+                  keyboardType: TextInputType.streetAddress,
+                ),
               ),
             ],
           ),
@@ -55,12 +66,26 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Expanded(child: TextInputField(hintText: 'Подъезд')),
+              Expanded(
+                child: TextField(
+                  keyboardType: TextInputType.streetAddress,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(
+                        RegExp(r'[a-zA-Zа-яА-Я]')),
+                  ],
+                  decoration: InputDecoration(
+                    contentPadding: edgeInsets,
+                    hintText: 'Подъезд',
+                  ),
+                ),
+              ),
               const SizedBox(width: 4),
               Expanded(
                 child: RequiredInputField(
                   hintText: 'Почтовый индекс',
                   isError: true,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   validator: (value) {
                     // if (value.isEmpty) {
                     //   return '';

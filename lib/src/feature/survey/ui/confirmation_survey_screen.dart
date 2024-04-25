@@ -34,7 +34,10 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                 Positioned(
                   top: MediaQuery.of(context).viewPadding.top,
                   child: Text("SEMPL!",
-                      style: Theme.of(context).appBarTheme.titleTextStyle),
+                      style: Theme.of(context)
+                          .appBarTheme
+                          .titleTextStyle!
+                          .copyWith(color: Colors.white)),
                 ),
               ],
             ),
@@ -57,7 +60,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 22).copyWith(
-                    top: 0.03 * maxHeight,
+                    top: maxWidth * 0.1018,
                   ),
                   child: Column(children: [
                     Padding(
@@ -65,15 +68,14 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            "БРАВО!",
-                            style: TextStyle(
-                              fontFamily: 'DrukCyr',
-                              fontSize: 58,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(height: maxHeight * 0.01),
+                          Text("БРАВО!",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .appTitleMedium
+                                  .copyWith(
+                                    color: Colors.white,
+                                  )),
+                          SizedBox(height: maxWidth * 0.0509),
                           const AutoSizeText(
                             'Регистрация завершена, теперь можно начинать пробовать продукцию',
                             style: TextStyle(

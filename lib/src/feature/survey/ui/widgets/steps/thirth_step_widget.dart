@@ -2,7 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/dropdown_custom_widget.dart';
+import 'package:my_app/src/core/components/dropdown_custom_widget_new.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/survey/ui/widgets/questions_padding.dart';
 import 'package:my_app/src/core/components/checkbox_row.dart';
 
@@ -17,20 +19,21 @@ class ThirthStepWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: height * 0.035),
-            const AutoSizeText(
+            AutoSizeText(
               'НЕМНОГО ИНФОРМАЦИИ О ТЕБЕ',
-              style: TextStyle(fontSize: 36, fontFamily: 'DrukCyr'),
+              style: Theme.of(context).textTheme.appProfileTitle,
               maxLines: 1,
             ),
             SizedBox(height: height * 0.016),
             const QuestionWidget(
               title: 'Сколько человек живет с вами?',
-              child: DropdownCustomWidget(
+              child: DropdownCustomWidgetNew(
                 listItems: ['1', '2', 'Другое'],
                 hint: 'Выберите количество',
               ),
@@ -72,7 +75,7 @@ class PercentQuestion extends StatelessWidget {
               'Какой процент общего семейного дохода вы тратите на покупку косметики и товаров для дома (средства для уборки)?'),
         ),
         SizedBox(height: height * 0.012),
-        const DropdownCustomWidget(
+        const DropdownCustomWidgetNew(
           listItems: ['5%', '10%', 'Другое'],
           hint: 'Выберите количество',
         ),
@@ -100,7 +103,7 @@ class FamilyIncomeQuestionWidget extends StatelessWidget {
               'Каков средний ежемесячный доход вашей семьи?'),
         ),
         SizedBox(height: height * 0.012),
-        const DropdownCustomWidget(
+        const DropdownCustomWidgetNew(
           listItems: ['10 000', '20 000', 'Другое'],
           hint: 'Выберите количество',
         ),
