@@ -2,12 +2,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class ConfirmationScreen extends StatelessWidget {
   const ConfirmationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: LayoutBuilder(builder: (context, constraints) {
         final maxHeight = constraints.maxHeight.toDouble();
@@ -31,7 +34,10 @@ class ConfirmationScreen extends StatelessWidget {
                 Positioned(
                   top: MediaQuery.of(context).viewPadding.top,
                   child: Text("SEMPL!",
-                      style: Theme.of(context).appBarTheme.titleTextStyle),
+                      style: Theme.of(context)
+                          .appBarTheme
+                          .titleTextStyle!
+                          .copyWith(color: Colors.white)),
                 ),
               ],
             ),
@@ -57,14 +63,14 @@ class ConfirmationScreen extends StatelessWidget {
                     top: 0.03 * maxHeight,
                   ),
                   child: Column(children: [
-                    const Padding(
-                      padding: EdgeInsets.only(right: 32),
+                    Padding(
+                      padding: EdgeInsets.only(right: screenWidth * 0.12),
                       child: AutoSizeText(
                         'Мы рады приветствовать Вас в нашем приложении. Чтобы предложить вам подходящие тесты продуктов, пройдите небольшой опрос и заполните личные данные',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .appBodyMedium
+                            .copyWith(color: Colors.white),
                         maxLines: 5,
                       ),
                     ),
