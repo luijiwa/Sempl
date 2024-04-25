@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:my_app/src/core/theme/theme.dart';
@@ -59,20 +60,51 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
           DropdownMenuItem<String>(
             value: item,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3),
               child: Text(
                 item,
                 style: const TextStyle(
-                  fontSize: 14,
+                  fontSize: 15,
                 ),
               ),
             ),
           ),
-          //If it's last item, we will not add Divider after it.
+          // If it's last item, we will not add Divider after it.
           if (item != items.last)
             const DropdownMenuItem<String>(
               enabled: false,
-              child: Divider(),
+              child: SizedBox.shrink(),
+            ),
+        ],
+      );
+    }
+    return menuItems;
+  }
+
+  List<DropdownMenuItem<String>> _listChecked(List<String> items) {
+    final List<DropdownMenuItem<String>> menuItems = [];
+    for (final String item in items) {
+      menuItems.addAll(
+        [
+          DropdownMenuItem<String>(
+            value: item,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 3),
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  item,
+                  style: dropdownItemTextStyle,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+          ),
+          // If it's last item, we will not add Divider after it.
+          if (item != items.last)
+            const DropdownMenuItem<String>(
+              enabled: false,
+              child: SizedBox.shrink(),
             ),
         ],
       );
@@ -84,7 +116,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
     final List<double> itemsHeights = [];
     for (int i = 0; i < (widget.listItems.length * 2) - 1; i++) {
       if (i.isEven) {
-        itemsHeights.add(40);
+        itemsHeights.add(48);
       }
       //Dividers indexes will be the odd indexes
       if (i.isOdd) {
@@ -100,8 +132,9 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
       final height = MediaQuery.of(context).size.height;
       final width = MediaQuery.of(context).size.width;
       final MenuItemStyleData dropdownMenuItemStyleData = MenuItemStyleData(
+        // height: 48,
         customHeights: _getCustomItemsHeights(),
-        padding: const EdgeInsets.symmetric(vertical: 3).copyWith(
+        padding: const EdgeInsets.symmetric().copyWith(
           left: 14,
           right: 14,
         ),
@@ -134,19 +167,8 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
                 ),
               ],
             ),
-            selectedItemBuilder: (context) => widget.listItems
-                .map((String item) => DropdownMenuItem<String>(
-                      value: item,
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          item,
-                          style: dropdownItemTextStyle,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ))
-                .toList(),
+            selectedItemBuilder: (context) =>
+                _listChecked(widget.listItems).toList(),
             items: _addDividersAfterItems(widget.listItems),
 
             // items: widget.listItems
