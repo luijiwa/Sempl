@@ -3,9 +3,11 @@ import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/feature/confirmation/confirmation_screen.dart';
 import 'package:my_app/src/feature/delivery/delivery_screen.dart';
+import 'package:my_app/src/feature/feedback/ui/feedback_screen.dart';
+import 'package:my_app/src/feature/feedback/ui/widgets/%D1%81onfirmation_feedback_screen.dart';
 import 'package:my_app/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
 import 'package:my_app/src/feature/item/item_screen.dart';
-import 'package:my_app/src/feature/login/login_screen.dart';
+import 'package:my_app/src/feature/login/ui/login_screen.dart';
 import 'package:my_app/src/feature/main/main_screen.dart';
 import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
 import 'package:my_app/src/feature/profile/ui/profile_screen.dart';
@@ -23,7 +25,7 @@ class AppRouter {
       GlobalKey<NavigatorState>(debugLabel: 'root');
   late final router = GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: AppRoutes.surveyOrder.path,
+    initialLocation: AppRoutes.onboarding.path,
     routes: <GoRoute>[
       GoRoute(
         name: AppRoutes.surveyOrder.name,
@@ -93,7 +95,23 @@ class AppRouter {
                     path: AppRoutes.reviewItemsScreen.path,
                     builder: (context, state) {
                       return const ReviewItemsScreen();
-                    }),
+                    },
+                    routes: [
+                      GoRoute(
+                          name: AppRoutes.feedback.name,
+                          path: AppRoutes.feedback.path,
+                          builder: (context, state) {
+                            return const FeedbackScreen();
+                          },
+                          routes: [
+                            GoRoute(
+                                name: AppRoutes.feedbackConfirmation.name,
+                                path: AppRoutes.feedbackConfirmation.path,
+                                builder: (context, state) {
+                                  return const ConfirmationFeedbackScreen();
+                                }),
+                          ]),
+                    ]),
                 GoRoute(
                     name: AppRoutes.profileEdit.name,
                     path: AppRoutes.profileEdit.path,

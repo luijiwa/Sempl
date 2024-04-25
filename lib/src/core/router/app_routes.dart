@@ -65,6 +65,14 @@ enum AppRoutes {
     name: 'finishedSempls',
     path: 'finished_sempls',
   ),
+  feedback(
+    name: 'feedback',
+    path: 'feedback',
+  ),
+  feedbackConfirmation(
+    name: 'feedbackConfirmation',
+    path: 'feedbackConfirmation',
+  ),
   ;
 
   const AppRoutes({
