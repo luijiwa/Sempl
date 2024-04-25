@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/feedback/ui/feedback_screen.dart';
 
@@ -65,11 +67,7 @@ class ItemWithButtonWidget extends StatelessWidget {
                 width: double.maxFinite,
                 child: ElevatedButton(
                   onPressed: () {
-                    // context.pushNamed(AppRoutes.delivery.name);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FeedbackScreen()));
+                    context.goNamed(AppRoutes.feedback.name);
                   },
                   style: Theme.of(context)
                       .elevatedButtonTheme
