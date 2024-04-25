@@ -1,11 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/confirmation/confirmation_screen.dart';
-import 'package:my_app/src/feature/login/header_widget.dart';
-import 'package:my_app/src/feature/login/input_code_widget.dart';
+import 'package:my_app/src/feature/login/ui/widgets/header_widget.dart';
+import 'package:my_app/src/feature/login/ui/widgets/input_code_widget.dart';
 
-import 'package:my_app/src/feature/login/phone_input_widget.dart';
+import 'package:my_app/src/feature/login/ui/widgets/phone_input_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -41,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Scaffold(
           resizeToAvoidBottomInset:
               false, // Не прокручивать при открытии клавиатуры
-
+          backgroundColor: Colors.white,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(
               maxHeight * 0.276,
@@ -150,53 +152,50 @@ class _TermOfUseState extends State<TermOfUse> {
       color: AppThemeColor.black,
     );
 
-    return InkWell(
-      onTap: () {
-        setState(() {
-          isChecked = !isChecked;
-        });
-      },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Checkbox(
-            value: isChecked,
-            activeColor: const Color(0xFF99BFD4),
-            side: MaterialStateBorderSide.resolveWith(
-              (states) => const BorderSide(color: Color(0xFF99BFD4)),
-            ),
-            onChanged: (value) {
-              if (value == null) return;
-              setState(() {
-                isChecked = value;
-              });
-            },
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Checkbox(
+          value: isChecked,
+          activeColor: const Color(0xFF99BFD4),
+          side: MaterialStateBorderSide.resolveWith(
+            (states) => const BorderSide(color: Color(0xFF99BFD4)),
           ),
-          const Flexible(
-            child: AutoSizeText.rich(
-              TextSpan(
-                // text: 'Hello ',
-                style: termOfUseTextStyle,
-                children: [
-                  TextSpan(text: 'Я соглашаюсь с '),
-                  TextSpan(
-                    text: 'Условиями Пользовательского Соглашения',
-                    style: linkTextStyle,
-                  ),
-                  TextSpan(text: ' и '),
-                  TextSpan(
-                    text: 'Политикой Конфиденциальности',
-                    style: linkTextStyle,
-                  ),
-                ],
-              ),
-              maxLines: 2,
+          onChanged: (value) {
+            if (value == null) return;
+            setState(() {
+              isChecked = value;
+            });
+          },
+        ),
+        Flexible(
+          child: AutoSizeText.rich(
+            TextSpan(
+              // text: 'Hello ',
+              style: termOfUseTextStyle,
+              children: [
+                const TextSpan(text: 'Я соглашаюсь с '),
+                TextSpan(
+                  text: 'Условиями Пользовательского Соглашения',
+                  style: linkTextStyle,
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () => logger.i('Tap Here onTap'),
+                ),
+                const TextSpan(text: ' и '),
+                TextSpan(
+                  text: 'Политикой Конфиденциальности',
+                  style: linkTextStyle,
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () => logger.i('Tap Here onTap'),
+                ),
+              ],
             ),
+            maxLines: 2,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

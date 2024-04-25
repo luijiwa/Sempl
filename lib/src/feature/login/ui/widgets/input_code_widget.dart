@@ -95,6 +95,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
     return Column(
       children: [
         Pinput(
+          keyboardType: TextInputType.number,
           length: 5,
           defaultPinTheme: pinTheme,
           errorPinTheme: errorPinTheme,

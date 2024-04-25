@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/core/theme/theme.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({
@@ -9,6 +10,8 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height / 100;
+    final double width = MediaQuery.sizeOf(context).width;
+
     return Stack(
       alignment: AlignmentDirectional.center,
       children: [
@@ -23,44 +26,40 @@ class HeaderWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22.0)
                 .copyWith(bottom: 4 * height),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 AutoSizeText(
                   'ДОБРО ПОЖАЛОВАТЬ!',
-                  style: TextStyle(
-                    fontFamily: 'DrukCyr',
-                    fontSize: 48,
-                    color: Colors.white,
-                  ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .appTitleMedium
+                      .copyWith(color: Colors.white),
                   maxLines: 2,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 20),
+                  padding:
+                      EdgeInsets.only(right: width * 0.0509, top: width * 0.03),
                   child: AutoSizeText(
                     'Для входа или регистрации в приложении введите свой номер телефона:',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .appBodyMedium
+                        .copyWith(color: Colors.white),
                     maxLines: 2,
                     minFontSize: 10,
                   ),
                 ),
+                SizedBox(height: width * 0.07),
               ],
             ),
           ),
         ),
         Positioned(
           top: MediaQuery.of(context).viewPadding.top,
-          child: const Text(
-            "SEMPL!",
-            style: TextStyle(
-              fontFamily: 'DrukCyr',
-              fontSize: 32,
-            ),
-          ),
+          child:
+              Text("SEMPL!", style: Theme.of(context).textTheme.appTitleMedium),
         ),
       ],
     );
