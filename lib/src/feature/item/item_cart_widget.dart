@@ -37,7 +37,8 @@ class ItemCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const StarRatingWidget(),
+                    StarRatingWidget(size: width * 0.038175),
+                    SizedBox(height: width * 0.017),
                     AutoSizeText(
                       '5,0 по 89 отзывам'.toUpperCase(),
                       style: const TextStyle(
@@ -84,7 +85,7 @@ class ItemCard extends StatelessWidget {
             ),
             SizedBox(height: height * 0.016),
             SizedBox(
-              height: 0.055 * height,
+              height: 0.1186228814 * width,
               width: double.maxFinite,
               child: ElevatedButton(
                 onPressed: () {

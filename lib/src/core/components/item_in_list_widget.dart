@@ -57,7 +57,9 @@ class ItemInListWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 8),
             ),
             const SizedBox(height: 11),
-            const StarRatingWidget(),
+            StarRatingWidget(
+              size: width * 0.038175,
+            ),
             SizedBox(height: offset),
           ],
         ),
