@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/feature/feedback/bloc/feedback_bloc.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/feedback_checkbox_row_widget.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/input_field_with_counter_widget.dart';
 
@@ -19,6 +21,7 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
+    final bloc = context.read<FeedbackBloc>();
     return Column(
       children: [
         Column(
@@ -39,6 +42,7 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
                 title: 'Нет плюсов',
                 value: noPlusChecked,
                 onChanged: (value) {
+                  bloc.add(FeedbackMinusChange());
                   setState(() {
                     noPlusChecked = value;
                   });
@@ -69,7 +73,7 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
                   .copyWith(bottom: width * 0.01527),
               child: FeedbackCheckboxRowWidget(
                 title: 'Нет минусов',
-                value: noPlusChecked,
+                value: noMinusChecked,
                 onChanged: (value) {
                   setState(() {
                     noMinusChecked = value;

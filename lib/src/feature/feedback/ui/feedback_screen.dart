@@ -1,11 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/custom_back_button.dart';
 
 import 'package:my_app/src/core/components/next_step_button.dart';
+import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/feature/feedback/bloc/feedback_bloc.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/cart_item_with_step_indicator_widget.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/steps/feedback_step_five.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/steps/feedback_step_four.dart';
@@ -40,60 +44,63 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: Scaffold(
-        resizeToAvoidBottomInset:
-            _currentPageIndex == 1 || _currentPageIndex == 2,
-        body: SingleChildScrollView(
-          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              AppBar(
-                leading: CustomBackButton(
-                  onPressed: _currentPageIndex == 0 ? null : _previousPage,
+      child: BlocProvider(
+        create: (context) => FeedbackBloc(),
+        child: Scaffold(
+          resizeToAvoidBottomInset:
+              _currentPageIndex == 1 || _currentPageIndex == 2,
+          body: SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                AppBar(
+                  leading: CustomBackButton(
+                    onPressed: _currentPageIndex == 0 ? null : _previousPage,
+                  ),
+                  title: const Text('SEMPL!'),
                 ),
-                title: const Text('SEMPL!'),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(standardPadding),
-                child: AutoSizeText(
-                  'НАПИСАТЬ ОБЗОР',
-                  style: Theme.of(context).textTheme.appProfileTitle,
+                Padding(
+                  padding: const EdgeInsets.all(standardPadding),
+                  child: AutoSizeText(
+                    'НАПИСАТЬ ОБЗОР',
+                    style: Theme.of(context).textTheme.appProfileTitle,
+                  ),
                 ),
-              ),
-              CartItemWithStepIndicatorWidget(
-                currentPageIndex: _currentPageIndex,
-              ),
-              ExpandablePageView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                controller: _pageViewController,
-                itemCount: 5,
-                itemBuilder: (BuildContext context, int index) {
-                  switch (index) {
-                    case 1:
-                      return const FeedbackStepTwo();
-                    case 2:
-                      return const FeedbackStepThree();
-                    case 3:
-                      return const FeedbackStepFour();
-                    case 4:
-                      return const FeedbackStepFive();
-                    default:
-                      return const FeedbackStepOne();
-                  }
-                },
-              ),
-              SizedBox(height: width * 0.16797),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: standardPadding),
-                child: NextStepButton(
-                  onPressed: _nextPage,
-                  title: 'ПРОДОЛЖИТЬ ',
+                CartItemWithStepIndicatorWidget(
+                  currentPageIndex: _currentPageIndex,
                 ),
-              ),
-              const BottomPadding(),
-            ],
+                ExpandablePageView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _pageViewController,
+                  itemCount: 5,
+                  itemBuilder: (BuildContext context, int index) {
+                    switch (index) {
+                      case 1:
+                        return const FeedbackStepTwo();
+                      case 2:
+                        return const FeedbackStepThree();
+                      case 3:
+                        return const FeedbackStepFour();
+                      case 4:
+                        return const FeedbackStepFive();
+                      default:
+                        return const FeedbackStepOne();
+                    }
+                  },
+                ),
+                SizedBox(height: width * 0.16797),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: standardPadding),
+                  child: NextStepButton(
+                    onPressed: _nextPage,
+                    title: 'ПРОДОЛЖИТЬ ',
+                  ),
+                ),
+                const BottomPadding(),
+              ],
+            ),
           ),
         ),
       ),
@@ -109,6 +116,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
+    } else {
+      context.goNamed(AppRoutes.feedbackConfirmation.name);
     }
   }
 

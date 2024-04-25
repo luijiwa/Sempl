@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show LengthLimitingTextInputFormatter;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/feature/feedback/bloc/feedback_bloc.dart';
 
 class InputFieldWithCounterWidget extends StatefulWidget {
   const InputFieldWithCounterWidget({
@@ -40,21 +42,30 @@ class _InputFieldWithCounterWidgetState
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: Stack(
-        children: [
-          TextField(
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(140),
-            ],
-            controller: _controller,
-            enabled: widget.enabled,
-            decoration:
-                Theme.of(context).inputDecorationTheme.defaultInput.copyWith(
+      child: BlocBuilder<FeedbackBloc, FeedbackState>(
+        builder: (context, state) {
+          return Stack(
+            children: [
+              TextField(
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter(140),
+                ],
+                controller: _controller,
+                enabled: widget.enabled,
+                decoration: Theme.of(context)
+                    .inputDecorationTheme
+                    .defaultInput
+                    .copyWith(
                       hintStyle: const TextStyle(
                         fontSize: 15,
                         color: AppThemeColor.gris,
@@ -65,16 +76,22 @@ class _InputFieldWithCounterWidgetState
                       ).copyWith(right: width * 0.2),
                       hintText: widget.hint,
                     ),
-          ),
-          Positioned(
-            bottom: height * 0.016,
-            right: width * 0.04,
-            child: Text(
-              '$_characterCount/$_maxLength',
-              style: Theme.of(context).textTheme.appBodyMedium,
-            ),
-          ),
-        ],
+              ),
+              Positioned(
+                bottom: height * 0.016,
+                right: width * 0.04,
+                child: Text(
+                  '$_characterCount/$_maxLength',
+                  style: widget.enabled
+                      ? Theme.of(context).textTheme.appBodyMedium
+                      : Theme.of(context).textTheme.appBodyMedium.copyWith(
+                            color: AppThemeColor.gris,
+                          ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

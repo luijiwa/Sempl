@@ -21,7 +21,7 @@ class CartItemWithStepIndicatorWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const CardItemInFeedbackWidget(),
-        SizedBox(height: width * 0.06),
+        SizedBox(height: width * 0.05),
         AutoSizeText(
           '2/14 дней до конца возможности оставить отзыв',
           style: Theme.of(context)
