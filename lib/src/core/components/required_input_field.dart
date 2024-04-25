@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show TextInputFormatter;
 import 'package:my_app/src/core/theme/theme.dart';
 
 class RequiredInputField extends StatefulWidget {
@@ -10,11 +11,15 @@ class RequiredInputField extends StatefulWidget {
     required this.hintText,
     this.validator,
     this.isError = false,
+    this.inputFormatters,
+    this.keyboardType,
   });
 
   final String hintText;
   final FormFieldValidator<String>? validator;
   final bool isError;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextInputType? keyboardType;
   @override
   State<RequiredInputField> createState() => _RequiredInputFieldState();
 }
@@ -88,6 +93,8 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                 ),
               TextField(
                 controller: _controller,
+                inputFormatters: widget.inputFormatters,
+                keyboardType: widget.keyboardType,
                 decoration: InputDecoration(
                   filled: widget.isError ? true : false,
                   fillColor: const Color(0xFFE25C74).withOpacity(0.2),
