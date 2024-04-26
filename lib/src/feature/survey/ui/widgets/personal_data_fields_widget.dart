@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,7 +18,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
     final double width = MediaQuery.sizeOf(context).width;
 
     final edgeInsets = EdgeInsets.symmetric(
-        vertical: height * 0.013, horizontal: height * 0.023);
+        vertical: width * 0.02803813559, horizontal: width * 0.0496059322);
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,12 +57,20 @@ class PersonalDataFieldsWidget extends StatelessWidget {
         TextField(
           keyboardType: TextInputType.datetime,
           inputFormatters: [
-            // FilteringTextInputFormatter.digitsOnly,
-            // MaskTextInputFormatter(
-            //     mask: '##/##/####',
-            //     filter: {"#": RegExp(r'[0-9]')},
-            //     type: MaskAutoCompletionType.lazy),
-            DateOfBirthInputFormatter()
+            FilteringTextInputFormatter.digitsOnly,
+            MaskTextInputFormatter(
+                mask: '01/23/4###',
+                filter: {
+                  "0": RegExp(r'[0123]'),
+                  "1": RegExp(r'[0-9]'),
+                  "2": RegExp(r'[01]'),
+                  "3": RegExp(r'[0-9]'),
+                  "4": RegExp(r'[12]'),
+                  "#": RegExp(r'[31][12]|[0-9]')
+                },
+                type: MaskAutoCompletionType.lazy),
+            // DateOfBirthInputFormatter(),
+            // CustomDateTextFormatter()
           ],
           decoration: InputDecoration(
             contentPadding: edgeInsets,
