@@ -120,7 +120,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
       }
       //Dividers indexes will be the odd indexes
       if (i.isOdd) {
-        itemsHeights.add(4);
+        itemsHeights.add(8);
       }
     }
     return itemsHeights;
@@ -153,7 +153,8 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
       final maxHeight = constraints.maxHeight.toDouble();
       final maxWidth = constraints.maxWidth.toDouble();
       return SizedBox(
-        height: width * 0.12216,
+        height: width * 0.123, // 0.12216,
+
         child: DropdownButtonHideUnderline(
           child: DropdownButton2<String>(
             isExpanded: true,
