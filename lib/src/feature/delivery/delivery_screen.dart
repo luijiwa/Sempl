@@ -7,6 +7,7 @@ import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/core/components/custom_app_bar.dart';
 import 'package:my_app/src/feature/delivery/delivery_modal_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/feature/survey/ui/widgets/address_data_fields_widget.dart';
 
 class DeliveryScreen extends StatelessWidget {
   const DeliveryScreen({super.key});
@@ -14,6 +15,8 @@ class DeliveryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -36,45 +39,8 @@ class DeliveryScreen extends StatelessWidget {
                   fontSize: 15,
                 ),
               ),
-              SizedBox(height: height * 0.01),
-              const AutoSizeText(
-                'АДРЕС ДОСТАВКИ',
-                style: TextStyle(
-                  fontSize: 36,
-                  fontFamily: 'DrukCyr',
-                ),
-                maxLines: 1,
-              ),
-              SizedBox(height: height * 0.016),
-              const RequiredInputField(
-                hintText: 'Город',
-              ),
-              const SizedBox(height: 4),
-              const RequiredInputField(
-                hintText: 'Улица',
-              ),
-              const SizedBox(height: 5),
-              const Row(
-                children: [
-                  Expanded(
-                    child: RequiredInputField(hintText: 'Номер дома'),
-                  ),
-                  SizedBox(width: 4),
-                  Expanded(
-                    child: RequiredInputField(hintText: 'Номер квартиры'),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              const Row(
-                children: [
-                  Expanded(child: TextInputField(hintText: 'Подъезд')),
-                  SizedBox(width: 4),
-                  Expanded(
-                    child: RequiredInputField(hintText: 'Почтовый индекс'),
-                  ),
-                ],
-              ),
+              SizedBox(height: width * 0.07635),
+              const AddressDataFieldsWidget(),
               const Spacer(),
               const Center(
                 child: AutoSizeText(
