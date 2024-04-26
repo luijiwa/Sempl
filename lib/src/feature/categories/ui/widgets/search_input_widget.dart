@@ -38,6 +38,8 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.sizeOf(context).width;
+
     final padding = height * 0.0161; // 15
     log(padding.toString());
 
@@ -54,7 +56,8 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
               if (_isTextEmpty)
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: height * 0.013, horizontal: height * 0.023),
+                      vertical: width * 0.02803813559,
+                      horizontal: width * 0.0496059322),
                   child: const Align(
                     alignment: Alignment.centerLeft,
                     child: Row(

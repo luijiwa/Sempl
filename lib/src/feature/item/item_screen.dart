@@ -25,8 +25,9 @@ class ItemScreen extends StatelessWidget {
           title: Text(
             'Страница продукта',
             style: TextStyle(
-                fontSize: width > 320 ? 18 : 15,
-                fontFamily: 'SourceSansProBold'),
+              fontSize: width > 320 ? 18 : 15,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           centerTitle: true,
         ),
@@ -60,7 +61,7 @@ class CommentsRowWidget extends StatelessWidget {
       children: [
         const AutoSizeText(
           'КОММЕНТАРИИ (387)',
-          style: TextStyle(fontFamily: 'SourceSansProSemiBold', fontSize: 15),
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
         ),
         const Spacer(),
         Wrap(

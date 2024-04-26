@@ -77,7 +77,7 @@ class ProfileAvatarRowWidget extends StatelessWidget {
                   "@WOLFLIKEMEEE",
                   style: TextStyle(
                     fontSize: 12,
-                    fontFamily: 'SourceSansProBold',
+                    fontWeight: FontWeight.w700,
                     color: AppThemeColor.blueColor,
                   ),
                   maxLines: 1,

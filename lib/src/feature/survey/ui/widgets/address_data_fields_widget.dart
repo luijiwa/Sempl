@@ -20,7 +20,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final edgeInsets = EdgeInsets.symmetric(
-        vertical: height * 0.013, horizontal: height * 0.023);
+        vertical: width * 0.02803813559, horizontal: width * 0.0496059322);
     return Form(
       key: widget.key, // Привязка формы к GlobalKey
 
@@ -34,9 +34,12 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
             maxLines: 1,
           ),
           SizedBox(height: width * 0.05),
-          const RequiredInputField(
+          RequiredInputField(
             hintText: 'Город',
             keyboardType: TextInputType.streetAddress,
+            inputFormatters: [
+              FilteringTextInputFormatter.deny(RegExp(r'[0-9]'))
+            ],
           ),
           const SizedBox(height: 4),
           const RequiredInputField(
@@ -69,10 +72,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
               Expanded(
                 child: TextField(
                   keyboardType: TextInputType.streetAddress,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(
-                        RegExp(r'[a-zA-Zа-яА-Я]')),
-                  ],
+                  inputFormatters: [],
                   decoration: InputDecoration(
                     contentPadding: edgeInsets,
                     hintText: 'Подъезд',

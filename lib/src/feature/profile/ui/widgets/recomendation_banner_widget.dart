@@ -15,7 +15,7 @@ class RecomendationBannerWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 22),
       sliver: SliverToBoxAdapter(
         child: Container(
-          height: 0.9166313559 * width,
+          height: 0.95 * width, //   height: 0.9166313559 * width,
           constraints: const BoxConstraints(minHeight: 335),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30.0)),

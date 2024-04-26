@@ -50,6 +50,8 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.sizeOf(context).width;
+
     final padding = height * 0.0161; // 15
     log(padding.toString());
     final border = Theme.of(context).inputDecorationTheme.defaultInput.border;
@@ -66,7 +68,8 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
               if (_isTextEmpty)
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: height * 0.013, horizontal: height * 0.023),
+                      vertical: width * 0.02803813559,
+                      horizontal: width * 0.0496059322),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: AutoSizeText.rich(
@@ -105,7 +108,8 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                               BorderSide(width: 0.5, color: AppThemeColor.rose))
                       : null,
                   contentPadding: EdgeInsets.symmetric(
-                      vertical: height * 0.013, horizontal: height * 0.023),
+                      vertical: width * 0.02803813559,
+                      horizontal: width * 0.0496059322),
                 ),
               ),
             ],

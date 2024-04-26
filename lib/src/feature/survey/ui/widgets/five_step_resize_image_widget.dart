@@ -97,7 +97,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
             OutButton(title: 'ОТМЕНА', onPressed: () {}),
             SizedBox(height: height * 0.005),
             SizedBox(
-              height: 0.055 * height,
+              height: 0.1186228814 * width,
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {

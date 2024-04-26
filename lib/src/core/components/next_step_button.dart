@@ -18,7 +18,7 @@ class NextStepButton extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 0.055 * height,
+      height: 0.1186228814 * width,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(

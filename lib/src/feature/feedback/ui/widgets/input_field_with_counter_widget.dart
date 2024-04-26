@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show LengthLimitingTextInputFormatter;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app/src/core/theme/theme.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/feedback/bloc/feedback_bloc.dart';
 
 class InputFieldWithCounterWidget extends StatefulWidget {
   const InputFieldWithCounterWidget({
     super.key,
     required this.hint,
-    this.enabled = true,
+    required this.enabled,
   });
   final String hint;
   final bool enabled;
@@ -22,7 +23,6 @@ class _InputFieldWithCounterWidgetState
   final TextEditingController _controller = TextEditingController();
   int _characterCount = 0;
   final int _maxLength = 140; // Максимальное количество символов
-
   @override
   void initState() {
     super.initState();
@@ -42,57 +42,45 @@ class _InputFieldWithCounterWidgetState
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: BlocBuilder<FeedbackBloc, FeedbackState>(
-        builder: (context, state) {
-          return Stack(
-            children: [
-              TextField(
-                inputFormatters: [
-                  LengthLimitingTextInputFormatter(140),
-                ],
-                controller: _controller,
-                enabled: widget.enabled,
-                decoration: Theme.of(context)
-                    .inputDecorationTheme
-                    .defaultInput
-                    .copyWith(
-                      hintStyle: const TextStyle(
-                        fontSize: 15,
-                        color: AppThemeColor.gris,
+        padding: const EdgeInsets.symmetric(horizontal: 22),
+        child: Stack(
+          children: [
+            TextField(
+              inputFormatters: [
+                LengthLimitingTextInputFormatter(140),
+              ],
+              controller: _controller,
+              enabled: widget.enabled,
+              decoration:
+                  Theme.of(context).inputDecorationTheme.defaultInput.copyWith(
+                        hintStyle: const TextStyle(
+                          fontSize: 15,
+                          color: AppThemeColor.gris,
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: height * 0.013,
+                          horizontal: height * 0.023,
+                        ).copyWith(right: width * 0.2),
+                        hintText: widget.hint,
                       ),
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: height * 0.013,
-                        horizontal: height * 0.023,
-                      ).copyWith(right: width * 0.2),
-                      hintText: widget.hint,
-                    ),
+            ),
+            Positioned(
+              bottom: height * 0.016,
+              right: width * 0.04,
+              child: Text(
+                '$_characterCount/$_maxLength',
+                style: widget.enabled
+                    ? Theme.of(context).textTheme.appBodyMedium
+                    : Theme.of(context).textTheme.appBodyMedium.copyWith(
+                          color: AppThemeColor.gris,
+                        ),
               ),
-              Positioned(
-                bottom: height * 0.016,
-                right: width * 0.04,
-                child: Text(
-                  '$_characterCount/$_maxLength',
-                  style: widget.enabled
-                      ? Theme.of(context).textTheme.appBodyMedium
-                      : Theme.of(context).textTheme.appBodyMedium.copyWith(
-                            color: AppThemeColor.gris,
-                          ),
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
+            ),
+          ],
+        ));
   }
 }

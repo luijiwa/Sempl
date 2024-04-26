@@ -70,7 +70,9 @@ class ItemCard extends StatelessWidget {
             Text(
               "Aromenage".toUpperCase(),
               style: const TextStyle(
-                  fontSize: 15, fontFamily: 'SourceSansProBold'),
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.12),

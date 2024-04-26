@@ -109,8 +109,10 @@ class ItemInFirstOnboardingPage extends StatelessWidget {
           SizedBox(height: height * 0.0059),
           Text(
             "Aromenage".toUpperCase(),
-            style:
-                const TextStyle(fontSize: 15, fontFamily: 'SourceSansProBold'),
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           AutoSizeText(
               "Гель-концентрат для стирки\nUniversal Delight с чабрецом 0,9л"

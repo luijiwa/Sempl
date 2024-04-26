@@ -63,18 +63,12 @@ class ItemWithButtonWidget extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.021),
               child: SizedBox(
-                height: 0.055 * height,
+                height: 0.1186228814 * width,
                 width: double.maxFinite,
                 child: ElevatedButton(
                   onPressed: () {
                     context.goNamed(AppRoutes.feedback.name);
                   },
-                  style: Theme.of(context)
-                      .elevatedButtonTheme
-                      .appButton
-                      .copyWith(
-                          backgroundColor:
-                              MaterialStateProperty.all(AppThemeColor.pink)),
                   child: AutoSizeText(
                     'НАПИСАТЬ ОБЗОР',
                     style: TextStyle(

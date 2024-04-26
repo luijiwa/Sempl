@@ -22,8 +22,8 @@ class DeliveryModalWidget extends StatelessWidget {
           ),
           width: double.maxFinite,
           padding: const EdgeInsets.symmetric(horizontal: 22).copyWith(
-            top: 16,
-            bottom: 20,
+            top: width * 0.04581,
+            bottom: width * 0.0509,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -32,7 +32,7 @@ class DeliveryModalWidget extends StatelessWidget {
               Text(
                 'Адрес доставки'.toUpperCase(),
                 maxLines: 2,
-                style: const TextStyle(fontSize: 30, fontFamily: 'DrukCyr'),
+                style: Theme.of(context).textTheme.appProfileTitle,
               ),
               SizedBox(height: height * 0.01),
               Text(
@@ -45,7 +45,7 @@ class DeliveryModalWidget extends StatelessWidget {
               ),
               SizedBox(height: height * 0.02),
               SizedBox(
-                height: 0.055 * height,
+                height: 0.1186228814 * width,
                 width: double.maxFinite,
                 child: OutlinedButton(
                   onPressed: () {},
@@ -66,7 +66,7 @@ class DeliveryModalWidget extends StatelessWidget {
               ),
               SizedBox(height: height * 0.005),
               SizedBox(
-                height: 0.055 * height,
+                height: 0.1186228814 * width,
                 width: double.maxFinite,
                 child: ElevatedButton(
                   onPressed: () {

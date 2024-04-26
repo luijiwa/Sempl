@@ -7,8 +7,10 @@ class PasswordGroupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.sizeOf(context).width;
+
     final edgeInsets = EdgeInsets.symmetric(
-        vertical: height * 0.013, horizontal: height * 0.023);
+        vertical: width * 0.02803813559, horizontal: width * 0.0496059322);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
