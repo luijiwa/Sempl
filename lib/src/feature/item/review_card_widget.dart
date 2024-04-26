@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/src/core/components/app_bar_profile_icon_button_widget.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
 import 'package:my_app/src/feature/item/full_screen_review_widget.dart';
@@ -28,6 +31,7 @@ class ReviewCardWidget extends StatelessWidget {
             .copyWith(top: 15, bottom: 30),
         decoration: const BoxDecoration(
           color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -40,7 +44,7 @@ class ReviewCardWidget extends StatelessWidget {
                   "@WOLFLIKEMEEE",
                   style: TextStyle(
                     fontSize: 12,
-                    fontFamily: 'SourceSansProBold',
+                    fontWeight: FontWeight.w700,
                     color: AppThemeColor.blueColor,
                   ),
                   maxLines: 1,
@@ -162,9 +166,79 @@ class ReviewCardWidget extends StatelessWidget {
                 const SizedBox(height: 30),
               ],
             ),
+            SizedBox(height: width * 0.051),
+            SizedBox(
+              width: double.maxFinite,
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                spacing: width * 0.02545,
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: width * 0.038175,
+                        vertical: width * 0.02545),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: AppThemeColor.grey,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SvgPicture.asset(
+                          width: width * 0.043265,
+                          colorFilter: const ColorFilter.mode(
+                              AppThemeColor.gris, BlendMode.srcIn),
+                          'assets/icons/like.svg',
+                        ),
+                        const SizedBox(width: 5),
+                        const Text(
+                          "2",
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: width * 0.038175,
+                        vertical: width * 0.02545),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: AppThemeColor.grey,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Transform.flip(
+                          flipY: true,
+                          child: SvgPicture.asset(
+                            width: width * 0.043265,
+                            colorFilter: const ColorFilter.mode(
+                                AppThemeColor.blueColor, BlendMode.srcIn),
+                            'assets/icons/like.svg',
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        const Text(
+                          "0",
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
 }
+  // Transform.scale(
+  //                         scale: -1,
+  //                         child: SvgPicture.asset(
+  //                           width: width * 0.043265,
+  //                           colorFilter: const ColorFilter.mode(
+  //                               AppThemeColor.gris, BlendMode.srcIn),
+  //                           'assets/icons/like.svg',
+  //                         ),
+  //                       ),
