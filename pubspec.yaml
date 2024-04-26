@@ -123,18 +123,18 @@ flutter:
   # generate: true
 
   fonts:
-    - family: DrukCyr
-      fonts:
-        - asset: assets/fonts/DrukCyr-Bold.ttf
-    - family: SourceSansPro
-      fonts:
-        - asset: assets/fonts/SourceSans3-Regular.ttf
-    - family: SourceSansProBold
-      fonts:
-        - asset: assets/fonts/SourceSans3-Bold.ttf
-    - family: SourceSansProSemiBold
-      fonts:
-        - asset: assets/fonts/SourceSans3-SemiBold.ttf
+    # - family: DrukCyr
+    #   fonts:
+    #     - asset: assets/fonts/DrukCyr-Bold.ttf
+    # - family: SourceSansPro
+    #   fonts:
+    #     - asset: assets/fonts/SourceSans3-Regular.ttf
+    # - family: SourceSansProBold
+    #   fonts:
+    #     - asset: assets/fonts/SourceSans3-Bold.ttf
+    # - family: SourceSansProSemiBold
+    #   fonts:
+    #     - asset: assets/fonts/SourceSans3-SemiBold.ttf
     - family: Inter
       fonts:
         - asset: assets/fonts/inter/Inter-Black.ttf
