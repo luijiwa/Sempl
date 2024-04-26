@@ -6,6 +6,7 @@ import 'package:my_app/src/feature/feedback/bloc/feedback_bloc.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/feedback_checkbox_row_widget.dart';
 import 'package:my_app/src/feature/feedback/ui/widgets/input_field_with_counter_widget.dart';
 
+///TODO Поменять на нормальное изменение значений bool
 class FeedbackStepThree extends StatefulWidget {
   const FeedbackStepThree({super.key});
 
@@ -14,14 +15,14 @@ class FeedbackStepThree extends StatefulWidget {
 }
 
 class _FeedbackStepThreeState extends State<FeedbackStepThree> {
-  bool noPlusChecked = false;
-  bool noMinusChecked = false;
+  // bool noPlusChecked = false;
+  // bool noMinusChecked = false;
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
-    final bloc = context.read<FeedbackBloc>();
+    final bloc = context.watch<FeedbackBloc>();
     return Column(
       children: [
         Column(
@@ -38,22 +39,40 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 17)
                   .copyWith(bottom: width * 0.01527),
-              child: FeedbackCheckboxRowWidget(
-                title: 'Нет плюсов',
-                value: noPlusChecked,
-                onChanged: (value) {
-                  bloc.add(FeedbackMinusChange());
-                  setState(() {
-                    noPlusChecked = value;
-                  });
+              child: BlocBuilder<FeedbackBloc, FeedbackState>(
+                builder: (context, state) {
+                  final noPlusChecked = state.plusIsEnabeled;
+
+                  return FeedbackCheckboxRowWidget(
+                    title: 'Нет плюсов',
+                    value: noPlusChecked,
+                    onChanged: (value) {
+                      bloc.add(FeedbackPlusChange());
+                    },
+                  );
                 },
               ),
             ),
-            InputFieldWithCounterWidget(
-                hint: 'Плюс 1', enabled: !noPlusChecked),
+            BlocBuilder<FeedbackBloc, FeedbackState>(
+              buildWhen: (previous, current) =>
+                  previous.plusIsEnabeled != current.plusIsEnabeled,
+              builder: (context, state) {
+                final noPlusChecked = !state.plusIsEnabeled;
+                return InputFieldWithCounterWidget(
+                    hint: 'Плюс 1', enabled: noPlusChecked);
+              },
+            ),
             SizedBox(height: width * 0.02545),
-            InputFieldWithCounterWidget(
-                hint: 'Плюс 1', enabled: !noPlusChecked),
+            BlocBuilder<FeedbackBloc, FeedbackState>(
+              buildWhen: (previous, current) =>
+                  previous.plusIsEnabeled != current.plusIsEnabeled,
+              builder: (context, state) {
+                final noPlusChecked = !state.plusIsEnabeled;
+
+                return InputFieldWithCounterWidget(
+                    hint: 'Плюс 1', enabled: noPlusChecked);
+              },
+            ),
           ],
         ),
         SizedBox(height: width * 0.06108),
@@ -71,21 +90,41 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 17)
                   .copyWith(bottom: width * 0.01527),
-              child: FeedbackCheckboxRowWidget(
-                title: 'Нет минусов',
-                value: noMinusChecked,
-                onChanged: (value) {
-                  setState(() {
-                    noMinusChecked = value;
-                  });
+              child: BlocBuilder<FeedbackBloc, FeedbackState>(
+                buildWhen: (previous, current) =>
+                    previous.minusIsEnabeled != current.minusIsEnabeled,
+                builder: (context, state) {
+                  final noMinusChecked = state.minusIsEnabeled;
+                  return FeedbackCheckboxRowWidget(
+                    title: 'Нет минусов',
+                    value: noMinusChecked,
+                    onChanged: (value) {
+                      bloc.add(FeedbackMinusChange());
+                    },
+                  );
                 },
               ),
             ),
-            InputFieldWithCounterWidget(
-                hint: 'Минус 1', enabled: !noMinusChecked),
+            BlocBuilder<FeedbackBloc, FeedbackState>(
+              buildWhen: (previous, current) =>
+                  previous.minusIsEnabeled != current.minusIsEnabeled,
+              builder: (context, state) {
+                final noMinusChecked = !state.minusIsEnabeled;
+                return InputFieldWithCounterWidget(
+                    hint: 'Минус 1', enabled: noMinusChecked);
+              },
+            ),
             SizedBox(height: width * 0.02545),
-            InputFieldWithCounterWidget(
-                hint: 'Минус 1', enabled: !noMinusChecked),
+            BlocBuilder<FeedbackBloc, FeedbackState>(
+              buildWhen: (previous, current) =>
+                  previous.minusIsEnabeled != current.minusIsEnabeled,
+              builder: (context, state) {
+                final noMinusChecked = !state.minusIsEnabeled;
+
+                return InputFieldWithCounterWidget(
+                    hint: 'Минус 1', enabled: noMinusChecked);
+              },
+            ),
           ],
         ),
       ],

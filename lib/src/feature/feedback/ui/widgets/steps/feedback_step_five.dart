@@ -37,7 +37,7 @@ class FeedbackStepFive extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: width * 0.035),
-                const StarRatingPickWidget(),
+                StarRatingPickWidget(),
               ],
             ),
           ),
@@ -50,19 +50,23 @@ class FeedbackStepFive extends StatelessWidget {
 class StarRatingPickWidget extends StatelessWidget {
   const StarRatingPickWidget({
     super.key,
+    this.hitTestSizeFactor = 1.0,
   });
+
+  final double hitTestSizeFactor;
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     return RatingBar(
-      itemSize: width * 0.05599,
+      itemSize: width * 0.05859,
       glow: false,
       initialRating: 3,
       minRating: 1,
       direction: Axis.horizontal,
       itemCount: 5,
       itemPadding: const EdgeInsets.symmetric(horizontal: 3.0),
+      updateOnDrag: true,
       ratingWidget: RatingWidget(
         full: SvgPicture.asset(
           width: width * 0.05599,

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:my_app/src/core/utils/logger.dart';
 
 part 'feedback_event.dart';
 part 'feedback_state.dart';
@@ -18,6 +19,7 @@ class FeedbackBloc extends Bloc<FeedbackEvent, FeedbackState> {
     emit(state.copyWith(
       minusIsEnabeled: !state.minusIsEnabeled,
     ));
+    logger.w(state.minusIsEnabeled);
   }
 
   FutureOr<void> _onPlusChange(
@@ -25,5 +27,6 @@ class FeedbackBloc extends Bloc<FeedbackEvent, FeedbackState> {
     emit(state.copyWith(
       plusIsEnabeled: !state.plusIsEnabeled,
     ));
+    logger.w(state.plusIsEnabeled);
   }
 }
