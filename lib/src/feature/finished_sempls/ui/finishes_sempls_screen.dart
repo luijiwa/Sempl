@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_app/src/core/components/blue_item_with_cross.dart';
-import 'package:my_app/src/core/components/categories_button_widget.dart';
-import 'package:my_app/src/core/components/custom_back_button.dart';
+import 'package:my_app/src/core/widget/blue_item_with_cross.dart';
+import 'package:my_app/src/core/widget/categories_button_widget.dart';
+import 'package:my_app/src/core/widget/custom_back_button.dart';
 
 import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/finished_sempls/ui/widgets/item_in_list_with_review_widget.dart';

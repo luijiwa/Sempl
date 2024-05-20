@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/components/custom_back_button.dart';
-import 'package:my_app/src/core/components/custom_radio_button.dart';
+import 'package:my_app/src/core/widget/custom_back_button.dart';
+import 'package:my_app/src/core/widget/custom_radio_button.dart';
 import 'package:my_app/src/feature/categories/ui/widgets/search_input_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 

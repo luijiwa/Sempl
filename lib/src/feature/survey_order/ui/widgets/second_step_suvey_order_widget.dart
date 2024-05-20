@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_app/src/core/components/bottom_padding.dart';
-import 'package:my_app/src/core/components/custom_app_bar.dart';
-import 'package:my_app/src/core/components/custom_radio_button.dart';
-import 'package:my_app/src/core/components/next_step_button.dart';
+import 'package:my_app/src/core/widget/bottom_padding.dart';
+import 'package:my_app/src/core/widget/custom_app_bar.dart';
+import 'package:my_app/src/core/widget/custom_radio_button.dart';
+import 'package:my_app/src/core/widget/next_step_button.dart';
 import 'package:my_app/src/core/router/app_routes.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 import 'package:my_app/src/feature/survey/ui/widgets/questions_padding.dart';

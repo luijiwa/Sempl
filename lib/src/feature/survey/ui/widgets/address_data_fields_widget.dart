@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:my_app/src/core/components/required_input_field.dart';
+import 'package:my_app/src/core/widget/required_input_field.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
 class AddressDataFieldsWidget extends StatefulWidget {

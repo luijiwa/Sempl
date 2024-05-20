@@ -1,9 +1,8 @@
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_app/src/core/components/app_bar_profile_icon_button_widget.dart';
-import 'package:my_app/src/core/components/star_rating_widget.dart';
+import 'package:my_app/src/core/widget/app_bar_profile_icon_button_widget.dart';
+import 'package:my_app/src/core/widget/star_rating_widget.dart';
 import 'package:my_app/src/feature/item/full_screen_review_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 

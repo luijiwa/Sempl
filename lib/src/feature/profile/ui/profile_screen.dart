@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/components/custom_back_button.dart';
+import 'package:my_app/src/core/widget/custom_back_button.dart';
 import 'package:my_app/src/feature/profile/ui/widgets/complete_example_list_widget.dart';
 import 'package:my_app/src/feature/profile/ui/widgets/profile_avatar_row_widget.dart';
 import 'package:my_app/src/feature/profile/ui/widgets/recomendation_banner_widget.dart';

@@ -3,8 +3,8 @@ import 'dart:io' show File;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:my_app/src/core/components/bottom_padding.dart';
-import 'package:my_app/src/core/components/next_step_button.dart';
+import 'package:my_app/src/core/widget/bottom_padding.dart';
+import 'package:my_app/src/core/widget/next_step_button.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/feature/survey/ui/widgets/five_step_resize_image_widget.dart';
 
