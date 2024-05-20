@@ -147,7 +147,6 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
 
     final boxPadding = EdgeInsets.all(height * 0.011);
     final double fontSize = min(width * 0.033, height * 0.013);
-    logger.w('${width * 0.033} ${height * 0.013}');
     const textStyle = TextStyle(fontWeight: FontWeight.w700);
     final double borderRadius = min(width * 0.027, 10);
     final boxStyle = BoxDecoration(

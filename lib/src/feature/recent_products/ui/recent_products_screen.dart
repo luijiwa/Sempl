@@ -15,7 +15,6 @@ class RecentProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    logger.i(height * 0.2);
     return Scaffold(
       backgroundColor: AppThemeColor.grey,
       body: CustomScrollView(

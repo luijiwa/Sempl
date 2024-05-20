@@ -181,14 +181,14 @@ class _TermOfUseState extends State<TermOfUse> {
                   text: 'Условиями Пользовательского Соглашения',
                   style: linkTextStyle,
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => logger.i('Tap Here onTap'),
+                    ..onTap = () => logger.info('Tap Here onTap'),
                 ),
                 const TextSpan(text: ' и '),
                 TextSpan(
                   text: 'Политикой Конфиденциальности',
                   style: linkTextStyle,
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => logger.i('Tap Here onTap'),
+                    ..onTap = () => logger.info('Tap Here onTap'),
                 ),
               ],
             ),

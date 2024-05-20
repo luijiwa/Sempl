@@ -26,7 +26,6 @@ class SecondStepSurveyOrderWidget extends StatelessWidget {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
 
-    logger.i(height * 0.029345);
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,

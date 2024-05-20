@@ -15,7 +15,6 @@ class ItemInListWidget extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     final imageSize = width * 0.357;
-    logger.w(imageSize);
     final offset = height * 0.029;
     return Ink(
       color: Colors.transparent,

@@ -19,7 +19,6 @@ class FeedbackBloc extends Bloc<FeedbackEvent, FeedbackState> {
     emit(state.copyWith(
       minusIsEnabeled: !state.minusIsEnabeled,
     ));
-    logger.w(state.minusIsEnabeled);
   }
 
   FutureOr<void> _onPlusChange(
@@ -27,6 +26,5 @@ class FeedbackBloc extends Bloc<FeedbackEvent, FeedbackState> {
     emit(state.copyWith(
       plusIsEnabeled: !state.plusIsEnabeled,
     ));
-    logger.w(state.plusIsEnabeled);
   }
 }

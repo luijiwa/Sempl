@@ -26,8 +26,7 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
     return LayoutBuilder(builder: (context, constraints) {
       final height = MediaQuery.of(context).size.height;
       final width = MediaQuery.of(context).size.width;
-      logger.w(0.06 * height);
-      logger.f(width * 0.1235);
+
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
