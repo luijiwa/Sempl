@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/components/app_bar_profile_icon_button_widget.dart';
-import 'package:my_app/src/core/components/custom_back_button.dart';
-import 'package:my_app/src/core/components/points_widget.dart';
+import 'package:my_app/src/core/widget/app_bar_profile_icon_button_widget.dart';
+import 'package:my_app/src/core/widget/custom_back_button.dart';
+import 'package:my_app/src/core/widget/points_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
