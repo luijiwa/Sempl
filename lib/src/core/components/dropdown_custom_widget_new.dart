@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:my_app/src/core/theme/theme.dart';
@@ -63,9 +62,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
               padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3),
               child: Text(
                 item,
-                style: const TextStyle(
-                  fontSize: 15,
-                ),
+                style: const TextStyle(fontSize: 15, height: 1.1),
               ),
             ),
           ),
@@ -120,7 +117,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
       }
       //Dividers indexes will be the odd indexes
       if (i.isOdd) {
-        itemsHeights.add(8);
+        itemsHeights.add(0);
       }
     }
     return itemsHeights;

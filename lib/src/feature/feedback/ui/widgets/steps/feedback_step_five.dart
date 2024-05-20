@@ -37,7 +37,7 @@ class FeedbackStepFive extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: width * 0.035),
-                StarRatingPickWidget(),
+                const StarRatingPickWidget(),
               ],
             ),
           ),

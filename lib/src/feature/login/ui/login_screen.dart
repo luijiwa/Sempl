@@ -19,6 +19,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late PageController _pageViewController;
   int _currentPageIndex = 0;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -66,9 +67,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: PageView(
                       physics: const NeverScrollableScrollPhysics(),
                       controller: _pageViewController,
-                      children: const [
-                        PhoneInputWidget(),
-                        InputCodeWidget(),
+                      children: [
+                        PhoneInputWidget(
+                          formKey: _formKey,
+                        ),
+                        const InputCodeWidget(),
                       ],
                     ),
                   ),
@@ -79,28 +82,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 0.058 * maxHeight,
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_currentPageIndex == 1) {
+                        if (_currentPageIndex == 0) {
+                          if (_formKey.currentState!.validate()) {
+                            setState(() {
+                              _currentPageIndex++;
+                            });
+                            _pageViewController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeIn,
+                            );
+                          }
+                        } else if (_currentPageIndex == 1) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => const ConfirmationScreen(),
                             ),
                           );
-                        } else {
-                          setState(() {
-                            _currentPageIndex++;
-                          });
-                          _pageViewController.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeIn,
-                          );
                         }
                       },
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        foregroundColor: Colors.white,
-                        backgroundColor: const Color(0xFF99BFD4),
-                      ),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show LengthLimitingTextInputFormatter;
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/core/utils/logger.dart';
-import 'package:my_app/src/feature/feedback/bloc/feedback_bloc.dart';
 
 class InputFieldWithCounterWidget extends StatefulWidget {
   const InputFieldWithCounterWidget({

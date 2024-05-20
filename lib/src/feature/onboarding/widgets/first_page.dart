@@ -2,10 +2,8 @@ import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
-import 'package:my_app/src/core/components/stack2.dart';
 import 'package:my_app/src/core/components/star_rating_widget.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 
@@ -95,7 +93,7 @@ class ItemInFirstOnboardingPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(40),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(height: height * 0.017),
           SizedBox(

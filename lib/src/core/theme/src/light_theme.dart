@@ -45,6 +45,14 @@ ThemeData createLightTheme() {
         borderRadius: BorderRadius.all(Radius.circular(40)),
         borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
       ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        borderSide: BorderSide(width: 0.5, color: AppThemeColor.rose),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        borderSide: BorderSide(width: 0.5, color: AppThemeColor.rose),
+      ),
       alignLabelWithHint: true,
       filled: true,
       fillColor: Colors.white,

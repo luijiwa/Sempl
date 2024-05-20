@@ -51,7 +51,7 @@ class RecomendationBannerWidget extends StatelessWidget {
               ),
               const Spacer(),
               Padding(
-                padding: EdgeInsets.only(bottom: width * 0.04072),
+                padding: EdgeInsets.only(bottom: width * 0.035),
                 child: SizedBox(
                   height: 0.08144 * width,
                   child: AutoSizeText(

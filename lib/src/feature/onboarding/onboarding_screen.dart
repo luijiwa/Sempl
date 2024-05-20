@@ -76,7 +76,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
                     '0${_currentPageIndex + 1}/05',
                     style: const TextStyle(
                       fontSize: 20,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   const Spacer(),

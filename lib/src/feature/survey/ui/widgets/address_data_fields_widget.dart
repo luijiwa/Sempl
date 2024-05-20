@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:my_app/src/core/components/required_input_field.dart';
-import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 
 class AddressDataFieldsWidget extends StatefulWidget {
@@ -21,6 +21,9 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
     final double width = MediaQuery.of(context).size.width;
     final edgeInsets = EdgeInsets.symmetric(
         vertical: width * 0.02803813559, horizontal: width * 0.0496059322);
+    var zipCodeFormatter = MaskTextInputFormatter(
+        mask: '### ###', filter: {"#": RegExp(r'[0-9]')});
+
     return Form(
       key: widget.key, // Привязка формы к GlobalKey
 
@@ -35,33 +38,45 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
           ),
           SizedBox(height: width * 0.05),
           RequiredInputField(
-            hintText: 'Город',
-            keyboardType: TextInputType.streetAddress,
-            inputFormatters: [
-              FilteringTextInputFormatter.deny(RegExp(r'[0-9]'))
-            ],
-          ),
+              hintText: 'Город',
+              keyboardType: TextInputType.streetAddress,
+              inputFormatters: [
+                // Запрещает вводить любые символы, кроме букв, пробелов и дефиса
+                // (в том числе и в unicode-символах)
+                // (например, кириллица, тире, пробелы и т.д.)
+                FilteringTextInputFormatter.allow(
+                    RegExp(r'[a-zA-Zа-яА-Я., -]+')),
+              ]),
           const SizedBox(height: 4),
-          const RequiredInputField(
-            hintText: 'Улица',
-            keyboardType: TextInputType.streetAddress,
-          ),
+          RequiredInputField(
+              hintText: 'Улица',
+              keyboardType: TextInputType.streetAddress,
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp(r'[а-яА-Я0-9/ -]+')),
+              ]),
           const SizedBox(height: 4),
-          const Row(
+          Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
                 child: RequiredInputField(
                   hintText: 'Номер дома',
                   keyboardType: TextInputType.streetAddress,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(
+                        RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
+                  ],
                 ),
               ),
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               Expanded(
                 child: RequiredInputField(
-                  hintText: 'Номер квартиры',
-                  keyboardType: TextInputType.streetAddress,
-                ),
+                    hintText: 'Номер квартиры',
+                    keyboardType: TextInputType.streetAddress,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(
+                          RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
+                    ]),
               ),
             ],
           ),
@@ -72,7 +87,10 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
               Expanded(
                 child: TextField(
                   keyboardType: TextInputType.streetAddress,
-                  inputFormatters: [],
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(
+                        RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
+                  ],
                   decoration: InputDecoration(
                     contentPadding: edgeInsets,
                     hintText: 'Подъезд',
@@ -85,7 +103,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
                   hintText: 'Почтовый индекс',
                   isError: true,
                   keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  inputFormatters: [zipCodeFormatter],
                   validator: (value) {
                     // if (value.isEmpty) {
                     //   return '';
@@ -101,3 +119,12 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
     );
   }
 }
+// TextField(
+//                   decoration: InputDecoration(
+//                       contentPadding: EdgeInsets.symmetric(
+//                           vertical: width * 0.02803813559,
+//                           horizontal: width * 0.0496059322),
+//                       label: RequiredStringWidget(
+//                         hintText: 'Почтовый индекс',
+//                       )),
+//                 ),

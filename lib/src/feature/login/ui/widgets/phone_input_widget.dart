@@ -1,21 +1,19 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:my_app/src/core/theme/theme.dart';
 import 'package:my_app/src/core/utils/logger.dart';
 
 class PhoneInputWidget extends StatefulWidget {
-  const PhoneInputWidget({super.key});
+  const PhoneInputWidget({super.key, required this.formKey});
+  final GlobalKey<FormState> formKey;
 
   @override
   State<PhoneInputWidget> createState() => _PhoneInputWidgetState();
 }
 
 class _PhoneInputWidgetState extends State<PhoneInputWidget> {
-  final bool _phoneError = false;
-
+  bool _phoneError = false;
   @override
   Widget build(BuildContext context) {
     const blueColor = Color(0xFF99BFD4);
@@ -35,68 +33,93 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
         children: [
           Stack(
             children: [
-              Material(
-                elevation: _phoneError ? 10 : 0,
-                color: _phoneError ? const Color(0xFFF8F8F8) : Colors.white,
-                shadowColor:
-                    _phoneError ? errorBorderColor.withOpacity(0.2) : null,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
+              if (_phoneError)
+                Material(
+                  elevation: 10,
+                  color: errorBackgroundColor,
+                  shadowColor: errorBorderColor.withOpacity(0.2),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  ),
+                  child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: width * 0.03,
+                        horizontal: double.maxFinite,
+                      ),
+                      child: Text(
+                        '',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      )),
                 ),
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Container(
-                        height: width * 0.1235,
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              bottomLeft: Radius.circular(30)),
-                          color: _phoneError
-                              ? errorBackgroundColor
-                              : AppThemeColor.grey,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            SizedBox(width: width * 0.04),
-                            Image.asset('assets/images/flag.png'),
-                            const Text(
-                              '  (+7) ▼',
-                              style: TextStyle(
-                                fontSize: 15,
-                              ),
+              Stack(
+                alignment: AlignmentDirectional.topStart,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: width * 0.036,
+                        // horizontal: width * 0.0497,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            bottomLeft: Radius.circular(30)),
+                        color: _phoneError
+                            ? errorBackgroundColor
+                            : AppThemeColor.grey,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(width: width * 0.04),
+                          Image.asset('assets/images/flag.png'),
+                          const Text(
+                            '  (+7) ▼',
+                            style: TextStyle(
+                              fontSize: 15,
                             ),
-                            SizedBox(width: width * 0.02),
-                          ],
-                        ),
+                          ),
+                          SizedBox(width: width * 0.02),
+                        ],
                       ),
                     ),
-                    TextField(
+                  ),
+                  Form(
+                    key: widget.formKey,
+                    child: TextFormField(
                       inputFormatters: [maskFormatter],
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          setState(() {
+                            _phoneError = true;
+                          });
+                          return '';
+                        }
+                        setState(() {
+                          _phoneError = false;
+                        });
+
+                        return null;
+                      },
                       keyboardType: TextInputType.phone,
-                      decoration: Theme.of(context)
-                          .inputDecorationTheme
-                          .defaultInput
-                          .copyWith(
-                            contentPadding: EdgeInsets.symmetric(
-                                    vertical: width * 0.02804,
-                                    horizontal: width * 0.0497)
-                                .copyWith(left: width * 0.25),
-                            hintText: '000 000 00 00',
-                            filled: false,
-                            hintStyle: Theme.of(context)
-                                .textTheme
-                                .appBodyMedium
-                                .copyWith(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(
+                                vertical: width * 0.02804,
+                                horizontal: width * 0.0497)
+                            .copyWith(left: width * 0.25),
+                        hintText: '000 000 00 00',
+                        filled: false,
+                        // errorText: '',
+                        errorStyle: const TextStyle(fontSize: 0, height: 0),
+                        hintStyle:
+                            Theme.of(context).textTheme.appBodyMedium.copyWith(
                                   color: AppThemeColor.blueColor,
                                 ),
-                          ),
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),

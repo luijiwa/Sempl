@@ -30,7 +30,7 @@ class ReviewItemsScreen extends StatelessWidget {
                   right: width * 0.05),
               sliver: SliverToBoxAdapter(
                   child: AutoSizeText(
-                'СЕКРЕТНЫЙ ЛОТ СPEЦИАЛЬНО ДЛЯ ВАС!',
+                'СЕКРЕТНЫЙ ЛОТ СПEЦИАЛЬНО ДЛЯ ВАС!',
                 style: Theme.of(context).textTheme.appProfileTitle,
                 maxLines: 2,
               )),

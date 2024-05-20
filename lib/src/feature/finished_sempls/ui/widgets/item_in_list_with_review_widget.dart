@@ -24,7 +24,7 @@ class _ItemInListWithReviewWidgetState extends State<ItemInListWithReviewWidget>
     super.initState();
 
     _animationController = AnimationController(
-      duration: Duration(milliseconds: 30),
+      duration: const Duration(milliseconds: 30),
       vsync: this,
     );
     _animationTween =

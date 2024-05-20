@@ -2,8 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/core/components/bottom_padding.dart';
 import 'package:my_app/src/core/components/next_step_button.dart';
-import 'package:my_app/src/core/components/required_input_field.dart';
-import 'package:my_app/src/core/components/text_input_field.dart';
 import 'package:my_app/src/core/components/custom_app_bar.dart';
 import 'package:my_app/src/feature/delivery/delivery_modal_widget.dart';
 import 'package:my_app/src/core/theme/theme.dart';
