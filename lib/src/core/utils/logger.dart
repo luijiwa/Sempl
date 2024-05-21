@@ -205,6 +205,14 @@ final class LoggerLogging extends Logger {
   }
 }
 
+// Define ANSI escape codes for colors
+const _ansiReset = '\x1B[0m';
+const _ansiRed = '\x1B[31m';
+const _ansiYellow = '\x1B[33m';
+const _ansiGreen = '\x1B[32m';
+const _ansiBlue = '\x1B[34m';
+const _ansiPurple = '\x1B[35m';
+
 String _formatLoggerMessage({
   required LogMessage log,
   required LogOptions options,
@@ -218,7 +226,9 @@ String _formatLoggerMessage({
     buffer.write(log.time?.formatTime());
     buffer.write(' | ');
   }
+  buffer.write(_getAnsiColorForLevel(log.logLevel));
   buffer.write(log.message);
+  buffer.write(_ansiReset);
   if (log.error != null) {
     buffer.writeln();
     buffer.write(log.error);
@@ -229,6 +239,23 @@ String _formatLoggerMessage({
   }
 
   return buffer.toString();
+}
+
+String _getAnsiColorForLevel(LoggerLevel level) {
+  switch (level) {
+    case LoggerLevel.error:
+      return _ansiRed;
+    case LoggerLevel.warning:
+      return _ansiYellow;
+    case LoggerLevel.info:
+      return _ansiGreen;
+    case LoggerLevel.debug:
+      return _ansiBlue;
+    case LoggerLevel.verbose:
+      return _ansiPurple;
+    default:
+      return '';
+  }
 }
 
 extension on DateTime {

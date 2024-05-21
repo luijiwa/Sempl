@@ -57,7 +57,7 @@ class AuthInterceptor<T> extends QueuedInterceptor
     required this.buildHeaders,
     @visibleForTesting Dio? retryClient,
   }) : retryClient = retryClient ?? Dio() {
-    _storageSubscription = storage.getTokenPairStream().listen(
+    _storageSubscription = storage.getStream().listen(
           _updateAuthenticationStatus,
         );
 
@@ -104,7 +104,7 @@ class AuthInterceptor<T> extends QueuedInterceptor
     }
 
     return _tokenCache.fetch(
-      () async => _token = await storage.loadTokenPair(),
+      () async => _token = await storage.load(),
     );
   }
 
@@ -115,12 +115,12 @@ class AuthInterceptor<T> extends QueuedInterceptor
   /// Clear the token pair
   /// Invalidates cache and clears storage
   @visibleForTesting
-  Future<void> clearTokenPair() => storage.clearTokenPair();
+  Future<void> clearTokenPair() => storage.clear();
 
   /// Save the token pair
   /// Invalidates cache and saves to storage
   @visibleForTesting
-  Future<void> saveTokenPair(T pair) => storage.saveTokenPair(pair);
+  Future<void> saveTokenPair(T pair) => storage.save(pair);
 
   @override
   Future<void> onRequest(

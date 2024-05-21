@@ -80,6 +80,7 @@ dependencies:
   expandable_page_view: ^1.0.17
   flutter_rating_bar: ^4.0.1
   rxdart: ^0.27.7
+  sentry_flutter: ^8.2.0
   # salomon_bottom_bar: ^3.3.2
 
 
