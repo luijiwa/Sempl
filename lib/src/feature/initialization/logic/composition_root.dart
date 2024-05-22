@@ -5,6 +5,8 @@ import 'package:my_app/src/feature/login/bloc/auth_bloc.dart';
 import 'package:my_app/src/feature/login/data/auth_data_source.dart';
 import 'package:my_app/src/feature/login/data/auth_repository.dart';
 import 'package:my_app/src/feature/login/data/token_storage_sp.dart';
+import 'package:my_app/src/feature/survey/data/survey_data_source.dart';
+import 'package:my_app/src/feature/survey/data/survey_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:my_app/src/core/constant/config.dart';
 import 'package:my_app/src/core/utils/logger.dart';
@@ -66,7 +68,9 @@ final class CompositionRoot {
       baseUrl: 'http://rebo766g.beget.tech',
       dio: interceptedDio,
     );
-
+    final surveyRepository = SurveyRepositoryImpl(
+      SurveyDataSourceNetwork(restClient),
+    );
     final authBloc = AuthBloc(
       AuthState.idle(
         status: token != null
@@ -84,6 +88,7 @@ final class CompositionRoot {
       errorTrackingManager: errorTrackingManager,
       authBloc: authBloc,
       restClient: restClient,
+      surveyRepository: surveyRepository,
     );
   }
 

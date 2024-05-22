@@ -3,6 +3,7 @@ import 'package:my_app/src/feature/app/logic/tracking_manager.dart';
 import 'package:my_app/src/feature/initialization/logic/composition_root.dart';
 import 'package:my_app/src/feature/login/bloc/auth_bloc.dart';
 import 'package:my_app/src/feature/settings/bloc/settings_bloc.dart';
+import 'package:my_app/src/feature/survey/data/survey_repository.dart';
 
 /// {@template dependencies}
 /// Composed dependencies from the [CompositionRoot].
@@ -18,6 +19,7 @@ base class Dependencies {
     required this.errorTrackingManager,
     required this.restClient,
     required this.authBloc,
+    required this.surveyRepository,
   });
 
   /// [RestClient] instance, used to make requests.
@@ -28,6 +30,8 @@ base class Dependencies {
 
   /// [SettingsBloc] instance, used to manage theme and locale.
   final SettingsBloc settingsBloc;
+
+  final SurveyRepository surveyRepository;
 
   /// [ErrorTrackingManager] instance, used to report errors.
   final ErrorTrackingManager errorTrackingManager;
