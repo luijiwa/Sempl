@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_app/src/core/widget/bottom_padding.dart';
-import 'package:my_app/src/core/widget/custom_back_button.dart';
-import 'package:my_app/src/feature/item/item_cart_widget.dart';
-import 'package:my_app/src/feature/item/review_card_widget.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/bottom_padding.dart';
+import 'package:sempl/src/core/widget/custom_back_button.dart';
+import 'package:sempl/src/feature/item/item_cart_widget.dart';
+import 'package:sempl/src/feature/item/review_card_widget.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class ItemScreen extends StatelessWidget {
   const ItemScreen({super.key});

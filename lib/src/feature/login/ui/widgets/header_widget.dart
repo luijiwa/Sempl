@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({

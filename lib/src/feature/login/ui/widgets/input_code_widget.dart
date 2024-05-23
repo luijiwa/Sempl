@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:pinput/pinput.dart';
 
 class InputCodeWidget extends StatefulWidget {

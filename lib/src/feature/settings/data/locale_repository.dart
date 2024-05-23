@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:my_app/src/feature/settings/data/locale_datasource.dart';
+import 'package:sempl/src/feature/settings/data/locale_datasource.dart';
 
 /// Repository that manages locale information
 abstract interface class LocaleRepository {

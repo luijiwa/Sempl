@@ -1,11 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/widget/bottom_padding.dart';
-import 'package:my_app/src/core/widget/checkbox_row.dart';
-import 'package:my_app/src/core/widget/next_step_button.dart';
-import 'package:my_app/src/feature/survey/ui/widgets/password_group_widget.dart';
-import 'package:my_app/src/feature/survey/ui/widgets/personal_data_fields_widget.dart';
-import 'package:my_app/src/feature/survey/ui/widgets/questions_padding.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sempl/src/core/widget/bottom_padding.dart';
+import 'package:sempl/src/core/widget/checkbox_row.dart';
+import 'package:sempl/src/core/widget/next_step_button.dart';
+import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
+import 'package:sempl/src/feature/survey/ui/widgets/password_group_widget.dart';
+import 'package:sempl/src/feature/survey/ui/widgets/personal_data_fields_widget.dart';
+import 'package:sempl/src/feature/survey/ui/widgets/questions_padding.dart';
 
 class FirstStepWidget extends StatelessWidget {
   const FirstStepWidget({
@@ -17,7 +19,7 @@ class FirstStepWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-
+    final bloc = context.read<SurveyBloc>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: SingleChildScrollView(
@@ -27,9 +29,22 @@ class FirstStepWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: height * 0.035),
-            const PersonalDataFieldsWidget(),
-            const QuestionsPadding(),
-            const PasswordGroupWidget(),
+            PersonalDataFieldsWidget(
+              onChangeName: (String firstName) =>
+                  bloc.add(SurveyEvent.setFirstName(firstName)),
+              onChangeLastName: (String lastName) =>
+                  bloc.add(SurveyEvent.setLastName(lastName)),
+              onChangeGender: (String gender) =>
+                  bloc.add(SurveyEvent.setGender(gender)),
+              onChangeBirthdate: (String birthdate) =>
+                  bloc.add(SurveyEvent.setBirthdate(birthdate)),
+              onChangeLogin: (String login) =>
+                  bloc.add(SurveyEvent.setLogin(login)),
+              onChangeEmail: (String email) =>
+                  bloc.add(SurveyEvent.setEmail(email)),
+            ),
+            // const QuestionsPadding(),
+            // const PasswordGroupWidget(),
             const QuestionsPadding(),
             Column(
               mainAxisSize: MainAxisSize.min,

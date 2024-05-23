@@ -1,4 +1,4 @@
-import 'package:my_app/src/feature/initialization/model/environment.dart';
+import 'package:sempl/src/feature/initialization/model/environment.dart';
 
 /// Application configuration
 class Config {

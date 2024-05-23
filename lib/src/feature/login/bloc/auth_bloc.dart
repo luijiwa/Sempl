@@ -1,5 +1,5 @@
-import 'package:my_app/src/core/components/rest_client/rest_client.dart';
-import 'package:my_app/src/feature/login/data/auth_repository.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/feature/login/data/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';

@@ -1,4 +1,4 @@
-import 'package:my_app/src/feature/survey/data/survey_data_source.dart';
+import 'package:sempl/src/feature/survey/data/survey_data_source.dart';
 
 abstract interface class SurveyRepository<T> {
   /// Sign out

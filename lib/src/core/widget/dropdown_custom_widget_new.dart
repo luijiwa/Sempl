@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class DropdownCustomWidgetNew extends StatefulWidget {
   const DropdownCustomWidgetNew({
     super.key,
     required this.listItems,
     required this.hint,
+    required this.onChanged,
   });
 
   final List<String> listItems;
   final String hint;
+  final ValueChanged<String?> onChanged;
 
   @override
   State<DropdownCustomWidgetNew> createState() =>
@@ -184,6 +186,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
               setState(() {
                 selectedValue = value;
               });
+              widget.onChanged(value);
             },
             buttonStyleData: dropdownButtonStyleData,
             iconStyleData: dropdownIconStyleData,

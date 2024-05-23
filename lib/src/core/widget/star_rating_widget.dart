@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class StarRatingWidget extends StatelessWidget {
   const StarRatingWidget({

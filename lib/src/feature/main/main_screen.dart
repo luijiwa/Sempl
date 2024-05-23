@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_app/src/core/widget/bottom_padding.dart';
-import 'package:my_app/src/core/widget/item_in_list_widget.dart';
-import 'package:my_app/src/core/widget/next_step_button.dart';
-import 'package:my_app/src/core/router/app_routes.dart';
-import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/feature/main/main_screen_app_bar.dart';
+import 'package:sempl/src/core/widget/bottom_padding.dart';
+import 'package:sempl/src/core/widget/item_in_list_widget.dart';
+import 'package:sempl/src/core/widget/next_step_button.dart';
+import 'package:sempl/src/core/router/app_routes.dart';
+import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/main/main_screen_app_bar.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});

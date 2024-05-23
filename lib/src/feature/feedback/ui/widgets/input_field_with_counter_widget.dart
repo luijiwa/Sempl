@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show LengthLimitingTextInputFormatter;
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class InputFieldWithCounterWidget extends StatefulWidget {
   const InputFieldWithCounterWidget({

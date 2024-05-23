@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/feature/survey_order/ui/widgets/first_step_suvey_order_widget.dart';
-import 'package:my_app/src/feature/survey_order/ui/widgets/second_step_suvey_order_widget.dart';
+import 'package:sempl/src/feature/survey_order/ui/widgets/first_step_suvey_order_widget.dart';
+import 'package:sempl/src/feature/survey_order/ui/widgets/second_step_suvey_order_widget.dart';
 
 class SurveyOrderScreen extends StatefulWidget {
   const SurveyOrderScreen({super.key});

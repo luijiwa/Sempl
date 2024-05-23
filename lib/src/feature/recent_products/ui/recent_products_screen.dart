@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/widget/blue_item_with_cross.dart';
-import 'package:my_app/src/core/widget/bottom_padding.dart';
-import 'package:my_app/src/core/widget/categories_button_widget.dart';
-import 'package:my_app/src/core/widget/custom_sliver_app_bar.dart';
-import 'package:my_app/src/core/widget/item_in_list_widget.dart';
-import 'package:my_app/src/core/utils/logger.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/blue_item_with_cross.dart';
+import 'package:sempl/src/core/widget/bottom_padding.dart';
+import 'package:sempl/src/core/widget/categories_button_widget.dart';
+import 'package:sempl/src/core/widget/custom_sliver_app_bar.dart';
+import 'package:sempl/src/core/widget/item_in_list_widget.dart';
+import 'package:sempl/src/core/utils/logger.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class RecentProductsScreen extends StatelessWidget {
   const RecentProductsScreen({super.key});

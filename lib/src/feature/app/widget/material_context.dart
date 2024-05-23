@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/constant/localization/localization.dart';
-import 'package:my_app/src/core/router/app_router.dart';
-import 'package:my_app/src/feature/settings/widget/settings_scope.dart';
+import 'package:sempl/src/core/constant/localization/localization.dart';
+import 'package:sempl/src/core/router/app_router.dart';
+import 'package:sempl/src/feature/settings/widget/settings_scope.dart';
 
 /// {@template material_context}
 /// [MaterialContext] is an entry point to the material context.

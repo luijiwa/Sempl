@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/feature/login/ui/auth_scope.dart';
+import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:my_app/src/feature/app/widget/material_context.dart';
-import 'package:my_app/src/feature/initialization/logic/composition_root.dart';
-import 'package:my_app/src/feature/initialization/model/dependencies.dart';
-import 'package:my_app/src/feature/initialization/widget/dependencies_scope.dart';
-import 'package:my_app/src/feature/settings/widget/settings_scope.dart';
+import 'package:sempl/src/feature/app/widget/material_context.dart';
+import 'package:sempl/src/feature/initialization/logic/composition_root.dart';
+import 'package:sempl/src/feature/initialization/model/dependencies.dart';
+import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
+import 'package:sempl/src/feature/settings/widget/settings_scope.dart';
 
 /// {@template app}
 /// [App] is an entry point to the application.

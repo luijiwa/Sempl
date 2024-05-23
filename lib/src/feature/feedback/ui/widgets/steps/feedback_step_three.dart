@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/feature/feedback/bloc/feedback_bloc.dart';
-import 'package:my_app/src/feature/feedback/ui/widgets/feedback_checkbox_row_widget.dart';
-import 'package:my_app/src/feature/feedback/ui/widgets/input_field_with_counter_widget.dart';
+import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/feedback/bloc/feedback_bloc.dart';
+import 'package:sempl/src/feature/feedback/ui/widgets/feedback_checkbox_row_widget.dart';
+import 'package:sempl/src/feature/feedback/ui/widgets/input_field_with_counter_widget.dart';
 
 ///TODO Поменять на нормальное изменение значений bool
 class FeedbackStepThree extends StatefulWidget {

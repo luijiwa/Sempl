@@ -1,9 +1,9 @@
-import 'package:my_app/src/core/components/rest_client/rest_client.dart';
-import 'package:my_app/src/feature/app/logic/tracking_manager.dart';
-import 'package:my_app/src/feature/initialization/logic/composition_root.dart';
-import 'package:my_app/src/feature/login/bloc/auth_bloc.dart';
-import 'package:my_app/src/feature/settings/bloc/settings_bloc.dart';
-import 'package:my_app/src/feature/survey/data/survey_repository.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/feature/app/logic/tracking_manager.dart';
+import 'package:sempl/src/feature/initialization/logic/composition_root.dart';
+import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
+import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
+import 'package:sempl/src/feature/survey/data/survey_repository.dart';
 
 /// {@template dependencies}
 /// Composed dependencies from the [CompositionRoot].

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_app/src/core/router/app_routes.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/router/app_routes.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class DeliveryModalWidget extends StatelessWidget {
   const DeliveryModalWidget({

@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_app/src/core/utils/enums/button_push.dart';
-import 'package:my_app/src/feature/survey/data/survey_repository.dart';
-import 'package:my_app/src/feature/survey/model/survey_model.dart';
+import 'package:sempl/src/core/utils/enums/button_push.dart';
+import 'package:sempl/src/core/utils/logger.dart';
+import 'package:sempl/src/feature/survey/data/survey_repository.dart';
+import 'package:sempl/src/feature/survey/model/survey_model.dart';
 
 part 'survey_event.dart';
 part 'survey_state.dart';
@@ -225,7 +227,8 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
 
     try {
       final surveyJson = state.surveyModel.toJson();
-      await _surveyRepository.sendResultSurvey(surveyJson);
+      if (!kDebugMode) await _surveyRepository.sendResultSurvey(surveyJson);
+      if (kDebugMode) logger.info(surveyJson);
     } catch (e) {
       emit(state.copyWith(
         status: ButtonPushStatus.failure,

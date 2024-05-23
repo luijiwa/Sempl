@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:my_app/src/core/components/rest_client/rest_client.dart';
-import 'package:my_app/src/core/utils/preferences_dao.dart';
-import 'package:my_app/src/feature/login/data/auth_data_source.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/utils/preferences_dao.dart';
+import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// {@template token_storage_sp}

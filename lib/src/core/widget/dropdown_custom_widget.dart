@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 @Deprecated('Use DropdownCustomWidgetNew')
 class DropdownCustomWidget extends StatelessWidget {

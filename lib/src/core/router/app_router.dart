@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_app/src/core/router/app_routes.dart';
-import 'package:my_app/src/feature/confirmation/confirmation_screen.dart';
-import 'package:my_app/src/feature/delivery/delivery_screen.dart';
-import 'package:my_app/src/feature/feedback/ui/feedback_screen.dart';
-import 'package:my_app/src/feature/feedback/ui/widgets/%D1%81onfirmation_feedback_screen.dart';
-import 'package:my_app/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
-import 'package:my_app/src/feature/item/item_screen.dart';
-import 'package:my_app/src/feature/login/ui/login_screen.dart';
-import 'package:my_app/src/feature/main/main_screen.dart';
-import 'package:my_app/src/feature/onboarding/onboarding_screen.dart';
-import 'package:my_app/src/feature/profile/ui/profile_screen.dart';
-import 'package:my_app/src/feature/profile_edit/ui/profile_edit_screen.dart';
-import 'package:my_app/src/feature/review_items/widgets/review_items_screen.dart';
-import 'package:my_app/src/feature/categories/ui/categories_list_screen.dart';
-import 'package:my_app/src/feature/recent_products/ui/recent_products_screen.dart';
-import 'package:my_app/src/feature/survey/ui/survey_screen.dart';
-import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_one_screen.dart';
-import 'package:my_app/src/feature/survey_order/ui/%D1%81onfirmation_order_type_two_screen.dart';
-import 'package:my_app/src/feature/survey_order/ui/survey_order_screen.dart';
+import 'package:sempl/src/core/router/app_routes.dart';
+import 'package:sempl/src/feature/confirmation/confirmation_screen.dart';
+import 'package:sempl/src/feature/delivery/delivery_screen.dart';
+import 'package:sempl/src/feature/feedback/ui/feedback_screen.dart';
+import 'package:sempl/src/feature/feedback/ui/widgets/%D1%81onfirmation_feedback_screen.dart';
+import 'package:sempl/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
+import 'package:sempl/src/feature/item/item_screen.dart';
+import 'package:sempl/src/feature/login/ui/login_screen.dart';
+import 'package:sempl/src/feature/main/main_screen.dart';
+import 'package:sempl/src/feature/onboarding/onboarding_screen.dart';
+import 'package:sempl/src/feature/profile/ui/profile_screen.dart';
+import 'package:sempl/src/feature/profile_edit/ui/profile_edit_screen.dart';
+import 'package:sempl/src/feature/review_items/widgets/review_items_screen.dart';
+import 'package:sempl/src/feature/categories/ui/categories_list_screen.dart';
+import 'package:sempl/src/feature/recent_products/ui/recent_products_screen.dart';
+import 'package:sempl/src/feature/survey/ui/survey_screen.dart';
+import 'package:sempl/src/feature/survey_order/ui/%D1%81onfirmation_order_type_one_screen.dart';
+import 'package:sempl/src/feature/survey_order/ui/%D1%81onfirmation_order_type_two_screen.dart';
+import 'package:sempl/src/feature/survey_order/ui/survey_order_screen.dart';
 
 class AppRouter {
   final GlobalKey<NavigatorState> _rootNavigatorKey =

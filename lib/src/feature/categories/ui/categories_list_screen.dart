@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/widget/custom_back_button.dart';
-import 'package:my_app/src/core/widget/custom_radio_button.dart';
-import 'package:my_app/src/feature/categories/ui/widgets/search_input_widget.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/custom_back_button.dart';
+import 'package:sempl/src/core/widget/custom_radio_button.dart';
+import 'package:sempl/src/feature/categories/ui/widgets/search_input_widget.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class CategoriesListScreen extends StatefulWidget {
   const CategoriesListScreen({super.key});

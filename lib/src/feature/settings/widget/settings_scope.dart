@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app/src/core/constant/localization/localization.dart';
-import 'package:my_app/src/core/utils/extentions/context_extension.dart';
-import 'package:my_app/src/feature/app/model/app_theme.dart';
-import 'package:my_app/src/feature/settings/bloc/settings_bloc.dart';
+import 'package:sempl/src/core/constant/localization/localization.dart';
+import 'package:sempl/src/core/utils/extentions/context_extension.dart';
+import 'package:sempl/src/feature/app/model/app_theme.dart';
+import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
 
 /// {@template theme_scope_controller}
 /// A controller that holds and operates the app theme.

@@ -1,5 +1,5 @@
-import 'package:my_app/src/core/components/rest_client/rest_client.dart';
-import 'package:my_app/src/core/utils/logger.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 
 /// Token is a simple class that holds the access and refresh token
 class Token {

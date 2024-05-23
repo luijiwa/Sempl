@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/feature/survey/ui/widgets/password_check_item.dart';
+import 'package:sempl/src/feature/survey/ui/widgets/password_check_item.dart';
 
+@Deprecated('Удалено из дизайна')
 class PasswordGroupWidget extends StatelessWidget {
   const PasswordGroupWidget({super.key});
   @override

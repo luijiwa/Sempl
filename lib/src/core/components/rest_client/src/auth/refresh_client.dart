@@ -1,4 +1,4 @@
-import 'package:my_app/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 
 /// The client that refreshes the Auth token using the refresh token.
 ///

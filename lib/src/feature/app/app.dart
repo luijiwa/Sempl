@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/router/app_router.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/router/app_router.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 /// TODO: По ширине 10px   width * 0.02545

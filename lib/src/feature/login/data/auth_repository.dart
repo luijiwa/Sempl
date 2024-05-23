@@ -1,5 +1,5 @@
-import 'package:my_app/src/core/components/rest_client/rest_client.dart';
-import 'package:my_app/src/feature/login/data/auth_data_source.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 
 /// AuthRepository
 abstract interface class AuthRepository<T> implements AuthStatusDataSource {

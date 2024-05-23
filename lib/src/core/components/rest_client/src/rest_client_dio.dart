@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
-import 'package:my_app/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 
 /// {@template rest_client_dio}
 /// Rest client that uses [Dio] as HTTP library.

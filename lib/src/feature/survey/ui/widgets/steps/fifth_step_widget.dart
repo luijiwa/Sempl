@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 
-import 'package:my_app/src/feature/survey/ui/widgets/picker_photo_widget.dart';
+import 'package:sempl/src/feature/survey/ui/widgets/picker_photo_widget.dart';
 
 class FifthStepWidget extends StatefulWidget {
   const FifthStepWidget({super.key, required this.onNextPage});

@@ -1,4 +1,4 @@
-#include "my_application.h"
+#include "sempllication.h"
 
 #include <flutter_linux/flutter_linux.h>
 #ifdef GDK_WINDOWING_X11
@@ -12,11 +12,11 @@ struct _MyApplication {
   char** dart_entrypoint_arguments;
 };
 
-G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
+G_DEFINE_TYPE(MyApplication, sempllication, GTK_TYPE_APPLICATION)
 
 // Implements GApplication::activate.
-static void my_application_activate(GApplication* application) {
-  MyApplication* self = MY_APPLICATION(application);
+static void sempllication_activate(GApplication* application) {
+  MyApplication* self = semplLICATION(application);
   GtkWindow* window =
       GTK_WINDOW(gtk_application_window_new(GTK_APPLICATION(application)));
 
@@ -40,11 +40,11 @@ static void my_application_activate(GApplication* application) {
   if (use_header_bar) {
     GtkHeaderBar* header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
     gtk_widget_show(GTK_WIDGET(header_bar));
-    gtk_header_bar_set_title(header_bar, "my_app");
+    gtk_header_bar_set_title(header_bar, "sempl");
     gtk_header_bar_set_show_close_button(header_bar, TRUE);
     gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));
   } else {
-    gtk_window_set_title(window, "my_app");
+    gtk_window_set_title(window, "sempl");
   }
 
   gtk_window_set_default_size(window, 1280, 720);
@@ -63,8 +63,8 @@ static void my_application_activate(GApplication* application) {
 }
 
 // Implements GApplication::local_command_line.
-static gboolean my_application_local_command_line(GApplication* application, gchar*** arguments, int* exit_status) {
-  MyApplication* self = MY_APPLICATION(application);
+static gboolean sempllication_local_command_line(GApplication* application, gchar*** arguments, int* exit_status) {
+  MyApplication* self = semplLICATION(application);
   // Strip out the first argument as it is the binary name.
   self->dart_entrypoint_arguments = g_strdupv(*arguments + 1);
 
@@ -82,42 +82,42 @@ static gboolean my_application_local_command_line(GApplication* application, gch
 }
 
 // Implements GApplication::startup.
-static void my_application_startup(GApplication* application) {
-  //MyApplication* self = MY_APPLICATION(object);
+static void sempllication_startup(GApplication* application) {
+  //MyApplication* self = semplLICATION(object);
 
   // Perform any actions required at application startup.
 
-  G_APPLICATION_CLASS(my_application_parent_class)->startup(application);
+  G_APPLICATION_CLASS(sempllication_parent_class)->startup(application);
 }
 
 // Implements GApplication::shutdown.
-static void my_application_shutdown(GApplication* application) {
-  //MyApplication* self = MY_APPLICATION(object);
+static void sempllication_shutdown(GApplication* application) {
+  //MyApplication* self = semplLICATION(object);
 
   // Perform any actions required at application shutdown.
 
-  G_APPLICATION_CLASS(my_application_parent_class)->shutdown(application);
+  G_APPLICATION_CLASS(sempllication_parent_class)->shutdown(application);
 }
 
 // Implements GObject::dispose.
-static void my_application_dispose(GObject* object) {
-  MyApplication* self = MY_APPLICATION(object);
+static void sempllication_dispose(GObject* object) {
+  MyApplication* self = semplLICATION(object);
   g_clear_pointer(&self->dart_entrypoint_arguments, g_strfreev);
-  G_OBJECT_CLASS(my_application_parent_class)->dispose(object);
+  G_OBJECT_CLASS(sempllication_parent_class)->dispose(object);
 }
 
-static void my_application_class_init(MyApplicationClass* klass) {
-  G_APPLICATION_CLASS(klass)->activate = my_application_activate;
-  G_APPLICATION_CLASS(klass)->local_command_line = my_application_local_command_line;
-  G_APPLICATION_CLASS(klass)->startup = my_application_startup;
-  G_APPLICATION_CLASS(klass)->shutdown = my_application_shutdown;
-  G_OBJECT_CLASS(klass)->dispose = my_application_dispose;
+static void sempllication_class_init(MyApplicationClass* klass) {
+  G_APPLICATION_CLASS(klass)->activate = sempllication_activate;
+  G_APPLICATION_CLASS(klass)->local_command_line = sempllication_local_command_line;
+  G_APPLICATION_CLASS(klass)->startup = sempllication_startup;
+  G_APPLICATION_CLASS(klass)->shutdown = sempllication_shutdown;
+  G_OBJECT_CLASS(klass)->dispose = sempllication_dispose;
 }
 
-static void my_application_init(MyApplication* self) {}
+static void sempllication_init(MyApplication* self) {}
 
-MyApplication* my_application_new() {
-  return MY_APPLICATION(g_object_new(my_application_get_type(),
+MyApplication* sempllication_new() {
+  return semplLICATION(g_object_new(sempllication_get_type(),
                                      "application-id", APPLICATION_ID,
                                      "flags", G_APPLICATION_NON_UNIQUE,
                                      nullptr));

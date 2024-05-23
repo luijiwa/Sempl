@@ -1,14 +1,27 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_app/src/core/widget/dropdown_custom_widget_new.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+
+import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/dropdown_custom_widget_new.dart';
 
 class PersonalDataFieldsWidget extends StatelessWidget {
   const PersonalDataFieldsWidget({
     super.key,
+    required this.onChangeName,
+    required this.onChangeLastName,
+    required this.onChangeGender,
+    required this.onChangeBirthdate,
+    required this.onChangeLogin,
+    required this.onChangeEmail,
   });
-
+  final void Function(String) onChangeName;
+  final void Function(String) onChangeLastName;
+  final void Function(String) onChangeGender;
+  final void Function(String) onChangeBirthdate;
+  final void Function(String) onChangeLogin;
+  final void Function(String) onChangeEmail;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -35,6 +48,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             contentPadding: edgeInsets,
             hintText: 'Имя',
           ),
+          onChanged: onChangeName,
         ),
         const SizedBox(height: 4),
         TextField(
@@ -46,36 +60,26 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             contentPadding: edgeInsets,
             hintText: 'Фамилия',
           ),
+          onChanged: onChangeLastName,
         ),
         const SizedBox(height: 4),
-        const DropdownCustomWidgetNew(
-            hint: 'Пол', listItems: ['Мужской', 'Женский', 'Не указывать']),
+        DropdownCustomWidgetNew(
+          onChanged: (value) => onChangeGender,
+          hint: 'Пол',
+          listItems: ['Мужской', 'Женский', 'Не указывать'],
+        ),
         SizedBox(height: width * 0.1),
         TextFormField(
           keyboardType: TextInputType.datetime,
           inputFormatters: [
             FilteringTextInputFormatter.digitsOnly,
-            // DateOfBirthInputFormatter(),
             DateInputFormatter(),
-            // MaskTextInputFormatter(
-            //     mask: '01/23/4###',
-            //     filter: {
-            //       "0": RegExp(r'[0123]'),
-            //       "1": RegExp(r'[0-9]'),
-            //       "2": RegExp(r'[01]'),
-            //       "3": RegExp(r'[0-9]'),
-            //       "4": RegExp(r'[12]'),
-            //       "#": RegExp(r'[31][12]|[0-9]')
-            //     },
-            //     type: MaskAutoCompletionType.lazy),
-
-            // DateOfBirthInputFormatter(),
-            // CustomDateTextFormatter()
           ],
           decoration: InputDecoration(
             contentPadding: edgeInsets,
             hintText: 'Дата рождения',
           ),
+          onChanged: onChangeBirthdate,
         ),
         SizedBox(height: width * 0.1),
         TextField(
@@ -84,6 +88,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             contentPadding: edgeInsets,
             hintText: 'Имя в приложении',
           ),
+          onChanged: onChangeLogin,
         ),
         SizedBox(height: width * 0.1),
         TextField(
@@ -92,12 +97,14 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             contentPadding: edgeInsets,
             hintText: 'Почта',
           ),
+          onChanged: onChangeEmail,
         ),
       ],
     );
   }
 }
 
+@Deprecated('Use DateInputFormatter instead')
 class DateOfBirthInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(

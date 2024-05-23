@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/core/utils/logger.dart';
+import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 
 class PhoneInputWidget extends StatefulWidget {
   const PhoneInputWidget({super.key, required this.formKey});

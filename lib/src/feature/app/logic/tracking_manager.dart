@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
-import 'package:my_app/src/core/utils/logger.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 /// {@template error_tracking_manager}

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:my_app/src/core/utils/logger.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 
 part 'feedback_event.dart';
 part 'feedback_state.dart';

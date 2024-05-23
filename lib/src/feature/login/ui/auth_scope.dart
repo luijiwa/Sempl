@@ -1,7 +1,7 @@
-import 'package:my_app/src/core/components/rest_client/rest_client.dart';
-import 'package:my_app/src/core/utils/extentions/context_extension.dart';
-import 'package:my_app/src/feature/login/bloc/auth_bloc.dart';
-import 'package:my_app/src/feature/initialization/widget/dependencies_scope.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/utils/extentions/context_extension.dart';
+import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
+import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

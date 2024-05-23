@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_app/src/core/widget/app_bar_profile_icon_button_widget.dart';
-import 'package:my_app/src/core/widget/points_widget.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
+import 'package:sempl/src/core/widget/points_widget.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, this.onTapBack});

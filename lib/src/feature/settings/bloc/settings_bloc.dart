@@ -1,9 +1,9 @@
 import 'dart:ui' show Locale;
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app/src/feature/app/model/app_theme.dart';
-import 'package:my_app/src/feature/settings/data/locale_repository.dart';
-import 'package:my_app/src/feature/settings/data/theme_repository.dart';
+import 'package:sempl/src/feature/app/model/app_theme.dart';
+import 'package:sempl/src/feature/settings/data/locale_repository.dart';
+import 'package:sempl/src/feature/settings/data/theme_repository.dart';
 
 /// {@template settings_bloc}
 /// A [Bloc] that handles the settings.

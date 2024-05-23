@@ -1,12 +1,15 @@
+import 'dart:ffi';
 import 'dart:io' show File;
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:my_app/src/core/widget/bottom_padding.dart';
-import 'package:my_app/src/core/widget/next_step_button.dart';
-import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/feature/survey/ui/widgets/five_step_resize_image_widget.dart';
+import 'package:sempl/src/core/widget/bottom_padding.dart';
+import 'package:sempl/src/core/widget/next_step_button.dart';
+import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
+import 'package:sempl/src/feature/survey/ui/widgets/five_step_resize_image_widget.dart';
 
 class PickerPhotoWidget extends StatefulWidget {
   PickerPhotoWidget({super.key, required this.onNextPage, required this.image});
@@ -21,7 +24,7 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-
+    final bloc = context.read<SurveyBloc>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -63,14 +66,18 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
           ),
         )),
         const Spacer(),
-        NextStepButton(
-            title: 'ПРОДОЛЖИТЬ',
-            onPressed: () {
-              //add navigation to SetPhotoWidget()
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const SetPhotoWidget();
-              }));
-            }),
+        BlocProvider.value(
+          value: context.read<SurveyBloc>(),
+          child: NextStepButton(
+              title: 'ПРОДОЛЖИТЬ',
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SetPhotoWidget(),
+                  ),
+                );
+              }),
+        ),
         const BottomPadding(),
       ],
     );

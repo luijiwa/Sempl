@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/widget/dropdown_custom_widget_new.dart';
-import 'package:my_app/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/dropdown_custom_widget_new.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 
 class QuestionWidget extends StatelessWidget {
   const QuestionWidget({
@@ -39,7 +39,11 @@ class QuestionWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.appBodyMedium,
           ),
         ),
-        DropdownCustomWidgetNew(listItems: text, hint: 'Выберите ответ'),
+        DropdownCustomWidgetNew(
+          listItems: text,
+          hint: 'Выберите ответ',
+          onChanged: (value) {},
+        ),
       ],
     );
   }

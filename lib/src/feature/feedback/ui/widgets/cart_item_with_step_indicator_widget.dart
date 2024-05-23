@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/widget/page_indicator_row_widget.dart';
-import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/feature/feedback/ui/widgets/card_item_in_feedback_widget.dart';
+import 'package:sempl/src/core/widget/page_indicator_row_widget.dart';
+import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/feedback/ui/widgets/card_item_in_feedback_widget.dart';
 
 class CartItemWithStepIndicatorWidget extends StatelessWidget {
   const CartItemWithStepIndicatorWidget({

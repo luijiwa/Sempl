@@ -1,4 +1,4 @@
-# my_app
+# sempl
 
 A new Flutter project.
 

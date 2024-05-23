@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/src/core/widget/bottom_padding.dart';
-import 'package:my_app/src/core/widget/dropdown_custom_widget_new.dart';
-import 'package:my_app/src/core/widget/next_step_button.dart';
-import 'package:my_app/src/core/theme/theme.dart';
-import 'package:my_app/src/feature/survey/ui/widgets/questions_padding.dart';
-import 'package:my_app/src/core/widget/checkbox_row.dart';
+import 'package:sempl/src/core/widget/bottom_padding.dart';
+import 'package:sempl/src/core/widget/dropdown_custom_widget_new.dart';
+import 'package:sempl/src/core/widget/next_step_button.dart';
+import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/survey/ui/widgets/questions_padding.dart';
+import 'package:sempl/src/core/widget/checkbox_row.dart';
 
 class ThirthStepWidget extends StatelessWidget {
   const ThirthStepWidget({super.key, required this.onNextPage});
@@ -30,10 +30,11 @@ class ThirthStepWidget extends StatelessWidget {
               maxLines: 1,
             ),
             SizedBox(height: height * 0.016),
-            const QuestionWidget(
+            QuestionWidget(
               title: 'Сколько человек живет с вами?',
               child: DropdownCustomWidgetNew(
-                listItems: ['1', '2', 'Другое'],
+                onChanged: (value) => {},
+                listItems: const ['1', '2', 'Другое'],
                 hint: 'Выберите количество',
               ),
             ),
@@ -74,7 +75,8 @@ class PercentQuestion extends StatelessWidget {
               'Какой процент общего семейного дохода вы тратите на покупку косметики и товаров для дома (средства для уборки)?'),
         ),
         SizedBox(height: height * 0.012),
-        const DropdownCustomWidgetNew(
+        DropdownCustomWidgetNew(
+          onChanged: (value) => {},
           listItems: ['5%', '10%', 'Другое'],
           hint: 'Выберите количество',
         ),
@@ -102,7 +104,8 @@ class FamilyIncomeQuestionWidget extends StatelessWidget {
               'Каков средний ежемесячный доход вашей семьи?'),
         ),
         SizedBox(height: height * 0.012),
-        const DropdownCustomWidgetNew(
+        DropdownCustomWidgetNew(
+          onChanged: (value) => {},
           listItems: ['10 000', '20 000', 'Другое'],
           hint: 'Выберите количество',
         ),
