@@ -8,11 +8,11 @@ abstract interface class ProfileRepository<T> {
 
 final class ProfileRepositoryImpl implements ProfileRepository {
   final ProfileDataSource _dataSource;
-  final TokenStorage<T> _storage;
+  final TokenStorage _storage;
 
   const ProfileRepositoryImpl({
     required ProfileDataSource dataSource,
-    required TokenStorage<T> storage,
+    required TokenStorage storage,
   })  : _dataSource = dataSource,
         _storage = storage;
 

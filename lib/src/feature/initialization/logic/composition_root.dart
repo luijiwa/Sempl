@@ -87,8 +87,7 @@ final class CompositionRoot {
       SurveyDataSourceNetwork(restClient),
     );
     final profileRepository = ProfileRepositoryImpl(
-      ProfileDataSourceNetwork(restClient),
-    );
+        dataSource: ProfileDataSourceNetwork(restClient), storage: storage);
     final authBloc = AuthBloc(
       AuthState(
         status: token != null
