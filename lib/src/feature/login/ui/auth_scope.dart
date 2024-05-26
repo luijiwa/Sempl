@@ -1,9 +1,9 @@
-import 'package:sempl/src/core/components/rest_client/rest_client.dart';
-import 'package:sempl/src/core/utils/extentions/context_extension.dart';
-import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
-import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/utils/extentions/context_extension.dart';
+import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
+import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 
 /// Auth controller
 abstract interface class AuthController {
@@ -16,8 +16,13 @@ abstract interface class AuthController {
   /// Sign in with phone and code
   void signInWithPhoneAndCode(String phone, String code);
 
+  void saveCode(String code);
+
   /// Sign out
   void signOut();
+
+  /// Submit registration form
+  void submitRegistrationForm(Map<String, String> form);
 }
 
 /// Scope that controls the authentication state
@@ -51,19 +56,22 @@ class _AuthScopeState extends State<AuthScope> implements AuthController {
   AuthenticationStatus get status => _state.status;
 
   @override
-  void signInWithPhoneAndCode(
-    String phone,
-    String code,
-  ) =>
-      _authBloc.add(
-        AuthEvent.signInWithPhoneAndCode(
-          phone: phone,
-          code: code,
-        ),
-      );
+  void signInWithPhoneAndCode(String phone, String code) =>
+      _authBloc.add(AuthEvent.sendCode(code: code));
+
+  @override
+  void saveCode(String code) => _authBloc.add(AuthEvent.saveCode(code: code));
 
   @override
   void signOut() => _authBloc.add(const AuthEvent.signOut());
+
+  @override
+  void signInFirstStepWithPhone(String phone) =>
+      _authBloc.add(AuthEvent.sendPhone(phone: phone));
+
+  @override
+  void submitRegistrationForm(Map<String, String> form) =>
+      _authBloc.add(AuthEvent.register()); //TODO
 
   @override
   Widget build(BuildContext context) => BlocBuilder<AuthBloc, AuthState>(
@@ -77,11 +85,6 @@ class _AuthScopeState extends State<AuthScope> implements AuthController {
             child: widget.child,
           );
         },
-      );
-
-  @override
-  void signInFirstStepWithPhone(String phone) => _authBloc.add(
-        AuthEvent.signInFirstStepWithPhone(phone: phone),
       );
 }
 

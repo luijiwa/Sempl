@@ -8,6 +8,7 @@ import 'package:logging/logging.dart' as logging;
 /// Usage:
 /// ```dart
 /// logger.info('Hello World!');
+/// logger.i('Hello World!');
 /// ```
 final Logger logger = LoggerLogging();
 
@@ -106,17 +107,33 @@ abstract base class Logger {
   /// Logs the error to the console
   void error(Object message, {Object? error, StackTrace? stackTrace});
 
+  /// Shorthand for logging error
+  void e(Object message, {Object? error, StackTrace? stackTrace}) =>
+      this.error(message, error: error, stackTrace: stackTrace);
+
   /// Logs the warning to the console
   void warning(Object message);
+
+  /// Shorthand for logging warning
+  void w(Object message) => warning(message);
 
   /// Logs the info to the console
   void info(Object message);
 
+  /// Shorthand for logging info
+  void i(Object message) => info(message);
+
   /// Logs the debug to the console
   void debug(Object message);
 
+  /// Shorthand for logging debug
+  void d(Object message) => debug(message);
+
   /// Logs the verbose to the console
   void verbose(Object message);
+
+  /// Shorthand for logging verbose
+  void v(Object message) => verbose(message);
 
   /// Set up the logger
   L runLogging<L>(L Function() fn, [LogOptions options = const LogOptions()]);

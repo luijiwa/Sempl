@@ -18,17 +18,17 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Load value) load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Load value)? load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,35 +53,34 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$LoadImplCopyWith<$Res> {
+  factory _$$LoadImplCopyWith(
+          _$LoadImpl value, $Res Function(_$LoadImpl) then) =
+      __$$LoadImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$LoadImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$LoadImpl>
+    implements _$$LoadImplCopyWith<$Res> {
+  __$$LoadImplCopyWithImpl(_$LoadImpl _value, $Res Function(_$LoadImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$LoadImpl implements _Load {
+  const _$LoadImpl();
 
   @override
   String toString() {
-    return 'ProfileEvent.started()';
+    return 'ProfileEvent.load()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is _$LoadImpl);
   }
 
   @override
@@ -90,53 +89,43 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Load value) load,
   }) {
-    return started(this);
+    return load(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Load value)? load,
   }) {
-    return started?.call(this);
+    return load?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (load != null) {
+      return load(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements ProfileEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class _Load implements ProfileEvent {
+  const factory _Load() = _$LoadImpl;
 }
 
 /// @nodoc
 mixin _$ProfileState {
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  ScreenStatus get screenStatus => throw _privateConstructorUsedError;
+  User get user_fields => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ProfileStateCopyWith<ProfileState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -145,6 +134,10 @@ abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res, ProfileState>;
+  @useResult
+  $Res call({ScreenStatus screenStatus, User user_fields});
+
+  $UserCopyWith<$Res> get user_fields;
 }
 
 /// @nodoc
@@ -156,72 +149,126 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? screenStatus = null,
+    Object? user_fields = null,
+  }) {
+    return _then(_value.copyWith(
+      screenStatus: null == screenStatus
+          ? _value.screenStatus
+          : screenStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      user_fields: null == user_fields
+          ? _value.user_fields
+          : user_fields // ignore: cast_nullable_to_non_nullable
+              as User,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user_fields {
+    return $UserCopyWith<$Res>(_value.user_fields, (value) {
+      return _then(_value.copyWith(user_fields: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$ProfileStateImplCopyWith<$Res>
+    implements $ProfileStateCopyWith<$Res> {
+  factory _$$ProfileStateImplCopyWith(
+          _$ProfileStateImpl value, $Res Function(_$ProfileStateImpl) then) =
+      __$$ProfileStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ScreenStatus screenStatus, User user_fields});
+
+  @override
+  $UserCopyWith<$Res> get user_fields;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$ProfileStateImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateImpl>
+    implements _$$ProfileStateImplCopyWith<$Res> {
+  __$$ProfileStateImplCopyWithImpl(
+      _$ProfileStateImpl _value, $Res Function(_$ProfileStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? screenStatus = null,
+    Object? user_fields = null,
+  }) {
+    return _then(_$ProfileStateImpl(
+      screenStatus: null == screenStatus
+          ? _value.screenStatus
+          : screenStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      user_fields: null == user_fields
+          ? _value.user_fields
+          : user_fields // ignore: cast_nullable_to_non_nullable
+              as User,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$ProfileStateImpl implements _ProfileState {
+  const _$ProfileStateImpl(
+      {this.screenStatus = ScreenStatus.initial,
+      this.user_fields = const User()});
+
+  @override
+  @JsonKey()
+  final ScreenStatus screenStatus;
+  @override
+  @JsonKey()
+  final User user_fields;
 
   @override
   String toString() {
-    return 'ProfileState.initial()';
+    return 'ProfileState(screenStatus: $screenStatus, user_fields: $user_fields)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileStateImpl &&
+            (identical(other.screenStatus, screenStatus) ||
+                other.screenStatus == screenStatus) &&
+            (identical(other.user_fields, user_fields) ||
+                other.user_fields == user_fields));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, screenStatus, user_fields);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
+      __$$ProfileStateImplCopyWithImpl<_$ProfileStateImpl>(this, _$identity);
 }
 
-abstract class _Initial implements ProfileState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _ProfileState implements ProfileState {
+  const factory _ProfileState(
+      {final ScreenStatus screenStatus,
+      final User user_fields}) = _$ProfileStateImpl;
+
+  @override
+  ScreenStatus get screenStatus;
+  @override
+  User get user_fields;
+  @override
+  @JsonKey(ignore: true)
+  _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

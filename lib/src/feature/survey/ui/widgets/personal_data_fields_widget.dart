@@ -39,7 +39,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
           maxLines: 1,
         ),
         SizedBox(height: width * 0.05),
-        TextField(
+        TextFormField(
           keyboardType: TextInputType.name,
           inputFormatters: [
             FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Zа-яА-Я]')),
@@ -49,9 +49,10 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             hintText: 'Имя',
           ),
           onChanged: onChangeName,
+          validator: validate,
         ),
         const SizedBox(height: 4),
-        TextField(
+        TextFormField(
           inputFormatters: [
             FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Zа-яА-Я]')),
           ],
@@ -61,6 +62,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             hintText: 'Фамилия',
           ),
           onChanged: onChangeLastName,
+          validator: validate,
         ),
         const SizedBox(height: 4),
         DropdownCustomWidgetNew(
@@ -80,27 +82,37 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             hintText: 'Дата рождения',
           ),
           onChanged: onChangeBirthdate,
+          validator: validate,
         ),
         SizedBox(height: width * 0.1),
-        TextField(
+        TextFormField(
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             contentPadding: edgeInsets,
             hintText: 'Имя в приложении',
           ),
+          validator: validate,
           onChanged: onChangeLogin,
         ),
         SizedBox(height: width * 0.1),
-        TextField(
+        TextFormField(
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             contentPadding: edgeInsets,
             hintText: 'Почта',
           ),
+          validator: validate,
           onChanged: onChangeEmail,
         ),
       ],
     );
+  }
+
+  String? validate(String? value) {
+    if (value == null || value.isEmpty) {
+      return '';
+    }
+    return null;
   }
 }
 

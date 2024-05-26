@@ -73,7 +73,9 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => SetPhotoWidget(),
+                    builder: (context) => SetPhotoWidget(
+                      surveyContext: context,
+                    ),
                   ),
                 );
               }),

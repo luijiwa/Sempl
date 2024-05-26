@@ -8,20 +8,22 @@ import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/confirmation_survey_screen.dart';
 
+/// Сделать его состоянием пятого экрана
 class SetPhotoWidget extends StatefulWidget {
   const SetPhotoWidget({
     super.key,
+    required this.surveyContext,
   });
-
+  final BuildContext surveyContext;
   @override
   State<SetPhotoWidget> createState() => _SetPhotoWidgetState();
 }
 
 class _SetPhotoWidgetState extends State<SetPhotoWidget> {
   @override
-  Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
+  Widget build(surveyContext) {
+    final double height = MediaQuery.of(surveyContext).size.height;
+    final double width = MediaQuery.of(surveyContext).size.width;
 
     return Scaffold(
       appBar: AppBar(
@@ -29,7 +31,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
         centerTitle: true,
         title: Text(
           'CROP',
-          style: Theme.of(context).textTheme.titleLarge,
+          style: Theme.of(surveyContext).textTheme.titleLarge,
         ),
       ),
       body: Padding(
@@ -64,7 +66,7 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
                   bottom: height * 0.045,
                   right: width * 0.02,
                   child: GestureDetector(
-                    onTap: () => Navigator.of(context).pop(),
+                    onTap: () => Navigator.of(surveyContext).pop(),
                     child: Container(
                       height: 35,
                       width: 35,
@@ -103,12 +105,12 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  context
-                      .read<SurveyBloc>()
-                      .add(const SurveyEvent.sendResultSurvey());
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //   return const ConfirmationSurveyScreen();
-                  // }));
+                  // surveyContext
+                  //     .read<SurveyBloc>()
+                  //     .add(const SurveyEvent.sendResultSurvey());
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const ConfirmationSurveyScreen();
+                  }));
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 0,

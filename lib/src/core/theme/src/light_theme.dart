@@ -56,6 +56,7 @@ ThemeData createLightTheme() {
       alignLabelWithHint: true,
       filled: true,
       fillColor: Colors.white,
+      errorStyle: TextStyle(fontSize: 0),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(

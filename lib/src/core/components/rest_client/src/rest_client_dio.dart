@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 
 /// {@template rest_client_dio}
 /// Rest client that uses [Dio] as HTTP library.
@@ -29,19 +30,20 @@ final class RestClientDio extends RestClientBase {
         contentType: 'application/json',
         responseType: ResponseType.json,
       );
-
+      logger.info('${options.method} $uri with body: $body');
       final response = await _dio.request<T>(
         uri.toString(),
         data: body,
         options: options,
       );
-
-      final resp = await decodeResponse(
-        response.data,
-        statusCode: response.statusCode,
-      );
-
-      return resp;
+      logger.info('Response sendRequest: $response');
+      // @Deprecated('Надо разобраться предже чем использовать')
+      // final resp = await decodeResponse(
+      //   response.data,
+      //   statusCode: response.statusCode,
+      // );
+      return response.data as Map<String, Object?>;
+      // return resp;
     } on RestClientException {
       rethrow;
     } on DioException catch (e) {

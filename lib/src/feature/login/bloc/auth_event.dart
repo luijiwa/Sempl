@@ -1,42 +1,14 @@
-/// Events for [AuthBloc]
 part of 'auth_bloc.dart';
 
-sealed class AuthEvent {
-  const AuthEvent();
-
-  /// Event to sign in with Email and Password
-  const factory AuthEvent.signInFirstStepWithPhone({
-    required String phone,
-  }) = _SignInFirstStepWithPhone;
-
-  /// Event to sign in with Email and Password
-  const factory AuthEvent.signInWithPhoneAndCode({
-    required String phone,
-    required String code,
-  }) = _SignInWithPhoneAndCode;
-
-  /// Event to sign out
+@freezed
+sealed class AuthEvent with _$AuthEvent {
+  const factory AuthEvent.statusChanded({
+    required AuthenticationStatus status,
+  }) = _StatusChanded;
   const factory AuthEvent.signOut() = _SignOut;
-}
+  const factory AuthEvent.sendPhone({required String phone}) = _SendPhone;
+  const factory AuthEvent.sendCode({required String code}) = _SendCode;
+  const factory AuthEvent.saveCode({required String code}) = _SaveCode;
 
-final class _SignInFirstStepWithPhone extends AuthEvent {
-  final String phone;
-
-  const _SignInFirstStepWithPhone({
-    required this.phone,
-  });
-}
-
-final class _SignInWithPhoneAndCode extends AuthEvent {
-  final String phone;
-  final String code;
-
-  const _SignInWithPhoneAndCode({
-    required this.phone,
-    required this.code,
-  });
-}
-
-final class _SignOut extends AuthEvent {
-  const _SignOut();
+  const factory AuthEvent.register() = _Register;
 }

@@ -1,6 +1,13 @@
+import 'dart:async';
+import 'dart:developer';
+
+import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/feature/login/data/auth_repository.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
@@ -10,96 +17,102 @@ mixin SetStateMixin<S> on Emittable<S> {
   void setState(S state) => emit(state);
 }
 
-/// AuthBloc
-final class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
+class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
   final AuthRepository<Object> _authRepository;
 
-  /// Create an [AuthBloc]
-  ///
-  /// This specializes required initialState as it should be preloaded.
   AuthBloc(
     super.initialState, {
     required AuthRepository<Object> authRepository,
   }) : _authRepository = authRepository {
-    on<AuthEvent>(
-      (event, emit) => switch (event) {
-        final _SignInWithPhoneAndCode e => _signInWithEmailAndPassword(e, emit),
-        final _SignOut e => _signOut(e, emit),
-        final _SignInFirstStepWithPhone e => _signInFirstStepWithPhone(e, emit),
-      },
-    );
+    on<_StatusChanded>(_onAuthenticationStatusChanged);
+    on<_SendPhone>(_onSendPhone);
+    on<_SendCode>(_onSendCode);
+    on<_SaveCode>(_onSavCode);
 
-    // emit new state when the authentication status changes
+    on<_SignOut>(_onLogout);
     authRepository
         .getAuthenticationStatusStream()
-        .map(($status) => AuthState.idle(status: $status))
+        .map(($status) => AuthState(status: $status))
         .listen(($state) {
       if ($state != state) {
         setState($state);
       }
     });
   }
+  late StreamSubscription<AuthenticationStatus>
+      _authenticationStatusSubscription;
 
-  Future<void> _signOut(
+  @override
+  Future<void> close() {
+    _authenticationStatusSubscription.cancel();
+    return super.close();
+  }
+
+  Future<void> _onAuthenticationStatusChanged(
+    _StatusChanded event,
+    Emitter<AuthState> emit,
+  ) async {
+    switch (event.status) {
+      case AuthenticationStatus.unauthenticated:
+        log('case 1 unauthenticated', name: '_onAuthenticationStatusChanged');
+
+        return emit(AuthState.unauthenticated());
+
+      case AuthenticationStatus.authenticated:
+        log('case 2 authenticated', name: '_onAuthenticationStatusChanged');
+      case AuthenticationStatus.initial:
+        return emit(AuthState.initial());
+    }
+  }
+
+  void _onLogout(
     _SignOut event,
     Emitter<AuthState> emit,
-  ) async {
-    emit(AuthState.processing(status: state.status));
+  ) {
+    _authRepository.signOut();
+    emit(AuthState.unauthenticated());
+  }
 
+  Future<void> _onSendPhone(_SendPhone event, Emitter<AuthState> emit) async {
+    emit(state.copyWith(loginStatus: LoginStatus.loading));
     try {
-      await _authRepository.signOut();
-      emit(const AuthState.idle(status: AuthenticationStatus.unauthenticated));
+      final phone = '8${event.phone}';
+      final isRegistered =
+          await _authRepository.signInFirstStepWithPhone(event.phone);
+      if (isRegistered == 0) {
+        final isRegistered =
+            await _authRepository.registrationRequest(event.phone);
+        emit(state.copyWith(
+            loginStatus: LoginStatus.unregistered, phone: event.phone));
+      }
+      if (isRegistered == 1) {
+        emit(state.copyWith(
+            loginStatus: LoginStatus.registered, phone: event.phone));
+      }
     } on Object catch (e, stackTrace) {
-      emit(
-        AuthState.error(
-          status: AuthenticationStatus.unauthenticated,
-          error: e,
-        ),
-      );
+      emit(state.copyWith(
+          loginStatus: LoginStatus.initial,
+          errorMessage: 'Что-то пошло не так'));
       onError(e, stackTrace);
     }
   }
 
-  Future<void> _signInWithEmailAndPassword(
-    _SignInWithPhoneAndCode event,
-    Emitter<AuthState> emit,
-  ) async {
-    emit(AuthState.processing(status: state.status));
-
+  Future<void> _onSendCode(_SendCode event, Emitter<AuthState> emit) async {
+    // if (!kDebugMode && state.loginStatus == LoginStatus.registered) {
+    emit(state.copyWith(loginStatus: LoginStatus.loading));
     try {
-      await _authRepository.signInWithPhoneAndCode(
-        event.phone,
-        event.code,
-      );
-      emit(const AuthState.idle(status: AuthenticationStatus.authenticated));
+      final phone = kDebugMode ? '89293744874' : state.phone;
+      await _authRepository.signInWithPhoneAndCode(phone, event.code);
+      emit(AuthState.authenticated());
     } on Object catch (e, stackTrace) {
-      emit(
-        AuthState.error(
-          status: AuthenticationStatus.unauthenticated,
-          error: e,
-        ),
-      );
+      emit(state.copyWith(loginStatus: LoginStatus.initial));
       onError(e, stackTrace);
+      emit(AuthState.unauthenticated());
     }
+    // }
   }
 
-  Future<void> _signInFirstStepWithPhone(
-    _SignInFirstStepWithPhone event,
-    Emitter<AuthState> emit,
-  ) async {
-    emit(AuthState.processing(status: state.status));
-
-    try {
-      await _authRepository.signInFirstStepWithPhone(event.phone);
-      emit(const AuthState.idle(status: AuthenticationStatus.authenticated));
-    } on Object catch (e, stackTrace) {
-      emit(
-        AuthState.error(
-          status: AuthenticationStatus.unauthenticated,
-          error: e,
-        ),
-      );
-      onError(e, stackTrace);
-    }
+  FutureOr<void> _onSavCode(_SaveCode event, Emitter<AuthState> emit) {
+    emit(state.copyWith(code: event.code));
   }
 }

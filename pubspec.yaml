@@ -49,10 +49,10 @@ dependencies:
 
   # Networking
   dio: ^5.3.3
-
+ 
   # Persisting
   shared_preferences: ^2.2.2
-  drift: ^2.13.1
+  # drift: ^2.13.1
   sqlite3_flutter_libs: ^0.5.18
 
   # Logging
@@ -81,6 +81,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   rxdart: ^0.27.7
   sentry_flutter: ^8.2.0
+  curl_logger_dio_interceptor: ^1.0.0
   # salomon_bottom_bar: ^3.3.2
 
 
@@ -102,7 +103,7 @@ dev_dependencies:
   # Codegen
   freezed: ^2.4.5
   json_serializable: ^6.7.1
-  drift_dev: ^2.13.1
+  # drift_dev: ^2.13.1
   build_runner: ^2.4.9
 
 # For information on the generic Dart part of this file, see the
@@ -196,6 +197,7 @@ flutter:
     # - assets/images/3.0x/
     # - assets/images/4.0x/
     - assets/images/
+    - assets/shaders/shimmer.frag
 
     # - assets/images/Background 3.png
     # - assets/images/Background 4.png

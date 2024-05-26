@@ -5,6 +5,8 @@ import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 import 'package:sempl/src/feature/login/data/auth_repository.dart';
 import 'package:sempl/src/feature/login/data/token_storage_sp.dart';
+import 'package:sempl/src/feature/profile/data/data_source/profile_data_source.dart';
+import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
 import 'package:sempl/src/feature/survey/data/survey_data_source.dart';
 import 'package:sempl/src/feature/survey/data/survey_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,6 +20,7 @@ import 'package:sempl/src/feature/settings/data/locale_repository.dart';
 import 'package:sempl/src/feature/settings/data/theme_datasource.dart';
 import 'package:sempl/src/feature/settings/data/theme_mode_codec.dart';
 import 'package:sempl/src/feature/settings/data/theme_repository.dart';
+import 'package:curl_logger_dio_interceptor/curl_logger_dio_interceptor.dart';
 
 /// {@template composition_root}
 /// A place where all dependencies are initialized.
@@ -64,6 +67,18 @@ final class CompositionRoot {
     final storage = TokenStorageSP(sharedPreferences: sharedPreferences);
     final token = await storage.load();
 
+    Map<String, String> buildHeaders(Token token) => {
+          'Authorization': 'Bearer ${token.accessToken}',
+        };
+    final interceptor = AuthInterceptor(
+      storage: storage,
+      buildHeaders: buildHeaders,
+    );
+
+    interceptedDio.options.headers.addAll({'Accept': 'application/json'});
+    interceptedDio.interceptors.add(interceptor);
+    interceptedDio.interceptors.add(CurlLoggerDioInterceptor());
+
     final restClient = RestClientDio(
       baseUrl: 'http://rebo766g.beget.tech',
       dio: interceptedDio,
@@ -71,8 +86,11 @@ final class CompositionRoot {
     final surveyRepository = SurveyRepositoryImpl(
       SurveyDataSourceNetwork(restClient),
     );
+    final profileRepository = ProfileRepositoryImpl(
+      ProfileDataSourceNetwork(restClient),
+    );
     final authBloc = AuthBloc(
-      AuthState.idle(
+      AuthState(
         status: token != null
             ? AuthenticationStatus.authenticated
             : AuthenticationStatus.unauthenticated,
@@ -89,6 +107,7 @@ final class CompositionRoot {
       authBloc: authBloc,
       restClient: restClient,
       surveyRepository: surveyRepository,
+      profileRepository: profileRepository,
     );
   }
 

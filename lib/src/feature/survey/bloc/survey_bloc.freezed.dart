@@ -149,15 +149,23 @@ class __$$SetFirstNameImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetFirstNameImpl implements _SetFirstName {
+class _$SetFirstNameImpl with DiagnosticableTreeMixin implements _SetFirstName {
   const _$SetFirstNameImpl(this.firstName);
 
   @override
   final String firstName;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setFirstName(firstName: $firstName)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setFirstName'))
+      ..add(DiagnosticsProperty('firstName', firstName));
   }
 
   @override
@@ -313,15 +321,23 @@ class __$$SetLastNameImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetLastNameImpl implements _SetLastName {
+class _$SetLastNameImpl with DiagnosticableTreeMixin implements _SetLastName {
   const _$SetLastNameImpl(this.lastName);
 
   @override
   final String lastName;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setLastName(lastName: $lastName)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setLastName'))
+      ..add(DiagnosticsProperty('lastName', lastName));
   }
 
   @override
@@ -477,15 +493,23 @@ class __$$SetGenderImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetGenderImpl implements _SetGender {
+class _$SetGenderImpl with DiagnosticableTreeMixin implements _SetGender {
   const _$SetGenderImpl(this.gender);
 
   @override
   final String gender;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setGender(gender: $gender)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setGender'))
+      ..add(DiagnosticsProperty('gender', gender));
   }
 
   @override
@@ -640,15 +664,23 @@ class __$$SetBirthdateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetBirthdateImpl implements _SetBirthdate {
+class _$SetBirthdateImpl with DiagnosticableTreeMixin implements _SetBirthdate {
   const _$SetBirthdateImpl(this.birthdate);
 
   @override
   final String birthdate;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setBirthdate(birthdate: $birthdate)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setBirthdate'))
+      ..add(DiagnosticsProperty('birthdate', birthdate));
   }
 
   @override
@@ -804,15 +836,23 @@ class __$$SetLoginImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetLoginImpl implements _SetLogin {
+class _$SetLoginImpl with DiagnosticableTreeMixin implements _SetLogin {
   const _$SetLoginImpl(this.login);
 
   @override
   final String login;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setLogin(login: $login)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setLogin'))
+      ..add(DiagnosticsProperty('login', login));
   }
 
   @override
@@ -967,15 +1007,23 @@ class __$$SetEmailImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetEmailImpl implements _SetEmail {
+class _$SetEmailImpl with DiagnosticableTreeMixin implements _SetEmail {
   const _$SetEmailImpl(this.email);
 
   @override
   final String email;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setEmail(email: $email)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setEmail'))
+      ..add(DiagnosticsProperty('email', email));
   }
 
   @override
@@ -1130,15 +1178,23 @@ class __$$SetCityImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetCityImpl implements _SetCity {
+class _$SetCityImpl with DiagnosticableTreeMixin implements _SetCity {
   const _$SetCityImpl(this.city);
 
   @override
   final String city;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setCity(city: $city)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setCity'))
+      ..add(DiagnosticsProperty('city', city));
   }
 
   @override
@@ -1293,15 +1349,23 @@ class __$$SetStreetImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetStreetImpl implements _SetStreet {
+class _$SetStreetImpl with DiagnosticableTreeMixin implements _SetStreet {
   const _$SetStreetImpl(this.street);
 
   @override
   final String street;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setStreet(street: $street)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setStreet'))
+      ..add(DiagnosticsProperty('street', street));
   }
 
   @override
@@ -1456,15 +1520,25 @@ class __$$SetHouseNumberImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetHouseNumberImpl implements _SetHouseNumber {
+class _$SetHouseNumberImpl
+    with DiagnosticableTreeMixin
+    implements _SetHouseNumber {
   const _$SetHouseNumberImpl(this.houseNumber);
 
   @override
   final String houseNumber;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setHouseNumber(houseNumber: $houseNumber)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setHouseNumber'))
+      ..add(DiagnosticsProperty('houseNumber', houseNumber));
   }
 
   @override
@@ -1622,15 +1696,25 @@ class __$$SetApartmentNumberImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetApartmentNumberImpl implements _SetApartmentNumber {
+class _$SetApartmentNumberImpl
+    with DiagnosticableTreeMixin
+    implements _SetApartmentNumber {
   const _$SetApartmentNumberImpl(this.apartmentNumber);
 
   @override
   final String apartmentNumber;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setApartmentNumber(apartmentNumber: $apartmentNumber)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setApartmentNumber'))
+      ..add(DiagnosticsProperty('apartmentNumber', apartmentNumber));
   }
 
   @override
@@ -1788,15 +1872,23 @@ class __$$SetEntranceImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetEntranceImpl implements _SetEntrance {
+class _$SetEntranceImpl with DiagnosticableTreeMixin implements _SetEntrance {
   const _$SetEntranceImpl(this.entrance);
 
   @override
   final String entrance;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setEntrance(entrance: $entrance)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setEntrance'))
+      ..add(DiagnosticsProperty('entrance', entrance));
   }
 
   @override
@@ -1952,15 +2044,25 @@ class __$$SetPostalCodeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetPostalCodeImpl implements _SetPostalCode {
+class _$SetPostalCodeImpl
+    with DiagnosticableTreeMixin
+    implements _SetPostalCode {
   const _$SetPostalCodeImpl(this.postalCode);
 
   @override
   final String postalCode;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setPostalCode(postalCode: $postalCode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setPostalCode'))
+      ..add(DiagnosticsProperty('postalCode', postalCode));
   }
 
   @override
@@ -2116,15 +2218,25 @@ class __$$SetPeopleLivingWithImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetPeopleLivingWithImpl implements _SetPeopleLivingWith {
+class _$SetPeopleLivingWithImpl
+    with DiagnosticableTreeMixin
+    implements _SetPeopleLivingWith {
   const _$SetPeopleLivingWithImpl(this.peopleLivingWith);
 
   @override
   final int peopleLivingWith;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setPeopleLivingWith(peopleLivingWith: $peopleLivingWith)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setPeopleLivingWith'))
+      ..add(DiagnosticsProperty('peopleLivingWith', peopleLivingWith));
   }
 
   @override
@@ -2282,15 +2394,25 @@ class __$$SetHasChildrenImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetHasChildrenImpl implements _SetHasChildren {
+class _$SetHasChildrenImpl
+    with DiagnosticableTreeMixin
+    implements _SetHasChildren {
   const _$SetHasChildrenImpl(this.hasChildren);
 
   @override
   final bool hasChildren;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setHasChildren(hasChildren: $hasChildren)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setHasChildren'))
+      ..add(DiagnosticsProperty('hasChildren', hasChildren));
   }
 
   @override
@@ -2447,15 +2569,23 @@ class __$$SetPetsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetPetsImpl implements _SetPets {
+class _$SetPetsImpl with DiagnosticableTreeMixin implements _SetPets {
   const _$SetPetsImpl(this.pets);
 
   @override
   final String pets;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setPets(pets: $pets)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setPets'))
+      ..add(DiagnosticsProperty('pets', pets));
   }
 
   @override
@@ -2612,15 +2742,25 @@ class __$$SetAverageMonthlyIncomeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetAverageMonthlyIncomeImpl implements _SetAverageMonthlyIncome {
+class _$SetAverageMonthlyIncomeImpl
+    with DiagnosticableTreeMixin
+    implements _SetAverageMonthlyIncome {
   const _$SetAverageMonthlyIncomeImpl(this.averageMonthlyIncome);
 
   @override
   final int averageMonthlyIncome;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setAverageMonthlyIncome(averageMonthlyIncome: $averageMonthlyIncome)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setAverageMonthlyIncome'))
+      ..add(DiagnosticsProperty('averageMonthlyIncome', averageMonthlyIncome));
   }
 
   @override
@@ -2781,6 +2921,7 @@ class __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SetPercentageSpentOnCosmeticsImpl
+    with DiagnosticableTreeMixin
     implements _SetPercentageSpentOnCosmetics {
   const _$SetPercentageSpentOnCosmeticsImpl(this.percentageSpentOnCosmetics);
 
@@ -2788,8 +2929,18 @@ class _$SetPercentageSpentOnCosmeticsImpl
   final int percentageSpentOnCosmetics;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setPercentageSpentOnCosmetics(percentageSpentOnCosmetics: $percentageSpentOnCosmetics)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SurveyEvent.setPercentageSpentOnCosmetics'))
+      ..add(DiagnosticsProperty(
+          'percentageSpentOnCosmetics', percentageSpentOnCosmetics));
   }
 
   @override
@@ -2952,15 +3103,23 @@ class __$$SetVkProfileImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetVkProfileImpl implements _SetVkProfile {
+class _$SetVkProfileImpl with DiagnosticableTreeMixin implements _SetVkProfile {
   const _$SetVkProfileImpl(this.vkProfile);
 
   @override
   final String vkProfile;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setVkProfile(vkProfile: $vkProfile)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setVkProfile'))
+      ..add(DiagnosticsProperty('vkProfile', vkProfile));
   }
 
   @override
@@ -3116,15 +3275,25 @@ class __$$SetTelegramProfileImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetTelegramProfileImpl implements _SetTelegramProfile {
+class _$SetTelegramProfileImpl
+    with DiagnosticableTreeMixin
+    implements _SetTelegramProfile {
   const _$SetTelegramProfileImpl(this.telegramProfile);
 
   @override
   final String telegramProfile;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setTelegramProfile(telegramProfile: $telegramProfile)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setTelegramProfile'))
+      ..add(DiagnosticsProperty('telegramProfile', telegramProfile));
   }
 
   @override
@@ -3282,15 +3451,25 @@ class __$$SetAvatarImageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetAvatarImageImpl implements _SetAvatarImage {
+class _$SetAvatarImageImpl
+    with DiagnosticableTreeMixin
+    implements _SetAvatarImage {
   const _$SetAvatarImageImpl(this.avatarImage);
 
   @override
   final String avatarImage;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.setAvatarImage(avatarImage: $avatarImage)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setAvatarImage'))
+      ..add(DiagnosticsProperty('avatarImage', avatarImage));
   }
 
   @override
@@ -3433,12 +3612,20 @@ class __$$SendResultSurveyImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SendResultSurveyImpl implements _SendResultSurvey {
+class _$SendResultSurveyImpl
+    with DiagnosticableTreeMixin
+    implements _SendResultSurvey {
   const _$SendResultSurveyImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyEvent.sendResultSurvey()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SurveyEvent.sendResultSurvey'));
   }
 
   @override
@@ -3648,7 +3835,7 @@ class __$$SurveyStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SurveyStateImpl implements _SurveyState {
+class _$SurveyStateImpl with DiagnosticableTreeMixin implements _SurveyState {
   const _$SurveyStateImpl(
       {this.status = ButtonPushStatus.initial,
       this.surveyModel = const SurveyModel()});
@@ -3661,8 +3848,17 @@ class _$SurveyStateImpl implements _SurveyState {
   final SurveyModel surveyModel;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyState(status: $status, surveyModel: $surveyModel)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyState'))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('surveyModel', surveyModel));
   }
 
   @override

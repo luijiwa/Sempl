@@ -1,14 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:pinput/pinput.dart';
+
+import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 
 class InputCodeWidget extends StatefulWidget {
   const InputCodeWidget({
     super.key,
+    required this.codeController,
   });
-
+  final TextEditingController codeController;
   @override
   State<InputCodeWidget> createState() => _InputCodeWidgetState();
 }
@@ -95,6 +99,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
     return Column(
       children: [
         Pinput(
+          controller: widget.codeController,
           keyboardType: TextInputType.number,
           length: 5,
           defaultPinTheme: pinTheme,

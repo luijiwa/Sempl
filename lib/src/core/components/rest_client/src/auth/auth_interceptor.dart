@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:dio/dio.dart';
-import 'package:meta/meta.dart';
-import 'package:rxdart/subjects.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/components/rest_client/src/auth/refresh_client.dart';
 import 'package:sempl/src/core/utils/logger.dart';
+import 'package:dio/dio.dart';
+import 'package:meta/meta.dart';
+import 'package:rxdart/subjects.dart';
+
+/// Token is a simple class that holds the access and refresh token
 
 // coverage:ignore-start
 /// Throw this exception when refresh token fails
@@ -53,7 +55,7 @@ class AuthInterceptor<T> extends QueuedInterceptor
   /// Create an Auth interceptor
   AuthInterceptor({
     required this.storage,
-    required this.refreshClient,
+    this.refreshClient,
     required this.buildHeaders,
     @visibleForTesting Dio? retryClient,
   }) : retryClient = retryClient ?? Dio() {
@@ -77,7 +79,8 @@ class AuthInterceptor<T> extends QueuedInterceptor
   ///
   /// This is used to refresh the Auth token
   /// pair when the request fails with a 401.
-  final RefreshClient<T> refreshClient;
+  @Deprecated('В этом проекте не нужно')
+  final RefreshClient<T>? refreshClient;
 
   /// Async cache that ensures that only one request is made to the storage
   /// simultaneously.
@@ -160,8 +163,8 @@ class AuthInterceptor<T> extends QueuedInterceptor
       return handler.next(response);
     }
 
-    final newResponse = await _refresh(response, token);
-    handler.resolve(newResponse);
+    await clearTokenPair();
+    handler.next(response);
   }
 
   @override
@@ -178,12 +181,8 @@ class AuthInterceptor<T> extends QueuedInterceptor
       return handler.next(err);
     }
 
-    try {
-      final refreshResponse = await _refresh(response, token);
-      handler.resolve(refreshResponse);
-    } on DioException catch (error) {
-      handler.next(error);
-    }
+    await clearTokenPair();
+    handler.next(err);
   }
 
   // coverage:ignore-start
@@ -221,12 +220,13 @@ class AuthInterceptor<T> extends QueuedInterceptor
     }
   }
 
+  @Deprecated('В этом проекте не нужно')
   Future<Response<R>> _refresh<R>(Response<R> response, T token) async {
     final T newTokenPair;
 
     try {
       // Refresh the token pair
-      newTokenPair = await refreshClient.refreshToken(token);
+      newTokenPair = await refreshClient!.refreshToken(token);
     } on RevokeTokenException {
       // Clear the token pair
       logger.info('Revoking token pair');

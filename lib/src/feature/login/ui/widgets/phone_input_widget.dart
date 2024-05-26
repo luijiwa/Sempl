@@ -1,13 +1,21 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/logger.dart';
 
 class PhoneInputWidget extends StatefulWidget {
-  const PhoneInputWidget({super.key, required this.formKey});
+  const PhoneInputWidget({
+    super.key,
+    required this.formKey,
+    required this.controller,
+    required this.maskFormatter,
+  });
   final GlobalKey<FormState> formKey;
-
+  final TextEditingController controller;
+  final MaskTextInputFormatter maskFormatter;
   @override
   State<PhoneInputWidget> createState() => _PhoneInputWidgetState();
 }
@@ -19,10 +27,7 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
     const blueColor = Color(0xFF99BFD4);
     const errorBackgroundColor = Color(0xFFf9dee3);
     const errorBorderColor = Color(0xFFE25C74);
-    var maskFormatter = MaskTextInputFormatter(
-        mask: '### ### ## ##',
-        filter: {"#": RegExp(r'[0-9]')},
-        type: MaskAutoCompletionType.lazy);
+
     return LayoutBuilder(builder: (context, constraints) {
       final height = MediaQuery.of(context).size.height;
       final width = MediaQuery.of(context).size.width;
@@ -87,7 +92,7 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                   Form(
                     key: widget.formKey,
                     child: TextFormField(
-                      inputFormatters: [maskFormatter],
+                      inputFormatters: [widget.maskFormatter],
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           setState(() {
@@ -101,6 +106,7 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
 
                         return null;
                       },
+                      controller: widget.controller,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/widgets.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 
 class DropdownCustomWidgetNew extends StatefulWidget {
@@ -155,7 +156,46 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
         height: width * 0.123, // 0.12216,
 
         child: DropdownButtonHideUnderline(
-          child: DropdownButton2<String>(
+          child: DropdownButtonFormField2<String>(
+            validator: (value) => value == null ? 'Field is required' : null,
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                borderSide:
+                    BorderSide(width: 0.5, color: AppThemeColor.blueColor),
+              ),
+              hintStyle: const TextStyle(
+                fontSize: 14,
+                color: AppThemeColor.gris,
+              ),
+              disabledBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
+              ),
+              enabledBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
+              ),
+              errorBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                borderSide: BorderSide(width: 0.5, color: AppThemeColor.rose),
+              ),
+              focusedErrorBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                borderSide: BorderSide(width: 0.5, color: AppThemeColor.rose),
+              ),
+              alignLabelWithHint: true,
+              filled: true,
+              fillColor: Colors.white,
+              errorStyle: const TextStyle(fontSize: 0),
+              contentPadding: EdgeInsets.symmetric(
+                  vertical: width * 0.02803813559,
+                  horizontal: width * 0.0496059322),
+            ),
             isExpanded: true,
             hint: Row(
               children: [
@@ -188,7 +228,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
               });
               widget.onChanged(value);
             },
-            buttonStyleData: dropdownButtonStyleData,
+            // buttonStyleData: dropdownButtonStyleData,
             iconStyleData: dropdownIconStyleData,
             dropdownStyleData: dropdownDropdownStyleData,
             menuItemStyleData: dropdownMenuItemStyleData,

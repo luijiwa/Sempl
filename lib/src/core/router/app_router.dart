@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
+import 'package:sempl/src/core/router/auth_guard.dart';
+import 'package:sempl/src/core/router/redirect_builder.dart';
 import 'package:sempl/src/feature/confirmation/confirmation_screen.dart';
 import 'package:sempl/src/feature/delivery/delivery_screen.dart';
 import 'package:sempl/src/feature/feedback/ui/feedback_screen.dart';
 import 'package:sempl/src/feature/feedback/ui/widgets/%D1%81onfirmation_feedback_screen.dart';
 import 'package:sempl/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
 import 'package:sempl/src/feature/item/item_screen.dart';
+import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 import 'package:sempl/src/feature/login/ui/login_screen.dart';
 import 'package:sempl/src/feature/main/main_screen.dart';
 import 'package:sempl/src/feature/onboarding/onboarding_screen.dart';
@@ -58,7 +62,7 @@ class AppRouter {
             name: AppRoutes.loginConfirmation.name,
             path: AppRoutes.loginConfirmation.path,
             builder: (context, state) {
-              return const ConfirmationScreen();
+              return const ConfirmationAuthScreen();
             },
           ),
         ],
@@ -180,5 +184,9 @@ class AppRouter {
         ],
       ),
     ],
+    redirect: RedirectBuilder({
+      RedirectIfAuthenticatedGuard(),
+      RedirectIfUnauthenticatedGuard(),
+    }),
   );
 }

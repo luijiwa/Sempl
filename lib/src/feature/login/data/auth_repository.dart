@@ -1,13 +1,20 @@
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 
 /// AuthRepository
 abstract interface class AuthRepository<T> implements AuthStatusDataSource {
   /// Sign in first step with phone
-  Future<bool> signInFirstStepWithPhone(String phone);
+  Future<int> signInFirstStepWithPhone(String phone);
 
   /// Sign in with phone and code
   Future<T> signInWithPhoneAndCode(String phone, String code);
+
+  /// Submit code for registration
+  Future<void> registrationRequest(String phone);
+
+  /// Submit registration form
+  Future<T> submitRegistrationForm(Map<String, String> form);
 
   /// Sign out
   Future<void> signOut();
@@ -26,11 +33,9 @@ final class AuthRepositoryImpl<T> implements AuthRepository<T> {
         _storage = storage;
 
   @override
-  Future<T> signInWithPhoneAndCode(
-    String email,
-    String password,
-  ) async {
-    final token = await _dataSource.signInWithEmailAndPassword(email, password);
+  Future<T> signInWithPhoneAndCode(String phone, String code) async {
+    logger.info('signInWithPhoneAndCode вызов: $phone, $code');
+    final token = await _dataSource.signInWithPhoneAndCode(phone, code);
     await _storage.save(token);
 
     return token;
@@ -38,7 +43,7 @@ final class AuthRepositoryImpl<T> implements AuthRepository<T> {
 
   @override
   Future<void> signOut() async {
-    await _dataSource.signOut();
+    // await _dataSource.signOut();
     await _storage.clear();
   }
 
@@ -51,7 +56,17 @@ final class AuthRepositoryImpl<T> implements AuthRepository<T> {
           );
 
   @override
-  Future<bool> signInFirstStepWithPhone(String phone) {
+  Future<int> signInFirstStepWithPhone(String phone) {
     return _dataSource.signInFirstStepWithPhone(phone);
+  }
+
+  @override
+  Future<void> registrationRequest(String phone) {
+    return _dataSource.registrationRequest(phone);
+  }
+
+  @override
+  Future<T> submitRegistrationForm(Map<String, String> form) {
+    return _dataSource.submitRegistrationForm(form);
   }
 }

@@ -21,6 +21,13 @@ class $AssetsIconsGen {
   SvgGenImage get arrowRight =>
       const SvgGenImage('assets/icons/arrow_right.svg');
 
+  /// File path: assets/icons/delete_icon.svg
+  SvgGenImage get deleteIcon =>
+      const SvgGenImage('assets/icons/delete_icon.svg');
+
+  /// File path: assets/icons/exit.svg
+  SvgGenImage get exit => const SvgGenImage('assets/icons/exit.svg');
+
   /// File path: assets/icons/like.svg
   SvgGenImage get like => const SvgGenImage('assets/icons/like.svg');
 
@@ -64,6 +71,8 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [
         frame2,
         arrowRight,
+        deleteIcon,
+        exit,
         like,
         penWrite,
         pickPhotoOrVideo,

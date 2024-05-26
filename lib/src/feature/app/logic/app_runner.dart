@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc_concurrency/bloc_concurrency.dart' as bloc_concurrency;
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/constant/config.dart';
@@ -20,7 +21,6 @@ final class AppRunner {
   /// Start the initialization and in case of success run application
   Future<void> initializeAndRun() async {
     final binding = WidgetsFlutterBinding.ensureInitialized();
-
     // Preserve splash screen
     binding.deferFirstFrame();
 

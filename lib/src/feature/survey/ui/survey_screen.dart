@@ -49,7 +49,6 @@ class _SurveyScreenState extends State<SurveyScreen> {
                 onPressed: _previousPage,
               ),
             ),
-            backgroundColor: const Color(0xffff8f8f8),
             body: Column(children: [
               PageIndicatorWidget(currentPageIndex: _currentPageIndex),
               Expanded(

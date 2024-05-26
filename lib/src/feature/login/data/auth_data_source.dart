@@ -1,150 +1,176 @@
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/utils/logger.dart';
 
-/// Token is a simple class that holds the access and refresh token
+/// Класс, содержащий токены доступа и обновления
 class Token {
-  /// Create a [Token]
+  /// Создание [Token]
   const Token(this.accessToken);
 
-  /// Access token (used to authenticate the user)
+  /// Токен доступа (используется для аутентификации пользователя)
   final String accessToken;
 }
 
-/// Data source for authentication
+/// Источник данных для аутентификации
 abstract interface class AuthDataSource<T> {
-  /// Sign in first step with phone
-  Future<bool> signInFirstStepWithPhone(String phone);
+  /// Первый шаг входа с использованием телефона
+  Future<int> signInFirstStepWithPhone(String phone);
 
-  /// Sign in with phone and code
-  Future<T> signInWithEmailAndPassword(String phone, String code);
+  /// Вход с использованием телефона и кода
+  Future<T> signInWithPhoneAndCode(String phone, String code);
 
-  /// Sign out
+  /// Отправка кода для регистрации
+  Future<void> registrationRequest(String phone);
+
+  /// Отправка регистрационной формы
+  Future<T> submitRegistrationForm(Map<String, String> form);
+
+  /// Выход из системы
   Future<void> signOut();
 }
 
-/// Auth data source that interacts with backend
-/// and interprets the response as [Token] or throws [AuthenticationException]
+/// Источник данных для аутентификации, работающий с бэкендом
 final class AuthDataSourceNetwork implements AuthDataSource<Token> {
   final RestClient _client;
 
-  /// Create an [AuthDataSourceNetwork]
+  /// Создание [AuthDataSourceNetwork]
   const AuthDataSourceNetwork({required RestClient client}) : _client = client;
 
   @override
-  Future<Token> signInWithEmailAndPassword(
-    String phone,
-    String code,
-  ) async {
-    logger.debug('Не тот запрос пошел');
+  Future<int> signInFirstStepWithPhone(String phone) async {
+    Map<String, Object?>? response;
+
+    try {
+      response = await _client.post(
+        '/api/auth/send-code-auth', //точно
+        body: {
+          'phone': phone,
+        },
+      );
+      logger.info('HEHEHHEHE $response');
+      _checkForErrors(response);
+
+      return 1;
+    } on Object catch (e) {
+      if (e is RestClientException && e.statusCode == 400) {
+        logger.error('Телефон не зарегистрирован');
+        return 0;
+      } else {
+        logger.error('Ошибка при первом шаге входа: $e');
+        rethrow;
+      }
+    }
+  }
+
+  @override
+  Future<Token> signInWithPhoneAndCode(String phone, String code) async {
+    logger.i('Запрос на проверку кода SMS');
+    try {
+      final response = await _client.post(
+        '/api/auth/verify-code-and-auth', //точно
+        body: {
+          'phone': phone,
+          'verification_code': code,
+        },
+      );
+      logger.i('Ответ сервера: $response');
+
+      _checkForErrors(response);
+
+      if (response is Map<String, dynamic> &&
+          response.containsKey('access_token')) {
+        return Token(response['access_token']);
+      }
+
+      throw FormatException('Непонятный ответ сервера', response);
+    } on Object catch (e) {
+      logger.e('Не удалось проверить код', error: e);
+      throw FormatException('Непонятный ответ сервера', e);
+    }
+  }
+
+  @override
+  Future<void> signOut() async {
     final response = await _client.post(
-      '/api/client/auth/checkSmsCode',
-      body: {
-        'phone': phone,
-        'code': code,
-      },
-    );
-
-    // Check if response is an error
-    if (response
-        case {
-          'error': {
-            // optional message provided by the server
-            'message': final String message,
-            // system error code
-            'code': final int code,
-          }
-        }) {
-      throw switch (code) {
-        WrongCredentialsException.code => const WrongCredentialsException(),
-        _ => UnknownAuthenticationException(code: code, error: message)
-      };
-    }
-    logger.info(response ?? 'No response');
-
-    // Check if response contains access_token and refresh_token
-    if (response
-        case {
-          'token': final String accessToken,
-        }) {
-      return Token(accessToken);
-    }
-
-    // If we can't understand the response, throw a format exception
-    throw FormatException(
-      'Returned response is not understood by the application',
-      response,
+      '/api/logout',
+      body: {},
     );
   }
 
   @override
-  Future<void> signOut() async {}
+  Future<void> registrationRequest(String phone) async {
+    Map<String, Object?>? response;
+    try {
+      response = await _client.post(
+        '/api//auth/send-code', //точно
+        body: {
+          'phone': phone,
+        },
+      );
+    } catch (e) {
+      logger.e('Не удалось отправить код', error: e);
+      throw FormatException('Непонятный ответ сервера', response);
+    }
+
+    if (response == null || response.isEmpty) {
+      throw FormatException('Непонятный ответ сервера', response);
+    }
+  }
 
   @override
-  Future<bool> signInFirstStepWithPhone(String phone) async {
+  Future<Token> submitRegistrationForm(Map<String, String> form) async {
     final response = await _client.post(
-      '/api/client/auth/requestSmsCode',
-      body: {
-        "phone": phone,
-      },
+      '/api/auth/verify-code-and-register', //точно
+      body: form,
     );
-    logger.info(response ?? 'No response');
 
-    // Check if response is an error
-    if (response
-        case {
-          'error': {
-            // optional message provided by the server
-            'message': final String message,
-            // system error code
-            'code': final int code,
-          }
-        }) {
+    _checkForErrors(response);
+
+    if (response is Map<String, dynamic> &&
+        response.containsKey('access_token')) {
+      return Token(response['access_token']);
+    }
+
+    throw FormatException('Непонятный ответ сервера', response);
+  }
+
+  void _checkForErrors(Map<String, dynamic>? response) {
+    if (response is Map<String, dynamic> && response.containsKey('error')) {
+      final error = response['error'];
+      final code = error['code'];
+      final message = error['message'];
+
       throw switch (code) {
         WrongCredentialsException.code => const WrongCredentialsException(),
-        _ => UnknownAuthenticationException(code: code, error: message)
+        _ => UnknownAuthenticationException(code: code, error: message),
       };
     }
-
-    // Check if response contains access_token and refresh_token
-    if (response
-        case {
-          'phone': final String phone,
-        }) {
-      return true;
-    }
-
-    // If we can't understand the response, throw a format exception
-    throw FormatException(
-      'Returned response is not understood by the application',
-      response,
-    );
   }
 }
 
-/// Exception thrown when the authentication fails
+/// Исключение, выбрасываемое при ошибке аутентификации
 base class AuthenticationException implements Exception {
-  /// Create a [AuthenticationException]
+  /// Создание [AuthenticationException]
   const AuthenticationException();
 }
 
-/// Exception thrown when the credentials are wrong
+/// Исключение, выбрасываемое при неправильных учетных данных
 final class WrongCredentialsException implements AuthenticationException {
-  /// Create a [WrongCredentialsException]
+  /// Создание [WrongCredentialsException]
   const WrongCredentialsException();
 
-  /// [10001] is the system error code for wrong credentials
+  /// [10001] системный код ошибки для неправильных учетных данных
   static const int code = 10001;
 }
 
-/// Unknown authentication exception
+/// Неизвестное исключение аутентификации
 final class UnknownAuthenticationException implements AuthenticationException {
-  /// System error code, that is not understood
+  /// Системный код ошибки, который не понят
   final int? code;
 
-  /// Error message
+  /// Сообщение об ошибке
   final Object error;
 
-  /// Create a [UnknownAuthenticationException]
+  /// Создание [UnknownAuthenticationException]
   const UnknownAuthenticationException({
     required this.error,
     this.code,
