@@ -17,5 +17,12 @@ final class ProfileRepositoryImpl implements ProfileRepository {
         _storage = storage;
 
   @override
-  Future<UserData> loadUserData() => _dataSource.loadUserData();
+  Future<UserData> loadUserData() async {
+    final response = await _dataSource.loadUserData();
+    if (response is Map<String, dynamic> &&
+        response.containsKey('access_token')) {
+      _storage.save(response['access_token']);
+    }
+    return UserData.fromJson(response as Map<String, dynamic>);
+  }
 }
