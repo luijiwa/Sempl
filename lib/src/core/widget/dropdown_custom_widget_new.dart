@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 
 class DropdownCustomWidgetNew extends StatefulWidget {
@@ -9,11 +8,13 @@ class DropdownCustomWidgetNew extends StatefulWidget {
     required this.listItems,
     required this.hint,
     required this.onChanged,
+    this.initialValue, // Add initialValue parameter
   });
 
   final List<String> listItems;
   final String hint;
   final ValueChanged<String?> onChanged;
+  final String? initialValue; // Add initialValue field
 
   @override
   State<DropdownCustomWidgetNew> createState() =>
@@ -210,17 +211,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
             selectedItemBuilder: (context) =>
                 _listChecked(widget.listItems).toList(),
             items: _addDividersAfterItems(widget.listItems),
-
-            // items: widget.listItems
-            //     .map((String item) => DropdownMenuItem<String>(
-            //           value: item,
-            //           child: Text(
-            //             item,
-            //             style: dropdownItemTextStyle,
-            //             overflow: TextOverflow.visible,
-            //           ),
-            //         ))
-            //     .toList(),
             value: selectedValue,
             onChanged: (value) {
               setState(() {
@@ -228,7 +218,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
               });
               widget.onChanged(value);
             },
-            // buttonStyleData: dropdownButtonStyleData,
             iconStyleData: dropdownIconStyleData,
             dropdownStyleData: dropdownDropdownStyleData,
             menuItemStyleData: dropdownMenuItemStyleData,

@@ -1,20 +1,28 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
+import 'package:sempl/src/feature/main/main_screen.dart';
 
 class ItemInListWidget extends StatelessWidget {
-  const ItemInListWidget({super.key, this.applyColorFilter = false});
+  const ItemInListWidget(
+      {super.key, this.applyColorFilter = false, required this.index});
   final bool applyColorFilter;
-
+  final int index;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     final imageSize = width * 0.357;
     final offset = height * 0.029;
+    final item = context.read<MainScreenBloc>().state.newSempls.data[index];
+    final Widget image = item.photo.isEmpty
+        ? Image.asset("assets/images/empty_avatar.png")
+        : Image.network(item.photo);
     return Ink(
       color: Colors.transparent,
       child: GestureDetector(
@@ -37,9 +45,9 @@ class ItemInListWidget extends StatelessWidget {
                           AppThemeColor.grey,
                           BlendMode.multiply,
                         ),
-                        child: Image.asset("assets/images/item_image.png"),
+                        child: image,
                       )
-                    : Image.asset("assets/images/item_image.png"),
+                    : image,
               ),
               // if (applyColorFilter) // Проверяем, нужно ли применять фильтр
               //   ColorFiltered(

@@ -5,16 +5,22 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:sempl/src/core/widget/required_input_field.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 
-class AddressDataFieldsWidget extends StatefulWidget {
+class AddressDataFieldsWidget extends StatelessWidget {
   const AddressDataFieldsWidget({
     super.key,
+    this.initialCity,
+    this.initialStreet,
+    this.initialHouse,
+    this.initialApartment,
+    this.initialZipCode,
+    this.initialEntrance,
   });
-  @override
-  State<AddressDataFieldsWidget> createState() =>
-      _AddressDataFieldsWidgetState();
-}
-
-class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
+  final String? initialCity;
+  final String? initialStreet;
+  final String? initialHouse;
+  final String? initialApartment;
+  final String? initialEntrance;
+  final String? initialZipCode;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -25,7 +31,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
         mask: '### ###', filter: {"#": RegExp(r'[0-9]')});
 
     return Form(
-      key: widget.key, // Привязка формы к GlobalKey
+      key: key, // Привязка формы к GlobalKey
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,6 +45,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
           SizedBox(height: width * 0.05),
           RequiredInputField(
               hintText: 'Город',
+              initialValue: initialCity,
               keyboardType: TextInputType.streetAddress,
               inputFormatters: [
                 // Запрещает вводить любые символы, кроме букв, пробелов и дефиса
@@ -51,6 +58,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
           RequiredInputField(
               hintText: 'Улица',
               keyboardType: TextInputType.streetAddress,
+              initialValue: initialStreet,
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp(r'[а-яА-Я0-9/ -]+')),
               ]),
@@ -62,6 +70,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
                 child: RequiredInputField(
                   hintText: 'Номер дома',
                   keyboardType: TextInputType.streetAddress,
+                  initialValue: initialHouse,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(
                         RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
@@ -73,6 +82,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
                 child: RequiredInputField(
                     hintText: 'Номер квартиры',
                     keyboardType: TextInputType.streetAddress,
+                    initialValue: initialApartment,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                           RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
@@ -85,12 +95,13 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
-                child: TextField(
+                child: TextFormField(
                   keyboardType: TextInputType.streetAddress,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(
                         RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
                   ],
+                  initialValue: initialEntrance,
                   decoration: InputDecoration(
                     contentPadding: edgeInsets,
                     hintText: 'Подъезд',
@@ -100,6 +111,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
               const SizedBox(width: 4),
               Expanded(
                 child: RequiredInputField(
+                  initialValue: initialZipCode,
                   hintText: 'Почтовый индекс',
                   keyboardType: TextInputType.number,
                   inputFormatters: [zipCodeFormatter],
@@ -118,6 +130,7 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
     );
   }
 }
+
 // TextField(
 //                   decoration: InputDecoration(
 //                       contentPadding: EdgeInsets.symmetric(

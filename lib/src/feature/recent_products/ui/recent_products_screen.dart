@@ -77,11 +77,12 @@ class RecentProductsScreen extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
-                  return const ItemInListWidget(
+                  return ItemInListWidget(
+                    index: index,
                     applyColorFilter: true,
                   );
                 },
-                childCount: 10, // Количество элементов в списке
+                childCount: 4, // Количество элементов в списке
               ),
             ),
           ),

@@ -7,6 +7,8 @@ import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 import 'package:sempl/src/feature/login/data/auth_repository.dart';
 import 'package:sempl/src/feature/login/data/token_storage_sp.dart';
+import 'package:sempl/src/feature/main/data/data_source/main_screen_data_source.dart';
+import 'package:sempl/src/feature/main/data/repository/main_screen_repository.dart';
 import 'package:sempl/src/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
 import 'package:sempl/src/feature/survey/data/survey_data_source.dart';
@@ -91,7 +93,8 @@ final class CompositionRoot {
     final itemRepository = ItemRepositoryImpl(
       ItemDataSourceNetwork(restClient),
     );
-
+    final mainScreenRepository = MainScreenRepositoryImpl(
+        dataSource: MainScreenDataSourceNetwork(restClient), storage: storage);
     final profileRepository = ProfileRepositoryImpl(
       dataSource: ProfileDataSourceNetwork(restClient),
       storage: storage,
@@ -116,6 +119,7 @@ final class CompositionRoot {
       surveyRepository: surveyRepository,
       profileRepository: profileRepository,
       itemRepository: itemRepository,
+      mainScreenRepository: mainScreenRepository,
     );
   }
 

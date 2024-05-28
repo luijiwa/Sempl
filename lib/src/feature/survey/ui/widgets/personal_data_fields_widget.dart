@@ -81,9 +81,10 @@ class PersonalDataFieldsWidget extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         DropdownCustomWidgetNew(
+          initialValue: initialGender,
           onChanged: (value) => onChangeGender,
           hint: 'Пол',
-          listItems: ['Мужской', 'Женский', 'Не указывать'],
+          listItems: const ['Мужской', 'Женский', 'Не указывать'],
         ),
         SizedBox(height: width * 0.1),
         TextFormField(

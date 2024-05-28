@@ -13,6 +13,7 @@ class RequiredInputField extends StatefulWidget {
     this.isError = false,
     this.inputFormatters,
     this.keyboardType,
+    this.initialValue,
   });
 
   final String hintText;
@@ -20,6 +21,7 @@ class RequiredInputField extends StatefulWidget {
   final bool isError;
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
+  final String? initialValue;
   @override
   State<RequiredInputField> createState() => _RequiredInputFieldState();
 }
@@ -32,6 +34,8 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
   void initState() {
     super.initState();
     _controller = TextEditingController();
+    _controller.text = widget.initialValue ?? '';
+    _isTextEmpty = widget.initialValue == null || widget.initialValue == '';
     _controller.addListener(_textListener);
   }
 
