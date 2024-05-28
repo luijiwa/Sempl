@@ -633,7 +633,7 @@ class __$$UserImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UserImpl implements _User {
+class _$UserImpl extends _User {
   const _$UserImpl(
       {this.id = 0,
       this.login = '',
@@ -665,7 +665,8 @@ class _$UserImpl implements _User {
       this.entrance = '',
       this.postalCode = '',
       this.phone = '',
-      this.fullAddress = ''});
+      this.fullAddress = ''})
+      : super._();
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -880,7 +881,7 @@ class _$UserImpl implements _User {
   }
 }
 
-abstract class _User implements User {
+abstract class _User extends User {
   const factory _User(
       {final int id,
       final String login,
@@ -913,6 +914,7 @@ abstract class _User implements User {
       final String postalCode,
       final String phone,
       final String fullAddress}) = _$UserImpl;
+  const _User._() : super._();
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 

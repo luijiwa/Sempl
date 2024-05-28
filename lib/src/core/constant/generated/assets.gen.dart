@@ -137,6 +137,10 @@ class $AssetsImagesGen {
   AssetGenImage get dngParfume =>
       const AssetGenImage('assets/images/dng_parfume.jpeg');
 
+  /// File path: assets/images/empty_avatar.png
+  AssetGenImage get emptyAvatar =>
+      const AssetGenImage('assets/images/empty_avatar.png');
+
   /// File path: assets/images/face_header.png
   AssetGenImage get faceHeader =>
       const AssetGenImage('assets/images/face_header.png');
@@ -239,6 +243,7 @@ class $AssetsImagesGen {
         creamHeader,
         diamond,
         dngParfume,
+        emptyAvatar,
         faceHeader,
         flag,
         gift,

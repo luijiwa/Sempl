@@ -17,7 +17,7 @@ class ProfileAvatarRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
-    final user = context.read<ProfileBloc>().state.user_fields;
+
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       sliver: SliverToBoxAdapter(
@@ -25,118 +25,131 @@ class ProfileAvatarRowWidget extends StatelessWidget {
           buildWhen: (previous, current) =>
               previous.screenStatus != current.screenStatus,
           builder: (context, state) {
-            if (state.screenStatus == ScreenStatus.loading) {
-              return const Shimmer();
-            }
-            return Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Container(
-                      width: width * 0.2,
-                      height: width * 0.2,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: const Color(0xff7c94b6),
-                        image: const DecorationImage(
-                          image: AssetImage('assets/images/profile.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                        border: Border.all(
-                          color: AppThemeColor.blueColor,
-                          width: 1.0,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Container(
-                        width: width * 0.05,
-                        height: width * 0.05,
-                        padding: EdgeInsets.all(width * 0.005),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppThemeColor.blueColor,
-                            border: Border.all(
-                              color: Colors.white,
-                              width: 1.0,
-                            )),
-                        child: SvgPicture.asset(
-                          'assets/icons/pen_write.svg',
-                          colorFilter: const ColorFilter.mode(
-                              Colors.white, BlendMode.srcIn),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(width: 5),
-                Column(
+            final user = state.user_fields;
+            final ImageProvider image = user.profilePhoto.isEmpty
+                ? const AssetImage("assets/images/empty_avatar.png")
+                    as ImageProvider
+                : NetworkImage(user.profilePhoto) as ImageProvider;
+            switch (state.screenStatus) {
+              case ScreenStatus.success:
+                return Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    AutoSizeText(
-                      'КАСИА ЛАНГЕР',
-                      style: Theme.of(context).textTheme.appProfileTitle,
-                      maxLines: 1,
+                    Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Container(
+                          width: width * 0.2,
+                          height: width * 0.2,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: const Color(0xff7c94b6),
+                            image: DecorationImage(
+                              image: image,
+                              fit: BoxFit.cover,
+                            ),
+                            border: Border.all(
+                              color: AppThemeColor.blueColor,
+                              width: 1.0,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: Container(
+                            width: width * 0.05,
+                            height: width * 0.05,
+                            padding: EdgeInsets.all(width * 0.005),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppThemeColor.blueColor,
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 1.0,
+                                )),
+                            child: SvgPicture.asset(
+                              'assets/icons/pen_write.svg',
+                              colorFilter: const ColorFilter.mode(
+                                  Colors.white, BlendMode.srcIn),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(height: height * 0.0059),
-                    const AutoSizeText(
-                      "@WOLFLIKEMEEE",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: AppThemeColor.blueColor,
-                      ),
-                      maxLines: 1,
+                    const SizedBox(width: 5),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        AutoSizeText(
+                          user.fullName,
+                          style: Theme.of(context).textTheme.appProfileTitle,
+                          maxLines: 1,
+                        ),
+                        SizedBox(height: height * 0.0059),
+                        AutoSizeText(
+                          user.loginUpper,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: AppThemeColor.blueColor,
+                          ),
+                          maxLines: 1,
+                        ),
+                        SizedBox(height: height * 0.0059),
+                        const PointsWidget(),
+                      ],
                     ),
-                    SizedBox(height: height * 0.0059),
-                    const PointsWidget(),
-                  ],
-                ),
-                const Spacer(),
-                ElevatedButton(
-                  onPressed: () {
-                    context.goNamed(AppRoutes.profileEdit.name);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size.zero,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.0357, vertical: height * 0.0059),
-                    backgroundColor: AppThemeColor.blueColor,
-                    elevation: 0,
-                    textStyle: Theme.of(context)
-                        .textTheme
-                        .appBodyMedium
-                        .copyWith(color: Colors.white, fontSize: 8, height: 0),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Изменить ',
-                        style: Theme.of(context)
+                    const Spacer(),
+                    ElevatedButton(
+                      onPressed: () {
+                        context.goNamed(AppRoutes.profileEdit.name);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size.zero,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: width * 0.0357,
+                            vertical: height * 0.0059),
+                        backgroundColor: AppThemeColor.blueColor,
+                        elevation: 0,
+                        textStyle: Theme.of(context)
                             .textTheme
                             .appBodyMedium
                             .copyWith(
-                                color: Colors.white, fontSize: 12, height: 0),
+                                color: Colors.white, fontSize: 8, height: 0),
                       ),
-                      SvgPicture.asset(
-                        'assets/icons/settings.svg',
-                        colorFilter: const ColorFilter.mode(
-                            Colors.white, BlendMode.srcIn),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Изменить ',
+                            style: Theme.of(context)
+                                .textTheme
+                                .appBodyMedium
+                                .copyWith(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    height: 0),
+                          ),
+                          SvgPicture.asset(
+                            'assets/icons/settings.svg',
+                            colorFilter: const ColorFilter.mode(
+                                Colors.white, BlendMode.srcIn),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                )
-              ],
-            );
+                    )
+                  ],
+                );
+              default:
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+            }
           },
         ),
       ),

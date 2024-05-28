@@ -34,7 +34,7 @@ class ExitAndDeleteAccountColumnWidget extends StatelessWidget {
               ),
               onPressed: () {
                 // AuthScope.of(context).signOut();
-
+                ///TODO
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text(

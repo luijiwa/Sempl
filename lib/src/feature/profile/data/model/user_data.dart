@@ -48,6 +48,10 @@ class User with _$User {
     @Default('') String phone,
     @Default('') String fullAddress,
   }) = _User;
+  const User._();
+
+  String get fullName => '$firstName $lastName';
+  String get loginUpper => login.toUpperCase();
 
   factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
 }

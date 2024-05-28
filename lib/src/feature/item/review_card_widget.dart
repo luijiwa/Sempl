@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
-import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
 import 'package:sempl/src/feature/item/full_screen_review_widget.dart';
@@ -71,7 +70,7 @@ class CommentItem extends StatelessWidget {
     final listReview = context.read<ItemBloc>().state.itemRating.data;
     final review = listReview[index];
     final ImageProvider image = review.image.isEmpty
-        ? const AssetImage("assets/images/profile.jpg") as ImageProvider
+        ? const AssetImage("assets/images/empty_avatar.jpg") as ImageProvider
         : NetworkImage(review.image) as ImageProvider;
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
@@ -180,33 +179,35 @@ class CommentItem extends StatelessWidget {
               spacing: 10.0,
               runSpacing: 10.0,
               children: [
-                ...images.map((imageUrl) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FullScreenPageView(
-                            images: images,
-                            videoUrl: video,
-                            index: images.indexOf(imageUrl),
+                ...images.map(
+                  (imageUrl) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FullScreenPageView(
+                              images: images,
+                              videoUrl: video,
+                              index: images.indexOf(imageUrl),
+                            ),
+                          ),
+                        );
+                      },
+                      child: SizedBox(
+                        width: 77,
+                        height: 77,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(7.0),
+                          child: Image.asset(
+                            imageUrl,
+                            fit: BoxFit.cover,
                           ),
                         ),
-                      );
-                    },
-                    child: SizedBox(
-                      width: 77,
-                      height: 77,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(7.0),
-                        child: Image.asset(
-                          imageUrl,
-                          fit: BoxFit.cover,
-                        ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  },
+                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
