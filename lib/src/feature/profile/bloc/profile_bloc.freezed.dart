@@ -123,6 +123,7 @@ abstract class _Load implements ProfileEvent {
 mixin _$ProfileState {
   ScreenStatus get screenStatus => throw _privateConstructorUsedError;
   User get userFields => throw _privateConstructorUsedError;
+  List<Orders> get orders => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -135,7 +136,7 @@ abstract class $ProfileStateCopyWith<$Res> {
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res, ProfileState>;
   @useResult
-  $Res call({ScreenStatus screenStatus, User userFields});
+  $Res call({ScreenStatus screenStatus, User userFields, List<Orders> orders});
 
   $UserCopyWith<$Res> get userFields;
 }
@@ -155,6 +156,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   $Res call({
     Object? screenStatus = null,
     Object? userFields = null,
+    Object? orders = null,
   }) {
     return _then(_value.copyWith(
       screenStatus: null == screenStatus
@@ -165,6 +167,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.userFields
           : userFields // ignore: cast_nullable_to_non_nullable
               as User,
+      orders: null == orders
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<Orders>,
     ) as $Val);
   }
 
@@ -185,7 +191,7 @@ abstract class _$$ProfileStateImplCopyWith<$Res>
       __$$ProfileStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ScreenStatus screenStatus, User userFields});
+  $Res call({ScreenStatus screenStatus, User userFields, List<Orders> orders});
 
   @override
   $UserCopyWith<$Res> get userFields;
@@ -204,6 +210,7 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
   $Res call({
     Object? screenStatus = null,
     Object? userFields = null,
+    Object? orders = null,
   }) {
     return _then(_$ProfileStateImpl(
       screenStatus: null == screenStatus
@@ -214,6 +221,10 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
           ? _value.userFields
           : userFields // ignore: cast_nullable_to_non_nullable
               as User,
+      orders: null == orders
+          ? _value._orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<Orders>,
     ));
   }
 }
@@ -223,7 +234,9 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
 class _$ProfileStateImpl implements _ProfileState {
   const _$ProfileStateImpl(
       {this.screenStatus = ScreenStatus.initial,
-      this.userFields = const User()});
+      this.userFields = const User(),
+      final List<Orders> orders = const <Orders>[]})
+      : _orders = orders;
 
   @override
   @JsonKey()
@@ -231,10 +244,18 @@ class _$ProfileStateImpl implements _ProfileState {
   @override
   @JsonKey()
   final User userFields;
+  final List<Orders> _orders;
+  @override
+  @JsonKey()
+  List<Orders> get orders {
+    if (_orders is EqualUnmodifiableListView) return _orders;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_orders);
+  }
 
   @override
   String toString() {
-    return 'ProfileState(screenStatus: $screenStatus, userFields: $userFields)';
+    return 'ProfileState(screenStatus: $screenStatus, userFields: $userFields, orders: $orders)';
   }
 
   @override
@@ -245,11 +266,13 @@ class _$ProfileStateImpl implements _ProfileState {
             (identical(other.screenStatus, screenStatus) ||
                 other.screenStatus == screenStatus) &&
             (identical(other.userFields, userFields) ||
-                other.userFields == userFields));
+                other.userFields == userFields) &&
+            const DeepCollectionEquality().equals(other._orders, _orders));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, screenStatus, userFields);
+  int get hashCode => Object.hash(runtimeType, screenStatus, userFields,
+      const DeepCollectionEquality().hash(_orders));
 
   @JsonKey(ignore: true)
   @override
@@ -261,12 +284,15 @@ class _$ProfileStateImpl implements _ProfileState {
 abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
       {final ScreenStatus screenStatus,
-      final User userFields}) = _$ProfileStateImpl;
+      final User userFields,
+      final List<Orders> orders}) = _$ProfileStateImpl;
 
   @override
   ScreenStatus get screenStatus;
   @override
   User get userFields;
+  @override
+  List<Orders> get orders;
   @override
   @JsonKey(ignore: true)
   _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>

@@ -4,10 +4,10 @@ part of 'main_screen_bloc.dart';
 class MainScreenState with _$MainScreenState {
   const factory MainScreenState({
     @Default(ScreenStatus.initial) ScreenStatus screenStatus,
-    @Default(NewSempls()) NewSempls newSempls,
+    @Default(<NewSemplsData>[]) List<NewSemplsData> newSempls,
   }) = _MainScreenState;
 
   const MainScreenState._();
   int get newSemplsCount =>
-      newSempls.data.length > 4 ? 4 : newSempls.data.length;
+      newSempls.length > 4 ? 4 : newSempls.length;
 }

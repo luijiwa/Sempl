@@ -6,7 +6,6 @@ import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
-import 'package:sempl/src/feature/main/main_screen.dart';
 
 class ItemInListWidget extends StatelessWidget {
   const ItemInListWidget(
@@ -19,7 +18,7 @@ class ItemInListWidget extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final imageSize = width * 0.357;
     final offset = height * 0.029;
-    final item = context.read<MainScreenBloc>().state.newSempls.data[index];
+    final item = context.read<MainScreenBloc>().state.newSempls[index];
     final Widget image = item.photo.isEmpty
         ? Image.asset("assets/images/empty_avatar.png")
         : Image.network(item.photo);
@@ -28,7 +27,7 @@ class ItemInListWidget extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           context.pushNamed(AppRoutes.itemScreen.name,
-              pathParameters: {'id': '1'});
+              pathParameters: {'id': item.id.toString()});
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: width * 0.05),
@@ -59,7 +58,7 @@ class ItemInListWidget extends StatelessWidget {
               //   )
               // else
               //   Image.asset("assets/images/item_image.png"),
-              Text("Vinopure".toUpperCase(),
+              Text(item.name.toUpperCase(),
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
@@ -67,9 +66,7 @@ class ItemInListWidget extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.25)
                     .copyWith(top: 4, bottom: 11),
-                child: AutoSizeText(
-                    "Sérum salicylique Anti-imperfections 30ml - Caudalie"
-                        .toUpperCase(),
+                child: AutoSizeText(item.description.toUpperCase(),
                     textAlign: TextAlign.center,
                     maxLines: 3,
                     style: const TextStyle(
@@ -78,7 +75,8 @@ class ItemInListWidget extends StatelessWidget {
                     )),
               ),
               Text(
-                "5.0 из 89 отзывов".toUpperCase(),
+                "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
+                    .toUpperCase(),
                 style: const TextStyle(fontSize: 8),
               ),
               const SizedBox(height: 11),

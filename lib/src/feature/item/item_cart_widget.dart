@@ -82,8 +82,8 @@ class ItemCard extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: height * 0.01),
-                    Image.asset(
-                      "assets/images/item_image_in_detail.png",
+                    Image.network(
+                      item.photo,
                       height: height * 0.22,
                     ),
                     SizedBox(height: height * 0.01),

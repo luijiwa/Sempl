@@ -10,7 +10,7 @@ import 'package:sempl/src/feature/main/data/model/new_sempls/new_sempls.dart';
 abstract interface class MainScreenRepository<T> {
   /// Загрузка информации о недавних примерах
   Future<NewSempls> loadNewSemplsData();
-  Future<Rating> loadRatingItem(String id);
+  Future<Rating> loadRatingItem(int id);
 }
 
 final class MainScreenRepositoryImpl implements MainScreenRepository {
@@ -42,7 +42,7 @@ final class MainScreenRepositoryImpl implements MainScreenRepository {
   }
 
   @override
-  Future<Rating> loadRatingItem(String id) async {
+  Future<Rating> loadRatingItem(int id) async {
     try {
       final response = await _dataSource.loadSemplsData();
       if (response is Map<String, dynamic> &&

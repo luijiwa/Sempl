@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,33 +39,35 @@ class _ItemScreenState extends State<ItemScreen> {
     return BlocProvider(
       create: (context) => _itemBloc,
       child: Scaffold(
+          floatingActionButton:
+              kDebugMode ? FloatingActionButton(onPressed: () {}) : null,
           body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            leading: const CustomBackButton(),
-            backgroundColor: AppThemeColor.grey,
-            title: Text(
-              'Страница продукта',
-              style: TextStyle(
-                fontSize: width > 320 ? 18 : 15,
-                fontWeight: FontWeight.w700,
+            slivers: [
+              SliverAppBar(
+                leading: const CustomBackButton(),
+                backgroundColor: AppThemeColor.grey,
+                title: Text(
+                  'Страница продукта',
+                  style: TextStyle(
+                    fontSize: width > 320 ? 18 : 15,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                centerTitle: true,
               ),
-            ),
-            centerTitle: true,
-          ),
-          SliverPadding(padding: EdgeInsets.only(top: height * 0.02)),
-          const ItemCard(),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 22)
-                .copyWith(top: 27, bottom: 15),
-            sliver: const CommentsRowWidget(),
-          ),
-          const ReviewCardWidget(),
-          const SliverToBoxAdapter(
-            child: BottomPadding(),
-          )
-        ],
-      )),
+              SliverPadding(padding: EdgeInsets.only(top: height * 0.02)),
+              const ItemCard(),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 22)
+                    .copyWith(top: 27, bottom: 15),
+                sliver: const CommentsRowWidget(),
+              ),
+              const ReviewCardWidget(),
+              const SliverToBoxAdapter(
+                child: BottomPadding(),
+              )
+            ],
+          )),
     );
   }
 }
@@ -78,11 +81,12 @@ class CommentsRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    final ratingCount = context.read<ItemBloc>().state.ratingCount;
     return SliverToBoxAdapter(
         child: BlocBuilder<ItemBloc, ItemState>(
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
+        final ratingCount = context.read<ItemBloc>().state.ratingCount;
+
         switch (state.status) {
           case ScreenStatus.success:
             return Row(children: [
@@ -113,14 +117,22 @@ class CommentsRowWidget extends StatelessWidget {
               ]),
             ]);
           default:
-            return shimmerCommentsItemCard(ratingCount, width, height);
+            return _ShimmerItemComments(width: width);
         }
       },
     ));
   }
+}
 
-  Shimmer shimmerCommentsItemCard(
-      String ratingCount, double width, double height) {
+class _ShimmerItemComments extends StatelessWidget {
+  const _ShimmerItemComments({
+    required this.width,
+  });
+
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
     return Shimmer.fromColors(
       baseColor: Colors.grey.shade300,
       highlightColor: Colors.grey.shade100,

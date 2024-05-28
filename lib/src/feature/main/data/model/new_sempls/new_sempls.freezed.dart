@@ -20,7 +20,7 @@ NewSempls _$NewSemplsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NewSempls {
-  List<Data> get data => throw _privateConstructorUsedError;
+  List<NewSemplsData> get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $NewSemplsCopyWith<$Res> {
   factory $NewSemplsCopyWith(NewSempls value, $Res Function(NewSempls) then) =
       _$NewSemplsCopyWithImpl<$Res, NewSempls>;
   @useResult
-  $Res call({List<Data> data});
+  $Res call({List<NewSemplsData> data});
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$NewSemplsCopyWithImpl<$Res, $Val extends NewSempls>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<Data>,
+              as List<NewSemplsData>,
     ) as $Val);
   }
 }
@@ -68,7 +68,7 @@ abstract class _$$NewSemplsImplCopyWith<$Res>
       __$$NewSemplsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Data> data});
+  $Res call({List<NewSemplsData> data});
 }
 
 /// @nodoc
@@ -88,7 +88,7 @@ class __$$NewSemplsImplCopyWithImpl<$Res>
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<Data>,
+              as List<NewSemplsData>,
     ));
   }
 }
@@ -96,16 +96,17 @@ class __$$NewSemplsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$NewSemplsImpl with DiagnosticableTreeMixin implements _NewSempls {
-  const _$NewSemplsImpl({final List<Data> data = const <Data>[]})
+  const _$NewSemplsImpl(
+      {final List<NewSemplsData> data = const <NewSemplsData>[]})
       : _data = data;
 
   factory _$NewSemplsImpl.fromJson(Map<String, dynamic> json) =>
       _$$NewSemplsImplFromJson(json);
 
-  final List<Data> _data;
+  final List<NewSemplsData> _data;
   @override
   @JsonKey()
-  List<Data> get data {
+  List<NewSemplsData> get data {
     if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
@@ -152,25 +153,25 @@ class _$NewSemplsImpl with DiagnosticableTreeMixin implements _NewSempls {
 }
 
 abstract class _NewSempls implements NewSempls {
-  const factory _NewSempls({final List<Data> data}) = _$NewSemplsImpl;
+  const factory _NewSempls({final List<NewSemplsData> data}) = _$NewSemplsImpl;
 
   factory _NewSempls.fromJson(Map<String, dynamic> json) =
       _$NewSemplsImpl.fromJson;
 
   @override
-  List<Data> get data;
+  List<NewSemplsData> get data;
   @override
   @JsonKey(ignore: true)
   _$$NewSemplsImplCopyWith<_$NewSemplsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Data _$DataFromJson(Map<String, dynamic> json) {
-  return _Data.fromJson(json);
+NewSemplsData _$NewSemplsDataFromJson(Map<String, dynamic> json) {
+  return _NewSemplsData.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Data {
+mixin _$NewSemplsData {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -179,16 +180,20 @@ mixin _$Data {
   Category get subcategory => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
+  double get rating => throw _privateConstructorUsedError;
+  int get countRating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DataCopyWith<Data> get copyWith => throw _privateConstructorUsedError;
+  $NewSemplsDataCopyWith<NewSemplsData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DataCopyWith<$Res> {
-  factory $DataCopyWith(Data value, $Res Function(Data) then) =
-      _$DataCopyWithImpl<$Res, Data>;
+abstract class $NewSemplsDataCopyWith<$Res> {
+  factory $NewSemplsDataCopyWith(
+          NewSemplsData value, $Res Function(NewSemplsData) then) =
+      _$NewSemplsDataCopyWithImpl<$Res, NewSemplsData>;
   @useResult
   $Res call(
       {int id,
@@ -198,16 +203,18 @@ abstract class $DataCopyWith<$Res> {
       Category category,
       Category subcategory,
       String createdAt,
-      String updatedAt});
+      String updatedAt,
+      double rating,
+      int countRating});
 
   $CategoryCopyWith<$Res> get category;
   $CategoryCopyWith<$Res> get subcategory;
 }
 
 /// @nodoc
-class _$DataCopyWithImpl<$Res, $Val extends Data>
-    implements $DataCopyWith<$Res> {
-  _$DataCopyWithImpl(this._value, this._then);
+class _$NewSemplsDataCopyWithImpl<$Res, $Val extends NewSemplsData>
+    implements $NewSemplsDataCopyWith<$Res> {
+  _$NewSemplsDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -225,6 +232,8 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
     Object? subcategory = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? rating = null,
+    Object? countRating = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -259,6 +268,14 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      countRating: null == countRating
+          ? _value.countRating
+          : countRating // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -280,10 +297,11 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
 }
 
 /// @nodoc
-abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
-  factory _$$DataImplCopyWith(
-          _$DataImpl value, $Res Function(_$DataImpl) then) =
-      __$$DataImplCopyWithImpl<$Res>;
+abstract class _$$NewSemplsDataImplCopyWith<$Res>
+    implements $NewSemplsDataCopyWith<$Res> {
+  factory _$$NewSemplsDataImplCopyWith(
+          _$NewSemplsDataImpl value, $Res Function(_$NewSemplsDataImpl) then) =
+      __$$NewSemplsDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -294,7 +312,9 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
       Category category,
       Category subcategory,
       String createdAt,
-      String updatedAt});
+      String updatedAt,
+      double rating,
+      int countRating});
 
   @override
   $CategoryCopyWith<$Res> get category;
@@ -303,10 +323,11 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$DataImplCopyWithImpl<$Res>
-    extends _$DataCopyWithImpl<$Res, _$DataImpl>
-    implements _$$DataImplCopyWith<$Res> {
-  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
+class __$$NewSemplsDataImplCopyWithImpl<$Res>
+    extends _$NewSemplsDataCopyWithImpl<$Res, _$NewSemplsDataImpl>
+    implements _$$NewSemplsDataImplCopyWith<$Res> {
+  __$$NewSemplsDataImplCopyWithImpl(
+      _$NewSemplsDataImpl _value, $Res Function(_$NewSemplsDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -320,8 +341,10 @@ class __$$DataImplCopyWithImpl<$Res>
     Object? subcategory = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? rating = null,
+    Object? countRating = null,
   }) {
-    return _then(_$DataImpl(
+    return _then(_$NewSemplsDataImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -354,14 +377,24 @@ class __$$DataImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      countRating: null == countRating
+          ? _value.countRating
+          : countRating // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DataImpl with DiagnosticableTreeMixin implements _Data {
-  const _$DataImpl(
+class _$NewSemplsDataImpl
+    with DiagnosticableTreeMixin
+    implements _NewSemplsData {
+  const _$NewSemplsDataImpl(
       {this.id = 0,
       this.name = '',
       this.description = '',
@@ -369,10 +402,12 @@ class _$DataImpl with DiagnosticableTreeMixin implements _Data {
       this.category = const Category(),
       this.subcategory = const Category(),
       this.createdAt = '',
-      this.updatedAt = ''});
+      this.updatedAt = '',
+      this.rating = 0,
+      this.countRating = 0});
 
-  factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DataImplFromJson(json);
+  factory _$NewSemplsDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NewSemplsDataImplFromJson(json);
 
   @override
   @JsonKey()
@@ -398,17 +433,23 @@ class _$DataImpl with DiagnosticableTreeMixin implements _Data {
   @override
   @JsonKey()
   final String updatedAt;
+  @override
+  @JsonKey()
+  final double rating;
+  @override
+  @JsonKey()
+  final int countRating;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Data(id: $id, name: $name, description: $description, photo: $photo, category: $category, subcategory: $subcategory, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'NewSemplsData(id: $id, name: $name, description: $description, photo: $photo, category: $category, subcategory: $subcategory, createdAt: $createdAt, updatedAt: $updatedAt, rating: $rating, countRating: $countRating)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Data'))
+      ..add(DiagnosticsProperty('type', 'NewSemplsData'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('description', description))
@@ -416,14 +457,16 @@ class _$DataImpl with DiagnosticableTreeMixin implements _Data {
       ..add(DiagnosticsProperty('category', category))
       ..add(DiagnosticsProperty('subcategory', subcategory))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt));
+      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('rating', rating))
+      ..add(DiagnosticsProperty('countRating', countRating));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DataImpl &&
+            other is _$NewSemplsDataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -436,30 +479,33 @@ class _$DataImpl with DiagnosticableTreeMixin implements _Data {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.countRating, countRating) ||
+                other.countRating == countRating));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description, photo,
-      category, subcategory, createdAt, updatedAt);
+      category, subcategory, createdAt, updatedAt, rating, countRating);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
-      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
+  _$$NewSemplsDataImplCopyWith<_$NewSemplsDataImpl> get copyWith =>
+      __$$NewSemplsDataImplCopyWithImpl<_$NewSemplsDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DataImplToJson(
+    return _$$NewSemplsDataImplToJson(
       this,
     );
   }
 }
 
-abstract class _Data implements Data {
-  const factory _Data(
+abstract class _NewSemplsData implements NewSemplsData {
+  const factory _NewSemplsData(
       {final int id,
       final String name,
       final String description,
@@ -467,9 +513,12 @@ abstract class _Data implements Data {
       final Category category,
       final Category subcategory,
       final String createdAt,
-      final String updatedAt}) = _$DataImpl;
+      final String updatedAt,
+      final double rating,
+      final int countRating}) = _$NewSemplsDataImpl;
 
-  factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
+  factory _NewSemplsData.fromJson(Map<String, dynamic> json) =
+      _$NewSemplsDataImpl.fromJson;
 
   @override
   int get id;
@@ -488,8 +537,12 @@ abstract class _Data implements Data {
   @override
   String get updatedAt;
   @override
+  double get rating;
+  @override
+  int get countRating;
+  @override
   @JsonKey(ignore: true)
-  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+  _$$NewSemplsDataImplCopyWith<_$NewSemplsDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

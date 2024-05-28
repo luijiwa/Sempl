@@ -3,6 +3,8 @@ import 'package:sempl/src/feature/profile/data/model/user_data.dart';
 
 abstract interface class ProfileDataSource {
   Future<Map<String, Object?>?> loadUserData();
+
+  Future<Map<String, Object?>?> loadUserSamples();
 }
 
 final class ProfileDataSourceNetwork implements ProfileDataSource {
@@ -13,6 +15,19 @@ final class ProfileDataSourceNetwork implements ProfileDataSource {
     try {
       final response = await _client.get('/api/users/CurrentUser');
 
+      if (response == null) {
+        throw const FormatException('Непонятный ответ сервера');
+      }
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Map<String, Object?>?> loadUserSamples() async {
+    try {
+      final response = await _client.get('/api/orders/userOrders');
       if (response == null) {
         throw const FormatException('Непонятный ответ сервера');
       }

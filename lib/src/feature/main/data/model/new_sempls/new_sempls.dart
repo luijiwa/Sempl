@@ -6,7 +6,7 @@ part 'new_sempls.g.dart';
 @freezed
 class NewSempls with _$NewSempls {
   const factory NewSempls({
-    @Default(<Data>[]) List<Data> data,
+    @Default(<NewSemplsData>[]) List<NewSemplsData> data,
   }) = _NewSempls;
 
   factory NewSempls.fromJson(Map<String, Object?> json) =>
@@ -14,8 +14,8 @@ class NewSempls with _$NewSempls {
 }
 
 @freezed
-class Data with _$Data {
-  const factory Data({
+class NewSemplsData with _$NewSemplsData {
+  const factory NewSemplsData({
     @Default(0) int id,
     @Default('') String name,
     @Default('') String description,
@@ -24,9 +24,12 @@ class Data with _$Data {
     @Default(Category()) Category subcategory,
     @Default('') String createdAt,
     @Default('') String updatedAt,
-  }) = _Data;
+    @Default(0) double rating,
+    @Default(0) int countRating,
+  }) = _NewSemplsData;
 
-  factory Data.fromJson(Map<String, Object?> json) => _$DataFromJson(json);
+  factory NewSemplsData.fromJson(Map<String, Object?> json) =>
+      _$NewSemplsDataFromJson(json);
 }
 
 @freezed

@@ -129,7 +129,7 @@ abstract class _Started implements MainScreenEvent {
 /// @nodoc
 mixin _$MainScreenState {
   ScreenStatus get screenStatus => throw _privateConstructorUsedError;
-  NewSempls get newSempls => throw _privateConstructorUsedError;
+  List<NewSemplsData> get newSempls => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainScreenStateCopyWith<MainScreenState> get copyWith =>
@@ -142,9 +142,7 @@ abstract class $MainScreenStateCopyWith<$Res> {
           MainScreenState value, $Res Function(MainScreenState) then) =
       _$MainScreenStateCopyWithImpl<$Res, MainScreenState>;
   @useResult
-  $Res call({ScreenStatus screenStatus, NewSempls newSempls});
-
-  $NewSemplsCopyWith<$Res> get newSempls;
+  $Res call({ScreenStatus screenStatus, List<NewSemplsData> newSempls});
 }
 
 /// @nodoc
@@ -171,16 +169,8 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
       newSempls: null == newSempls
           ? _value.newSempls
           : newSempls // ignore: cast_nullable_to_non_nullable
-              as NewSempls,
+              as List<NewSemplsData>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $NewSemplsCopyWith<$Res> get newSempls {
-    return $NewSemplsCopyWith<$Res>(_value.newSempls, (value) {
-      return _then(_value.copyWith(newSempls: value) as $Val);
-    });
   }
 }
 
@@ -192,10 +182,7 @@ abstract class _$$MainScreenStateImplCopyWith<$Res>
       __$$MainScreenStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ScreenStatus screenStatus, NewSempls newSempls});
-
-  @override
-  $NewSemplsCopyWith<$Res> get newSempls;
+  $Res call({ScreenStatus screenStatus, List<NewSemplsData> newSempls});
 }
 
 /// @nodoc
@@ -218,9 +205,9 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
           : screenStatus // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
       newSempls: null == newSempls
-          ? _value.newSempls
+          ? _value._newSempls
           : newSempls // ignore: cast_nullable_to_non_nullable
-              as NewSempls,
+              as List<NewSemplsData>,
     ));
   }
 }
@@ -231,15 +218,21 @@ class _$MainScreenStateImpl extends _MainScreenState
     with DiagnosticableTreeMixin {
   const _$MainScreenStateImpl(
       {this.screenStatus = ScreenStatus.initial,
-      this.newSempls = const NewSempls()})
-      : super._();
+      final List<NewSemplsData> newSempls = const <NewSemplsData>[]})
+      : _newSempls = newSempls,
+        super._();
 
   @override
   @JsonKey()
   final ScreenStatus screenStatus;
+  final List<NewSemplsData> _newSempls;
   @override
   @JsonKey()
-  final NewSempls newSempls;
+  List<NewSemplsData> get newSempls {
+    if (_newSempls is EqualUnmodifiableListView) return _newSempls;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_newSempls);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -262,12 +255,13 @@ class _$MainScreenStateImpl extends _MainScreenState
             other is _$MainScreenStateImpl &&
             (identical(other.screenStatus, screenStatus) ||
                 other.screenStatus == screenStatus) &&
-            (identical(other.newSempls, newSempls) ||
-                other.newSempls == newSempls));
+            const DeepCollectionEquality()
+                .equals(other._newSempls, _newSempls));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, screenStatus, newSempls);
+  int get hashCode => Object.hash(runtimeType, screenStatus,
+      const DeepCollectionEquality().hash(_newSempls));
 
   @JsonKey(ignore: true)
   @override
@@ -280,13 +274,13 @@ class _$MainScreenStateImpl extends _MainScreenState
 abstract class _MainScreenState extends MainScreenState {
   const factory _MainScreenState(
       {final ScreenStatus screenStatus,
-      final NewSempls newSempls}) = _$MainScreenStateImpl;
+      final List<NewSemplsData> newSempls}) = _$MainScreenStateImpl;
   const _MainScreenState._() : super._();
 
   @override
   ScreenStatus get screenStatus;
   @override
-  NewSempls get newSempls;
+  List<NewSemplsData> get newSempls;
   @override
   @JsonKey(ignore: true)
   _$$MainScreenStateImplCopyWith<_$MainScreenStateImpl> get copyWith =>

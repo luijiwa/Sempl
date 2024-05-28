@@ -9,9 +9,9 @@ part of 'new_sempls.dart';
 _$NewSemplsImpl _$$NewSemplsImplFromJson(Map<String, dynamic> json) =>
     _$NewSemplsImpl(
       data: (json['data'] as List<dynamic>?)
-              ?.map((e) => Data.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => NewSemplsData.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <Data>[],
+          const <NewSemplsData>[],
     );
 
 Map<String, dynamic> _$$NewSemplsImplToJson(_$NewSemplsImpl instance) =>
@@ -19,7 +19,8 @@ Map<String, dynamic> _$$NewSemplsImplToJson(_$NewSemplsImpl instance) =>
       'data': instance.data,
     };
 
-_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
+_$NewSemplsDataImpl _$$NewSemplsDataImplFromJson(Map<String, dynamic> json) =>
+    _$NewSemplsDataImpl(
       id: json['id'] as int? ?? 0,
       name: json['name'] as String? ?? '',
       description: json['description'] as String? ?? '',
@@ -32,9 +33,11 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
           : Category.fromJson(json['subcategory'] as Map<String, dynamic>),
       createdAt: json['created_at'] as String? ?? '',
       updatedAt: json['updated_at'] as String? ?? '',
+      rating: (json['rating'] as num?)?.toDouble() ?? 0,
+      countRating: json['count_rating'] as int? ?? 0,
     );
 
-Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+Map<String, dynamic> _$$NewSemplsDataImplToJson(_$NewSemplsDataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -44,6 +47,8 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
       'subcategory': instance.subcategory,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
+      'rating': instance.rating,
+      'count_rating': instance.countRating,
     };
 
 _$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>

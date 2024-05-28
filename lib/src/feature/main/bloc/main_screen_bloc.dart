@@ -17,11 +17,26 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
       emit(state.copyWith(screenStatus: ScreenStatus.loading));
       try {
         final item = await _mainScreenRepository.loadNewSemplsData();
-        if (kDebugMode) await Future.delayed(const Duration(seconds: 2));
         emit(state.copyWith(
-          screenStatus: ScreenStatus.success,
-          newSempls: item,
+          newSempls: item.data,
         ));
+        final updatedList = List<NewSemplsData>.from(state.newSempls);
+        for (var i = 0; i < item.data.length; i++) {
+          final id = item.data[i].id;
+          final ratingRequest = await _mainScreenRepository.loadRatingItem(id);
+          logger.e(ratingRequest.toString());
+          final rating = ratingRequest.data[i];
+          final sum = ratingRequest.data
+              .map((e) => e.rating)
+              .reduce((value, element) => value + element);
+          double ratingSum = sum / ratingRequest.data.length;
+
+          ratingSum = ratingSum / ratingRequest.data.length;
+          final updatedItem = updatedList[i] = updatedList[i].copyWith(
+              rating: ratingSum, countRating: ratingRequest.data.length);
+          emit(state.copyWith(newSempls: updatedList));
+        }
+        emit(state.copyWith(screenStatus: ScreenStatus.success));
       } catch (e) {
         logger.e(e);
         emit(state.copyWith(screenStatus: ScreenStatus.failure));
