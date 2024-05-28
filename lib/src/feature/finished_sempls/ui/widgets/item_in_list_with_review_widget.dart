@@ -47,7 +47,7 @@ class _ItemInListWithReviewWidgetState extends State<ItemInListWithReviewWidget>
       child: GestureDetector(
         onTapDown: _onTapDown,
         onTapUp: _onTapUp,
-        onTap: () => context.pushNamed(AppRoutes.itemScreen.name),
+        onTap: () => context.goNamed(AppRoutes.itemScreen.name),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: width * 0.05),
           decoration: BoxDecoration(
