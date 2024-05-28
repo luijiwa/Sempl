@@ -9,83 +9,114 @@ import 'package:sempl/src/feature/profile/bloc/profile_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/address_data_fields_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/personal_data_fields_widget.dart';
 
-class ProfileEditScreen extends StatelessWidget {
+class ProfileEditScreen extends StatefulWidget {
   const ProfileEditScreen({super.key, required this.bloc});
   final ProfileBloc bloc;
+
+  @override
+  State<ProfileEditScreen> createState() => _ProfileEditScreenState();
+}
+
+class _ProfileEditScreenState extends State<ProfileEditScreen> {
+  late final GlobalKey<FormState> _form;
+  bool _isFormValid = false;
+  @override
+  void initState() {
+    super.initState();
+    _form = GlobalKey<FormState>();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final fieldData = bloc.state.userFields;
+    final fieldData = widget.bloc.state.userFields;
+
     final double width = MediaQuery.sizeOf(context).width;
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppBar(
-                leading: const CustomBackButton(),
-                title: const Text('SEMPL!'),
-              ),
-              SizedBox(height: width * 0.058535),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: width * 0.15),
-                      child: const AutoSizeText(
-                        'Изменения будут сохранены в профиле',
-                        style: TextStyle(fontSize: 16),
-                        maxLines: 1,
-                      ),
-                    ),
-                    SizedBox(height: width * 0.0458),
-                    PersonalDataFieldsWidget(
-                      onChangeName: logger.info,
-                      onChangeGender: logger.info,
-                      onChangeLastName: logger.info,
-                      onChangeBirthdate: logger.info,
-                      onChangeLogin: (String login) {},
-                      onChangeEmail: (String email) {},
-                    ),
-                    SizedBox(height: width * 0.13743),
-                    const AddressDataFieldsWidget(),
-                    SizedBox(height: width * 0.170515),
-                    const Center(
-                      child: AutoSizeText(
-                        '*Не найдено такой улицы',
-                        style:
-                            TextStyle(color: AppThemeColor.rose, fontSize: 12),
-                        maxLines: 1,
-                        minFontSize: 10,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    const Center(
-                      child: AutoSizeText(
-                        '*Поля обязательные для заполнения',
-                        style:
-                            TextStyle(color: AppThemeColor.rose, fontSize: 12),
-                        maxLines: 1,
-                        minFontSize: 10,
-                      ),
-                    ),
-                    SizedBox(height: width * 0.02),
-                    NextStepButton(
-                        title: 'СОХРАНИТЬ ИЗМЕНЕНИЯ ',
-                        onPressed: () {
-                          // if (_addressFormKey.currentState!.validate()) {
-                          // } else {}
-                        }),
-                    const BottomPadding(),
-                  ],
+          child: Form(
+            key: _form,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppBar(
+                  leading: const CustomBackButton(),
+                  title: const Text('SEMPL!'),
                 ),
-              ),
-            ],
+                SizedBox(height: width * 0.058535),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: width * 0.15),
+                        child: const AutoSizeText(
+                          'Изменения будут сохранены в профиле',
+                          style: TextStyle(fontSize: 16),
+                          maxLines: 1,
+                        ),
+                      ),
+                      SizedBox(height: width * 0.0458),
+                      PersonalDataFieldsWidget(
+                        onChangeName: logger.info,
+                        onChangeGender: logger.info,
+                        onChangeLastName: logger.info,
+                        onChangeBirthdate: logger.info,
+                        onChangeLogin: (String login) {},
+                        onChangeEmail: (String email) {},
+                      ),
+                      SizedBox(height: width * 0.13743),
+                      const AddressDataFieldsWidget(),
+                      SizedBox(height: width * 0.170515),
+                      _isFormValid
+                          ? const Center(
+                              child: AutoSizeText(
+                                '*Не найдено такой улицы',
+                                style: TextStyle(
+                                    color: AppThemeColor.rose, fontSize: 12),
+                                maxLines: 1,
+                                minFontSize: 10,
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                      _isFormValid
+                          ? const Center(
+                              child: AutoSizeText(
+                                '*Поля обязательные для заполнения',
+                                style: TextStyle(
+                                    color: AppThemeColor.rose, fontSize: 12),
+                                maxLines: 1,
+                                minFontSize: 10,
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                      SizedBox(height: width * 0.02),
+                      NextStepButton(
+                          title: 'СОХРАНИТЬ ИЗМЕНЕНИЯ ',
+                          onPressed: () {
+                            if (_form.currentState!.validate()) {
+                              if (_isFormValid == true) {
+                                setState(() {
+                                  _isFormValid = false;
+                                });
+                              }
+                            } else {
+                              setState(() {
+                                _isFormValid = true;
+                              });
+                            }
+                          }),
+                      const BottomPadding(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

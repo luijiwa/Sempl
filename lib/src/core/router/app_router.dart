@@ -151,6 +151,7 @@ class AppRouter {
         path: AppRoutes.itemScreen.path,
         builder: (BuildContext context, GoRouterState state) {
           final id = kDebugMode ? '1' : state.pathParameters['id']!;
+
           return ItemScreen(
             id: id,
           );

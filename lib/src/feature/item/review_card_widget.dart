@@ -70,7 +70,7 @@ class CommentItem extends StatelessWidget {
     final listReview = context.read<ItemBloc>().state.itemRating.data;
     final review = listReview[index];
     final ImageProvider image = review.image.isEmpty
-        ? const AssetImage("assets/images/empty_avatar.jpg") as ImageProvider
+        ? const AssetImage("assets/images/empty_avatar.png") as ImageProvider
         : NetworkImage(review.image) as ImageProvider;
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;

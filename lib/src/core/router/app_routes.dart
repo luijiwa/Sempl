@@ -13,7 +13,7 @@ enum AppRoutes {
   ),
   main(
     name: 'main',
-    path: '/main_screen',
+    path: '/main',
   ),
   recentProducts(
     name: 'recentProducts',

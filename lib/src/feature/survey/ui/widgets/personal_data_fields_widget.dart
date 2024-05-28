@@ -15,13 +15,26 @@ class PersonalDataFieldsWidget extends StatelessWidget {
     required this.onChangeBirthdate,
     required this.onChangeLogin,
     required this.onChangeEmail,
+    this.initialName,
+    this.initialLastName,
+    this.initialGender,
+    this.initialBirthdate,
+    this.initialLogin,
+    this.initialEmail,
   });
+
   final void Function(String) onChangeName;
   final void Function(String) onChangeLastName;
   final void Function(String) onChangeGender;
   final void Function(String) onChangeBirthdate;
   final void Function(String) onChangeLogin;
   final void Function(String) onChangeEmail;
+  final String? initialName;
+  final String? initialLastName;
+  final String? initialGender;
+  final String? initialBirthdate;
+  final String? initialLogin;
+  final String? initialEmail;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -50,6 +63,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
           ),
           onChanged: onChangeName,
           validator: validate,
+          initialValue: initialName,
         ),
         const SizedBox(height: 4),
         TextFormField(
@@ -63,6 +77,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
           ),
           onChanged: onChangeLastName,
           validator: validate,
+          initialValue: initialLastName,
         ),
         const SizedBox(height: 4),
         DropdownCustomWidgetNew(
@@ -83,6 +98,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
           ),
           onChanged: onChangeBirthdate,
           validator: validate,
+          initialValue: initialBirthdate,
         ),
         SizedBox(height: width * 0.1),
         TextFormField(
@@ -93,6 +109,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
           ),
           validator: validate,
           onChanged: onChangeLogin,
+          initialValue: initialLogin,
         ),
         SizedBox(height: width * 0.1),
         TextFormField(
@@ -103,6 +120,7 @@ class PersonalDataFieldsWidget extends StatelessWidget {
           ),
           validator: validate,
           onChanged: onChangeEmail,
+          initialValue: initialEmail,
         ),
       ],
     );

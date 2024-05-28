@@ -30,6 +30,7 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
           : Category.fromJson(json['subcategory'] as Map<String, dynamic>),
       createdAt: json['created_at'] as String? ?? '',
       updatedAt: json['updated_at'] as String? ?? '',
+      isFavorite: json['is_favorite'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
@@ -42,6 +43,7 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
       'subcategory': instance.subcategory,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
+      'is_favorite': instance.isFavorite,
     };
 
 _$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>

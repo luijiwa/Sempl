@@ -181,6 +181,7 @@ mixin _$Data {
   Category get subcategory => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -200,7 +201,8 @@ abstract class $DataCopyWith<$Res> {
       Category category,
       Category subcategory,
       String createdAt,
-      String updatedAt});
+      String updatedAt,
+      bool isFavorite});
 
   $CategoryCopyWith<$Res> get category;
   $CategoryCopyWith<$Res> get subcategory;
@@ -227,6 +229,7 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
     Object? subcategory = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? isFavorite = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -261,6 +264,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -296,7 +303,8 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
       Category category,
       Category subcategory,
       String createdAt,
-      String updatedAt});
+      String updatedAt,
+      bool isFavorite});
 
   @override
   $CategoryCopyWith<$Res> get category;
@@ -322,6 +330,7 @@ class __$$DataImplCopyWithImpl<$Res>
     Object? subcategory = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? isFavorite = null,
   }) {
     return _then(_$DataImpl(
       id: null == id
@@ -356,6 +365,10 @@ class __$$DataImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -371,7 +384,8 @@ class _$DataImpl extends _Data with DiagnosticableTreeMixin {
       this.category = const Category(),
       this.subcategory = const Category(),
       this.createdAt = '',
-      this.updatedAt = ''})
+      this.updatedAt = '',
+      this.isFavorite = false})
       : super._();
 
   factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
@@ -401,10 +415,13 @@ class _$DataImpl extends _Data with DiagnosticableTreeMixin {
   @override
   @JsonKey()
   final String updatedAt;
+  @override
+  @JsonKey()
+  final bool isFavorite;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Data(id: $id, name: $name, description: $description, photo: $photo, category: $category, subcategory: $subcategory, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Data(id: $id, name: $name, description: $description, photo: $photo, category: $category, subcategory: $subcategory, createdAt: $createdAt, updatedAt: $updatedAt, isFavorite: $isFavorite)';
   }
 
   @override
@@ -419,7 +436,8 @@ class _$DataImpl extends _Data with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('category', category))
       ..add(DiagnosticsProperty('subcategory', subcategory))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt));
+      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('isFavorite', isFavorite));
   }
 
   @override
@@ -439,13 +457,15 @@ class _$DataImpl extends _Data with DiagnosticableTreeMixin {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description, photo,
-      category, subcategory, createdAt, updatedAt);
+      category, subcategory, createdAt, updatedAt, isFavorite);
 
   @JsonKey(ignore: true)
   @override
@@ -470,7 +490,8 @@ abstract class _Data extends Data {
       final Category category,
       final Category subcategory,
       final String createdAt,
-      final String updatedAt}) = _$DataImpl;
+      final String updatedAt,
+      final bool isFavorite}) = _$DataImpl;
   const _Data._() : super._();
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
@@ -491,6 +512,8 @@ abstract class _Data extends Data {
   String get createdAt;
   @override
   String get updatedAt;
+  @override
+  bool get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>

@@ -16,6 +16,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
 
   ItemBloc(this._itemRepository) : super(const ItemState()) {
     on<_LoadItem>(_onLoadItem);
+    on<_ChangeIsFavorite>(_onChangeIsFavorite);
   }
 
   Future<void> _onLoadItem(_LoadItem event, Emitter<ItemState> emit) async {
@@ -47,5 +48,13 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
       );
     }
     emit(state.copyWith(status: ScreenStatus.success));
+  }
+
+  FutureOr<void> _onChangeIsFavorite(
+      _ChangeIsFavorite event, Emitter<ItemState> emit) {
+    final item = state.item.copyWith(
+        data:
+            state.item.data.copyWith(isFavorite: !state.item.data.isFavorite));
+    emit(state.copyWith(item: item));
   }
 }

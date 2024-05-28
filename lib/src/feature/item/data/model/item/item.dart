@@ -23,6 +23,7 @@ class Data with _$Data {
     @Default(Category()) Category subcategory,
     @Default('') String createdAt,
     @Default('') String updatedAt,
+    @Default(false) bool isFavorite,
   }) = _Data;
   factory Data.fromJson(Map<String, Object?> json) => _$DataFromJson(json);
 

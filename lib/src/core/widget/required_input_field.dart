@@ -94,7 +94,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                     ),
                   ),
                 ),
-              TextField(
+              TextFormField(
                 controller: _controller,
                 inputFormatters: widget.inputFormatters,
                 keyboardType: widget.keyboardType,

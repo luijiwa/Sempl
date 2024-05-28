@@ -109,7 +109,7 @@ class ItemCard extends StatelessWidget {
                       width: double.maxFinite,
                       child: ElevatedButton(
                         onPressed: () {
-                          context.pushNamed(AppRoutes.delivery.name);
+                          context.goNamed(AppRoutes.delivery.name);
                         },
                         style: ElevatedButton.styleFrom(
                           elevation: 0,

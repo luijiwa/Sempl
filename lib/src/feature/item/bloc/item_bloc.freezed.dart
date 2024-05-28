@@ -16,27 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ItemEvent {
-  String get id => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadItem value) loadItem,
+    required TResult Function(_ChangeIsFavorite value) changeIsFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadItem value)? loadItem,
+    TResult? Function(_ChangeIsFavorite value)? changeIsFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadItem value)? loadItem,
+    TResult Function(_ChangeIsFavorite value)? changeIsFavorite,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ItemEventCopyWith<ItemEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -44,8 +41,6 @@ mixin _$ItemEvent {
 abstract class $ItemEventCopyWith<$Res> {
   factory $ItemEventCopyWith(ItemEvent value, $Res Function(ItemEvent) then) =
       _$ItemEventCopyWithImpl<$Res, ItemEvent>;
-  @useResult
-  $Res call({String id});
 }
 
 /// @nodoc
@@ -57,28 +52,13 @@ class _$ItemEventCopyWithImpl<$Res, $Val extends ItemEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$LoadItemImplCopyWith<$Res>
-    implements $ItemEventCopyWith<$Res> {
+abstract class _$$LoadItemImplCopyWith<$Res> {
   factory _$$LoadItemImplCopyWith(
           _$LoadItemImpl value, $Res Function(_$LoadItemImpl) then) =
       __$$LoadItemImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String id});
 }
@@ -139,6 +119,7 @@ class _$LoadItemImpl implements _LoadItem {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadItem value) loadItem,
+    required TResult Function(_ChangeIsFavorite value) changeIsFavorite,
   }) {
     return loadItem(this);
   }
@@ -147,6 +128,7 @@ class _$LoadItemImpl implements _LoadItem {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadItem value)? loadItem,
+    TResult? Function(_ChangeIsFavorite value)? changeIsFavorite,
   }) {
     return loadItem?.call(this);
   }
@@ -155,6 +137,7 @@ class _$LoadItemImpl implements _LoadItem {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadItem value)? loadItem,
+    TResult Function(_ChangeIsFavorite value)? changeIsFavorite,
     required TResult orElse(),
   }) {
     if (loadItem != null) {
@@ -167,12 +150,81 @@ class _$LoadItemImpl implements _LoadItem {
 abstract class _LoadItem implements ItemEvent {
   const factory _LoadItem({required final String id}) = _$LoadItemImpl;
 
-  @override
   String get id;
-  @override
   @JsonKey(ignore: true)
   _$$LoadItemImplCopyWith<_$LoadItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeIsFavoriteImplCopyWith<$Res> {
+  factory _$$ChangeIsFavoriteImplCopyWith(_$ChangeIsFavoriteImpl value,
+          $Res Function(_$ChangeIsFavoriteImpl) then) =
+      __$$ChangeIsFavoriteImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeIsFavoriteImplCopyWithImpl<$Res>
+    extends _$ItemEventCopyWithImpl<$Res, _$ChangeIsFavoriteImpl>
+    implements _$$ChangeIsFavoriteImplCopyWith<$Res> {
+  __$$ChangeIsFavoriteImplCopyWithImpl(_$ChangeIsFavoriteImpl _value,
+      $Res Function(_$ChangeIsFavoriteImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeIsFavoriteImpl implements _ChangeIsFavorite {
+  const _$ChangeIsFavoriteImpl();
+
+  @override
+  String toString() {
+    return 'ItemEvent.changeIsFavorite()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeIsFavoriteImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadItem value) loadItem,
+    required TResult Function(_ChangeIsFavorite value) changeIsFavorite,
+  }) {
+    return changeIsFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadItem value)? loadItem,
+    TResult? Function(_ChangeIsFavorite value)? changeIsFavorite,
+  }) {
+    return changeIsFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadItem value)? loadItem,
+    TResult Function(_ChangeIsFavorite value)? changeIsFavorite,
+    required TResult orElse(),
+  }) {
+    if (changeIsFavorite != null) {
+      return changeIsFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeIsFavorite implements ItemEvent {
+  const factory _ChangeIsFavorite() = _$ChangeIsFavoriteImpl;
 }
 
 /// @nodoc

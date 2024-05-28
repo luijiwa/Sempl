@@ -101,13 +101,12 @@ class _AddressDataFieldsWidgetState extends State<AddressDataFieldsWidget> {
               Expanded(
                 child: RequiredInputField(
                   hintText: 'Почтовый индекс',
-                  isError: true,
                   keyboardType: TextInputType.number,
                   inputFormatters: [zipCodeFormatter],
                   validator: (value) {
-                    // if (value.isEmpty) {
-                    //   return '';
-                    // }
+                    if (value == null || value.isEmpty) {
+                      return '';
+                    }
                     return null;
                   },
                 ),
