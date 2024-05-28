@@ -23,7 +23,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       emit(state.copyWith(screenStatus: ScreenStatus.loading));
       final userData = await _profileRepository.loadUserData();
       emit(state.copyWith(
-          screenStatus: ScreenStatus.success, user_fields: userData.user));
+          screenStatus: ScreenStatus.success, userFields: userData.user));
     } on Object catch (e) {
       emit(state.copyWith(screenStatus: ScreenStatus.failure));
       logger.e(e);

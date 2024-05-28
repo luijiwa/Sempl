@@ -5,19 +5,16 @@ import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/profile/bloc/profile_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/address_data_fields_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/personal_data_fields_widget.dart';
 
-class ProfileEditScreen extends StatefulWidget {
-  const ProfileEditScreen({super.key});
-
-  @override
-  State<ProfileEditScreen> createState() => _ProfileEditScreenState();
-}
-
-class _ProfileEditScreenState extends State<ProfileEditScreen> {
+class ProfileEditScreen extends StatelessWidget {
+  const ProfileEditScreen({super.key, required this.bloc});
+  final ProfileBloc bloc;
   @override
   Widget build(BuildContext context) {
+    final fieldData = bloc.state.userFields;
     final double width = MediaQuery.sizeOf(context).width;
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -48,14 +45,10 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                     ),
                     SizedBox(height: width * 0.0458),
                     PersonalDataFieldsWidget(
-                      onChangeName: (String name) => logger.info(name),
-                      onChangeGender: (String gender) {
-                        logger.info(gender);
-                      },
-                      onChangeLastName: (String lastName) =>
-                          logger.info(lastName),
-                      onChangeBirthdate: (String birthdate) =>
-                          logger.info(birthdate),
+                      onChangeName: logger.info,
+                      onChangeGender: logger.info,
+                      onChangeLastName: logger.info,
+                      onChangeBirthdate: logger.info,
                       onChangeLogin: (String login) {},
                       onChangeEmail: (String email) {},
                     ),

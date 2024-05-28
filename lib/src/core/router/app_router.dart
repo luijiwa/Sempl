@@ -117,12 +117,12 @@ class AppRouter {
                                 }),
                           ]),
                     ]),
-                GoRoute(
-                    name: AppRoutes.profileEdit.name,
-                    path: AppRoutes.profileEdit.path,
-                    builder: (context, state) {
-                      return const ProfileEditScreen();
-                    }),
+                // GoRoute(
+                //     name: AppRoutes.profileEdit.name,
+                //     path: AppRoutes.profileEdit.path,
+                //     builder: (context, state) {
+                //       return const ProfileEditScreen();
+                //     }),
                 GoRoute(
                     name: AppRoutes.finishedSempls.name,
                     path: AppRoutes.finishedSempls.path,

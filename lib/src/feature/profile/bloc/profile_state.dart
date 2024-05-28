@@ -4,6 +4,6 @@ part of 'profile_bloc.dart';
 class ProfileState with _$ProfileState {
   const factory ProfileState({
     @Default(ScreenStatus.initial) ScreenStatus screenStatus,
-    @Default(User()) User user_fields,
+    @Default(User()) User userFields,
   }) = _ProfileState;
 }

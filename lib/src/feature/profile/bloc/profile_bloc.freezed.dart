@@ -122,7 +122,7 @@ abstract class _Load implements ProfileEvent {
 /// @nodoc
 mixin _$ProfileState {
   ScreenStatus get screenStatus => throw _privateConstructorUsedError;
-  User get user_fields => throw _privateConstructorUsedError;
+  User get userFields => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -135,9 +135,9 @@ abstract class $ProfileStateCopyWith<$Res> {
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res, ProfileState>;
   @useResult
-  $Res call({ScreenStatus screenStatus, User user_fields});
+  $Res call({ScreenStatus screenStatus, User userFields});
 
-  $UserCopyWith<$Res> get user_fields;
+  $UserCopyWith<$Res> get userFields;
 }
 
 /// @nodoc
@@ -154,25 +154,25 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   @override
   $Res call({
     Object? screenStatus = null,
-    Object? user_fields = null,
+    Object? userFields = null,
   }) {
     return _then(_value.copyWith(
       screenStatus: null == screenStatus
           ? _value.screenStatus
           : screenStatus // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
-      user_fields: null == user_fields
-          ? _value.user_fields
-          : user_fields // ignore: cast_nullable_to_non_nullable
+      userFields: null == userFields
+          ? _value.userFields
+          : userFields // ignore: cast_nullable_to_non_nullable
               as User,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get user_fields {
-    return $UserCopyWith<$Res>(_value.user_fields, (value) {
-      return _then(_value.copyWith(user_fields: value) as $Val);
+  $UserCopyWith<$Res> get userFields {
+    return $UserCopyWith<$Res>(_value.userFields, (value) {
+      return _then(_value.copyWith(userFields: value) as $Val);
     });
   }
 }
@@ -185,10 +185,10 @@ abstract class _$$ProfileStateImplCopyWith<$Res>
       __$$ProfileStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ScreenStatus screenStatus, User user_fields});
+  $Res call({ScreenStatus screenStatus, User userFields});
 
   @override
-  $UserCopyWith<$Res> get user_fields;
+  $UserCopyWith<$Res> get userFields;
 }
 
 /// @nodoc
@@ -203,16 +203,16 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? screenStatus = null,
-    Object? user_fields = null,
+    Object? userFields = null,
   }) {
     return _then(_$ProfileStateImpl(
       screenStatus: null == screenStatus
           ? _value.screenStatus
           : screenStatus // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
-      user_fields: null == user_fields
-          ? _value.user_fields
-          : user_fields // ignore: cast_nullable_to_non_nullable
+      userFields: null == userFields
+          ? _value.userFields
+          : userFields // ignore: cast_nullable_to_non_nullable
               as User,
     ));
   }
@@ -223,18 +223,18 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
 class _$ProfileStateImpl implements _ProfileState {
   const _$ProfileStateImpl(
       {this.screenStatus = ScreenStatus.initial,
-      this.user_fields = const User()});
+      this.userFields = const User()});
 
   @override
   @JsonKey()
   final ScreenStatus screenStatus;
   @override
   @JsonKey()
-  final User user_fields;
+  final User userFields;
 
   @override
   String toString() {
-    return 'ProfileState(screenStatus: $screenStatus, user_fields: $user_fields)';
+    return 'ProfileState(screenStatus: $screenStatus, userFields: $userFields)';
   }
 
   @override
@@ -244,12 +244,12 @@ class _$ProfileStateImpl implements _ProfileState {
             other is _$ProfileStateImpl &&
             (identical(other.screenStatus, screenStatus) ||
                 other.screenStatus == screenStatus) &&
-            (identical(other.user_fields, user_fields) ||
-                other.user_fields == user_fields));
+            (identical(other.userFields, userFields) ||
+                other.userFields == userFields));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, screenStatus, user_fields);
+  int get hashCode => Object.hash(runtimeType, screenStatus, userFields);
 
   @JsonKey(ignore: true)
   @override
@@ -261,12 +261,12 @@ class _$ProfileStateImpl implements _ProfileState {
 abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
       {final ScreenStatus screenStatus,
-      final User user_fields}) = _$ProfileStateImpl;
+      final User userFields}) = _$ProfileStateImpl;
 
   @override
   ScreenStatus get screenStatus;
   @override
-  User get user_fields;
+  User get userFields;
   @override
   @JsonKey(ignore: true)
   _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>

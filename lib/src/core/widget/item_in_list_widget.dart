@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
-import 'package:sempl/src/core/utils/logger.dart';
 
 class ItemInListWidget extends StatelessWidget {
   const ItemInListWidget({super.key, this.applyColorFilter = false});

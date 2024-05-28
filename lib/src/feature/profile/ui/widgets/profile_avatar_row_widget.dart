@@ -2,13 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/points_widget.dart';
-import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
-import 'package:sempl/src/core/widget/shimmer.dart';
 import 'package:sempl/src/feature/profile/bloc/profile_bloc.dart';
+import 'package:sempl/src/feature/profile_edit/ui/profile_edit_screen.dart';
 
 class ProfileAvatarRowWidget extends StatelessWidget {
   const ProfileAvatarRowWidget({super.key, this.index = 0});
@@ -17,7 +15,7 @@ class ProfileAvatarRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
-
+    final bloc = BlocProvider.of<ProfileBloc>(context);
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       sliver: SliverToBoxAdapter(
@@ -25,7 +23,7 @@ class ProfileAvatarRowWidget extends StatelessWidget {
           buildWhen: (previous, current) =>
               previous.screenStatus != current.screenStatus,
           builder: (context, state) {
-            final user = state.user_fields;
+            final user = state.userFields;
             final ImageProvider image = user.profilePhoto.isEmpty
                 ? const AssetImage("assets/images/empty_avatar.png")
                     as ImageProvider
@@ -105,7 +103,12 @@ class ProfileAvatarRowWidget extends StatelessWidget {
                     const Spacer(),
                     ElevatedButton(
                       onPressed: () {
-                        context.goNamed(AppRoutes.profileEdit.name);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ProfileEditScreen(bloc: bloc),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size.zero,
