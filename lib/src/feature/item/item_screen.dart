@@ -76,6 +76,7 @@ class CommentsRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final ratingCount = context.read<ItemBloc>().state.ratingCount;
     return SliverToBoxAdapter(
@@ -84,76 +85,61 @@ class CommentsRowWidget extends StatelessWidget {
       builder: (context, state) {
         switch (state.status) {
           case ScreenStatus.success:
-            return Row(
-              children: [
-                AutoSizeText(
-                  'КОММЕНТАРИИ ($ratingCount)',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 15),
-                ),
-                const Spacer(),
-                Wrap(
-                  children: [
-                    const AutoSizeText('новые'),
-                    SvgPicture.asset(
-                      colorFilter: const ColorFilter.mode(
-                          AppThemeColor.blueColor, BlendMode.srcIn),
-                      'assets/icons/step_into.svg',
-                    ),
-                  ],
-                ),
-                SizedBox(width: width * 0.02),
-                Wrap(
-                  children: [
-                    const AutoSizeText('рейтинг'),
-                    SvgPicture.asset(
-                      colorFilter: const ColorFilter.mode(
-                          AppThemeColor.blueColor, BlendMode.srcIn),
-                      'assets/icons/step_into_up.svg',
-                    ),
-                  ],
-                )
-              ],
-            );
-
-          default:
-            return Shimmer.fromColors(
-              baseColor: Colors.grey.shade300,
-              highlightColor: Colors.grey.shade100,
-              child: Row(
+            return Row(children: [
+              AutoSizeText(
+                'КОММЕНТАРИИ ($ratingCount)',
+                style:
+                    const TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+              ),
+              const Spacer(),
+              Wrap(
                 children: [
-                  AutoSizeText(
-                    'КОММЕНТАРИИ ($ratingCount)',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w600, fontSize: 15),
+                  const AutoSizeText('новые'),
+                  SvgPicture.asset(
+                    colorFilter: const ColorFilter.mode(
+                        AppThemeColor.blueColor, BlendMode.srcIn),
+                    'assets/icons/step_into.svg',
                   ),
-                  const Spacer(),
-                  Wrap(
-                    children: [
-                      const AutoSizeText('новые'),
-                      SvgPicture.asset(
-                        colorFilter: const ColorFilter.mode(
-                            AppThemeColor.blueColor, BlendMode.srcIn),
-                        'assets/icons/step_into.svg',
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: width * 0.02),
-                  Wrap(
-                    children: [
-                      const AutoSizeText('рейтинг'),
-                      SvgPicture.asset(
-                        colorFilter: const ColorFilter.mode(
-                            AppThemeColor.blueColor, BlendMode.srcIn),
-                        'assets/icons/step_into_up.svg',
-                      ),
-                    ],
-                  )
                 ],
               ),
-            );
+              SizedBox(width: width * 0.02),
+              Wrap(children: [
+                const AutoSizeText('рейтинг'),
+                SvgPicture.asset(
+                  colorFilter: const ColorFilter.mode(
+                      AppThemeColor.blueColor, BlendMode.srcIn),
+                  'assets/icons/step_into_up.svg',
+                )
+              ]),
+            ]);
+          default:
+            return shimmerCommentsItemCard(ratingCount, width, height);
         }
       },
     ));
+  }
+
+  Shimmer shimmerCommentsItemCard(
+      String ratingCount, double width, double height) {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey.shade300,
+      highlightColor: Colors.grey.shade100,
+      child: Row(children: [
+        Container(
+          height: width * 0.04,
+          width: width * 0.43,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8), color: Colors.white),
+        ),
+        const Spacer(),
+        Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          height: width * 0.04,
+          width: width * 0.22,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8), color: Colors.white),
+        ),
+      ]),
+    );
   }
 }
