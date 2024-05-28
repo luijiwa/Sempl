@@ -1,6 +1,7 @@
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/feature/app/logic/tracking_manager.dart';
 import 'package:sempl/src/feature/initialization/logic/composition_root.dart';
+import 'package:sempl/src/feature/item/data/repository/item_repository.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
 import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
@@ -22,6 +23,7 @@ base class Dependencies {
     required this.authBloc,
     required this.surveyRepository,
     required this.profileRepository,
+    required this.itemRepository,
   });
 
   /// [RestClient] instance, used to make requests.
@@ -35,6 +37,7 @@ base class Dependencies {
 
   final SurveyRepository surveyRepository;
   final ProfileRepository profileRepository;
+  final ItemRepository itemRepository;
 
   /// [ErrorTrackingManager] instance, used to report errors.
   final ErrorTrackingManager errorTrackingManager;

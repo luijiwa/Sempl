@@ -20,7 +20,8 @@ class ItemInListWidget extends StatelessWidget {
       color: Colors.transparent,
       child: GestureDetector(
         onTap: () {
-          context.pushNamed(AppRoutes.itemScreen.name);
+          context.pushNamed(AppRoutes.itemScreen.name,
+              pathParameters: {'id': '1'});
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: width * 0.05),

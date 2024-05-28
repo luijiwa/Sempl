@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/components/rest_client/src/rest_client_dio.dart';
+import 'package:sempl/src/feature/item/data/data_source/item_data_source.dart';
+import 'package:sempl/src/feature/item/data/repository/item_repository.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 import 'package:sempl/src/feature/login/data/auth_repository.dart';
@@ -86,6 +88,10 @@ final class CompositionRoot {
     final surveyRepository = SurveyRepositoryImpl(
       SurveyDataSourceNetwork(restClient),
     );
+    final itemRepository = ItemRepositoryImpl(
+      ItemDataSourceNetwork(restClient),
+    );
+
     final profileRepository = ProfileRepositoryImpl(
       dataSource: ProfileDataSourceNetwork(restClient),
       storage: storage,
@@ -109,6 +115,7 @@ final class CompositionRoot {
       restClient: restClient,
       surveyRepository: surveyRepository,
       profileRepository: profileRepository,
+      itemRepository: itemRepository,
     );
   }
 

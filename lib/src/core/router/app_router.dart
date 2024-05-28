@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
@@ -149,7 +150,10 @@ class AppRouter {
         name: AppRoutes.itemScreen.name,
         path: AppRoutes.itemScreen.path,
         builder: (BuildContext context, GoRouterState state) {
-          return const ItemScreen();
+          final id = kDebugMode ? '1' : state.pathParameters['id']!;
+          return ItemScreen(
+            id: id,
+          );
         },
         routes: <GoRoute>[
           GoRoute(

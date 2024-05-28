@@ -265,11 +265,22 @@ class $AssetsImagesGen {
       ];
 }
 
+class $AssetsShadersGen {
+  const $AssetsShadersGen();
+
+  /// File path: assets/shaders/shimmer.frag
+  String get shimmer => 'assets/shaders/shimmer.frag';
+
+  /// List of all assets
+  List<String> get values => [shimmer];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsShadersGen shaders = $AssetsShadersGen();
 }
 
 class AssetGenImage {
