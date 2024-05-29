@@ -19,16 +19,19 @@ mixin _$MainScreenEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_LoadCategories value) loadCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_LoadCategories value)? loadCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_LoadCategories value)? loadCategories,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -97,6 +100,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_LoadCategories value) loadCategories,
   }) {
     return started(this);
   }
@@ -105,6 +109,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_LoadCategories value)? loadCategories,
   }) {
     return started?.call(this);
   }
@@ -113,6 +118,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_LoadCategories value)? loadCategories,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -127,9 +133,91 @@ abstract class _Started implements MainScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$LoadCategoriesImplCopyWith<$Res> {
+  factory _$$LoadCategoriesImplCopyWith(_$LoadCategoriesImpl value,
+          $Res Function(_$LoadCategoriesImpl) then) =
+      __$$LoadCategoriesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadCategoriesImplCopyWithImpl<$Res>
+    extends _$MainScreenEventCopyWithImpl<$Res, _$LoadCategoriesImpl>
+    implements _$$LoadCategoriesImplCopyWith<$Res> {
+  __$$LoadCategoriesImplCopyWithImpl(
+      _$LoadCategoriesImpl _value, $Res Function(_$LoadCategoriesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadCategoriesImpl
+    with DiagnosticableTreeMixin
+    implements _LoadCategories {
+  const _$LoadCategoriesImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'MainScreenEvent.loadCategories()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'MainScreenEvent.loadCategories'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadCategoriesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_LoadCategories value) loadCategories,
+  }) {
+    return loadCategories(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_LoadCategories value)? loadCategories,
+  }) {
+    return loadCategories?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_LoadCategories value)? loadCategories,
+    required TResult orElse(),
+  }) {
+    if (loadCategories != null) {
+      return loadCategories(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadCategories implements MainScreenEvent {
+  const factory _LoadCategories() = _$LoadCategoriesImpl;
+}
+
+/// @nodoc
 mixin _$MainScreenState {
   ScreenStatus get screenStatus => throw _privateConstructorUsedError;
   List<NewSemplsData> get newSempls => throw _privateConstructorUsedError;
+  ScreenStatus get screenCategoriesStatus => throw _privateConstructorUsedError;
+  List<CategoriesData> get categories => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainScreenStateCopyWith<MainScreenState> get copyWith =>
@@ -142,7 +230,11 @@ abstract class $MainScreenStateCopyWith<$Res> {
           MainScreenState value, $Res Function(MainScreenState) then) =
       _$MainScreenStateCopyWithImpl<$Res, MainScreenState>;
   @useResult
-  $Res call({ScreenStatus screenStatus, List<NewSemplsData> newSempls});
+  $Res call(
+      {ScreenStatus screenStatus,
+      List<NewSemplsData> newSempls,
+      ScreenStatus screenCategoriesStatus,
+      List<CategoriesData> categories});
 }
 
 /// @nodoc
@@ -160,6 +252,8 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
   $Res call({
     Object? screenStatus = null,
     Object? newSempls = null,
+    Object? screenCategoriesStatus = null,
+    Object? categories = null,
   }) {
     return _then(_value.copyWith(
       screenStatus: null == screenStatus
@@ -170,6 +264,14 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
           ? _value.newSempls
           : newSempls // ignore: cast_nullable_to_non_nullable
               as List<NewSemplsData>,
+      screenCategoriesStatus: null == screenCategoriesStatus
+          ? _value.screenCategoriesStatus
+          : screenCategoriesStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      categories: null == categories
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoriesData>,
     ) as $Val);
   }
 }
@@ -182,7 +284,11 @@ abstract class _$$MainScreenStateImplCopyWith<$Res>
       __$$MainScreenStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ScreenStatus screenStatus, List<NewSemplsData> newSempls});
+  $Res call(
+      {ScreenStatus screenStatus,
+      List<NewSemplsData> newSempls,
+      ScreenStatus screenCategoriesStatus,
+      List<CategoriesData> categories});
 }
 
 /// @nodoc
@@ -198,6 +304,8 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
   $Res call({
     Object? screenStatus = null,
     Object? newSempls = null,
+    Object? screenCategoriesStatus = null,
+    Object? categories = null,
   }) {
     return _then(_$MainScreenStateImpl(
       screenStatus: null == screenStatus
@@ -208,6 +316,14 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
           ? _value._newSempls
           : newSempls // ignore: cast_nullable_to_non_nullable
               as List<NewSemplsData>,
+      screenCategoriesStatus: null == screenCategoriesStatus
+          ? _value.screenCategoriesStatus
+          : screenCategoriesStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenStatus,
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoriesData>,
     ));
   }
 }
@@ -218,8 +334,11 @@ class _$MainScreenStateImpl extends _MainScreenState
     with DiagnosticableTreeMixin {
   const _$MainScreenStateImpl(
       {this.screenStatus = ScreenStatus.initial,
-      final List<NewSemplsData> newSempls = const <NewSemplsData>[]})
+      final List<NewSemplsData> newSempls = const <NewSemplsData>[],
+      this.screenCategoriesStatus = ScreenStatus.initial,
+      final List<CategoriesData> categories = const <CategoriesData>[]})
       : _newSempls = newSempls,
+        _categories = categories,
         super._();
 
   @override
@@ -235,8 +354,20 @@ class _$MainScreenStateImpl extends _MainScreenState
   }
 
   @override
+  @JsonKey()
+  final ScreenStatus screenCategoriesStatus;
+  final List<CategoriesData> _categories;
+  @override
+  @JsonKey()
+  List<CategoriesData> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MainScreenState(screenStatus: $screenStatus, newSempls: $newSempls)';
+    return 'MainScreenState(screenStatus: $screenStatus, newSempls: $newSempls, screenCategoriesStatus: $screenCategoriesStatus, categories: $categories)';
   }
 
   @override
@@ -245,7 +376,10 @@ class _$MainScreenStateImpl extends _MainScreenState
     properties
       ..add(DiagnosticsProperty('type', 'MainScreenState'))
       ..add(DiagnosticsProperty('screenStatus', screenStatus))
-      ..add(DiagnosticsProperty('newSempls', newSempls));
+      ..add(DiagnosticsProperty('newSempls', newSempls))
+      ..add(
+          DiagnosticsProperty('screenCategoriesStatus', screenCategoriesStatus))
+      ..add(DiagnosticsProperty('categories', categories));
   }
 
   @override
@@ -256,12 +390,20 @@ class _$MainScreenStateImpl extends _MainScreenState
             (identical(other.screenStatus, screenStatus) ||
                 other.screenStatus == screenStatus) &&
             const DeepCollectionEquality()
-                .equals(other._newSempls, _newSempls));
+                .equals(other._newSempls, _newSempls) &&
+            (identical(other.screenCategoriesStatus, screenCategoriesStatus) ||
+                other.screenCategoriesStatus == screenCategoriesStatus) &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, screenStatus,
-      const DeepCollectionEquality().hash(_newSempls));
+  int get hashCode => Object.hash(
+      runtimeType,
+      screenStatus,
+      const DeepCollectionEquality().hash(_newSempls),
+      screenCategoriesStatus,
+      const DeepCollectionEquality().hash(_categories));
 
   @JsonKey(ignore: true)
   @override
@@ -274,13 +416,19 @@ class _$MainScreenStateImpl extends _MainScreenState
 abstract class _MainScreenState extends MainScreenState {
   const factory _MainScreenState(
       {final ScreenStatus screenStatus,
-      final List<NewSemplsData> newSempls}) = _$MainScreenStateImpl;
+      final List<NewSemplsData> newSempls,
+      final ScreenStatus screenCategoriesStatus,
+      final List<CategoriesData> categories}) = _$MainScreenStateImpl;
   const _MainScreenState._() : super._();
 
   @override
   ScreenStatus get screenStatus;
   @override
   List<NewSemplsData> get newSempls;
+  @override
+  ScreenStatus get screenCategoriesStatus;
+  @override
+  List<CategoriesData> get categories;
   @override
   @JsonKey(ignore: true)
   _$$MainScreenStateImplCopyWith<_$MainScreenStateImpl> get copyWith =>

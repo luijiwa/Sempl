@@ -78,16 +78,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
     try {
       final phone = '8${event.phone}';
       final isRegistered =
-          await _authRepository.signInFirstStepWithPhone(event.phone);
+          await _authRepository.signInFirstStepWithPhone(phone);
       if (isRegistered == 0) {
-        final isRegistered =
-            await _authRepository.registrationRequest(event.phone);
+        final isRegistered = await _authRepository.registrationRequest(phone);
         emit(state.copyWith(
-            loginStatus: LoginStatus.unregistered, phone: event.phone));
+            loginStatus: LoginStatus.unregistered, phone: phone));
       }
       if (isRegistered == 1) {
-        emit(state.copyWith(
-            loginStatus: LoginStatus.registered, phone: event.phone));
+        emit(state.copyWith(loginStatus: LoginStatus.registered, phone: phone));
       }
     } on Object catch (e, stackTrace) {
       emit(state.copyWith(
@@ -101,7 +99,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
     // if (!kDebugMode && state.loginStatus == LoginStatus.registered) {
     emit(state.copyWith(loginStatus: LoginStatus.loading));
     try {
-      final phone = kDebugMode ? '89293744874' : state.phone;
+      final phone = state.phone;
       await _authRepository.signInWithPhoneAndCode(phone, event.code);
       emit(AuthState.authenticated());
     } on Object catch (e, stackTrace) {

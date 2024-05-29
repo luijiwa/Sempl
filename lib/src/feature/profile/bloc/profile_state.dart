@@ -6,5 +6,8 @@ class ProfileState with _$ProfileState {
     @Default(ScreenStatus.initial) ScreenStatus screenStatus,
     @Default(User()) User userFields,
     @Default(<Orders>[]) List<Orders> orders,
+    @Default(ButtonPushStatus.initial)
+    ButtonPushStatus statusChangeProfileFields,
+    @Default('') String errorMessage,
   }) = _ProfileState;
 }

@@ -3,7 +3,10 @@ import 'dart:ui' show Locale;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/feature/app/model/app_theme.dart';
 import 'package:sempl/src/feature/settings/data/locale_repository.dart';
+import 'package:sempl/src/feature/settings/data/onboarding_repository.dart';
 import 'package:sempl/src/feature/settings/data/theme_repository.dart';
+part 'settings_event.dart';
+part 'settings_state.dart';
 
 /// {@template settings_bloc}
 /// A [Bloc] that handles the settings.
@@ -13,20 +16,25 @@ final class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
     required LocaleRepository localeRepository,
     required ThemeRepository themeRepository,
+    required OnboardingRepository onboardingRepo,
     required SettingsState initialState,
   })  : _localeRepo = localeRepository,
         _themeRepo = themeRepository,
+        _onboardingRepo = onboardingRepo,
         super(initialState) {
     on<SettingsEvent>(
       (event, emit) => switch (event) {
         final _UpdateLocaleSettingsEvent e => _updateLocale(e, emit),
         final _UpdateThemeSettingsEvent e => _updateTheme(e, emit),
+        final _CheckViewedOnboardingEvent e => _checkViewedOnboarding(e, emit),
+        final _ViewedOnboardingEvent e => _viewedOnboarding(e, emit),
       },
     );
   }
 
   final LocaleRepository _localeRepo;
   final ThemeRepository _themeRepo;
+  final OnboardingRepository _onboardingRepo;
 
   Future<void> _updateTheme(
     _UpdateThemeSettingsEvent event,
@@ -85,151 +93,33 @@ final class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       rethrow;
     }
   }
-}
 
-/// States for the [SettingsBloc].
-sealed class SettingsState {
-  const SettingsState({this.locale, this.appTheme});
+  Future<void> _checkViewedOnboarding(
+      _CheckViewedOnboardingEvent e, Emitter<SettingsState> emit) async {
+    final onboardingViewed = await _onboardingRepo.getOnboardingViewed();
 
-  /// Application locale.
-  final Locale? locale;
-
-  /// Data class used to represent the state of theme.
-  final AppTheme? appTheme;
-
-  /// Idle state for the [SettingsBloc].
-  const factory SettingsState.idle({Locale? locale, AppTheme? appTheme}) =
-      _IdleSettingsState;
-
-  /// Processing state for the [SettingsBloc].
-  const factory SettingsState.processing({Locale? locale, AppTheme? appTheme}) =
-      _ProcessingSettingsState;
-
-  /// Error state for the [SettingsBloc].
-  const factory SettingsState.error({
-    required Object cause,
-    Locale? locale,
-    AppTheme? appTheme,
-  }) = _ErrorSettingsState;
-}
-
-final class _IdleSettingsState extends SettingsState {
-  const _IdleSettingsState({super.locale, super.appTheme});
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is _IdleSettingsState &&
-        other.locale == locale &&
-        other.appTheme == appTheme;
+    emit(SettingsState.idle(
+      appTheme: state.appTheme,
+      locale: state.locale,
+      onBoardingCompleted: onboardingViewed,
+    ));
   }
 
-  @override
-  int get hashCode => Object.hash(locale, appTheme);
+  _viewedOnboarding(_ViewedOnboardingEvent e, Emitter<SettingsState> emit) {
+    emit(
+      SettingsState.processing(
+        appTheme: state.appTheme,
+        locale: state.locale,
+      ),
+    );
 
-  @override
-  String toString() =>
-      'SettingsState.idle(locale: $locale, appTheme: $appTheme)';
-}
-
-final class _ProcessingSettingsState extends SettingsState {
-  const _ProcessingSettingsState({super.locale, super.appTheme});
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is _ProcessingSettingsState &&
-        other.locale == locale &&
-        other.appTheme == appTheme;
+    // await _localeRepo.setLocale(event.locale);
+    _onboardingRepo.setOnboardingViewed();
+    emit(
+      SettingsState.idle(
+          appTheme: state.appTheme,
+          locale: state.locale,
+          onBoardingCompleted: true),
+    );
   }
-
-  @override
-  int get hashCode => Object.hash(locale, appTheme);
-
-  @override
-  String toString() =>
-      'SettingsState.processing(locale: $locale, appTheme: $appTheme)';
-}
-
-final class _ErrorSettingsState extends SettingsState {
-  const _ErrorSettingsState({
-    required this.cause,
-    super.locale,
-    super.appTheme,
-  });
-
-  /// The cause of the error.
-  final Object cause;
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is _ErrorSettingsState &&
-        other.cause == cause &&
-        other.locale == locale &&
-        other.appTheme == appTheme;
-  }
-
-  @override
-  int get hashCode => Object.hash(cause, locale, appTheme);
-
-  @override
-  String toString() => 'SettingsState.error(cause: $cause, '
-      'locale: $locale, appTheme: $appTheme)';
-}
-
-/// Events for the [SettingsBloc].
-sealed class SettingsEvent {
-  const SettingsEvent();
-
-  /// Event to update theme.
-  const factory SettingsEvent.updateTheme({required AppTheme appTheme}) =
-      _UpdateThemeSettingsEvent;
-
-  /// Event to update the locale.
-  const factory SettingsEvent.updateLocale({required Locale locale}) =
-      _UpdateLocaleSettingsEvent;
-}
-
-final class _UpdateThemeSettingsEvent extends SettingsEvent {
-  const _UpdateThemeSettingsEvent({required this.appTheme});
-
-  /// The theme to update.
-  final AppTheme appTheme;
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is _UpdateThemeSettingsEvent && other.appTheme == appTheme;
-  }
-
-  @override
-  int get hashCode => appTheme.hashCode;
-
-  @override
-  String toString() => 'SettingsEvent.updateTheme(appTheme: $appTheme)';
-}
-
-final class _UpdateLocaleSettingsEvent extends SettingsEvent {
-  const _UpdateLocaleSettingsEvent({required this.locale});
-
-  /// The locale to update.
-  final Locale locale;
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is _UpdateLocaleSettingsEvent && other.locale == locale;
-  }
-
-  @override
-  int get hashCode => locale.hashCode;
-
-  @override
-  String toString() => 'SettingsEvent.updateLocale(locale: $locale)';
 }

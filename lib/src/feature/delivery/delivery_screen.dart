@@ -8,8 +8,8 @@ import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/address_data_fields_widget.dart';
 
 class DeliveryScreen extends StatelessWidget {
-  const DeliveryScreen({super.key});
-
+  const DeliveryScreen({super.key, required this.id});
+  final String id;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;

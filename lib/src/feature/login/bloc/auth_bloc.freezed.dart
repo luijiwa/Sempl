@@ -23,6 +23,7 @@ mixin _$AuthEvent {
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
     required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
   }) =>
       throw _privateConstructorUsedError;
@@ -33,6 +34,7 @@ mixin _$AuthEvent {
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
     TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +45,7 @@ mixin _$AuthEvent {
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
     TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
     required TResult orElse(),
   }) =>
@@ -145,6 +148,7 @@ class _$StatusChandedImpl
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
     required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
   }) {
     return statusChanded(this);
@@ -158,6 +162,7 @@ class _$StatusChandedImpl
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
     TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
   }) {
     return statusChanded?.call(this);
@@ -171,6 +176,7 @@ class _$StatusChandedImpl
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
     TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
     required TResult orElse(),
   }) {
@@ -240,6 +246,7 @@ class _$SignOutImpl with DiagnosticableTreeMixin implements _SignOut {
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
     required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
   }) {
     return signOut(this);
@@ -253,6 +260,7 @@ class _$SignOutImpl with DiagnosticableTreeMixin implements _SignOut {
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
     TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
   }) {
     return signOut?.call(this);
@@ -266,6 +274,7 @@ class _$SignOutImpl with DiagnosticableTreeMixin implements _SignOut {
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
     TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
     required TResult orElse(),
   }) {
@@ -357,6 +366,7 @@ class _$SendPhoneImpl with DiagnosticableTreeMixin implements _SendPhone {
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
     required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
   }) {
     return sendPhone(this);
@@ -370,6 +380,7 @@ class _$SendPhoneImpl with DiagnosticableTreeMixin implements _SendPhone {
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
     TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
   }) {
     return sendPhone?.call(this);
@@ -383,6 +394,7 @@ class _$SendPhoneImpl with DiagnosticableTreeMixin implements _SendPhone {
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
     TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
     required TResult orElse(),
   }) {
@@ -479,6 +491,7 @@ class _$SendCodeImpl with DiagnosticableTreeMixin implements _SendCode {
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
     required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
   }) {
     return sendCode(this);
@@ -492,6 +505,7 @@ class _$SendCodeImpl with DiagnosticableTreeMixin implements _SendCode {
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
     TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
   }) {
     return sendCode?.call(this);
@@ -505,6 +519,7 @@ class _$SendCodeImpl with DiagnosticableTreeMixin implements _SendCode {
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
     TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
     required TResult orElse(),
   }) {
@@ -601,6 +616,7 @@ class _$SaveCodeImpl with DiagnosticableTreeMixin implements _SaveCode {
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
     required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
   }) {
     return saveCode(this);
@@ -614,6 +630,7 @@ class _$SaveCodeImpl with DiagnosticableTreeMixin implements _SaveCode {
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
     TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
   }) {
     return saveCode?.call(this);
@@ -627,6 +644,7 @@ class _$SaveCodeImpl with DiagnosticableTreeMixin implements _SaveCode {
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
     TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
     required TResult orElse(),
   }) {
@@ -644,6 +662,100 @@ abstract class _SaveCode implements AuthEvent {
   @JsonKey(ignore: true)
   _$$SaveCodeImplCopyWith<_$SaveCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OnboardingViewedImplCopyWith<$Res> {
+  factory _$$OnboardingViewedImplCopyWith(_$OnboardingViewedImpl value,
+          $Res Function(_$OnboardingViewedImpl) then) =
+      __$$OnboardingViewedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnboardingViewedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$OnboardingViewedImpl>
+    implements _$$OnboardingViewedImplCopyWith<$Res> {
+  __$$OnboardingViewedImplCopyWithImpl(_$OnboardingViewedImpl _value,
+      $Res Function(_$OnboardingViewedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnboardingViewedImpl
+    with DiagnosticableTreeMixin
+    implements _OnboardingViewed {
+  const _$OnboardingViewedImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.onboardingViewed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthEvent.onboardingViewed'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnboardingViewedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StatusChanded value) statusChanded,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_SendPhone value) sendPhone,
+    required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
+    required TResult Function(_Register value) register,
+  }) {
+    return onboardingViewed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StatusChanded value)? statusChanded,
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_SendPhone value)? sendPhone,
+    TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
+    TResult? Function(_Register value)? register,
+  }) {
+    return onboardingViewed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StatusChanded value)? statusChanded,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_SendPhone value)? sendPhone,
+    TResult Function(_SendCode value)? sendCode,
+    TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
+    TResult Function(_Register value)? register,
+    required TResult orElse(),
+  }) {
+    if (onboardingViewed != null) {
+      return onboardingViewed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnboardingViewed implements AuthEvent {
+  const factory _OnboardingViewed() = _$OnboardingViewedImpl;
 }
 
 /// @nodoc
@@ -695,6 +807,7 @@ class _$RegisterImpl with DiagnosticableTreeMixin implements _Register {
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
     required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
   }) {
     return register(this);
@@ -708,6 +821,7 @@ class _$RegisterImpl with DiagnosticableTreeMixin implements _Register {
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
     TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
   }) {
     return register?.call(this);
@@ -721,6 +835,7 @@ class _$RegisterImpl with DiagnosticableTreeMixin implements _Register {
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
     TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
     required TResult orElse(),
   }) {
@@ -742,6 +857,7 @@ mixin _$AuthState {
   String get code => throw _privateConstructorUsedError;
   LoginStatus get loginStatus => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
+  bool get isOnboardingViewed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -758,7 +874,8 @@ abstract class $AuthStateCopyWith<$Res> {
       String phone,
       String code,
       LoginStatus loginStatus,
-      String errorMessage});
+      String errorMessage,
+      bool isOnboardingViewed});
 }
 
 /// @nodoc
@@ -779,6 +896,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? code = null,
     Object? loginStatus = null,
     Object? errorMessage = null,
+    Object? isOnboardingViewed = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -801,6 +919,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      isOnboardingViewed: null == isOnboardingViewed
+          ? _value.isOnboardingViewed
+          : isOnboardingViewed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -818,7 +940,8 @@ abstract class _$$AuthenticationStateImplCopyWith<$Res>
       String phone,
       String code,
       LoginStatus loginStatus,
-      String errorMessage});
+      String errorMessage,
+      bool isOnboardingViewed});
 }
 
 /// @nodoc
@@ -837,6 +960,7 @@ class __$$AuthenticationStateImplCopyWithImpl<$Res>
     Object? code = null,
     Object? loginStatus = null,
     Object? errorMessage = null,
+    Object? isOnboardingViewed = null,
   }) {
     return _then(_$AuthenticationStateImpl(
       status: null == status
@@ -859,6 +983,10 @@ class __$$AuthenticationStateImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      isOnboardingViewed: null == isOnboardingViewed
+          ? _value.isOnboardingViewed
+          : isOnboardingViewed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -872,7 +1000,8 @@ class _$AuthenticationStateImpl extends _AuthenticationState
       this.phone = '',
       this.code = '',
       this.loginStatus = LoginStatus.initial,
-      this.errorMessage = ''})
+      this.errorMessage = '',
+      this.isOnboardingViewed = false})
       : super._();
 
   @override
@@ -890,10 +1019,13 @@ class _$AuthenticationStateImpl extends _AuthenticationState
   @override
   @JsonKey()
   final String errorMessage;
+  @override
+  @JsonKey()
+  final bool isOnboardingViewed;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState(status: $status, phone: $phone, code: $code, loginStatus: $loginStatus, errorMessage: $errorMessage)';
+    return 'AuthState(status: $status, phone: $phone, code: $code, loginStatus: $loginStatus, errorMessage: $errorMessage, isOnboardingViewed: $isOnboardingViewed)';
   }
 
   @override
@@ -905,7 +1037,8 @@ class _$AuthenticationStateImpl extends _AuthenticationState
       ..add(DiagnosticsProperty('phone', phone))
       ..add(DiagnosticsProperty('code', code))
       ..add(DiagnosticsProperty('loginStatus', loginStatus))
-      ..add(DiagnosticsProperty('errorMessage', errorMessage));
+      ..add(DiagnosticsProperty('errorMessage', errorMessage))
+      ..add(DiagnosticsProperty('isOnboardingViewed', isOnboardingViewed));
   }
 
   @override
@@ -919,12 +1052,14 @@ class _$AuthenticationStateImpl extends _AuthenticationState
             (identical(other.loginStatus, loginStatus) ||
                 other.loginStatus == loginStatus) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.isOnboardingViewed, isOnboardingViewed) ||
+                other.isOnboardingViewed == isOnboardingViewed));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, phone, code, loginStatus, errorMessage);
+  int get hashCode => Object.hash(runtimeType, status, phone, code, loginStatus,
+      errorMessage, isOnboardingViewed);
 
   @JsonKey(ignore: true)
   @override
@@ -940,7 +1075,8 @@ abstract class _AuthenticationState extends AuthState {
       final String phone,
       final String code,
       final LoginStatus loginStatus,
-      final String errorMessage}) = _$AuthenticationStateImpl;
+      final String errorMessage,
+      final bool isOnboardingViewed}) = _$AuthenticationStateImpl;
   const _AuthenticationState._() : super._();
 
   @override
@@ -953,6 +1089,8 @@ abstract class _AuthenticationState extends AuthState {
   LoginStatus get loginStatus;
   @override
   String get errorMessage;
+  @override
+  bool get isOnboardingViewed;
   @override
   @JsonKey(ignore: true)
   _$$AuthenticationStateImplCopyWith<_$AuthenticationStateImpl> get copyWith =>

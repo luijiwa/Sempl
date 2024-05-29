@@ -8,6 +8,7 @@ abstract interface class ProfileRepository<T> {
   Future<UserData> loadUserData();
 
   Future<UserOrders> loadUserSamples();
+  Future<void> sendProfileDataChange(Map<String, dynamic> body);
 }
 
 final class ProfileRepositoryImpl implements ProfileRepository {
@@ -41,6 +42,15 @@ final class ProfileRepositoryImpl implements ProfileRepository {
         await _storage.save(newToken);
       }
       return UserOrders.fromJson(response as Map<String, dynamic>);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> sendProfileDataChange(Map<String, dynamic> body) {
+    try {
+      return _dataSource.sendProfileDataChange(body);
     } catch (e) {
       rethrow;
     }

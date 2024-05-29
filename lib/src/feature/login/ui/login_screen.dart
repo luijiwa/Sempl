@@ -32,6 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
   late MaskTextInputFormatter maskFormatter;
   int _currentPageIndex = 0;
   final _formKey = GlobalKey<FormState>();
+  bool isChecked = false;
 
   @override
   void initState() {
@@ -40,10 +41,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
     _phoneController = TextEditingController();
     _codeController = TextEditingController();
-    if (kDebugMode) {
-      _phoneController.text = '9293744874';
-      _codeController.text = '99599';
-    }
+    // if (kDebugMode) {
+    //   _phoneController.text = '9293744874';
+    //   _codeController.text = '99599';
+    // }
     maskFormatter = MaskTextInputFormatter(
       mask: '### ### ## ##',
       filter: {"#": RegExp(r'[0-9]')},
@@ -82,19 +83,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 );
               }
-              if (state.loginStatus == LoginStatus.unregistered ||
-                  state.loginStatus == LoginStatus.registered) {
-                setState(() {
-                  _currentPageIndex++;
-                });
-                _pageViewController.nextPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn,
-                );
-              }
+              // if (state.loginStatus == LoginStatus.unregistered ||
+              //     state.loginStatus == LoginStatus.registered) {
+              //   setState(() {
+              //     _currentPageIndex++;
+              //   });
+              //   _pageViewController.nextPage(
+              //     duration: const Duration(milliseconds: 300),
+              //     curve: Curves.easeIn,
+              //   );
+              // }
 
               if (state.status == AuthenticationStatus.authenticated) {
-                context.goNamed(AppRoutes.loginConfirmation.name);
+                context.goNamed(AppRoutes.main.name);
               }
 
               if (state.loginStatus == LoginStatus.unregistered &&
@@ -103,12 +104,15 @@ class _LoginScreenState extends State<LoginScreen> {
               }
             },
             child: Scaffold(
-              floatingActionButton: FloatingActionButton(
-                onPressed: () {
-                  logger.i(DependenciesScope.of(context).authBloc.state.status);
-                },
-                child: const Icon(Icons.arrow_forward),
-              ),
+              floatingActionButton: kDebugMode
+                  ? FloatingActionButton(
+                      onPressed: () {
+                        // logger.i(DependenciesScope.of(context).authBloc.state.status);
+                        logger.i(_currentPageIndex);
+                      },
+                      child: const Icon(Icons.arrow_forward),
+                    )
+                  : null,
               resizeToAvoidBottomInset: false,
               backgroundColor: Colors.white,
               appBar: PreferredSize(
@@ -142,7 +146,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const Spacer(),
-                      const TermOfUse(),
+                      TermOfUse(
+                          isChecked: isChecked,
+                          onChanged: (value) {
+                            if (value == null) return;
+                            setState(() {
+                              isChecked = value;
+                            });
+                          }),
                       SizedBox(height: 0.02 * maxHeight),
                       SizedBox(
                         height: 0.058 * maxHeight,
@@ -153,23 +164,24 @@ class _LoginScreenState extends State<LoginScreen> {
                           builder: (context, state) {
                             return ElevatedButton(
                               onPressed: () {
-                                if (_currentPageIndex == 0) {
+                                bool isPush = true;
+                                if (_currentPageIndex == 0 &&
+                                    isChecked &&
+                                    isPush) {
                                   if (_formKey.currentState!.validate()) {
-                                    if (!kDebugMode) {
-                                      AuthScope.of(context)
-                                          .signInFirstStepWithPhone(
-                                              maskFormatter.getUnmaskedText());
-                                    }
-                                    if (kDebugMode) {
-                                      setState(() {
-                                        _currentPageIndex++;
-                                      });
-                                      _pageViewController.nextPage(
-                                        duration:
-                                            const Duration(milliseconds: 300),
-                                        curve: Curves.easeIn,
-                                      );
-                                    }
+                                    AuthScope.of(context)
+                                        .signInFirstStepWithPhone(
+                                            maskFormatter.getUnmaskedText());
+
+                                    setState(() {
+                                      _currentPageIndex++;
+                                    });
+                                    _pageViewController.nextPage(
+                                      duration:
+                                          const Duration(milliseconds: 300),
+                                      curve: Curves.easeIn,
+                                    );
+
                                     // setState(() {
                                     //   _currentPageIndex++;
                                     // });
@@ -177,20 +189,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                     //   duration: const Duration(milliseconds: 300),
                                     //   curve: Curves.easeIn,
                                     // );
+                                    isPush = false;
                                   }
-                                } else if (_currentPageIndex == 1) {
-                                  if (state.loginStatus ==
-                                          LoginStatus.registered ||
-                                      kDebugMode) {
-                                    AuthScope.of(context)
-                                        .signInWithPhoneAndCode('89293744874',
-                                            _codeController.text);
-                                  }
-                                  if (state.loginStatus ==
-                                      LoginStatus.unregistered) {
-                                    AuthScope.of(context)
-                                        .saveCode(_codeController.text);
-                                  }
+                                }
+                                if (_currentPageIndex == 1 && isPush) {
+                                  AuthScope.of(context).signInWithPhoneAndCode(
+                                      _codeController.text);
+                                  isPush = false;
+
+                                  // if (state.loginStatus ==
+                                  //     LoginStatus.unregistered) {
+                                  //   AuthScope.of(context)
+                                  //       .saveCode(_codeController.text);
+                                  // }
                                 }
                               },
                               child: const Row(
@@ -225,16 +236,11 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class TermOfUse extends StatefulWidget {
-  const TermOfUse({super.key});
-
-  @override
-  State<TermOfUse> createState() => _TermOfUseState();
-}
-
-class _TermOfUseState extends State<TermOfUse> {
-  bool isChecked = false;
-
+class TermOfUse extends StatelessWidget {
+  const TermOfUse(
+      {super.key, required this.onChanged, required this.isChecked});
+  final void Function(bool?) onChanged;
+  final bool isChecked;
   @override
   Widget build(BuildContext context) {
     const linkTextStyle = TextStyle(
@@ -259,12 +265,7 @@ class _TermOfUseState extends State<TermOfUse> {
           side: MaterialStateBorderSide.resolveWith(
             (states) => const BorderSide(color: Color(0xFF99BFD4)),
           ),
-          onChanged: (value) {
-            if (value == null) return;
-            setState(() {
-              isChecked = value;
-            });
-          },
+          onChanged: onChanged,
         ),
         Flexible(
           child: AutoSizeText.rich(

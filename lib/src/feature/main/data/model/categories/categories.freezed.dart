@@ -20,7 +20,7 @@ Categories _$CategoriesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Categories {
-  List<Data> get data => throw _privateConstructorUsedError;
+  List<CategoriesData> get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $CategoriesCopyWith<$Res> {
           Categories value, $Res Function(Categories) then) =
       _$CategoriesCopyWithImpl<$Res, Categories>;
   @useResult
-  $Res call({List<Data> data});
+  $Res call({List<CategoriesData> data});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$CategoriesCopyWithImpl<$Res, $Val extends Categories>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<Data>,
+              as List<CategoriesData>,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$CategoriesImplCopyWith<$Res>
       __$$CategoriesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Data> data});
+  $Res call({List<CategoriesData> data});
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ class __$$CategoriesImplCopyWithImpl<$Res>
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<Data>,
+              as List<CategoriesData>,
     ));
   }
 }
@@ -97,16 +97,17 @@ class __$$CategoriesImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CategoriesImpl with DiagnosticableTreeMixin implements _Categories {
-  const _$CategoriesImpl({final List<Data> data = const <Data>[]})
+  const _$CategoriesImpl(
+      {final List<CategoriesData> data = const <CategoriesData>[]})
       : _data = data;
 
   factory _$CategoriesImpl.fromJson(Map<String, dynamic> json) =>
       _$$CategoriesImplFromJson(json);
 
-  final List<Data> _data;
+  final List<CategoriesData> _data;
   @override
   @JsonKey()
-  List<Data> get data {
+  List<CategoriesData> get data {
     if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
@@ -153,46 +154,49 @@ class _$CategoriesImpl with DiagnosticableTreeMixin implements _Categories {
 }
 
 abstract class _Categories implements Categories {
-  const factory _Categories({final List<Data> data}) = _$CategoriesImpl;
+  const factory _Categories({final List<CategoriesData> data}) =
+      _$CategoriesImpl;
 
   factory _Categories.fromJson(Map<String, dynamic> json) =
       _$CategoriesImpl.fromJson;
 
   @override
-  List<Data> get data;
+  List<CategoriesData> get data;
   @override
   @JsonKey(ignore: true)
   _$$CategoriesImplCopyWith<_$CategoriesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Data _$DataFromJson(Map<String, dynamic> json) {
-  return _Data.fromJson(json);
+CategoriesData _$CategoriesDataFromJson(Map<String, dynamic> json) {
+  return _CategoriesData.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Data {
+mixin _$CategoriesData {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<Subcategories> get subcategories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DataCopyWith<Data> get copyWith => throw _privateConstructorUsedError;
+  $CategoriesDataCopyWith<CategoriesData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DataCopyWith<$Res> {
-  factory $DataCopyWith(Data value, $Res Function(Data) then) =
-      _$DataCopyWithImpl<$Res, Data>;
+abstract class $CategoriesDataCopyWith<$Res> {
+  factory $CategoriesDataCopyWith(
+          CategoriesData value, $Res Function(CategoriesData) then) =
+      _$CategoriesDataCopyWithImpl<$Res, CategoriesData>;
   @useResult
   $Res call({int id, String name, List<Subcategories> subcategories});
 }
 
 /// @nodoc
-class _$DataCopyWithImpl<$Res, $Val extends Data>
-    implements $DataCopyWith<$Res> {
-  _$DataCopyWithImpl(this._value, this._then);
+class _$CategoriesDataCopyWithImpl<$Res, $Val extends CategoriesData>
+    implements $CategoriesDataCopyWith<$Res> {
+  _$CategoriesDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -224,20 +228,22 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
 }
 
 /// @nodoc
-abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
-  factory _$$DataImplCopyWith(
-          _$DataImpl value, $Res Function(_$DataImpl) then) =
-      __$$DataImplCopyWithImpl<$Res>;
+abstract class _$$CategoriesDataImplCopyWith<$Res>
+    implements $CategoriesDataCopyWith<$Res> {
+  factory _$$CategoriesDataImplCopyWith(_$CategoriesDataImpl value,
+          $Res Function(_$CategoriesDataImpl) then) =
+      __$$CategoriesDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String name, List<Subcategories> subcategories});
 }
 
 /// @nodoc
-class __$$DataImplCopyWithImpl<$Res>
-    extends _$DataCopyWithImpl<$Res, _$DataImpl>
-    implements _$$DataImplCopyWith<$Res> {
-  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
+class __$$CategoriesDataImplCopyWithImpl<$Res>
+    extends _$CategoriesDataCopyWithImpl<$Res, _$CategoriesDataImpl>
+    implements _$$CategoriesDataImplCopyWith<$Res> {
+  __$$CategoriesDataImplCopyWithImpl(
+      _$CategoriesDataImpl _value, $Res Function(_$CategoriesDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -247,7 +253,7 @@ class __$$DataImplCopyWithImpl<$Res>
     Object? name = null,
     Object? subcategories = null,
   }) {
-    return _then(_$DataImpl(
+    return _then(_$CategoriesDataImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -266,15 +272,17 @@ class __$$DataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DataImpl with DiagnosticableTreeMixin implements _Data {
-  const _$DataImpl(
+class _$CategoriesDataImpl
+    with DiagnosticableTreeMixin
+    implements _CategoriesData {
+  const _$CategoriesDataImpl(
       {this.id = 0,
       this.name = '',
       final List<Subcategories> subcategories = const <Subcategories>[]})
       : _subcategories = subcategories;
 
-  factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DataImplFromJson(json);
+  factory _$CategoriesDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CategoriesDataImplFromJson(json);
 
   @override
   @JsonKey()
@@ -293,14 +301,14 @@ class _$DataImpl with DiagnosticableTreeMixin implements _Data {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Data(id: $id, name: $name, subcategories: $subcategories)';
+    return 'CategoriesData(id: $id, name: $name, subcategories: $subcategories)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Data'))
+      ..add(DiagnosticsProperty('type', 'CategoriesData'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('subcategories', subcategories));
@@ -310,7 +318,7 @@ class _$DataImpl with DiagnosticableTreeMixin implements _Data {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DataImpl &&
+            other is _$CategoriesDataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
@@ -325,24 +333,26 @@ class _$DataImpl with DiagnosticableTreeMixin implements _Data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
-      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
+  _$$CategoriesDataImplCopyWith<_$CategoriesDataImpl> get copyWith =>
+      __$$CategoriesDataImplCopyWithImpl<_$CategoriesDataImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DataImplToJson(
+    return _$$CategoriesDataImplToJson(
       this,
     );
   }
 }
 
-abstract class _Data implements Data {
-  const factory _Data(
+abstract class _CategoriesData implements CategoriesData {
+  const factory _CategoriesData(
       {final int id,
       final String name,
-      final List<Subcategories> subcategories}) = _$DataImpl;
+      final List<Subcategories> subcategories}) = _$CategoriesDataImpl;
 
-  factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
+  factory _CategoriesData.fromJson(Map<String, dynamic> json) =
+      _$CategoriesDataImpl.fromJson;
 
   @override
   int get id;
@@ -352,7 +362,7 @@ abstract class _Data implements Data {
   List<Subcategories> get subcategories;
   @override
   @JsonKey(ignore: true)
-  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+  _$$CategoriesDataImplCopyWith<_$CategoriesDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

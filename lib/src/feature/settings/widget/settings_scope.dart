@@ -30,11 +30,21 @@ abstract interface class LocaleScopeController {
   void setLocale(Locale locale);
 }
 
+abstract interface class OnboardingScopeController {
+  bool get isOnboardingViewed;
+
+  void setOnboardingViewed();
+  // void getOnboardingViewed();
+}
+
 /// {@template settings_scope_controller}
 /// A controller that holds and operates the app settings.
 /// {@endtemplate}
 abstract interface class SettingsScopeController
-    implements ThemeScopeController, LocaleScopeController {}
+    implements
+        ThemeScopeController,
+        LocaleScopeController,
+        OnboardingScopeController {}
 
 enum _SettingsScopeAspect {
   /// The theme aspect.
@@ -120,7 +130,8 @@ class _SettingsScopeState extends State<SettingsScope>
   @override
   AppTheme get theme =>
       widget.settingsBloc.state.appTheme ?? AppTheme.defaultTheme;
-
+  @override
+  bool get isOnboardingViewed => widget.settingsBloc.state.onBoardingCompleted;
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<SettingsBloc, SettingsState>(
@@ -131,6 +142,11 @@ class _SettingsScopeState extends State<SettingsScope>
           child: widget.child,
         ),
       );
+
+  @override
+  void setOnboardingViewed() {
+    widget.settingsBloc.add(const SettingsEvent.viewedOnboarding());
+  }
 }
 
 class _InheritedSettingsScope extends InheritedModel<_SettingsScopeAspect> {

@@ -22,6 +22,7 @@ class MaterialContext extends StatelessWidget {
 
     final theme = SettingsScope.themeOf(context).theme;
     final locale = SettingsScope.localeOf(context).locale;
+    final isOnboardingViewed = SettingsScope.of(context).isOnboardingViewed;
 
     return MaterialApp.router(
       theme: theme.lightTheme,

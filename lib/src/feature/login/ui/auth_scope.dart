@@ -14,7 +14,7 @@ abstract interface class AuthController {
   void signInFirstStepWithPhone(String phone);
 
   /// Sign in with phone and code
-  void signInWithPhoneAndCode(String phone, String code);
+  void signInWithPhoneAndCode(String code);
 
   void saveCode(String code);
 
@@ -56,7 +56,7 @@ class _AuthScopeState extends State<AuthScope> implements AuthController {
   AuthenticationStatus get status => _state.status;
 
   @override
-  void signInWithPhoneAndCode(String phone, String code) =>
+  void signInWithPhoneAndCode(String code) =>
       _authBloc.add(AuthEvent.sendCode(code: code));
 
   @override
@@ -71,7 +71,7 @@ class _AuthScopeState extends State<AuthScope> implements AuthController {
 
   @override
   void submitRegistrationForm(Map<String, String> form) =>
-      _authBloc.add(AuthEvent.register()); //TODO
+      _authBloc.add(const AuthEvent.register()); //TODO
 
   @override
   Widget build(BuildContext context) => BlocBuilder<AuthBloc, AuthState>(

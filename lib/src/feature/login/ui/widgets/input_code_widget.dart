@@ -2,9 +2,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
+import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 
 class InputCodeWidget extends StatefulWidget {
@@ -98,25 +101,37 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
     );
     return Column(
       children: [
-        Pinput(
-          controller: widget.codeController,
-          keyboardType: TextInputType.number,
-          length: 5,
-          defaultPinTheme: pinTheme,
-          errorPinTheme: errorPinTheme,
-          submittedPinTheme: pinTheme.copyWith(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: blueColor,
-                width: 0.5,
+        BlocBuilder<AuthBloc, AuthState>(
+          bloc: DependenciesScope.of(context).authBloc,
+          buildWhen: (previous, current) =>
+              previous.errorMessage != current.errorMessage,
+          builder: (context, state) {
+            return Pinput(
+              controller: widget.codeController,
+              keyboardType: TextInputType.number,
+              length: 5,
+              defaultPinTheme: pinTheme,
+              errorPinTheme: errorPinTheme,
+              submittedPinTheme: pinTheme.copyWith(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: blueColor,
+                    width: 0.5,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          errorBuilder: (_, __) => const SizedBox.shrink(),
-          validator: (value) {
-            if (value == '22222') return null;
-            return 'Неверный код';
+              errorBuilder: (_, __) => const SizedBox.shrink(),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return '';
+                }
+                if (state.errorMessage != '') {
+                  return '';
+                }
+                return null;
+              },
+            );
           },
         ),
         Row(

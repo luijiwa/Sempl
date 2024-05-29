@@ -36,80 +36,99 @@ class _MainScreenState extends State<MainScreen> {
       create: (context) => _bloc,
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: CustomScrollView(
-          slivers: <Widget>[
-            const MainScreenAppBar(),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 22)
-                  .copyWith(right: width * 0.2),
-              sliver: SliverToBoxAdapter(
-                child: AutoSizeText(
-                  "НЕДАВНО ОПРОБОВАЛИ",
-                  style: Theme.of(context)
-                      .textTheme
-                      .appTitleMedium
-                      .copyWith(fontSize: 28),
-                  maxLines: 2,
-                ),
-              ),
+        body: MainScreenView(width: width),
+      ),
+    );
+  }
+}
+
+class MainScreenView extends StatelessWidget {
+  const MainScreenView({
+    super.key,
+    required this.width,
+  });
+
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<MainScreenBloc>(context);
+
+    return CustomScrollView(
+      slivers: <Widget>[
+        const MainScreenAppBar(),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 22)
+              .copyWith(right: width * 0.2),
+          sliver: SliverToBoxAdapter(
+            child: AutoSizeText(
+              "НЕДАВНО ОПРОБОВАЛИ",
+              style: Theme.of(context)
+                  .textTheme
+                  .appTitleMedium
+                  .copyWith(fontSize: 28),
+              maxLines: 2,
             ),
-            BlocBuilder<MainScreenBloc, MainScreenState>(
-              buildWhen: (previous, current) =>
-                  previous.screenStatus != current.screenStatus,
-              builder: (context, state) {
-                switch (state.screenStatus) {
-                  case ScreenStatus.success:
-                    return SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) =>
-                            ItemInListWidget(index: index),
-                        childCount: state.newSemplsCount,
-                      ),
-                    );
-                  default:
-                    return const SliverFillRemaining(
-                      hasScrollBody: false,
-                      child: Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
-                }
+          ),
+        ),
+        BlocBuilder<MainScreenBloc, MainScreenState>(
+          buildWhen: (previous, current) =>
+              previous.screenStatus != current.screenStatus,
+          builder: (context, state) {
+            switch (state.screenStatus) {
+              case ScreenStatus.success:
+                return SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) =>
+                        ItemInListWidget(index: index),
+                    childCount: state.newSemplsCount,
+                  ),
+                );
+              default:
+                return const SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+            }
+          },
+        ),
+        const SliverToBoxAdapter(
+          child: BottomPadding(),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          sliver: SliverToBoxAdapter(
+            child: NextStepButton(
+              title: 'СМОТРЕТЬ ВСЕ',
+              onPressed: () {
+                // context.goNamed(AppRoutes.recentProducts.name);
+                final myBloc = BlocProvider.of<MainScreenBloc>(context);
+
+                // Переход на второй экран с передачей блока
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => BlocProvider.value(
+                      value: myBloc,
+                      child: RecentProductsScreen(bloc: bloc),
+                    ),
+                  ),
+                );
               },
             ),
-            const SliverToBoxAdapter(
-              child: BottomPadding(),
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 22),
-              sliver: SliverToBoxAdapter(
-                child: NextStepButton(
-                  title: 'СМОТРЕТЬ ВСЕ',
-                  onPressed: () {
-                    // context.goNamed(AppRoutes.recentProducts.name);
-                    Navigator(
-                      onGenerateRoute: (settings) {
-                        return MaterialPageRoute(
-                          builder: (context) =>
-                              RecentProductsScreen(mainContext: context),
-                        );
-                      },
-                    );
-                  },
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: BottomPadding(),
-            ),
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Container(
-                color: Colors.white, // Белый фон для оставшегося места
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+        const SliverToBoxAdapter(
+          child: BottomPadding(),
+        ),
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Container(
+            color: Colors.white, // Белый фон для оставшегося места
+          ),
+        ),
+      ],
     );
   }
 }

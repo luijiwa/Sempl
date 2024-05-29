@@ -5,6 +5,8 @@ abstract interface class ProfileDataSource {
   Future<Map<String, Object?>?> loadUserData();
 
   Future<Map<String, Object?>?> loadUserSamples();
+  Future<Map<String, Object?>?> sendProfileDataChange(
+      Map<String, dynamic> body);
 }
 
 final class ProfileDataSourceNetwork implements ProfileDataSource {
@@ -32,6 +34,16 @@ final class ProfileDataSourceNetwork implements ProfileDataSource {
         throw const FormatException('Непонятный ответ сервера');
       }
       return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Map<String, Object?>?> sendProfileDataChange(
+      Map<String, dynamic> body) async {
+    try {
+      final response = await _client.put('/api/users/22/update', body: body);
     } catch (e) {
       rethrow;
     }

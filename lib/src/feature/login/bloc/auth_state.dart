@@ -10,6 +10,7 @@ abstract class AuthState with _$AuthState {
     @Default('') String code,
     @Default(LoginStatus.initial) LoginStatus loginStatus,
     @Default('') String errorMessage,
+    @Default(false) bool isOnboardingViewed,
   }) = _AuthenticationState;
 
   const AuthState._();

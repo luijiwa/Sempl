@@ -11,13 +11,12 @@ import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 
 class RecentProductsScreen extends StatelessWidget {
-  const RecentProductsScreen({super.key, required this.mainContext});
-  final BuildContext mainContext;
+  const RecentProductsScreen({super.key, required this.bloc});
+  final MainScreenBloc bloc;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    MainScreenBloc itemBloc = BlocProvider.of<MainScreenBloc>(mainContext);
 
     return Scaffold(
       backgroundColor: AppThemeColor.grey,
@@ -63,30 +62,31 @@ class RecentProductsScreen extends StatelessWidget {
               top: 10,
             ),
             sliver: const SliverToBoxAdapter(
-              child: Wrap(
-                spacing: 3.0,
-                runSpacing: 3.0,
-                children: [
-                  BlueItemWithCross(text: 'Категории: шампуни'),
-                  BlueItemWithCross(text: 'Шапмпуни для волос'),
-                  BlueItemWithCross(text: 'Item 3'),
-                  BlueItemWithCross(text: 'Item 4'),
-                  BlueItemWithCross(text: 'Item 5'),
-                ],
-              ),
-            ),
+                // child: Wrap(
+                //   spacing: 3.0,
+                //   runSpacing: 3.0,
+                //   children: [
+                //     BlueItemWithCross(text: 'Категории: шампуни'),
+                //     BlueItemWithCross(text: 'Шапмпуни для волос'),
+                //     BlueItemWithCross(text: 'Item 3'),
+                //     BlueItemWithCross(text: 'Item 4'),
+                //     BlueItemWithCross(text: 'Item 5'),
+                //   ],
+                // ),
+                ),
           ),
           SliverPadding(
             padding: EdgeInsets.only(top: height * 0.04),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
+                (_, int index) {
                   return ItemInListWidget(
                     index: index,
                     applyColorFilter: true,
                   );
                 },
-                childCount: 4, // Количество элементов в списке
+                childCount: bloc
+                    .state.newSempls.length, // Количество элементов в списке
               ),
             ),
           ),

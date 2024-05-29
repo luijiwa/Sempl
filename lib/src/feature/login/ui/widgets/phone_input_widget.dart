@@ -94,7 +94,9 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                     child: TextFormField(
                       inputFormatters: [widget.maskFormatter],
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 10) {
                           setState(() {
                             _phoneError = true;
                           });

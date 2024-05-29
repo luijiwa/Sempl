@@ -11,6 +11,7 @@ import 'package:sempl/src/feature/main/data/data_source/main_screen_data_source.
 import 'package:sempl/src/feature/main/data/repository/main_screen_repository.dart';
 import 'package:sempl/src/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
+import 'package:sempl/src/feature/settings/data/onboarding_repository.dart';
 import 'package:sempl/src/feature/survey/data/survey_data_source.dart';
 import 'package:sempl/src/feature/survey/data/survey_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -138,6 +139,11 @@ final class CompositionRoot {
   }
 
   Future<SettingsBloc> _initSettingsBloc(SharedPreferences prefs) async {
+    final onboardingRepository = OnboardingRepositoryImpl(
+      onboardingDataSource: OnboardingDataSourceLocal(
+        sharedPreferences: prefs,
+      ),
+    );
     final localeRepository = LocaleRepositoryImpl(
       localeDataSource: LocaleDataSourceLocal(sharedPreferences: prefs),
     );
@@ -159,6 +165,7 @@ final class CompositionRoot {
       localeRepository: localeRepository,
       themeRepository: themeRepository,
       initialState: initialState,
+      onboardingRepo: onboardingRepository,
     );
     return settingsBloc;
   }

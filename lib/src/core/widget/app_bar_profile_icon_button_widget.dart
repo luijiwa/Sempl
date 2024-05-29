@@ -6,11 +6,15 @@ import 'package:sempl/src/core/theme/theme.dart';
 class AppBarProfileIconButtonWidget extends StatelessWidget {
   const AppBarProfileIconButtonWidget({
     super.key,
+    this.image,
   });
+  final String? image;
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-
+    final ImageProvider avatar = image == null || image!.isEmpty
+        ? const AssetImage("assets/images/empty_avatar.png") as ImageProvider
+        : NetworkImage(image!) as ImageProvider;
     return SizedBox(
       width: width * 0.1,
       height: width * 0.1,
@@ -20,8 +24,8 @@ class AppBarProfileIconButtonWidget extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: AppThemeColor.blueColor,
-              image: const DecorationImage(
-                image: AssetImage('assets/images/profile.jpg'),
+              image: DecorationImage(
+                image: avatar,
                 fit: BoxFit.cover,
               ),
               border: Border.all(

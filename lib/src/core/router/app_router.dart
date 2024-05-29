@@ -156,38 +156,38 @@ class AppRouter {
             id: id,
           );
         },
-        routes: <GoRoute>[
-          GoRoute(
-              name: AppRoutes.delivery.name,
-              path: AppRoutes.delivery.path,
-              builder: (BuildContext context, GoRouterState state) {
-                return const DeliveryScreen();
-              },
-              routes: const <GoRoute>[
-                // GoRoute(
-                //   name: AppRoutes.surveyOrder.name,
-                //   path: AppRoutes.surveyOrder.path,
-                //   builder: (context, state) {
-                //     return const SurveyOrderScreen();
-                //   },
-                //   routes: <GoRoute>[
-                //     GoRoute(
-                //         name: AppRoutes.confirmationOrderTypeOneScreen.name,
-                //         path: AppRoutes.confirmationOrderTypeOneScreen.path,
-                //         builder: (context, state) {
-                //           return const ConfirmationOrderTypeOneScreen();
-                //         }),
-                //     GoRoute(
-                //         name: AppRoutes.confirmationOrderTypeTwoScreen.name,
-                //         path: AppRoutes.confirmationOrderTypeTwoScreen.path,
-                //         builder: (context, state) {
-                //           return const ConfirmationOrderTypeTwoScreen();
-                //         }),
-                //   ],
-                // ),
-              ]),
-        ],
+        // routes: <GoRoute>[],
       ),
+      GoRoute(
+          name: AppRoutes.delivery.name,
+          path: AppRoutes.delivery.path,
+          builder: (BuildContext context, GoRouterState state) {
+            final id = state.pathParameters['itemId']!;
+            return DeliveryScreen(id: id);
+          },
+          routes: const <GoRoute>[
+            // GoRoute(
+            //   name: AppRoutes.surveyOrder.name,
+            //   path: AppRoutes.surveyOrder.path,
+            //   builder: (context, state) {
+            //     return const SurveyOrderScreen();
+            //   },
+            //   routes: <GoRoute>[
+            //     GoRoute(
+            //         name: AppRoutes.confirmationOrderTypeOneScreen.name,
+            //         path: AppRoutes.confirmationOrderTypeOneScreen.path,
+            //         builder: (context, state) {
+            //           return const ConfirmationOrderTypeOneScreen();
+            //         }),
+            //     GoRoute(
+            //         name: AppRoutes.confirmationOrderTypeTwoScreen.name,
+            //         path: AppRoutes.confirmationOrderTypeTwoScreen.path,
+            //         builder: (context, state) {
+            //           return const ConfirmationOrderTypeTwoScreen();
+            //         }),
+            //   ],
+            // ),
+          ]),
     ],
     redirect: RedirectBuilder({
       RedirectIfAuthenticatedGuard(),

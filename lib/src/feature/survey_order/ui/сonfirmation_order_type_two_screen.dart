@@ -125,7 +125,7 @@ class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
                             height: 0.055 * maxHeight,
                             child: ElevatedButton(
                               onPressed: () {
-                                context.pushNamed(AppRoutes.profile.name);
+                                context.goNamed(AppRoutes.main.name);
                               },
                               style: ElevatedButton.styleFrom(
                                 elevation: 0,

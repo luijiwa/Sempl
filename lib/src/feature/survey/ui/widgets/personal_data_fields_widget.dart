@@ -6,35 +6,79 @@ import 'package:flutter/services.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/dropdown_custom_widget_new.dart';
 
-class PersonalDataFieldsWidget extends StatelessWidget {
+class PersonalDataFieldsWidget extends StatefulWidget {
   const PersonalDataFieldsWidget({
     super.key,
-    required this.onChangeName,
-    required this.onChangeLastName,
-    required this.onChangeGender,
-    required this.onChangeBirthdate,
-    required this.onChangeLogin,
-    required this.onChangeEmail,
+    this.onChangeName,
+    this.onChangeLastName,
+    this.onChangeGender,
+    this.onChangeBirthdate,
+    this.onChangeLogin,
+    this.onChangeEmail,
     this.initialName,
     this.initialLastName,
     this.initialGender,
     this.initialBirthdate,
     this.initialLogin,
     this.initialEmail,
+    this.nameController,
+    this.lastNameController,
+    this.genderController,
+    this.birthdateController,
+    this.loginController,
+    this.emailController,
   });
 
-  final void Function(String) onChangeName;
-  final void Function(String) onChangeLastName;
-  final void Function(String) onChangeGender;
-  final void Function(String) onChangeBirthdate;
-  final void Function(String) onChangeLogin;
-  final void Function(String) onChangeEmail;
+  final void Function(String)? onChangeName;
+  final void Function(String)? onChangeLastName;
+  final void Function(String)? onChangeGender;
+  final void Function(String)? onChangeBirthdate;
+  final void Function(String)? onChangeLogin;
+  final void Function(String)? onChangeEmail;
+
+  final TextEditingController? nameController;
+  final TextEditingController? lastNameController;
+  final TextEditingController? genderController;
+  final TextEditingController? birthdateController;
+  final TextEditingController? loginController;
+  final TextEditingController? emailController;
+
   final String? initialName;
   final String? initialLastName;
   final String? initialGender;
   final String? initialBirthdate;
   final String? initialLogin;
   final String? initialEmail;
+
+  @override
+  State<PersonalDataFieldsWidget> createState() =>
+      _PersonalDataFieldsWidgetState();
+}
+
+class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
+  @override
+  void initState() {
+    super.initState();
+    if (widget.nameController != null) {
+      widget.nameController?.text = widget.initialName ?? '';
+    }
+    if (widget.lastNameController != null) {
+      widget.lastNameController?.text = widget.initialLastName ?? '';
+    }
+    if (widget.genderController != null) {
+      widget.genderController?.text = widget.initialGender ?? '';
+    }
+    if (widget.birthdateController != null) {
+      widget.birthdateController?.text = widget.initialBirthdate ?? '';
+    }
+    if (widget.loginController != null) {
+      widget.loginController?.text = widget.initialLogin ?? '';
+    }
+    if (widget.emailController != null) {
+      widget.emailController?.text = widget.initialEmail ?? '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -61,9 +105,11 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             contentPadding: edgeInsets,
             hintText: 'Имя',
           ),
-          onChanged: onChangeName,
+          onChanged: widget.onChangeName,
+          controller: widget.nameController,
           validator: validate,
-          initialValue: initialName,
+          initialValue:
+              widget.nameController == null ? widget.initialName : null,
         ),
         const SizedBox(height: 4),
         TextFormField(
@@ -75,14 +121,16 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             contentPadding: edgeInsets,
             hintText: 'Фамилия',
           ),
-          onChanged: onChangeLastName,
+          onChanged: widget.onChangeLastName,
           validator: validate,
-          initialValue: initialLastName,
+          controller: widget.lastNameController,
+          initialValue:
+              widget.lastNameController == null ? widget.initialLastName : null,
         ),
         const SizedBox(height: 4),
         DropdownCustomWidgetNew(
-          initialValue: initialGender,
-          onChanged: (value) => onChangeGender,
+          initialValue: widget.initialGender,
+          onChanged: (value) => widget.onChangeGender,
           hint: 'Пол',
           listItems: const ['Мужской', 'Женский', 'Не указывать'],
         ),
@@ -97,9 +145,12 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             contentPadding: edgeInsets,
             hintText: 'Дата рождения',
           ),
-          onChanged: onChangeBirthdate,
+          onChanged: widget.onChangeBirthdate,
           validator: validate,
-          initialValue: initialBirthdate,
+          initialValue: widget.birthdateController == null
+              ? widget.initialBirthdate
+              : null,
+          controller: widget.birthdateController,
         ),
         SizedBox(height: width * 0.1),
         TextFormField(
@@ -109,8 +160,10 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             hintText: 'Имя в приложении',
           ),
           validator: validate,
-          onChanged: onChangeLogin,
-          initialValue: initialLogin,
+          onChanged: widget.onChangeLogin,
+          initialValue:
+              widget.loginController == null ? widget.initialLogin : null,
+          controller: widget.loginController,
         ),
         SizedBox(height: width * 0.1),
         TextFormField(
@@ -120,8 +173,10 @@ class PersonalDataFieldsWidget extends StatelessWidget {
             hintText: 'Почта',
           ),
           validator: validate,
-          onChanged: onChangeEmail,
-          initialValue: initialEmail,
+          onChanged: widget.onChangeEmail,
+          initialValue:
+              widget.emailController == null ? widget.initialEmail : null,
+          controller: widget.emailController,
         ),
       ],
     );

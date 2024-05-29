@@ -4,18 +4,20 @@ import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/router/redirect_builder.dart';
 import 'package:sempl/src/feature/login/ui/auth_scope.dart';
+import 'package:sempl/src/feature/settings/widget/settings_scope.dart';
 
 /// Guard that navigates user from unauthorized routes to dashboard
 /// if the user is authenticated.
 final class RedirectIfAuthenticatedGuard extends Guard {
   // matches login and signup routes
   @override
-  Pattern get matchPattern => RegExp(r'^/(login|signup|onboarding|survey)$');
+  Pattern get matchPattern =>
+      RegExp(r'^/(login|signup|onboarding|survey|login_confirmation)$');
 
   @override
   String? redirect(BuildContext context, GoRouterState state) {
     final auth = AuthScope.of(context);
-
+// final onboarding = SettingsScope.of(context).locale
     if (auth.status == AuthenticationStatus.authenticated) {
       return AppRoutes.main.path;
     }

@@ -9,9 +9,9 @@ part of 'categories.dart';
 _$CategoriesImpl _$$CategoriesImplFromJson(Map<String, dynamic> json) =>
     _$CategoriesImpl(
       data: (json['data'] as List<dynamic>?)
-              ?.map((e) => Data.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => CategoriesData.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <Data>[],
+          const <CategoriesData>[],
     );
 
 Map<String, dynamic> _$$CategoriesImplToJson(_$CategoriesImpl instance) =>
@@ -19,7 +19,8 @@ Map<String, dynamic> _$$CategoriesImplToJson(_$CategoriesImpl instance) =>
       'data': instance.data,
     };
 
-_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
+_$CategoriesDataImpl _$$CategoriesDataImplFromJson(Map<String, dynamic> json) =>
+    _$CategoriesDataImpl(
       id: json['id'] as int? ?? 0,
       name: json['name'] as String? ?? '',
       subcategories: (json['subcategories'] as List<dynamic>?)
@@ -28,7 +29,8 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
           const <Subcategories>[],
     );
 
-Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+Map<String, dynamic> _$$CategoriesDataImplToJson(
+        _$CategoriesDataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

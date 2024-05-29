@@ -6,7 +6,7 @@ part 'categories.g.dart';
 @freezed
 class Categories with _$Categories {
   const factory Categories({
-    @Default(<Data>[]) List<Data> data,
+    @Default(<CategoriesData>[]) List<CategoriesData> data,
   }) = _Categories;
 
   factory Categories.fromJson(Map<String, Object?> json) =>
@@ -14,14 +14,15 @@ class Categories with _$Categories {
 }
 
 @freezed
-class Data with _$Data {
-  const factory Data({
+class CategoriesData with _$CategoriesData {
+  const factory CategoriesData({
     @Default(0) int id,
     @Default('') String name,
     @Default(<Subcategories>[]) List<Subcategories> subcategories,
-  }) = _Data;
+  }) = _CategoriesData;
 
-  factory Data.fromJson(Map<String, Object?> json) => _$DataFromJson(json);
+  factory CategoriesData.fromJson(Map<String, Object?> json) =>
+      _$CategoriesDataFromJson(json);
 }
 
 @freezed

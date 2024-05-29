@@ -19,11 +19,48 @@ class ProfileEditScreen extends StatefulWidget {
 
 class _ProfileEditScreenState extends State<ProfileEditScreen> {
   late final GlobalKey<FormState> _form;
+
+  late final TextEditingController _nameController;
+  late final TextEditingController _lastNameController;
+  late final TextEditingController _loginController;
+  late final TextEditingController _dateBirthController;
+  late final TextEditingController _emailController;
+
+  late final TextEditingController _cityController;
+  late final TextEditingController _streetController;
+  late final TextEditingController _houseController;
+  late final TextEditingController _apartmentController;
+  late final TextEditingController _postcodeController;
   bool _isFormValid = false;
   @override
   void initState() {
     super.initState();
     _form = GlobalKey<FormState>();
+    _nameController = TextEditingController();
+    _lastNameController = TextEditingController();
+    _loginController = TextEditingController();
+    _dateBirthController = TextEditingController();
+    _emailController = TextEditingController();
+    _cityController = TextEditingController();
+    _streetController = TextEditingController();
+    _houseController = TextEditingController();
+    _apartmentController = TextEditingController();
+    _postcodeController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _lastNameController.dispose();
+    _loginController.dispose();
+    _dateBirthController.dispose();
+    _emailController.dispose();
+    _cityController.dispose();
+    _streetController.dispose();
+    _houseController.dispose();
+    _apartmentController.dispose();
+    _postcodeController.dispose();
+    super.dispose();
   }
 
   @override
@@ -62,17 +99,16 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                       ),
                       SizedBox(height: width * 0.0458),
                       PersonalDataFieldsWidget(
-                        onChangeName: (String firstName) {},
+                        nameController: _nameController,
                         initialName: fieldData.firstName,
+                        lastNameController: _lastNameController,
                         initialLastName: fieldData.lastName,
-                        onChangeLastName: logger.info,
                         onChangeGender: logger.info,
                         initialGender: fieldData.gender,
-                        onChangeBirthdate: logger.info,
                         initialBirthdate: fieldData.birthdate,
-                        onChangeLogin: (String login) {},
+                        birthdateController: _dateBirthController,
                         initialLogin: fieldData.login,
-                        onChangeEmail: (String email) {},
+                        emailController: _emailController,
                         initialEmail: fieldData.email,
                       ),
                       SizedBox(height: width * 0.13743),

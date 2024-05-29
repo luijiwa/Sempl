@@ -34,7 +34,7 @@ enum AppRoutes {
   ),
   delivery(
     name: 'delivery',
-    path: 'delivery',
+    path: '/delivery:itemId',
   ),
   surveyOrder(
     name: 'surveyOrder',
