@@ -53,7 +53,10 @@ class ItemCard extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            StarRatingWidget(size: width * 0.038175),
+                            StarRatingWidget(
+                              size: width * 0.038175,
+                              rating: sumRating.toInt(),
+                            ),
                             SizedBox(height: width * 0.017),
                             AutoSizeText(
                               '$sumRating по $ratingCount отзывам'

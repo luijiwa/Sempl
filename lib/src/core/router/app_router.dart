@@ -130,20 +130,20 @@ class AppRouter {
                       return const FinishedSemplsScreen();
                     }),
               ]),
-          GoRoute(
-            name: AppRoutes.recentProducts.name,
-            path: AppRoutes.recentProducts.path,
-            builder: (BuildContext context, GoRouterState state) =>
-                const RecentProductsScreen(),
-            routes: <GoRoute>[
-              GoRoute(
-                name: AppRoutes.categories.name,
-                path: AppRoutes.categories.path,
-                builder: (BuildContext context, GoRouterState state) =>
-                    const CategoriesListScreen(),
-              )
-            ],
-          ),
+          // GoRoute(
+          //   name: AppRoutes.recentProducts.name,
+          //   path: AppRoutes.recentProducts.path,
+          //   builder: (BuildContext context, GoRouterState state) =>
+          //       const RecentProductsScreen(),
+          //   routes: <GoRoute>[
+          //     GoRoute(
+          //       name: AppRoutes.categories.name,
+          //       path: AppRoutes.categories.path,
+          //       builder: (BuildContext context, GoRouterState state) =>
+          //           const CategoriesListScreen(),
+          //     )
+          //   ],
+          // ),
         ],
       ),
       GoRoute(

@@ -3,14 +3,11 @@ import 'package:video_player/video_player.dart';
 
 class FullScreenPageView extends StatefulWidget {
   final List<String> images;
-  final String videoUrl;
+  final String? videoUrl;
   final int index;
 
   const FullScreenPageView(
-      {super.key,
-      required this.images,
-      required this.videoUrl,
-      required this.index});
+      {super.key, required this.images, this.videoUrl, required this.index});
 
   @override
   State<FullScreenPageView> createState() => _FullScreenPageViewState();
@@ -25,17 +22,19 @@ class _FullScreenPageViewState extends State<FullScreenPageView> {
   void initState() {
     super.initState();
     _pageController = PageController();
-    _videoPlayerController =
-        VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl))
-          ..initialize().then((_) {
-            setState(() {});
-          });
+    if (widget.videoUrl != null) {
+      _videoPlayerController =
+          VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl!))
+            ..initialize().then((_) {
+              setState(() {});
+            });
+    }
   }
 
   @override
   void dispose() {
     _pageController.dispose();
-    _videoPlayerController.dispose();
+    if (widget.videoUrl != null) _videoPlayerController.dispose();
     super.dispose();
   }
 

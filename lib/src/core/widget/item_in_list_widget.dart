@@ -81,8 +81,7 @@ class ItemInListWidget extends StatelessWidget {
               ),
               const SizedBox(height: 11),
               StarRatingWidget(
-                size: width * 0.038175,
-              ),
+                  size: width * 0.038175, rating: item.rating.toInt()),
               SizedBox(height: offset),
             ],
           ),

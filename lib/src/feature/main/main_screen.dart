@@ -11,6 +11,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 import 'package:sempl/src/feature/main/main_screen_app_bar.dart';
+import 'package:sempl/src/feature/recent_products/ui/recent_products_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -84,7 +85,15 @@ class _MainScreenState extends State<MainScreen> {
                 child: NextStepButton(
                   title: 'СМОТРЕТЬ ВСЕ',
                   onPressed: () {
-                    context.goNamed(AppRoutes.recentProducts.name);
+                    // context.goNamed(AppRoutes.recentProducts.name);
+                    Navigator(
+                      onGenerateRoute: (settings) {
+                        return MaterialPageRoute(
+                          builder: (context) =>
+                              RecentProductsScreen(mainContext: context),
+                        );
+                      },
+                    );
                   },
                 ),
               ),

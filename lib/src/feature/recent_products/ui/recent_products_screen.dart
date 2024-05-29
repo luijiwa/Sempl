@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/widget/blue_item_with_cross.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/categories_button_widget.dart';
@@ -7,14 +8,17 @@ import 'package:sempl/src/core/widget/custom_sliver_app_bar.dart';
 import 'package:sempl/src/core/widget/item_in_list_widget.dart';
 import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 
 class RecentProductsScreen extends StatelessWidget {
-  const RecentProductsScreen({super.key});
-
+  const RecentProductsScreen({super.key, required this.mainContext});
+  final BuildContext mainContext;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+    MainScreenBloc itemBloc = BlocProvider.of<MainScreenBloc>(mainContext);
+
     return Scaffold(
       backgroundColor: AppThemeColor.grey,
       body: CustomScrollView(

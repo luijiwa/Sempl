@@ -129,7 +129,9 @@ class ShimmerReviewItemCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            StarRatingWidget(size: height * 0.038175),
+            StarRatingWidget(
+              size: height * 0.038175,
+            ),
             Container(
               width: width * 0.1,
               height: width * 0.02,
@@ -204,13 +206,9 @@ class CommentItem extends StatelessWidget {
         : NetworkImage(review.image) as ImageProvider;
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-
-    final List<String> images = [
-      "assets/images/review_photo1.png",
-      "assets/images/review_photo2.png",
-    ];
-    const String video =
-        "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4";
+    const String? video = null;
+    final List<String>? images =
+        review.image.isNotEmpty ? [review.image] : null;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -271,11 +269,16 @@ class CommentItem extends StatelessWidget {
           ],
         ),
         SizedBox(height: height * 0.01),
-        AutoSizeText(
-          review.comment,
-          style: const TextStyle(
-            fontSize: 15,
-          ),
+        Row(
+          children: [
+            AutoSizeText(
+              review.comment,
+              style: const TextStyle(
+                fontSize: 15,
+              ),
+            ),
+            Spacer(),
+          ],
         ),
         SizedBox(height: height * 0.02),
         Column(
@@ -304,79 +307,79 @@ class CommentItem extends StatelessWidget {
         SizedBox(height: height * 0.02),
         Row(
           children: [
-            Wrap(
-              spacing: 10.0,
-              runSpacing: 10.0,
-              children: [
-                ...images.map(
-                  (imageUrl) {
-                    return GestureDetector(
+            if (images != null)
+              Wrap(
+                spacing: 10.0,
+                runSpacing: 10.0,
+                children: [
+                  ...images.map(
+                    (imageUrl) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FullScreenPageView(
+                                images: images,
+                                index: images.indexOf(imageUrl),
+                              ),
+                            ),
+                          );
+                        },
+                        child: SizedBox(
+                          width: 77,
+                          height: 77,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(7.0),
+                            child: Image.asset(
+                              imageUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  if (video != null)
+                    GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => FullScreenPageView(
                               images: images,
-                              videoUrl: video,
-                              index: images.indexOf(imageUrl),
+                              index: images.length,
                             ),
                           ),
                         );
                       },
-                      child: SizedBox(
+                      child: Container(
                         width: 77,
                         height: 77,
-                        child: ClipRRect(
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(7.0),
-                          child: Image.asset(
-                            imageUrl,
+                          image: DecorationImage(
                             fit: BoxFit.cover,
+                            image: AssetImage(
+                              images[0],
+                            ),
+                          ),
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.play_arrow_rounded,
+                            color: Colors.white,
+                            size: 30,
                           ),
                         ),
                       ),
-                    );
-                  },
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => FullScreenPageView(
-                          images: images,
-                          videoUrl: video,
-                          index: 2,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    width: 77,
-                    height: 77,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7.0),
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage(
-                          images[0],
-                        ),
-                      ),
                     ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.play_arrow_rounded,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+                ],
+              ),
             const SizedBox(height: 30),
           ],
         ),
-        SizedBox(height: width * 0.051),
+        if (video != null || images != null) SizedBox(height: width * 0.051),
         SizedBox(
           width: double.maxFinite,
           child: Wrap(
