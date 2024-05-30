@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/utils/enums/button_push.dart';
+import 'package:sempl/src/core/utils/enums/screen_status.dart';
+import 'package:sempl/src/feature/delivery/bloc/delivery_bloc.dart';
 
 class DeliveryModalWidget extends StatelessWidget {
   const DeliveryModalWidget({
@@ -70,18 +74,30 @@ class DeliveryModalWidget extends StatelessWidget {
               SizedBox(
                 height: 0.1186228814 * width,
                 width: double.maxFinite,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    foregroundColor: Colors.white,
-                    backgroundColor: const Color(0xFF99BFD4),
-                  ),
-                  child: Text(
-                    'СОХРАНИТЬ И ПРОДОЛЖИТЬ',
-                    style: TextStyle(
-                      fontSize: width > 320 ? 14 : 12,
-                      color: AppThemeColor.grey,
+                child: BlocListener<DeliveryBloc, DeliveryState>(
+                  listenWhen: (previous, current) =>
+                      previous.statusSend != current.statusSend,
+                  listener: (context, state) {
+                    if (state.statusSend == ButtonPushStatus.success) {
+                      context.goNamed(AppRoutes.surveyOrder.name);
+                    }
+                  },
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // context.read<DeliveryBloc>().add();
+                      // context.goNamed(AppRoutes.surveyOrder.name);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      foregroundColor: Colors.white,
+                      backgroundColor: const Color(0xFF99BFD4),
+                    ),
+                    child: Text(
+                      'СОХРАНИТЬ И ПРОДОЛЖИТЬ',
+                      style: TextStyle(
+                        fontSize: width > 320 ? 14 : 12,
+                        color: AppThemeColor.grey,
+                      ),
                     ),
                   ),
                 ),
