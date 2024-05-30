@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/router/redirect_builder.dart';
+import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 import 'package:sempl/src/feature/settings/widget/settings_scope.dart';
 
@@ -17,9 +18,14 @@ final class RedirectIfAuthenticatedGuard extends Guard {
   @override
   String? redirect(BuildContext context, GoRouterState state) {
     final auth = AuthScope.of(context);
+
 // final onboarding = SettingsScope.of(context).locale
-    if (auth.status == AuthenticationStatus.authenticated) {
+    if (auth.status == AuthenticationStatus.authenticated &&
+        auth.registrationStatus == LoginStatus.registered) {
       return AppRoutes.main.path;
+    } else if (auth.status == AuthenticationStatus.authenticated &&
+        auth.registrationStatus == LoginStatus.unregistered) {
+      return AppRoutes.survey.path;
     }
 
     return null;

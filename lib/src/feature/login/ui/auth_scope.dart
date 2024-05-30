@@ -10,6 +10,8 @@ abstract interface class AuthController {
   /// Authentication status
   AuthenticationStatus get status;
 
+  LoginStatus get registrationStatus;
+
   /// Sign in with phone and code
   void signInFirstStepWithPhone(String phone);
 
@@ -54,6 +56,9 @@ class _AuthScopeState extends State<AuthScope> implements AuthController {
 
   @override
   AuthenticationStatus get status => _state.status;
+
+  @override
+  LoginStatus get registrationStatus => _state.loginStatus;
 
   @override
   void signInWithPhoneAndCode(String code) =>

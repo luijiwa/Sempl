@@ -26,13 +26,11 @@ class MaterialContext extends StatelessWidget {
 
     return MaterialApp.router(
       theme: theme.lightTheme,
-      darkTheme: theme.darkTheme,
-      themeMode: theme.mode,
+      darkTheme: theme.lightTheme,
       localizationsDelegates: Localization.localizationDelegates,
       supportedLocales: Localization.supportedLocales,
       locale: locale,
       routerConfig: router,
-      // TODO: You may want to override the default text scaling behavior.
       builder: (context, child) => MediaQuery.withClampedTextScaling(
         key: _globalKey,
         minScaleFactor: 1.0,

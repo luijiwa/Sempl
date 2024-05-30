@@ -21,6 +21,8 @@ abstract interface class AuthDataSource<T> {
   /// Отправка кода для регистрации
   Future<void> registrationRequest(String phone);
 
+  Future<T> registrationWithPhoneAndCode(String phone, String code);
+
   /// Отправка регистрационной формы
   Future<T> submitRegistrationForm(Map<String, String> form);
 
@@ -67,6 +69,33 @@ final class AuthDataSourceNetwork implements AuthDataSource<Token> {
     try {
       final response = await _client.post(
         '/api/auth/verify-code-and-auth', //точно
+        body: {
+          'phone': phone,
+          'verification_code': code,
+        },
+      );
+      logger.i('Ответ сервера: $response');
+
+      _checkForErrors(response);
+
+      if (response is Map<String, dynamic> &&
+          response.containsKey('access_token')) {
+        return Token(response['access_token']);
+      }
+
+      throw FormatException('Непонятный ответ сервера', response);
+    } on Object catch (e) {
+      logger.e('Не удалось проверить код', error: e);
+      throw FormatException('Непонятный ответ сервера', e);
+    }
+  }
+
+  @override
+  Future<Token> registrationWithPhoneAndCode(String phone, String code) async {
+    logger.i('Запрос на проверку кода SMS');
+    try {
+      final response = await _client.post(
+        '/api/auth/verify-code',
         body: {
           'phone': phone,
           'verification_code': code,

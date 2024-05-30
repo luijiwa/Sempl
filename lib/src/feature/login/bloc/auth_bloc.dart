@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/feature/login/data/auth_repository.dart';
 
 part 'auth_bloc.freezed.dart';
@@ -74,7 +75,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
   }
 
   Future<void> _onSendPhone(_SendPhone event, Emitter<AuthState> emit) async {
-    emit(state.copyWith(loginStatus: LoginStatus.loading));
+    emit(state.copyWith(loginStatus: LoginStatus.loading, errorMessage: ''));
     try {
       final phone = '8${event.phone}';
       final isRegistered =
@@ -91,16 +92,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
       emit(state.copyWith(
           loginStatus: LoginStatus.initial,
           errorMessage: 'Что-то пошло не так'));
+      logger.e(e, error: e, stackTrace: stackTrace);
       onError(e, stackTrace);
     }
   }
 
   Future<void> _onSendCode(_SendCode event, Emitter<AuthState> emit) async {
     // if (!kDebugMode && state.loginStatus == LoginStatus.registered) {
-    emit(state.copyWith(loginStatus: LoginStatus.loading));
+    emit(state.copyWith(loginStatus: LoginStatus.loading, errorMessage: ''));
     try {
       final phone = state.phone;
-      await _authRepository.signInWithPhoneAndCode(phone, event.code);
+      if (state.loginStatus == LoginStatus.registered) {
+        await _authRepository.signInWithPhoneAndCode(phone, event.code);
+      }
+      if (state.loginStatus == LoginStatus.unregistered) {}
       emit(AuthState.authenticated());
     } on Object catch (e, stackTrace) {
       emit(state.copyWith(loginStatus: LoginStatus.initial));

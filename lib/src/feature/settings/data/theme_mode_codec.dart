@@ -21,9 +21,9 @@ final class _ThemeModeDecoder extends Converter<String, ThemeMode> {
 
   @override
   ThemeMode convert(String input) => switch (input) {
-        'ThemeMode.dark' => ThemeMode.dark,
+        'ThemeMode.dark' => ThemeMode.light,
         'ThemeMode.light' => ThemeMode.light,
-        'ThemeMode.system' => ThemeMode.system,
+        'ThemeMode.system' => ThemeMode.light,
         _ => throw ArgumentError.value(
             input,
             'input',
