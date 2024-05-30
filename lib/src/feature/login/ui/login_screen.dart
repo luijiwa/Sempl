@@ -9,7 +9,6 @@ import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/logger.dart';
-import 'package:sempl/src/feature/confirmation/confirmation_screen.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/ui/auth_scope.dart';
@@ -263,7 +262,7 @@ class TermOfUse extends StatelessWidget {
         Checkbox(
           value: isChecked,
           activeColor: const Color(0xFF99BFD4),
-          side: MaterialStateBorderSide.resolveWith(
+          side: WidgetStateBorderSide.resolveWith(
             (states) => const BorderSide(color: Color(0xFF99BFD4)),
           ),
           onChanged: onChanged,

@@ -5,7 +5,6 @@ import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/router/redirect_builder.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/ui/auth_scope.dart';
-import 'package:sempl/src/feature/settings/widget/settings_scope.dart';
 
 /// Guard that navigates user from unauthorized routes to dashboard
 /// if the user is authenticated.

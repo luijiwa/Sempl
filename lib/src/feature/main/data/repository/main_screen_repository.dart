@@ -1,6 +1,5 @@
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/utils/logger.dart';
-import 'package:sempl/src/feature/item/data/model/item/item.dart';
 import 'package:sempl/src/feature/item/data/model/rating/rating.dart';
 import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 import 'package:sempl/src/feature/main/data/data_source/main_screen_data_source.dart';

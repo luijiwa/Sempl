@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/router/auth_guard.dart';
 import 'package:sempl/src/core/router/redirect_builder.dart';
@@ -11,15 +9,11 @@ import 'package:sempl/src/feature/feedback/ui/feedback_screen.dart';
 import 'package:sempl/src/feature/feedback/ui/widgets/%D1%81onfirmation_feedback_screen.dart';
 import 'package:sempl/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
 import 'package:sempl/src/feature/item/item_screen.dart';
-import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 import 'package:sempl/src/feature/login/ui/login_screen.dart';
 import 'package:sempl/src/feature/main/main_screen.dart';
 import 'package:sempl/src/feature/onboarding/onboarding_screen.dart';
 import 'package:sempl/src/feature/profile/ui/profile_screen.dart';
-import 'package:sempl/src/feature/profile_edit/ui/profile_edit_screen.dart';
 import 'package:sempl/src/feature/review_items/widgets/review_items_screen.dart';
-import 'package:sempl/src/feature/categories/ui/categories_list_screen.dart';
-import 'package:sempl/src/feature/recent_products/ui/recent_products_screen.dart';
 import 'package:sempl/src/feature/survey/ui/survey_screen.dart';
 import 'package:sempl/src/feature/survey_order/ui/%D1%81onfirmation_order_type_one_screen.dart';
 import 'package:sempl/src/feature/survey_order/ui/%D1%81onfirmation_order_type_two_screen.dart';
@@ -192,6 +186,6 @@ class AppRouter {
     redirect: RedirectBuilder({
       RedirectIfAuthenticatedGuard(),
       RedirectIfUnauthenticatedGuard(),
-    }),
+    }).call,
   );
 }

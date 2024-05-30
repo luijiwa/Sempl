@@ -277,7 +277,7 @@ class CommentItem extends StatelessWidget {
                 fontSize: 15,
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
         SizedBox(height: height * 0.02),

@@ -28,8 +28,8 @@ class FeedbackCheckboxRowWidget extends StatelessWidget {
             },
             value: value,
             activeColor: const Color(0xFF99BFD4),
-            side: MaterialStateBorderSide.resolveWith((states) {
-              if (states.contains(MaterialState.selected)) {
+            side: WidgetStateBorderSide.resolveWith((states) {
+              if (states.contains(WidgetState.selected)) {
                 return const BorderSide(color: AppThemeColor.blueColor);
               }
               return const BorderSide(color: AppThemeColor.blueColor);

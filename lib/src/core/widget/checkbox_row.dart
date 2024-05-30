@@ -46,7 +46,7 @@ class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
               });
             },
             activeColor: const Color(0xFF99BFD4),
-            side: MaterialStateBorderSide.resolveWith(
+            side: WidgetStateBorderSide.resolveWith(
               (states) => BorderSide(
                   color: _value ? AppThemeColor.blueColor : AppThemeColor.gris),
             ),

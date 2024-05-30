@@ -8,7 +8,6 @@ import 'package:pinput/pinput.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
-import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 
 class InputCodeWidget extends StatefulWidget {
   const InputCodeWidget({

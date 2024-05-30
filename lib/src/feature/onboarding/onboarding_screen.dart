@@ -8,8 +8,6 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 import 'package:sempl/src/feature/onboarding/widgets/second_page.dart';
 import 'package:sempl/src/feature/onboarding/widgets/third_page.dart';
-import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
-import 'package:sempl/src/feature/settings/widget/settings_scope.dart';
 
 class OnboardinScreen extends StatefulWidget {
   const OnboardinScreen({super.key});

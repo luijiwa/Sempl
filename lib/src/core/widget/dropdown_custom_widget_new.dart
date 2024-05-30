@@ -50,8 +50,8 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
     offset: const Offset(0, -2),
     scrollbarTheme: ScrollbarThemeData(
       radius: const Radius.circular(20),
-      thickness: MaterialStateProperty.all(6),
-      thumbVisibility: MaterialStateProperty.all(true),
+      thickness: WidgetStateProperty.all(6),
+      thumbVisibility: WidgetStateProperty.all(true),
     ),
   );
 

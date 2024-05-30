@@ -77,7 +77,7 @@ class PercentQuestion extends StatelessWidget {
         SizedBox(height: height * 0.012),
         DropdownCustomWidgetNew(
           onChanged: (value) => {},
-          listItems: ['5%', '10%', 'Другое'],
+          listItems: const ['5%', '10%', 'Другое'],
           hint: 'Выберите количество',
         ),
       ],
@@ -106,7 +106,7 @@ class FamilyIncomeQuestionWidget extends StatelessWidget {
         SizedBox(height: height * 0.012),
         DropdownCustomWidgetNew(
           onChanged: (value) => {},
-          listItems: ['10 000', '20 000', 'Другое'],
+          listItems: const ['10 000', '20 000', 'Другое'],
           hint: 'Выберите количество',
         ),
       ],

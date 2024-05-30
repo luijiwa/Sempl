@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
-import 'package:sempl/src/core/utils/logger.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});

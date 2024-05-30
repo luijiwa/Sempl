@@ -5,12 +5,11 @@ import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/checkbox_row.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
-import 'package:sempl/src/feature/survey/ui/widgets/password_group_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/personal_data_fields_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/questions_padding.dart';
 
 class FirstStepWidget extends StatefulWidget {
-  FirstStepWidget({
+  const FirstStepWidget({
     super.key,
     required this.onNextPage,
   });

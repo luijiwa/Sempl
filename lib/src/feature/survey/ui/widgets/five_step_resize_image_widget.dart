@@ -1,11 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/core/widget/out_button.dart';
 import 'package:sempl/src/core/theme/theme.dart';
-import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/confirmation_survey_screen.dart';
 
 /// Сделать его состоянием пятого экрана
