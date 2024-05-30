@@ -48,7 +48,9 @@ class DeliveryModalWidget extends StatelessWidget {
                 height: 0.1186228814 * width,
                 width: double.maxFinite,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(
                       width: 1,
@@ -69,9 +71,7 @@ class DeliveryModalWidget extends StatelessWidget {
                 height: 0.1186228814 * width,
                 width: double.maxFinite,
                 child: ElevatedButton(
-                  onPressed: () {
-                    context.goNamed(AppRoutes.surveyOrder.name);
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     foregroundColor: Colors.white,

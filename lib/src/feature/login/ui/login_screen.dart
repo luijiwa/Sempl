@@ -93,13 +93,11 @@ class _LoginScreenState extends State<LoginScreen> {
               //   );
               // }
 
-              if (state.status == AuthenticationStatus.authenticated &&
-                  state.loginStatus == LoginStatus.registered) {
+              if (state.status == AuthenticationStatus.authenticated) {
                 context.goNamed(AppRoutes.main.name);
               }
 
-              if (state.status == AuthenticationStatus.authenticated &&
-                  state.loginStatus == LoginStatus.unregistered) {
+              if (state.status == AuthenticationStatus.authenticated) {
                 context.goNamed(AppRoutes.loginConfirmation.name);
               }
             },
@@ -107,8 +105,11 @@ class _LoginScreenState extends State<LoginScreen> {
               floatingActionButton: kDebugMode
                   ? FloatingActionButton(
                       onPressed: () {
-                        // logger.i(DependenciesScope.of(context).authBloc.state.status);
-                        logger.i(_currentPageIndex);
+                        logger.i(DependenciesScope.of(context)
+                            .authBloc
+                            .state
+                            .status);
+                        // logger.i(_currentPageIndex);
                       },
                       child: const Icon(Icons.arrow_forward),
                     )

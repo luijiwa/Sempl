@@ -34,11 +34,15 @@ final class AuthRepositoryImpl<T> implements AuthRepository<T> {
 
   @override
   Future<T> signInWithPhoneAndCode(String phone, String code) async {
-    logger.info('signInWithPhoneAndCode вызов: $phone, $code');
-    final token = await _dataSource.signInWithPhoneAndCode(phone, code);
-    await _storage.save(token);
+    try {
+      final token = await _dataSource.signInWithPhoneAndCode(phone, code);
 
-    return token;
+      await _storage.save(token);
+
+      return token;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @override

@@ -7,6 +7,8 @@ class MainScreenState with _$MainScreenState {
     @Default(<NewSemplsData>[]) List<NewSemplsData> newSempls,
     @Default(ScreenStatus.initial) ScreenStatus screenCategoriesStatus,
     @Default(<CategoriesData>[]) List<CategoriesData> categories,
+    @Default(<CategoriesData>[]) List<CategoriesData> searchResults,
+    @Default('') String searchQuery,
   }) = _MainScreenState;
 
   const MainScreenState._();

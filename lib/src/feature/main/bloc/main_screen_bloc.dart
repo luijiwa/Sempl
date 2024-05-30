@@ -17,6 +17,9 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
   final MainScreenRepository _mainScreenRepository;
   MainScreenBloc(this._mainScreenRepository) : super(const MainScreenState()) {
     on<_LoadCategories>(_onLoadCategories);
+    on<_SearchCategory>(_onSearchCategory);
+    on<_PickCategory>(_onPickCategory);
+
     on<_Started>((event, emit) async {
       emit(state.copyWith(screenStatus: ScreenStatus.loading));
       try {
@@ -64,4 +67,16 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
       emit(state.copyWith(screenCategoriesStatus: ScreenStatus.failure));
     }
   }
+
+  FutureOr<void> _onSearchCategory(
+      _SearchCategory event, Emitter<MainScreenState> emit) {
+    List<CategoriesData> results = state.categories
+        .where((item) => item.name.contains(event.query))
+        .toList();
+    logger.i(results);
+    emit(state.copyWith(searchResults: results));
+  }
+
+  FutureOr<void> _onPickCategory(
+      _PickCategory event, Emitter<MainScreenState> emit) {}
 }

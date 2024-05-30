@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
 import 'package:sempl/src/core/widget/custom_app_bar.dart';
-import 'package:sempl/src/feature/delivery/delivery_modal_widget.dart';
+import 'package:sempl/src/feature/survey_order/ui/widgets/delivery_modal_widget.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/address_data_fields_widget.dart';
 

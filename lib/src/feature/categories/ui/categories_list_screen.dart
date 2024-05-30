@@ -17,12 +17,6 @@ class CategoriesListScreen extends StatefulWidget {
 class _CategoriesListScreenState extends State<CategoriesListScreen> {
   String? selectedCategory;
 
-  final Map<String, List<String>> categoriesData = {
-    'Косметика для волос': ['Продукт 1', 'Продукт 2', 'Продукт 3'],
-    'Категория 2': ['Продукт 4', 'Продукт 5', 'Продукт 6'],
-    'Категория 3': ['Продукт 12', 'Продукт 13', 'Продукт 14', 'Продукт 14'],
-    'Категория 4': ['Продукт 7', 'Продукт 5', 'Продукт 6'],
-  };
   @override
   void initState() {
     super.initState();
@@ -97,56 +91,40 @@ class CategoriesListWidget extends StatelessWidget {
     final categoriesData = context.read<MainScreenBloc>().state.categories;
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      sliver: SliverList(
-        delegate: SliverChildBuilderDelegate(
-          childCount: categoriesData.length,
-          (context, index) {
-            final category = categoriesData.elementAt(index);
-            final categoryName = category.name;
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 2.5),
-                            child: Text(categoryName,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 15)),
-                          ),
-                        ),
-                        CustomRadioButton(
-                          onChanged: (value) {},
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: height * 0.01),
-                ListView.builder(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: category.subcategories.length,
-                  itemBuilder: (context, subIndex) {
-                    final products = category.subcategories[subIndex];
-
-                    final product = products.name;
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 22),
+      sliver: BlocBuilder<MainScreenBloc, MainScreenState>(
+        buildWhen: (previous, current) =>
+            previous.searchResults != current.searchResults ||
+            previous.searchQuery != current.searchQuery,
+        builder: (context, state) {
+          final length = state.searchQuery.isEmpty
+              ? categoriesData.length
+              : state.searchResults.length;
+          return SliverList(
+              delegate: SliverChildBuilderDelegate(
+            childCount: length,
+            (context, index) {
+              final category = state.searchQuery.isEmpty
+                  ? categoriesData.elementAt(index)
+                  : state.searchResults.elementAt(index);
+              final categoryName = category.name;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: GestureDetector(
+                      onTap: () {},
                       child: Row(
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 4),
-                              child: Text(product,
-                                  style: const TextStyle(fontSize: 15)),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 2.5),
+                              child: Text(categoryName,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 15)),
                             ),
                           ),
                           CustomRadioButton(
@@ -154,13 +132,43 @@ class CategoriesListWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                    );
-                  },
-                ),
-              ],
-            );
-          },
-        ),
+                    ),
+                  ),
+                  SizedBox(height: height * 0.01),
+                  ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: category.subcategories.length,
+                    itemBuilder: (context, subIndex) {
+                      final products = category.subcategories[subIndex];
+
+                      final product = products.name;
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 22),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 4),
+                                child: Text(product,
+                                    style: const TextStyle(fontSize: 15)),
+                              ),
+                            ),
+                            CustomRadioButton(
+                              onChanged: (value) {},
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          ));
+        },
       ),
     );
   }

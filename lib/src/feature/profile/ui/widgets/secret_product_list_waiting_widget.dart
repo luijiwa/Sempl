@@ -1,8 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/profile/bloc/profile_bloc.dart';
 import 'package:sempl/src/feature/review_items/widgets/item_with_button_widget.dart';
 
 class SecretProductWaitingListWidget extends StatefulWidget {
@@ -44,17 +46,18 @@ class _SecretProductWaitingListWidgetState
             ),
           ),
         ),
-        if (_index == 2)
-          const ItemWithButtonWidget(
-            imageUrl: 'assets/images/diamond.png',
-            title: 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ',
-            subtitle: 'Ожидаемое время доставки: 15 января в 18:00',
-            withDate: false,
-          ),
+
+        // const ItemWithButtonWidget(
+        //   imageUrl: 'assets/images/diamond.png',
+        //   title: 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ',
+        //   subtitle: 'Ожидаемое время доставки: 15 января в 18:00',
+        //   withDate: false,
+        // ),
 
         ///TODO Если нет товаров для отзывов
-        if (_index == 1) const EmptyReviewWidget(),
-        if (_index == 0) const ReviewListWidget(),
+        if (context.read<ProfileBloc>().state.orders.isEmpty)
+          const EmptyReviewWidget(),
+        // const ReviewListWidget(),
       ]),
     );
   }

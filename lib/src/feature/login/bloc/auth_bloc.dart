@@ -102,10 +102,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
     emit(state.copyWith(loginStatus: LoginStatus.loading, errorMessage: ''));
     try {
       final phone = state.phone;
-      if (state.loginStatus == LoginStatus.registered) {
-        await _authRepository.signInWithPhoneAndCode(phone, event.code);
-      }
-      if (state.loginStatus == LoginStatus.unregistered) {}
+
+      await _authRepository.signInWithPhoneAndCode(phone, event.code);
+
       emit(AuthState.authenticated());
     } on Object catch (e, stackTrace) {
       emit(state.copyWith(loginStatus: LoginStatus.initial));

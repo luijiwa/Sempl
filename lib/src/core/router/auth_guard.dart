@@ -19,12 +19,8 @@ final class RedirectIfAuthenticatedGuard extends Guard {
     final auth = AuthScope.of(context);
 
 // final onboarding = SettingsScope.of(context).locale
-    if (auth.status == AuthenticationStatus.authenticated &&
-        auth.registrationStatus == LoginStatus.registered) {
+    if (auth.status == AuthenticationStatus.authenticated) {
       return AppRoutes.main.path;
-    } else if (auth.status == AuthenticationStatus.authenticated &&
-        auth.registrationStatus == LoginStatus.unregistered) {
-      return AppRoutes.survey.path;
     }
 
     return null;

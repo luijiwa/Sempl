@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 
 class SearchInputWidget extends StatefulWidget {
   const SearchInputWidget({
@@ -15,6 +18,7 @@ class SearchInputWidget extends StatefulWidget {
 class _SearchInputWidgetState extends State<SearchInputWidget> {
   late TextEditingController _controller;
   bool _isTextEmpty = true;
+  Timer? _debounce;
 
   @override
   void initState() {
@@ -26,12 +30,20 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
   @override
   void dispose() {
     _controller.dispose();
+    _debounce?.cancel();
     super.dispose();
   }
 
   void _textListener() {
     setState(() {
       _isTextEmpty = _controller.text.isEmpty;
+    });
+
+    if (_debounce?.isActive ?? false) _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      context
+          .read<MainScreenBloc>()
+          .add(MainScreenEvent.searchCategory(query: _controller.text));
     });
   }
 

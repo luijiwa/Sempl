@@ -4,7 +4,7 @@ import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/router/auth_guard.dart';
 import 'package:sempl/src/core/router/redirect_builder.dart';
 import 'package:sempl/src/feature/confirmation/confirmation_screen.dart';
-import 'package:sempl/src/feature/delivery/delivery_screen.dart';
+import 'package:sempl/src/feature/survey_order/ui/delivery_screen.dart';
 import 'package:sempl/src/feature/feedback/ui/feedback_screen.dart';
 import 'package:sempl/src/feature/feedback/ui/widgets/%D1%81onfirmation_feedback_screen.dart';
 import 'package:sempl/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
@@ -186,6 +186,6 @@ class AppRouter {
     redirect: RedirectBuilder({
       RedirectIfAuthenticatedGuard(),
       RedirectIfUnauthenticatedGuard(),
-    }).call,
+    }),
   );
 }
