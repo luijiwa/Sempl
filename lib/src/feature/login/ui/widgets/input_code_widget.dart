@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/utils/enums/button_push.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 
@@ -103,7 +104,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
         BlocBuilder<AuthBloc, AuthState>(
           bloc: DependenciesScope.of(context).authBloc,
           buildWhen: (previous, current) =>
-              previous.errorMessage != current.errorMessage,
+              previous.statusSend2 != current.statusSend2,
           builder: (context, state) {
             return Pinput(
               controller: widget.codeController,
@@ -125,7 +126,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
                 if (value!.isEmpty) {
                   return '';
                 }
-                if (state.errorMessage != '') {
+                if (state.statusSend2.isFailure) {
                   return '';
                 }
                 return null;

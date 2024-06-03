@@ -11,17 +11,22 @@ import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 final class RedirectIfAuthenticatedGuard extends Guard {
   // matches login and signup routes
   @override
-  Pattern get matchPattern =>
-      RegExp(r'^/(login|signup|onboarding|survey|login_confirmation)$');
+  Pattern get matchPattern => RegExp(r'^/(login|signup|onboarding)$');
 
   @override
   String? redirect(BuildContext context, GoRouterState state) {
     final auth = AuthScope.of(context);
 
 // final onboarding = SettingsScope.of(context).locale
+    // check if the user is authenticated and registered
     if (auth.status == AuthenticationStatus.authenticated) {
-      return AppRoutes.main.path;
+      if (auth.registrationStatus == LoginStatus.unregistered) {
+        return AppRoutes.loginConfirmation.path;
+      } else {
+        return AppRoutes.main.path;
+      }
     }
+    // if the user is authenticated but not registered, redirect to the login confirmation page
 
     return null;
   }

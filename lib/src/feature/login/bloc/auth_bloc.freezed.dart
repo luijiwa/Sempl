@@ -855,6 +855,8 @@ mixin _$AuthState {
   AuthenticationStatus get status => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
+  ButtonPushStatus get statusSend1 => throw _privateConstructorUsedError;
+  ButtonPushStatus get statusSend2 => throw _privateConstructorUsedError;
   LoginStatus get loginStatus => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   bool get isOnboardingViewed => throw _privateConstructorUsedError;
@@ -873,6 +875,8 @@ abstract class $AuthStateCopyWith<$Res> {
       {AuthenticationStatus status,
       String phone,
       String code,
+      ButtonPushStatus statusSend1,
+      ButtonPushStatus statusSend2,
       LoginStatus loginStatus,
       String errorMessage,
       bool isOnboardingViewed});
@@ -894,6 +898,8 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? status = null,
     Object? phone = null,
     Object? code = null,
+    Object? statusSend1 = null,
+    Object? statusSend2 = null,
     Object? loginStatus = null,
     Object? errorMessage = null,
     Object? isOnboardingViewed = null,
@@ -911,6 +917,14 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
+      statusSend1: null == statusSend1
+          ? _value.statusSend1
+          : statusSend1 // ignore: cast_nullable_to_non_nullable
+              as ButtonPushStatus,
+      statusSend2: null == statusSend2
+          ? _value.statusSend2
+          : statusSend2 // ignore: cast_nullable_to_non_nullable
+              as ButtonPushStatus,
       loginStatus: null == loginStatus
           ? _value.loginStatus
           : loginStatus // ignore: cast_nullable_to_non_nullable
@@ -939,6 +953,8 @@ abstract class _$$AuthenticationStateImplCopyWith<$Res>
       {AuthenticationStatus status,
       String phone,
       String code,
+      ButtonPushStatus statusSend1,
+      ButtonPushStatus statusSend2,
       LoginStatus loginStatus,
       String errorMessage,
       bool isOnboardingViewed});
@@ -958,6 +974,8 @@ class __$$AuthenticationStateImplCopyWithImpl<$Res>
     Object? status = null,
     Object? phone = null,
     Object? code = null,
+    Object? statusSend1 = null,
+    Object? statusSend2 = null,
     Object? loginStatus = null,
     Object? errorMessage = null,
     Object? isOnboardingViewed = null,
@@ -975,6 +993,14 @@ class __$$AuthenticationStateImplCopyWithImpl<$Res>
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
+      statusSend1: null == statusSend1
+          ? _value.statusSend1
+          : statusSend1 // ignore: cast_nullable_to_non_nullable
+              as ButtonPushStatus,
+      statusSend2: null == statusSend2
+          ? _value.statusSend2
+          : statusSend2 // ignore: cast_nullable_to_non_nullable
+              as ButtonPushStatus,
       loginStatus: null == loginStatus
           ? _value.loginStatus
           : loginStatus // ignore: cast_nullable_to_non_nullable
@@ -999,6 +1025,8 @@ class _$AuthenticationStateImpl extends _AuthenticationState
       {this.status = AuthenticationStatus.initial,
       this.phone = '',
       this.code = '',
+      this.statusSend1 = ButtonPushStatus.initial,
+      this.statusSend2 = ButtonPushStatus.initial,
       this.loginStatus = LoginStatus.initial,
       this.errorMessage = '',
       this.isOnboardingViewed = false})
@@ -1015,6 +1043,12 @@ class _$AuthenticationStateImpl extends _AuthenticationState
   final String code;
   @override
   @JsonKey()
+  final ButtonPushStatus statusSend1;
+  @override
+  @JsonKey()
+  final ButtonPushStatus statusSend2;
+  @override
+  @JsonKey()
   final LoginStatus loginStatus;
   @override
   @JsonKey()
@@ -1025,7 +1059,7 @@ class _$AuthenticationStateImpl extends _AuthenticationState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState(status: $status, phone: $phone, code: $code, loginStatus: $loginStatus, errorMessage: $errorMessage, isOnboardingViewed: $isOnboardingViewed)';
+    return 'AuthState(status: $status, phone: $phone, code: $code, statusSend1: $statusSend1, statusSend2: $statusSend2, loginStatus: $loginStatus, errorMessage: $errorMessage, isOnboardingViewed: $isOnboardingViewed)';
   }
 
   @override
@@ -1036,6 +1070,8 @@ class _$AuthenticationStateImpl extends _AuthenticationState
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('phone', phone))
       ..add(DiagnosticsProperty('code', code))
+      ..add(DiagnosticsProperty('statusSend1', statusSend1))
+      ..add(DiagnosticsProperty('statusSend2', statusSend2))
       ..add(DiagnosticsProperty('loginStatus', loginStatus))
       ..add(DiagnosticsProperty('errorMessage', errorMessage))
       ..add(DiagnosticsProperty('isOnboardingViewed', isOnboardingViewed));
@@ -1049,6 +1085,10 @@ class _$AuthenticationStateImpl extends _AuthenticationState
             (identical(other.status, status) || other.status == status) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.code, code) || other.code == code) &&
+            (identical(other.statusSend1, statusSend1) ||
+                other.statusSend1 == statusSend1) &&
+            (identical(other.statusSend2, statusSend2) ||
+                other.statusSend2 == statusSend2) &&
             (identical(other.loginStatus, loginStatus) ||
                 other.loginStatus == loginStatus) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -1058,8 +1098,8 @@ class _$AuthenticationStateImpl extends _AuthenticationState
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, phone, code, loginStatus,
-      errorMessage, isOnboardingViewed);
+  int get hashCode => Object.hash(runtimeType, status, phone, code, statusSend1,
+      statusSend2, loginStatus, errorMessage, isOnboardingViewed);
 
   @JsonKey(ignore: true)
   @override
@@ -1074,6 +1114,8 @@ abstract class _AuthenticationState extends AuthState {
       {final AuthenticationStatus status,
       final String phone,
       final String code,
+      final ButtonPushStatus statusSend1,
+      final ButtonPushStatus statusSend2,
       final LoginStatus loginStatus,
       final String errorMessage,
       final bool isOnboardingViewed}) = _$AuthenticationStateImpl;
@@ -1085,6 +1127,10 @@ abstract class _AuthenticationState extends AuthState {
   String get phone;
   @override
   String get code;
+  @override
+  ButtonPushStatus get statusSend1;
+  @override
+  ButtonPushStatus get statusSend2;
   @override
   LoginStatus get loginStatus;
   @override

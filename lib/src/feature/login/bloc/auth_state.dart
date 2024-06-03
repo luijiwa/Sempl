@@ -8,6 +8,8 @@ abstract class AuthState with _$AuthState {
     @Default(AuthenticationStatus.initial) AuthenticationStatus status,
     @Default('') String phone,
     @Default('') String code,
+    @Default(ButtonPushStatus.initial) ButtonPushStatus statusSend1,
+    @Default(ButtonPushStatus.initial) ButtonPushStatus statusSend2,
     @Default(LoginStatus.initial) LoginStatus loginStatus,
     @Default('') String errorMessage,
     @Default(false) bool isOnboardingViewed,

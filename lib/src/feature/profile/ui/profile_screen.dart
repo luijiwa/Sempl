@@ -46,6 +46,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ? FloatingActionButton(
                 onPressed: () async {
                   logger.w(AuthScope.of(context).status);
+                  logger.w(AuthScope.of(context).registrationStatus);
+
                   final sharedPreferences =
                       await SharedPreferences.getInstance();
                   final typeEntry = TypedEntry(

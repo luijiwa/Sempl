@@ -93,11 +93,13 @@ class _LoginScreenState extends State<LoginScreen> {
               //   );
               // }
 
-              if (state.status == AuthenticationStatus.authenticated) {
+              if (state.status == AuthenticationStatus.authenticated &&
+                  state.loginStatus == LoginStatus.registered) {
                 context.goNamed(AppRoutes.main.name);
               }
 
-              if (state.status == AuthenticationStatus.authenticated) {
+              if (state.status == AuthenticationStatus.authenticated &&
+                  state.loginStatus == LoginStatus.unregistered) {
                 context.goNamed(AppRoutes.loginConfirmation.name);
               }
             },

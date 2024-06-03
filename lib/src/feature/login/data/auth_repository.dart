@@ -13,6 +13,8 @@ abstract interface class AuthRepository<T> implements AuthStatusDataSource {
   /// Submit code for registration
   Future<void> registrationRequest(String phone);
 
+  Future<T> registrationWithPhoneAndCode(String phone, String code);
+
   /// Submit registration form
   Future<T> submitRegistrationForm(Map<String, String> form);
 
@@ -60,17 +62,25 @@ final class AuthRepositoryImpl<T> implements AuthRepository<T> {
           );
 
   @override
-  Future<int> signInFirstStepWithPhone(String phone) {
-    return _dataSource.signInFirstStepWithPhone(phone);
+  Future<int> signInFirstStepWithPhone(String phone) async {
+    return await _dataSource.signInFirstStepWithPhone(phone);
   }
 
   @override
-  Future<void> registrationRequest(String phone) {
-    return _dataSource.registrationRequest(phone);
+  Future<void> registrationRequest(String phone) async {
+    return await _dataSource.registrationRequest(phone);
   }
 
   @override
-  Future<T> submitRegistrationForm(Map<String, String> form) {
-    return _dataSource.submitRegistrationForm(form);
+  Future<T> submitRegistrationForm(Map<String, String> form) async {
+    return await _dataSource.submitRegistrationForm(form);
+  }
+
+  @override
+  Future<T> registrationWithPhoneAndCode(String phone, String code) async {
+    final token = await _dataSource.registrationWithPhoneAndCode(phone, code);
+    await _storage.save(token);
+
+    return token;
   }
 }

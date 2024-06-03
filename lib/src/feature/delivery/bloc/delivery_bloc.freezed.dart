@@ -317,6 +317,9 @@ abstract class $DeliveryStateCopyWith<$Res> {
       Address initialAddress,
       ButtonPushStatus statusSend,
       String errorMessage});
+
+  $AddressCopyWith<$Res> get address;
+  $AddressCopyWith<$Res> get initialAddress;
 }
 
 /// @nodoc
@@ -332,17 +335,17 @@ class _$DeliveryStateCopyWithImpl<$Res, $Val extends DeliveryState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
-    Object? initialAddress = freezed,
+    Object? address = null,
+    Object? initialAddress = null,
     Object? statusSend = null,
     Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
-      address: freezed == address
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Address,
-      initialAddress: freezed == initialAddress
+      initialAddress: null == initialAddress
           ? _value.initialAddress
           : initialAddress // ignore: cast_nullable_to_non_nullable
               as Address,
@@ -355,6 +358,22 @@ class _$DeliveryStateCopyWithImpl<$Res, $Val extends DeliveryState>
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_value.address, (value) {
+      return _then(_value.copyWith(address: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get initialAddress {
+    return $AddressCopyWith<$Res>(_value.initialAddress, (value) {
+      return _then(_value.copyWith(initialAddress: value) as $Val);
+    });
   }
 }
 
@@ -371,6 +390,11 @@ abstract class _$$DeliveryStateImplCopyWith<$Res>
       Address initialAddress,
       ButtonPushStatus statusSend,
       String errorMessage});
+
+  @override
+  $AddressCopyWith<$Res> get address;
+  @override
+  $AddressCopyWith<$Res> get initialAddress;
 }
 
 /// @nodoc
@@ -384,17 +408,17 @@ class __$$DeliveryStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
-    Object? initialAddress = freezed,
+    Object? address = null,
+    Object? initialAddress = null,
     Object? statusSend = null,
     Object? errorMessage = null,
   }) {
     return _then(_$DeliveryStateImpl(
-      address: freezed == address
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Address,
-      initialAddress: freezed == initialAddress
+      initialAddress: null == initialAddress
           ? _value.initialAddress
           : initialAddress // ignore: cast_nullable_to_non_nullable
               as Address,
@@ -442,9 +466,9 @@ class _$DeliveryStateImpl implements _DeliveryState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeliveryStateImpl &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality()
-                .equals(other.initialAddress, initialAddress) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.initialAddress, initialAddress) ||
+                other.initialAddress == initialAddress) &&
             (identical(other.statusSend, statusSend) ||
                 other.statusSend == statusSend) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -453,11 +477,7 @@ class _$DeliveryStateImpl implements _DeliveryState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(initialAddress),
-      statusSend,
-      errorMessage);
+      runtimeType, address, initialAddress, statusSend, errorMessage);
 
   @JsonKey(ignore: true)
   @override
