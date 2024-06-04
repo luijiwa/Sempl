@@ -7,9 +7,22 @@ import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/questions_padding.dart';
 import 'package:sempl/src/core/widget/checkbox_row.dart';
 
-class ThirthStepWidget extends StatelessWidget {
+class ThirthStepWidget extends StatefulWidget {
   const ThirthStepWidget({super.key, required this.onNextPage});
   final VoidCallback onNextPage;
+
+  @override
+  State<ThirthStepWidget> createState() => _ThirthStepWidgetState();
+}
+
+class _ThirthStepWidgetState extends State<ThirthStepWidget> {
+  late final GlobalKey<FormState> _formKey;
+  @override
+  void initState() {
+    super.initState();
+
+    _formKey = GlobalKey<FormState>();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,37 +32,46 @@ class ThirthStepWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: height * 0.035),
-            AutoSizeText(
-              'НЕМНОГО ИНФОРМАЦИИ О ТЕБЕ',
-              style: Theme.of(context).textTheme.appProfileTitle,
-              maxLines: 1,
-            ),
-            SizedBox(height: height * 0.016),
-            QuestionWidget(
-              title: 'Сколько человек живет с вами?',
-              child: DropdownCustomWidgetNew(
-                onChanged: (value) => {},
-                listItems: const ['1', '2', 'Другое'],
-                hint: 'Выберите количество',
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: height * 0.035),
+              AutoSizeText(
+                'НЕМНОГО ИНФОРМАЦИИ О ТЕБЕ',
+                style: Theme.of(context).textTheme.appProfileTitle,
+                maxLines: 1,
               ),
-            ),
-            const QuestionsPadding(),
-            const ChildrenQuestionUntilEighteen(),
-            const QuestionsPadding(),
-            const PetsWidget(),
-            const QuestionsPadding(),
-            const FamilyIncomeQuestionWidget(),
-            const QuestionsPadding(),
-            const PercentQuestion(),
-            SizedBox(height: height * 0.0657),
-            NextStepButton(title: 'ШАГ 4', onPressed: onNextPage),
-            const BottomPadding(),
-          ],
+              SizedBox(height: height * 0.016),
+              QuestionWidget(
+                title: 'Сколько человек живет с вами?',
+                child: DropdownCustomWidgetNew(
+                  onChanged: (value) => {},
+                  listItems: const ['1', '2', 'Другое'],
+                  hint: 'Выберите количество',
+                ),
+              ),
+              const QuestionsPadding(),
+              const ChildrenQuestionUntilEighteen(),
+              const QuestionsPadding(),
+              const PetsWidget(),
+              const QuestionsPadding(),
+              const FamilyIncomeQuestionWidget(),
+              const QuestionsPadding(),
+              const PercentQuestion(),
+              SizedBox(height: height * 0.0657),
+              NextStepButton(
+                  title: 'ШАГ 4',
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      widget.onNextPage();
+                    }
+                  }),
+              const BottomPadding(),
+            ],
+          ),
         ),
       ),
     );

@@ -9,12 +9,6 @@ import 'package:sempl/src/core/widget/dropdown_custom_widget_new.dart';
 class PersonalDataFieldsWidget extends StatefulWidget {
   const PersonalDataFieldsWidget({
     super.key,
-    this.onChangeName,
-    this.onChangeLastName,
-    this.onChangeGender,
-    this.onChangeBirthdate,
-    this.onChangeLogin,
-    this.onChangeEmail,
     this.initialName,
     this.initialLastName,
     this.initialGender,
@@ -27,14 +21,9 @@ class PersonalDataFieldsWidget extends StatefulWidget {
     this.birthdateController,
     this.loginController,
     this.emailController,
+    this.onChangeGender,
   });
-
-  final void Function(String)? onChangeName;
-  final void Function(String)? onChangeLastName;
   final void Function(String)? onChangeGender;
-  final void Function(String)? onChangeBirthdate;
-  final void Function(String)? onChangeLogin;
-  final void Function(String)? onChangeEmail;
 
   final TextEditingController? nameController;
   final TextEditingController? lastNameController;
@@ -105,7 +94,6 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
             contentPadding: edgeInsets,
             hintText: 'Имя',
           ),
-          onChanged: widget.onChangeName,
           controller: widget.nameController,
           validator: validate,
           initialValue:
@@ -121,7 +109,6 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
             contentPadding: edgeInsets,
             hintText: 'Фамилия',
           ),
-          onChanged: widget.onChangeLastName,
           validator: validate,
           controller: widget.lastNameController,
           initialValue:
@@ -145,7 +132,6 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
             contentPadding: edgeInsets,
             hintText: 'Дата рождения',
           ),
-          onChanged: widget.onChangeBirthdate,
           validator: validate,
           initialValue: widget.birthdateController == null
               ? widget.initialBirthdate
@@ -160,7 +146,6 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
             hintText: 'Имя в приложении',
           ),
           validator: validate,
-          onChanged: widget.onChangeLogin,
           initialValue:
               widget.loginController == null ? widget.initialLogin : null,
           controller: widget.loginController,
@@ -173,7 +158,6 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
             hintText: 'Почта',
           ),
           validator: validate,
-          onChanged: widget.onChangeEmail,
           initialValue:
               widget.emailController == null ? widget.initialEmail : null,
           controller: widget.emailController,

@@ -8,11 +8,12 @@ class CheckboxRowWidget extends StatefulWidget {
     required this.title,
     required this.value,
     this.maxLines = 1,
+    this.onChange,
   });
   final String title;
   final int maxLines;
   final bool value;
-
+  final ValueChanged<bool>? onChange;
   @override
   State<CheckboxRowWidget> createState() => _CheckboxRowWidgetState();
 }
