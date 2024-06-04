@@ -21,12 +21,24 @@ class FirstStepWidget extends StatefulWidget {
 
 class _FirstStepWidgetState extends State<FirstStepWidget> {
   final _formKey = GlobalKey<FormState>();
+  late final TextEditingController _nameController;
+  late final TextEditingController _lastNameController;
+  late final TextEditingController _genderController;
+  late final TextEditingController _birthDateController;
+  late final TextEditingController _loginController;
+  late final TextEditingController _emailController;
 
   void _trySubmitForm() {
     if (_formKey.currentState!.validate()) {
       // If the form is valid, proceed to the next page or submit the data.
       widget.onNextPage();
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController();
   }
 
   @override

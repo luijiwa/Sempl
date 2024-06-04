@@ -36,7 +36,6 @@ final class RestClientDio extends RestClientBase {
         data: body,
         options: options,
       );
-      logger.info('Response sendRequest: $response');
       // @Deprecated('Надо разобраться предже чем использовать')
       // final resp = await decodeResponse(
       //   response.data,

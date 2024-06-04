@@ -24,6 +24,7 @@ class AppRouter {
       GlobalKey<NavigatorState>(debugLabel: 'root');
   late final router = GoRouter(
     navigatorKey: _rootNavigatorKey,
+    debugLogDiagnostics: true,
     initialLocation: AppRoutes.onboarding.path,
     routes: <GoRoute>[
       GoRoute(
@@ -52,15 +53,7 @@ class AppRouter {
         path: AppRoutes.login.path,
         builder: (BuildContext context, GoRouterState state) =>
             const LoginScreen(),
-        routes: <GoRoute>[
-          GoRoute(
-            name: AppRoutes.loginConfirmation.name,
-            path: AppRoutes.loginConfirmation.path,
-            builder: (context, state) {
-              return const ConfirmationAuthScreen();
-            },
-          ),
-        ],
+        routes: <GoRoute>[],
       ),
       GoRoute(
         name: AppRoutes.survey.name,
@@ -151,6 +144,13 @@ class AppRouter {
           );
         },
         // routes: <GoRoute>[],
+      ),
+      GoRoute(
+        name: AppRoutes.loginConfirmation.name,
+        path: AppRoutes.loginConfirmation.path,
+        builder: (context, state) {
+          return const ConfirmationAuthScreen();
+        },
       ),
       GoRoute(
           name: AppRoutes.delivery.name,

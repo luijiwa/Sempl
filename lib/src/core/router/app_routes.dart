@@ -26,7 +26,7 @@ enum AppRoutes {
 
   loginConfirmation(
     name: 'loginConfirmation',
-    path: 'login_confirmation',
+    path: '/login_confirmation',
   ),
   itemScreen(
     name: 'item',
