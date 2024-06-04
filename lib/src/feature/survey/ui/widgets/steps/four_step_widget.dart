@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
-import 'package:sempl/src/core/widget/text_input_field.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 

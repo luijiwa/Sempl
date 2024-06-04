@@ -16,7 +16,7 @@ class DeliveryBloc extends Bloc<DeliveryEvent, DeliveryState> {
   final ProfileRepository
       _profileRepository; //Так как достаточно только репо профиля
 
-  DeliveryBloc(this._profileRepository) : super(DeliveryState()) {
+  DeliveryBloc(this._profileRepository) : super(const DeliveryState()) {
     on<_EditAddress>(_onEditAddress);
     on<_LoadAddress>(_onLoadAddress);
   }

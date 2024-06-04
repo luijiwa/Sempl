@@ -1,5 +1,4 @@
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
-import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 
 /// AuthRepository

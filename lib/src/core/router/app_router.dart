@@ -53,7 +53,7 @@ class AppRouter {
         path: AppRoutes.login.path,
         builder: (BuildContext context, GoRouterState state) =>
             const LoginScreen(),
-        routes: <GoRoute>[],
+        routes: const <GoRoute>[],
       ),
       GoRoute(
         name: AppRoutes.survey.name,
@@ -186,6 +186,6 @@ class AppRouter {
     redirect: RedirectBuilder({
       RedirectIfAuthenticatedGuard(),
       RedirectIfUnauthenticatedGuard(),
-    }),
+    }).call,
   );
 }
