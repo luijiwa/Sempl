@@ -18,18 +18,15 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SurveyEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -39,24 +36,30 @@ mixin _$SurveyEvent {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -65,24 +68,30 @@ mixin _$SurveyEvent {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -91,7 +100,16 @@ mixin _$SurveyEvent {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) =>
@@ -114,6 +132,385 @@ class _$SurveyEventCopyWithImpl<$Res, $Val extends SurveyEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$SetLoginImplCopyWith<$Res> {
+  factory _$$SetLoginImplCopyWith(
+          _$SetLoginImpl value, $Res Function(_$SetLoginImpl) then) =
+      __$$SetLoginImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String login});
+}
+
+/// @nodoc
+class __$$SetLoginImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetLoginImpl>
+    implements _$$SetLoginImplCopyWith<$Res> {
+  __$$SetLoginImplCopyWithImpl(
+      _$SetLoginImpl _value, $Res Function(_$SetLoginImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? login = null,
+  }) {
+    return _then(_$SetLoginImpl(
+      null == login
+          ? _value.login
+          : login // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetLoginImpl with DiagnosticableTreeMixin implements _SetLogin {
+  const _$SetLoginImpl(this.login);
+
+  @override
+  final String login;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setLogin(login: $login)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setLogin'))
+      ..add(DiagnosticsProperty('login', login));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetLoginImpl &&
+            (identical(other.login, login) || other.login == login));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, login);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetLoginImplCopyWith<_$SetLoginImpl> get copyWith =>
+      __$$SetLoginImplCopyWithImpl<_$SetLoginImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setLogin != null) {
+      return setLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetLogin implements SurveyEvent {
+  const factory _SetLogin(final String login) = _$SetLoginImpl;
+
+  String get login;
+  @JsonKey(ignore: true)
+  _$$SetLoginImplCopyWith<_$SetLoginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetPasswordImplCopyWith<$Res> {
+  factory _$$SetPasswordImplCopyWith(
+          _$SetPasswordImpl value, $Res Function(_$SetPasswordImpl) then) =
+      __$$SetPasswordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$SetPasswordImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetPasswordImpl>
+    implements _$$SetPasswordImplCopyWith<$Res> {
+  __$$SetPasswordImplCopyWithImpl(
+      _$SetPasswordImpl _value, $Res Function(_$SetPasswordImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_$SetPasswordImpl(
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetPasswordImpl with DiagnosticableTreeMixin implements _SetPassword {
+  const _$SetPasswordImpl(this.password);
+
+  @override
+  final String password;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setPassword(password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setPassword'))
+      ..add(DiagnosticsProperty('password', password));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetPasswordImpl &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetPasswordImplCopyWith<_$SetPasswordImpl> get copyWith =>
+      __$$SetPasswordImplCopyWithImpl<_$SetPasswordImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setPassword != null) {
+      return setPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetPassword implements SurveyEvent {
+  const factory _SetPassword(final String password) = _$SetPasswordImpl;
+
+  String get password;
+  @JsonKey(ignore: true)
+  _$$SetPasswordImplCopyWith<_$SetPasswordImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -189,18 +586,15 @@ class _$SetFirstNameImpl with DiagnosticableTreeMixin implements _SetFirstName {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -210,7 +604,16 @@ class _$SetFirstNameImpl with DiagnosticableTreeMixin implements _SetFirstName {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setFirstName(this);
@@ -219,18 +622,15 @@ class _$SetFirstNameImpl with DiagnosticableTreeMixin implements _SetFirstName {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -239,7 +639,16 @@ class _$SetFirstNameImpl with DiagnosticableTreeMixin implements _SetFirstName {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setFirstName?.call(this);
@@ -248,18 +657,15 @@ class _$SetFirstNameImpl with DiagnosticableTreeMixin implements _SetFirstName {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -268,7 +674,16 @@ class _$SetFirstNameImpl with DiagnosticableTreeMixin implements _SetFirstName {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -361,18 +776,15 @@ class _$SetLastNameImpl with DiagnosticableTreeMixin implements _SetLastName {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -382,7 +794,16 @@ class _$SetLastNameImpl with DiagnosticableTreeMixin implements _SetLastName {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setLastName(this);
@@ -391,18 +812,15 @@ class _$SetLastNameImpl with DiagnosticableTreeMixin implements _SetLastName {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -411,7 +829,16 @@ class _$SetLastNameImpl with DiagnosticableTreeMixin implements _SetLastName {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setLastName?.call(this);
@@ -420,18 +847,15 @@ class _$SetLastNameImpl with DiagnosticableTreeMixin implements _SetLastName {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -440,7 +864,16 @@ class _$SetLastNameImpl with DiagnosticableTreeMixin implements _SetLastName {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -532,18 +965,15 @@ class _$SetGenderImpl with DiagnosticableTreeMixin implements _SetGender {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -553,7 +983,16 @@ class _$SetGenderImpl with DiagnosticableTreeMixin implements _SetGender {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setGender(this);
@@ -562,18 +1001,15 @@ class _$SetGenderImpl with DiagnosticableTreeMixin implements _SetGender {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -582,7 +1018,16 @@ class _$SetGenderImpl with DiagnosticableTreeMixin implements _SetGender {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setGender?.call(this);
@@ -591,18 +1036,15 @@ class _$SetGenderImpl with DiagnosticableTreeMixin implements _SetGender {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -611,7 +1053,16 @@ class _$SetGenderImpl with DiagnosticableTreeMixin implements _SetGender {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -704,18 +1155,15 @@ class _$SetBirthdateImpl with DiagnosticableTreeMixin implements _SetBirthdate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -725,7 +1173,16 @@ class _$SetBirthdateImpl with DiagnosticableTreeMixin implements _SetBirthdate {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setBirthdate(this);
@@ -734,18 +1191,15 @@ class _$SetBirthdateImpl with DiagnosticableTreeMixin implements _SetBirthdate {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -754,7 +1208,16 @@ class _$SetBirthdateImpl with DiagnosticableTreeMixin implements _SetBirthdate {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setBirthdate?.call(this);
@@ -763,18 +1226,15 @@ class _$SetBirthdateImpl with DiagnosticableTreeMixin implements _SetBirthdate {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -783,7 +1243,16 @@ class _$SetBirthdateImpl with DiagnosticableTreeMixin implements _SetBirthdate {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -804,31 +1273,31 @@ abstract class _SetBirthdate implements SurveyEvent {
 }
 
 /// @nodoc
-abstract class _$$SetLoginImplCopyWith<$Res> {
-  factory _$$SetLoginImplCopyWith(
-          _$SetLoginImpl value, $Res Function(_$SetLoginImpl) then) =
-      __$$SetLoginImplCopyWithImpl<$Res>;
+abstract class _$$SetAppNameImplCopyWith<$Res> {
+  factory _$$SetAppNameImplCopyWith(
+          _$SetAppNameImpl value, $Res Function(_$SetAppNameImpl) then) =
+      __$$SetAppNameImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String login});
+  $Res call({String appName});
 }
 
 /// @nodoc
-class __$$SetLoginImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetLoginImpl>
-    implements _$$SetLoginImplCopyWith<$Res> {
-  __$$SetLoginImplCopyWithImpl(
-      _$SetLoginImpl _value, $Res Function(_$SetLoginImpl) _then)
+class __$$SetAppNameImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetAppNameImpl>
+    implements _$$SetAppNameImplCopyWith<$Res> {
+  __$$SetAppNameImplCopyWithImpl(
+      _$SetAppNameImpl _value, $Res Function(_$SetAppNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? login = null,
+    Object? appName = null,
   }) {
-    return _then(_$SetLoginImpl(
-      null == login
-          ? _value.login
-          : login // ignore: cast_nullable_to_non_nullable
+    return _then(_$SetAppNameImpl(
+      null == appName
+          ? _value.appName
+          : appName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -836,57 +1305,54 @@ class __$$SetLoginImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetLoginImpl with DiagnosticableTreeMixin implements _SetLogin {
-  const _$SetLoginImpl(this.login);
+class _$SetAppNameImpl with DiagnosticableTreeMixin implements _SetAppName {
+  const _$SetAppNameImpl(this.appName);
 
   @override
-  final String login;
+  final String appName;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setLogin(login: $login)';
+    return 'SurveyEvent.setAppName(appName: $appName)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'SurveyEvent.setLogin'))
-      ..add(DiagnosticsProperty('login', login));
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setAppName'))
+      ..add(DiagnosticsProperty('appName', appName));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetLoginImpl &&
-            (identical(other.login, login) || other.login == login));
+            other is _$SetAppNameImpl &&
+            (identical(other.appName, appName) || other.appName == appName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, login);
+  int get hashCode => Object.hash(runtimeType, appName);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SetLoginImplCopyWith<_$SetLoginImpl> get copyWith =>
-      __$$SetLoginImplCopyWithImpl<_$SetLoginImpl>(this, _$identity);
+  _$$SetAppNameImplCopyWith<_$SetAppNameImpl> get copyWith =>
+      __$$SetAppNameImplCopyWithImpl<_$SetAppNameImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -896,27 +1362,33 @@ class _$SetLoginImpl with DiagnosticableTreeMixin implements _SetLogin {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
-    return setLogin(this);
+    return setAppName(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -925,27 +1397,33 @@ class _$SetLoginImpl with DiagnosticableTreeMixin implements _SetLogin {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
-    return setLogin?.call(this);
+    return setAppName?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -954,23 +1432,32 @@ class _$SetLoginImpl with DiagnosticableTreeMixin implements _SetLogin {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
-    if (setLogin != null) {
-      return setLogin(this);
+    if (setAppName != null) {
+      return setAppName(this);
     }
     return orElse();
   }
 }
 
-abstract class _SetLogin implements SurveyEvent {
-  const factory _SetLogin(final String login) = _$SetLoginImpl;
+abstract class _SetAppName implements SurveyEvent {
+  const factory _SetAppName(final String appName) = _$SetAppNameImpl;
 
-  String get login;
+  String get appName;
   @JsonKey(ignore: true)
-  _$$SetLoginImplCopyWith<_$SetLoginImpl> get copyWith =>
+  _$$SetAppNameImplCopyWith<_$SetAppNameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1046,18 +1533,15 @@ class _$SetEmailImpl with DiagnosticableTreeMixin implements _SetEmail {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -1067,7 +1551,16 @@ class _$SetEmailImpl with DiagnosticableTreeMixin implements _SetEmail {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setEmail(this);
@@ -1076,18 +1569,15 @@ class _$SetEmailImpl with DiagnosticableTreeMixin implements _SetEmail {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -1096,7 +1586,16 @@ class _$SetEmailImpl with DiagnosticableTreeMixin implements _SetEmail {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setEmail?.call(this);
@@ -1105,18 +1604,15 @@ class _$SetEmailImpl with DiagnosticableTreeMixin implements _SetEmail {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -1125,7 +1621,16 @@ class _$SetEmailImpl with DiagnosticableTreeMixin implements _SetEmail {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -1142,6 +1647,1942 @@ abstract class _SetEmail implements SurveyEvent {
   String get email;
   @JsonKey(ignore: true)
   _$$SetEmailImplCopyWith<_$SetEmailImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetAddressImplCopyWith<$Res> {
+  factory _$$SetAddressImplCopyWith(
+          _$SetAddressImpl value, $Res Function(_$SetAddressImpl) then) =
+      __$$SetAddressImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String address});
+}
+
+/// @nodoc
+class __$$SetAddressImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetAddressImpl>
+    implements _$$SetAddressImplCopyWith<$Res> {
+  __$$SetAddressImplCopyWithImpl(
+      _$SetAddressImpl _value, $Res Function(_$SetAddressImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? address = null,
+  }) {
+    return _then(_$SetAddressImpl(
+      null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetAddressImpl with DiagnosticableTreeMixin implements _SetAddress {
+  const _$SetAddressImpl(this.address);
+
+  @override
+  final String address;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setAddress(address: $address)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setAddress'))
+      ..add(DiagnosticsProperty('address', address));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetAddressImpl &&
+            (identical(other.address, address) || other.address == address));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, address);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetAddressImplCopyWith<_$SetAddressImpl> get copyWith =>
+      __$$SetAddressImplCopyWithImpl<_$SetAddressImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setAddress != null) {
+      return setAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetAddress implements SurveyEvent {
+  const factory _SetAddress(final String address) = _$SetAddressImpl;
+
+  String get address;
+  @JsonKey(ignore: true)
+  _$$SetAddressImplCopyWith<_$SetAddressImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetPeopleLivingWithImplCopyWith<$Res> {
+  factory _$$SetPeopleLivingWithImplCopyWith(_$SetPeopleLivingWithImpl value,
+          $Res Function(_$SetPeopleLivingWithImpl) then) =
+      __$$SetPeopleLivingWithImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String peopleLivingWith});
+}
+
+/// @nodoc
+class __$$SetPeopleLivingWithImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetPeopleLivingWithImpl>
+    implements _$$SetPeopleLivingWithImplCopyWith<$Res> {
+  __$$SetPeopleLivingWithImplCopyWithImpl(_$SetPeopleLivingWithImpl _value,
+      $Res Function(_$SetPeopleLivingWithImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? peopleLivingWith = null,
+  }) {
+    return _then(_$SetPeopleLivingWithImpl(
+      null == peopleLivingWith
+          ? _value.peopleLivingWith
+          : peopleLivingWith // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetPeopleLivingWithImpl
+    with DiagnosticableTreeMixin
+    implements _SetPeopleLivingWith {
+  const _$SetPeopleLivingWithImpl(this.peopleLivingWith);
+
+  @override
+  final String peopleLivingWith;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setPeopleLivingWith(peopleLivingWith: $peopleLivingWith)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setPeopleLivingWith'))
+      ..add(DiagnosticsProperty('peopleLivingWith', peopleLivingWith));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetPeopleLivingWithImpl &&
+            (identical(other.peopleLivingWith, peopleLivingWith) ||
+                other.peopleLivingWith == peopleLivingWith));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, peopleLivingWith);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetPeopleLivingWithImplCopyWith<_$SetPeopleLivingWithImpl> get copyWith =>
+      __$$SetPeopleLivingWithImplCopyWithImpl<_$SetPeopleLivingWithImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setPeopleLivingWith(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setPeopleLivingWith?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setPeopleLivingWith != null) {
+      return setPeopleLivingWith(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetPeopleLivingWith implements SurveyEvent {
+  const factory _SetPeopleLivingWith(final String peopleLivingWith) =
+      _$SetPeopleLivingWithImpl;
+
+  String get peopleLivingWith;
+  @JsonKey(ignore: true)
+  _$$SetPeopleLivingWithImplCopyWith<_$SetPeopleLivingWithImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetHasChildrenImplCopyWith<$Res> {
+  factory _$$SetHasChildrenImplCopyWith(_$SetHasChildrenImpl value,
+          $Res Function(_$SetHasChildrenImpl) then) =
+      __$$SetHasChildrenImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool hasChildren});
+}
+
+/// @nodoc
+class __$$SetHasChildrenImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetHasChildrenImpl>
+    implements _$$SetHasChildrenImplCopyWith<$Res> {
+  __$$SetHasChildrenImplCopyWithImpl(
+      _$SetHasChildrenImpl _value, $Res Function(_$SetHasChildrenImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? hasChildren = null,
+  }) {
+    return _then(_$SetHasChildrenImpl(
+      null == hasChildren
+          ? _value.hasChildren
+          : hasChildren // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetHasChildrenImpl
+    with DiagnosticableTreeMixin
+    implements _SetHasChildren {
+  const _$SetHasChildrenImpl(this.hasChildren);
+
+  @override
+  final bool hasChildren;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setHasChildren(hasChildren: $hasChildren)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setHasChildren'))
+      ..add(DiagnosticsProperty('hasChildren', hasChildren));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetHasChildrenImpl &&
+            (identical(other.hasChildren, hasChildren) ||
+                other.hasChildren == hasChildren));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, hasChildren);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetHasChildrenImplCopyWith<_$SetHasChildrenImpl> get copyWith =>
+      __$$SetHasChildrenImplCopyWithImpl<_$SetHasChildrenImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setHasChildren(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setHasChildren?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setHasChildren != null) {
+      return setHasChildren(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetHasChildren implements SurveyEvent {
+  const factory _SetHasChildren(final bool hasChildren) = _$SetHasChildrenImpl;
+
+  bool get hasChildren;
+  @JsonKey(ignore: true)
+  _$$SetHasChildrenImplCopyWith<_$SetHasChildrenImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetPetsImplCopyWith<$Res> {
+  factory _$$SetPetsImplCopyWith(
+          _$SetPetsImpl value, $Res Function(_$SetPetsImpl) then) =
+      __$$SetPetsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String pets});
+}
+
+/// @nodoc
+class __$$SetPetsImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetPetsImpl>
+    implements _$$SetPetsImplCopyWith<$Res> {
+  __$$SetPetsImplCopyWithImpl(
+      _$SetPetsImpl _value, $Res Function(_$SetPetsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pets = null,
+  }) {
+    return _then(_$SetPetsImpl(
+      null == pets
+          ? _value.pets
+          : pets // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetPetsImpl with DiagnosticableTreeMixin implements _SetPets {
+  const _$SetPetsImpl(this.pets);
+
+  @override
+  final String pets;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setPets(pets: $pets)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setPets'))
+      ..add(DiagnosticsProperty('pets', pets));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetPetsImpl &&
+            (identical(other.pets, pets) || other.pets == pets));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pets);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetPetsImplCopyWith<_$SetPetsImpl> get copyWith =>
+      __$$SetPetsImplCopyWithImpl<_$SetPetsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setPets(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setPets?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setPets != null) {
+      return setPets(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetPets implements SurveyEvent {
+  const factory _SetPets(final String pets) = _$SetPetsImpl;
+
+  String get pets;
+  @JsonKey(ignore: true)
+  _$$SetPetsImplCopyWith<_$SetPetsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetAverageMonthlyIncomeImplCopyWith<$Res> {
+  factory _$$SetAverageMonthlyIncomeImplCopyWith(
+          _$SetAverageMonthlyIncomeImpl value,
+          $Res Function(_$SetAverageMonthlyIncomeImpl) then) =
+      __$$SetAverageMonthlyIncomeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String averageMonthlyIncome});
+}
+
+/// @nodoc
+class __$$SetAverageMonthlyIncomeImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetAverageMonthlyIncomeImpl>
+    implements _$$SetAverageMonthlyIncomeImplCopyWith<$Res> {
+  __$$SetAverageMonthlyIncomeImplCopyWithImpl(
+      _$SetAverageMonthlyIncomeImpl _value,
+      $Res Function(_$SetAverageMonthlyIncomeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? averageMonthlyIncome = null,
+  }) {
+    return _then(_$SetAverageMonthlyIncomeImpl(
+      null == averageMonthlyIncome
+          ? _value.averageMonthlyIncome
+          : averageMonthlyIncome // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetAverageMonthlyIncomeImpl
+    with DiagnosticableTreeMixin
+    implements _SetAverageMonthlyIncome {
+  const _$SetAverageMonthlyIncomeImpl(this.averageMonthlyIncome);
+
+  @override
+  final String averageMonthlyIncome;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setAverageMonthlyIncome(averageMonthlyIncome: $averageMonthlyIncome)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setAverageMonthlyIncome'))
+      ..add(DiagnosticsProperty('averageMonthlyIncome', averageMonthlyIncome));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetAverageMonthlyIncomeImpl &&
+            (identical(other.averageMonthlyIncome, averageMonthlyIncome) ||
+                other.averageMonthlyIncome == averageMonthlyIncome));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, averageMonthlyIncome);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetAverageMonthlyIncomeImplCopyWith<_$SetAverageMonthlyIncomeImpl>
+      get copyWith => __$$SetAverageMonthlyIncomeImplCopyWithImpl<
+          _$SetAverageMonthlyIncomeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setAverageMonthlyIncome(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setAverageMonthlyIncome?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setAverageMonthlyIncome != null) {
+      return setAverageMonthlyIncome(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetAverageMonthlyIncome implements SurveyEvent {
+  const factory _SetAverageMonthlyIncome(final String averageMonthlyIncome) =
+      _$SetAverageMonthlyIncomeImpl;
+
+  String get averageMonthlyIncome;
+  @JsonKey(ignore: true)
+  _$$SetAverageMonthlyIncomeImplCopyWith<_$SetAverageMonthlyIncomeImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetPercentageSpentOnCosmeticsImplCopyWith<$Res> {
+  factory _$$SetPercentageSpentOnCosmeticsImplCopyWith(
+          _$SetPercentageSpentOnCosmeticsImpl value,
+          $Res Function(_$SetPercentageSpentOnCosmeticsImpl) then) =
+      __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String percentageSpentOnCosmetics});
+}
+
+/// @nodoc
+class __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetPercentageSpentOnCosmeticsImpl>
+    implements _$$SetPercentageSpentOnCosmeticsImplCopyWith<$Res> {
+  __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl(
+      _$SetPercentageSpentOnCosmeticsImpl _value,
+      $Res Function(_$SetPercentageSpentOnCosmeticsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? percentageSpentOnCosmetics = null,
+  }) {
+    return _then(_$SetPercentageSpentOnCosmeticsImpl(
+      null == percentageSpentOnCosmetics
+          ? _value.percentageSpentOnCosmetics
+          : percentageSpentOnCosmetics // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetPercentageSpentOnCosmeticsImpl
+    with DiagnosticableTreeMixin
+    implements _SetPercentageSpentOnCosmetics {
+  const _$SetPercentageSpentOnCosmeticsImpl(this.percentageSpentOnCosmetics);
+
+  @override
+  final String percentageSpentOnCosmetics;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setPercentageSpentOnCosmetics(percentageSpentOnCosmetics: $percentageSpentOnCosmetics)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SurveyEvent.setPercentageSpentOnCosmetics'))
+      ..add(DiagnosticsProperty(
+          'percentageSpentOnCosmetics', percentageSpentOnCosmetics));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetPercentageSpentOnCosmeticsImpl &&
+            (identical(other.percentageSpentOnCosmetics,
+                    percentageSpentOnCosmetics) ||
+                other.percentageSpentOnCosmetics ==
+                    percentageSpentOnCosmetics));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, percentageSpentOnCosmetics);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetPercentageSpentOnCosmeticsImplCopyWith<
+          _$SetPercentageSpentOnCosmeticsImpl>
+      get copyWith => __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl<
+          _$SetPercentageSpentOnCosmeticsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setPercentageSpentOnCosmetics(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setPercentageSpentOnCosmetics?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setPercentageSpentOnCosmetics != null) {
+      return setPercentageSpentOnCosmetics(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetPercentageSpentOnCosmetics implements SurveyEvent {
+  const factory _SetPercentageSpentOnCosmetics(
+          final String percentageSpentOnCosmetics) =
+      _$SetPercentageSpentOnCosmeticsImpl;
+
+  String get percentageSpentOnCosmetics;
+  @JsonKey(ignore: true)
+  _$$SetPercentageSpentOnCosmeticsImplCopyWith<
+          _$SetPercentageSpentOnCosmeticsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetVkProfileImplCopyWith<$Res> {
+  factory _$$SetVkProfileImplCopyWith(
+          _$SetVkProfileImpl value, $Res Function(_$SetVkProfileImpl) then) =
+      __$$SetVkProfileImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String vkProfile});
+}
+
+/// @nodoc
+class __$$SetVkProfileImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetVkProfileImpl>
+    implements _$$SetVkProfileImplCopyWith<$Res> {
+  __$$SetVkProfileImplCopyWithImpl(
+      _$SetVkProfileImpl _value, $Res Function(_$SetVkProfileImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? vkProfile = null,
+  }) {
+    return _then(_$SetVkProfileImpl(
+      null == vkProfile
+          ? _value.vkProfile
+          : vkProfile // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetVkProfileImpl with DiagnosticableTreeMixin implements _SetVkProfile {
+  const _$SetVkProfileImpl(this.vkProfile);
+
+  @override
+  final String vkProfile;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setVkProfile(vkProfile: $vkProfile)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setVkProfile'))
+      ..add(DiagnosticsProperty('vkProfile', vkProfile));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetVkProfileImpl &&
+            (identical(other.vkProfile, vkProfile) ||
+                other.vkProfile == vkProfile));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, vkProfile);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetVkProfileImplCopyWith<_$SetVkProfileImpl> get copyWith =>
+      __$$SetVkProfileImplCopyWithImpl<_$SetVkProfileImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setVkProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setVkProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setVkProfile != null) {
+      return setVkProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetVkProfile implements SurveyEvent {
+  const factory _SetVkProfile(final String vkProfile) = _$SetVkProfileImpl;
+
+  String get vkProfile;
+  @JsonKey(ignore: true)
+  _$$SetVkProfileImplCopyWith<_$SetVkProfileImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetTelegramProfileImplCopyWith<$Res> {
+  factory _$$SetTelegramProfileImplCopyWith(_$SetTelegramProfileImpl value,
+          $Res Function(_$SetTelegramProfileImpl) then) =
+      __$$SetTelegramProfileImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String telegramProfile});
+}
+
+/// @nodoc
+class __$$SetTelegramProfileImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetTelegramProfileImpl>
+    implements _$$SetTelegramProfileImplCopyWith<$Res> {
+  __$$SetTelegramProfileImplCopyWithImpl(_$SetTelegramProfileImpl _value,
+      $Res Function(_$SetTelegramProfileImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? telegramProfile = null,
+  }) {
+    return _then(_$SetTelegramProfileImpl(
+      null == telegramProfile
+          ? _value.telegramProfile
+          : telegramProfile // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetTelegramProfileImpl
+    with DiagnosticableTreeMixin
+    implements _SetTelegramProfile {
+  const _$SetTelegramProfileImpl(this.telegramProfile);
+
+  @override
+  final String telegramProfile;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setTelegramProfile(telegramProfile: $telegramProfile)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setTelegramProfile'))
+      ..add(DiagnosticsProperty('telegramProfile', telegramProfile));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetTelegramProfileImpl &&
+            (identical(other.telegramProfile, telegramProfile) ||
+                other.telegramProfile == telegramProfile));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, telegramProfile);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetTelegramProfileImplCopyWith<_$SetTelegramProfileImpl> get copyWith =>
+      __$$SetTelegramProfileImplCopyWithImpl<_$SetTelegramProfileImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setTelegramProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setTelegramProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setTelegramProfile != null) {
+      return setTelegramProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetTelegramProfile implements SurveyEvent {
+  const factory _SetTelegramProfile(final String telegramProfile) =
+      _$SetTelegramProfileImpl;
+
+  String get telegramProfile;
+  @JsonKey(ignore: true)
+  _$$SetTelegramProfileImplCopyWith<_$SetTelegramProfileImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetProfilePhotoImplCopyWith<$Res> {
+  factory _$$SetProfilePhotoImplCopyWith(_$SetProfilePhotoImpl value,
+          $Res Function(_$SetProfilePhotoImpl) then) =
+      __$$SetProfilePhotoImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String profilePhoto});
+}
+
+/// @nodoc
+class __$$SetProfilePhotoImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetProfilePhotoImpl>
+    implements _$$SetProfilePhotoImplCopyWith<$Res> {
+  __$$SetProfilePhotoImplCopyWithImpl(
+      _$SetProfilePhotoImpl _value, $Res Function(_$SetProfilePhotoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? profilePhoto = null,
+  }) {
+    return _then(_$SetProfilePhotoImpl(
+      null == profilePhoto
+          ? _value.profilePhoto
+          : profilePhoto // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetProfilePhotoImpl
+    with DiagnosticableTreeMixin
+    implements _SetProfilePhoto {
+  const _$SetProfilePhotoImpl(this.profilePhoto);
+
+  @override
+  final String profilePhoto;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setProfilePhoto(profilePhoto: $profilePhoto)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setProfilePhoto'))
+      ..add(DiagnosticsProperty('profilePhoto', profilePhoto));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetProfilePhotoImpl &&
+            (identical(other.profilePhoto, profilePhoto) ||
+                other.profilePhoto == profilePhoto));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profilePhoto);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetProfilePhotoImplCopyWith<_$SetProfilePhotoImpl> get copyWith =>
+      __$$SetProfilePhotoImplCopyWithImpl<_$SetProfilePhotoImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setProfilePhoto(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setProfilePhoto?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setProfilePhoto != null) {
+      return setProfilePhoto(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetProfilePhoto implements SurveyEvent {
+  const factory _SetProfilePhoto(final String profilePhoto) =
+      _$SetProfilePhotoImpl;
+
+  String get profilePhoto;
+  @JsonKey(ignore: true)
+  _$$SetProfilePhotoImplCopyWith<_$SetProfilePhotoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetDeliveryAddressImplCopyWith<$Res> {
+  factory _$$SetDeliveryAddressImplCopyWith(_$SetDeliveryAddressImpl value,
+          $Res Function(_$SetDeliveryAddressImpl) then) =
+      __$$SetDeliveryAddressImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String deliveryAddress});
+}
+
+/// @nodoc
+class __$$SetDeliveryAddressImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetDeliveryAddressImpl>
+    implements _$$SetDeliveryAddressImplCopyWith<$Res> {
+  __$$SetDeliveryAddressImplCopyWithImpl(_$SetDeliveryAddressImpl _value,
+      $Res Function(_$SetDeliveryAddressImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? deliveryAddress = null,
+  }) {
+    return _then(_$SetDeliveryAddressImpl(
+      null == deliveryAddress
+          ? _value.deliveryAddress
+          : deliveryAddress // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetDeliveryAddressImpl
+    with DiagnosticableTreeMixin
+    implements _SetDeliveryAddress {
+  const _$SetDeliveryAddressImpl(this.deliveryAddress);
+
+  @override
+  final String deliveryAddress;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyEvent.setDeliveryAddress(deliveryAddress: $deliveryAddress)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setDeliveryAddress'))
+      ..add(DiagnosticsProperty('deliveryAddress', deliveryAddress));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetDeliveryAddressImpl &&
+            (identical(other.deliveryAddress, deliveryAddress) ||
+                other.deliveryAddress == deliveryAddress));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, deliveryAddress);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetDeliveryAddressImplCopyWith<_$SetDeliveryAddressImpl> get copyWith =>
+      __$$SetDeliveryAddressImplCopyWithImpl<_$SetDeliveryAddressImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetLastName value) setLastName,
+    required TResult Function(_SetGender value) setGender,
+    required TResult Function(_SetBirthdate value) setBirthdate,
+    required TResult Function(_SetAppName value) setAppName,
+    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetAddress value) setAddress,
+    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
+    required TResult Function(_SetHasChildren value) setHasChildren,
+    required TResult Function(_SetPets value) setPets,
+    required TResult Function(_SetAverageMonthlyIncome value)
+        setAverageMonthlyIncome,
+    required TResult Function(_SetPercentageSpentOnCosmetics value)
+        setPercentageSpentOnCosmetics,
+    required TResult Function(_SetVkProfile value) setVkProfile,
+    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
+    required TResult Function(_SendResultSurvey value) sendResultSurvey,
+  }) {
+    return setDeliveryAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
+    TResult? Function(_SetFirstName value)? setFirstName,
+    TResult? Function(_SetLastName value)? setLastName,
+    TResult? Function(_SetGender value)? setGender,
+    TResult? Function(_SetBirthdate value)? setBirthdate,
+    TResult? Function(_SetAppName value)? setAppName,
+    TResult? Function(_SetEmail value)? setEmail,
+    TResult? Function(_SetAddress value)? setAddress,
+    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult? Function(_SetHasChildren value)? setHasChildren,
+    TResult? Function(_SetPets value)? setPets,
+    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult? Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult? Function(_SetVkProfile value)? setVkProfile,
+    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
+  }) {
+    return setDeliveryAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetLastName value)? setLastName,
+    TResult Function(_SetGender value)? setGender,
+    TResult Function(_SetBirthdate value)? setBirthdate,
+    TResult Function(_SetAppName value)? setAppName,
+    TResult Function(_SetEmail value)? setEmail,
+    TResult Function(_SetAddress value)? setAddress,
+    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
+    TResult Function(_SetHasChildren value)? setHasChildren,
+    TResult Function(_SetPets value)? setPets,
+    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
+    TResult Function(_SetPercentageSpentOnCosmetics value)?
+        setPercentageSpentOnCosmetics,
+    TResult Function(_SetVkProfile value)? setVkProfile,
+    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
+    TResult Function(_SendResultSurvey value)? sendResultSurvey,
+    required TResult orElse(),
+  }) {
+    if (setDeliveryAddress != null) {
+      return setDeliveryAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetDeliveryAddress implements SurveyEvent {
+  const factory _SetDeliveryAddress(final String deliveryAddress) =
+      _$SetDeliveryAddressImpl;
+
+  String get deliveryAddress;
+  @JsonKey(ignore: true)
+  _$$SetDeliveryAddressImplCopyWith<_$SetDeliveryAddressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1217,18 +3658,15 @@ class _$SetCityImpl with DiagnosticableTreeMixin implements _SetCity {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -1238,7 +3676,16 @@ class _$SetCityImpl with DiagnosticableTreeMixin implements _SetCity {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setCity(this);
@@ -1247,18 +3694,15 @@ class _$SetCityImpl with DiagnosticableTreeMixin implements _SetCity {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -1267,7 +3711,16 @@ class _$SetCityImpl with DiagnosticableTreeMixin implements _SetCity {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setCity?.call(this);
@@ -1276,18 +3729,15 @@ class _$SetCityImpl with DiagnosticableTreeMixin implements _SetCity {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -1296,7 +3746,16 @@ class _$SetCityImpl with DiagnosticableTreeMixin implements _SetCity {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -1388,18 +3847,15 @@ class _$SetStreetImpl with DiagnosticableTreeMixin implements _SetStreet {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -1409,7 +3865,16 @@ class _$SetStreetImpl with DiagnosticableTreeMixin implements _SetStreet {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setStreet(this);
@@ -1418,18 +3883,15 @@ class _$SetStreetImpl with DiagnosticableTreeMixin implements _SetStreet {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -1438,7 +3900,16 @@ class _$SetStreetImpl with DiagnosticableTreeMixin implements _SetStreet {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setStreet?.call(this);
@@ -1447,18 +3918,15 @@ class _$SetStreetImpl with DiagnosticableTreeMixin implements _SetStreet {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -1467,7 +3935,16 @@ class _$SetStreetImpl with DiagnosticableTreeMixin implements _SetStreet {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -1563,18 +4040,15 @@ class _$SetHouseNumberImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -1584,7 +4058,16 @@ class _$SetHouseNumberImpl
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setHouseNumber(this);
@@ -1593,18 +4076,15 @@ class _$SetHouseNumberImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -1613,7 +4093,16 @@ class _$SetHouseNumberImpl
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setHouseNumber?.call(this);
@@ -1622,18 +4111,15 @@ class _$SetHouseNumberImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -1642,7 +4128,16 @@ class _$SetHouseNumberImpl
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -1739,18 +4234,15 @@ class _$SetApartmentNumberImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -1760,7 +4252,16 @@ class _$SetApartmentNumberImpl
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setApartmentNumber(this);
@@ -1769,18 +4270,15 @@ class _$SetApartmentNumberImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -1789,7 +4287,16 @@ class _$SetApartmentNumberImpl
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setApartmentNumber?.call(this);
@@ -1798,18 +4305,15 @@ class _$SetApartmentNumberImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -1818,7 +4322,16 @@ class _$SetApartmentNumberImpl
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -1912,18 +4425,15 @@ class _$SetEntranceImpl with DiagnosticableTreeMixin implements _SetEntrance {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -1933,7 +4443,16 @@ class _$SetEntranceImpl with DiagnosticableTreeMixin implements _SetEntrance {
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setEntrance(this);
@@ -1942,18 +4461,15 @@ class _$SetEntranceImpl with DiagnosticableTreeMixin implements _SetEntrance {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -1962,7 +4478,16 @@ class _$SetEntranceImpl with DiagnosticableTreeMixin implements _SetEntrance {
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setEntrance?.call(this);
@@ -1971,18 +4496,15 @@ class _$SetEntranceImpl with DiagnosticableTreeMixin implements _SetEntrance {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -1991,7 +4513,16 @@ class _$SetEntranceImpl with DiagnosticableTreeMixin implements _SetEntrance {
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -2086,18 +4617,15 @@ class _$SetPostalCodeImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -2107,7 +4635,16 @@ class _$SetPostalCodeImpl
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return setPostalCode(this);
@@ -2116,18 +4653,15 @@ class _$SetPostalCodeImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -2136,7 +4670,16 @@ class _$SetPostalCodeImpl
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return setPostalCode?.call(this);
@@ -2145,18 +4688,15 @@ class _$SetPostalCodeImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -2165,7 +4705,16 @@ class _$SetPostalCodeImpl
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
@@ -2186,207 +4735,31 @@ abstract class _SetPostalCode implements SurveyEvent {
 }
 
 /// @nodoc
-abstract class _$$SetPeopleLivingWithImplCopyWith<$Res> {
-  factory _$$SetPeopleLivingWithImplCopyWith(_$SetPeopleLivingWithImpl value,
-          $Res Function(_$SetPeopleLivingWithImpl) then) =
-      __$$SetPeopleLivingWithImplCopyWithImpl<$Res>;
+abstract class _$$SetWantAdvertisingImplCopyWith<$Res> {
+  factory _$$SetWantAdvertisingImplCopyWith(_$SetWantAdvertisingImpl value,
+          $Res Function(_$SetWantAdvertisingImpl) then) =
+      __$$SetWantAdvertisingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int peopleLivingWith});
+  $Res call({bool wantAdvertising});
 }
 
 /// @nodoc
-class __$$SetPeopleLivingWithImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetPeopleLivingWithImpl>
-    implements _$$SetPeopleLivingWithImplCopyWith<$Res> {
-  __$$SetPeopleLivingWithImplCopyWithImpl(_$SetPeopleLivingWithImpl _value,
-      $Res Function(_$SetPeopleLivingWithImpl) _then)
+class __$$SetWantAdvertisingImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetWantAdvertisingImpl>
+    implements _$$SetWantAdvertisingImplCopyWith<$Res> {
+  __$$SetWantAdvertisingImplCopyWithImpl(_$SetWantAdvertisingImpl _value,
+      $Res Function(_$SetWantAdvertisingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? peopleLivingWith = null,
+    Object? wantAdvertising = null,
   }) {
-    return _then(_$SetPeopleLivingWithImpl(
-      null == peopleLivingWith
-          ? _value.peopleLivingWith
-          : peopleLivingWith // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SetPeopleLivingWithImpl
-    with DiagnosticableTreeMixin
-    implements _SetPeopleLivingWith {
-  const _$SetPeopleLivingWithImpl(this.peopleLivingWith);
-
-  @override
-  final int peopleLivingWith;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setPeopleLivingWith(peopleLivingWith: $peopleLivingWith)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SurveyEvent.setPeopleLivingWith'))
-      ..add(DiagnosticsProperty('peopleLivingWith', peopleLivingWith));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetPeopleLivingWithImpl &&
-            (identical(other.peopleLivingWith, peopleLivingWith) ||
-                other.peopleLivingWith == peopleLivingWith));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, peopleLivingWith);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetPeopleLivingWithImplCopyWith<_$SetPeopleLivingWithImpl> get copyWith =>
-      __$$SetPeopleLivingWithImplCopyWithImpl<_$SetPeopleLivingWithImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetFirstName value) setFirstName,
-    required TResult Function(_SetLastName value) setLastName,
-    required TResult Function(_SetGender value) setGender,
-    required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
-    required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
-    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
-    required TResult Function(_SetHasChildren value) setHasChildren,
-    required TResult Function(_SetPets value) setPets,
-    required TResult Function(_SetAverageMonthlyIncome value)
-        setAverageMonthlyIncome,
-    required TResult Function(_SetPercentageSpentOnCosmetics value)
-        setPercentageSpentOnCosmetics,
-    required TResult Function(_SetVkProfile value) setVkProfile,
-    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
-    required TResult Function(_SendResultSurvey value) sendResultSurvey,
-  }) {
-    return setPeopleLivingWith(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SetFirstName value)? setFirstName,
-    TResult? Function(_SetLastName value)? setLastName,
-    TResult? Function(_SetGender value)? setGender,
-    TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
-    TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
-    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult? Function(_SetHasChildren value)? setHasChildren,
-    TResult? Function(_SetPets value)? setPets,
-    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult? Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult? Function(_SetVkProfile value)? setVkProfile,
-    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
-    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
-  }) {
-    return setPeopleLivingWith?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetFirstName value)? setFirstName,
-    TResult Function(_SetLastName value)? setLastName,
-    TResult Function(_SetGender value)? setGender,
-    TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
-    TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
-    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult Function(_SetHasChildren value)? setHasChildren,
-    TResult Function(_SetPets value)? setPets,
-    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult Function(_SetVkProfile value)? setVkProfile,
-    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
-    TResult Function(_SendResultSurvey value)? sendResultSurvey,
-    required TResult orElse(),
-  }) {
-    if (setPeopleLivingWith != null) {
-      return setPeopleLivingWith(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetPeopleLivingWith implements SurveyEvent {
-  const factory _SetPeopleLivingWith(final int peopleLivingWith) =
-      _$SetPeopleLivingWithImpl;
-
-  int get peopleLivingWith;
-  @JsonKey(ignore: true)
-  _$$SetPeopleLivingWithImplCopyWith<_$SetPeopleLivingWithImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SetHasChildrenImplCopyWith<$Res> {
-  factory _$$SetHasChildrenImplCopyWith(_$SetHasChildrenImpl value,
-          $Res Function(_$SetHasChildrenImpl) then) =
-      __$$SetHasChildrenImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool hasChildren});
-}
-
-/// @nodoc
-class __$$SetHasChildrenImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetHasChildrenImpl>
-    implements _$$SetHasChildrenImplCopyWith<$Res> {
-  __$$SetHasChildrenImplCopyWithImpl(
-      _$SetHasChildrenImpl _value, $Res Function(_$SetHasChildrenImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hasChildren = null,
-  }) {
-    return _then(_$SetHasChildrenImpl(
-      null == hasChildren
-          ? _value.hasChildren
-          : hasChildren // ignore: cast_nullable_to_non_nullable
+    return _then(_$SetWantAdvertisingImpl(
+      null == wantAdvertising
+          ? _value.wantAdvertising
+          : wantAdvertising // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -2394,61 +4767,58 @@ class __$$SetHasChildrenImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetHasChildrenImpl
+class _$SetWantAdvertisingImpl
     with DiagnosticableTreeMixin
-    implements _SetHasChildren {
-  const _$SetHasChildrenImpl(this.hasChildren);
+    implements _SetWantAdvertising {
+  const _$SetWantAdvertisingImpl(this.wantAdvertising);
 
   @override
-  final bool hasChildren;
+  final bool wantAdvertising;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setHasChildren(hasChildren: $hasChildren)';
+    return 'SurveyEvent.setWantAdvertising(wantAdvertising: $wantAdvertising)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'SurveyEvent.setHasChildren'))
-      ..add(DiagnosticsProperty('hasChildren', hasChildren));
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setWantAdvertising'))
+      ..add(DiagnosticsProperty('wantAdvertising', wantAdvertising));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetHasChildrenImpl &&
-            (identical(other.hasChildren, hasChildren) ||
-                other.hasChildren == hasChildren));
+            other is _$SetWantAdvertisingImpl &&
+            (identical(other.wantAdvertising, wantAdvertising) ||
+                other.wantAdvertising == wantAdvertising));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hasChildren);
+  int get hashCode => Object.hash(runtimeType, wantAdvertising);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SetHasChildrenImplCopyWith<_$SetHasChildrenImpl> get copyWith =>
-      __$$SetHasChildrenImplCopyWithImpl<_$SetHasChildrenImpl>(
+  _$$SetWantAdvertisingImplCopyWith<_$SetWantAdvertisingImpl> get copyWith =>
+      __$$SetWantAdvertisingImplCopyWithImpl<_$SetWantAdvertisingImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -2458,27 +4828,33 @@ class _$SetHasChildrenImpl
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
-    return setHasChildren(this);
+    return setWantAdvertising(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -2487,27 +4863,33 @@ class _$SetHasChildrenImpl
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
-    return setHasChildren?.call(this);
+    return setWantAdvertising?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -2516,820 +4898,121 @@ class _$SetHasChildrenImpl
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
-    if (setHasChildren != null) {
-      return setHasChildren(this);
+    if (setWantAdvertising != null) {
+      return setWantAdvertising(this);
     }
     return orElse();
   }
 }
 
-abstract class _SetHasChildren implements SurveyEvent {
-  const factory _SetHasChildren(final bool hasChildren) = _$SetHasChildrenImpl;
+abstract class _SetWantAdvertising implements SurveyEvent {
+  const factory _SetWantAdvertising(final bool wantAdvertising) =
+      _$SetWantAdvertisingImpl;
 
-  bool get hasChildren;
+  bool get wantAdvertising;
   @JsonKey(ignore: true)
-  _$$SetHasChildrenImplCopyWith<_$SetHasChildrenImpl> get copyWith =>
+  _$$SetWantAdvertisingImplCopyWith<_$SetWantAdvertisingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SetPetsImplCopyWith<$Res> {
-  factory _$$SetPetsImplCopyWith(
-          _$SetPetsImpl value, $Res Function(_$SetPetsImpl) then) =
-      __$$SetPetsImplCopyWithImpl<$Res>;
+abstract class _$$SetAcceptPolicyImplCopyWith<$Res> {
+  factory _$$SetAcceptPolicyImplCopyWith(_$SetAcceptPolicyImpl value,
+          $Res Function(_$SetAcceptPolicyImpl) then) =
+      __$$SetAcceptPolicyImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String pets});
+  $Res call({bool acceptPolicy});
 }
 
 /// @nodoc
-class __$$SetPetsImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetPetsImpl>
-    implements _$$SetPetsImplCopyWith<$Res> {
-  __$$SetPetsImplCopyWithImpl(
-      _$SetPetsImpl _value, $Res Function(_$SetPetsImpl) _then)
+class __$$SetAcceptPolicyImplCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res, _$SetAcceptPolicyImpl>
+    implements _$$SetAcceptPolicyImplCopyWith<$Res> {
+  __$$SetAcceptPolicyImplCopyWithImpl(
+      _$SetAcceptPolicyImpl _value, $Res Function(_$SetAcceptPolicyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pets = null,
+    Object? acceptPolicy = null,
   }) {
-    return _then(_$SetPetsImpl(
-      null == pets
-          ? _value.pets
-          : pets // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_$SetAcceptPolicyImpl(
+      null == acceptPolicy
+          ? _value.acceptPolicy
+          : acceptPolicy // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SetPetsImpl with DiagnosticableTreeMixin implements _SetPets {
-  const _$SetPetsImpl(this.pets);
-
-  @override
-  final String pets;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setPets(pets: $pets)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SurveyEvent.setPets'))
-      ..add(DiagnosticsProperty('pets', pets));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetPetsImpl &&
-            (identical(other.pets, pets) || other.pets == pets));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, pets);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetPetsImplCopyWith<_$SetPetsImpl> get copyWith =>
-      __$$SetPetsImplCopyWithImpl<_$SetPetsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetFirstName value) setFirstName,
-    required TResult Function(_SetLastName value) setLastName,
-    required TResult Function(_SetGender value) setGender,
-    required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
-    required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
-    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
-    required TResult Function(_SetHasChildren value) setHasChildren,
-    required TResult Function(_SetPets value) setPets,
-    required TResult Function(_SetAverageMonthlyIncome value)
-        setAverageMonthlyIncome,
-    required TResult Function(_SetPercentageSpentOnCosmetics value)
-        setPercentageSpentOnCosmetics,
-    required TResult Function(_SetVkProfile value) setVkProfile,
-    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
-    required TResult Function(_SendResultSurvey value) sendResultSurvey,
-  }) {
-    return setPets(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SetFirstName value)? setFirstName,
-    TResult? Function(_SetLastName value)? setLastName,
-    TResult? Function(_SetGender value)? setGender,
-    TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
-    TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
-    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult? Function(_SetHasChildren value)? setHasChildren,
-    TResult? Function(_SetPets value)? setPets,
-    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult? Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult? Function(_SetVkProfile value)? setVkProfile,
-    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
-    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
-  }) {
-    return setPets?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetFirstName value)? setFirstName,
-    TResult Function(_SetLastName value)? setLastName,
-    TResult Function(_SetGender value)? setGender,
-    TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
-    TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
-    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult Function(_SetHasChildren value)? setHasChildren,
-    TResult Function(_SetPets value)? setPets,
-    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult Function(_SetVkProfile value)? setVkProfile,
-    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
-    TResult Function(_SendResultSurvey value)? sendResultSurvey,
-    required TResult orElse(),
-  }) {
-    if (setPets != null) {
-      return setPets(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetPets implements SurveyEvent {
-  const factory _SetPets(final String pets) = _$SetPetsImpl;
-
-  String get pets;
-  @JsonKey(ignore: true)
-  _$$SetPetsImplCopyWith<_$SetPetsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SetAverageMonthlyIncomeImplCopyWith<$Res> {
-  factory _$$SetAverageMonthlyIncomeImplCopyWith(
-          _$SetAverageMonthlyIncomeImpl value,
-          $Res Function(_$SetAverageMonthlyIncomeImpl) then) =
-      __$$SetAverageMonthlyIncomeImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int averageMonthlyIncome});
-}
-
-/// @nodoc
-class __$$SetAverageMonthlyIncomeImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetAverageMonthlyIncomeImpl>
-    implements _$$SetAverageMonthlyIncomeImplCopyWith<$Res> {
-  __$$SetAverageMonthlyIncomeImplCopyWithImpl(
-      _$SetAverageMonthlyIncomeImpl _value,
-      $Res Function(_$SetAverageMonthlyIncomeImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? averageMonthlyIncome = null,
-  }) {
-    return _then(_$SetAverageMonthlyIncomeImpl(
-      null == averageMonthlyIncome
-          ? _value.averageMonthlyIncome
-          : averageMonthlyIncome // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SetAverageMonthlyIncomeImpl
+class _$SetAcceptPolicyImpl
     with DiagnosticableTreeMixin
-    implements _SetAverageMonthlyIncome {
-  const _$SetAverageMonthlyIncomeImpl(this.averageMonthlyIncome);
+    implements _SetAcceptPolicy {
+  const _$SetAcceptPolicyImpl(this.acceptPolicy);
 
   @override
-  final int averageMonthlyIncome;
+  final bool acceptPolicy;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setAverageMonthlyIncome(averageMonthlyIncome: $averageMonthlyIncome)';
+    return 'SurveyEvent.setAcceptPolicy(acceptPolicy: $acceptPolicy)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'SurveyEvent.setAverageMonthlyIncome'))
-      ..add(DiagnosticsProperty('averageMonthlyIncome', averageMonthlyIncome));
+      ..add(DiagnosticsProperty('type', 'SurveyEvent.setAcceptPolicy'))
+      ..add(DiagnosticsProperty('acceptPolicy', acceptPolicy));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetAverageMonthlyIncomeImpl &&
-            (identical(other.averageMonthlyIncome, averageMonthlyIncome) ||
-                other.averageMonthlyIncome == averageMonthlyIncome));
+            other is _$SetAcceptPolicyImpl &&
+            (identical(other.acceptPolicy, acceptPolicy) ||
+                other.acceptPolicy == acceptPolicy));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, averageMonthlyIncome);
+  int get hashCode => Object.hash(runtimeType, acceptPolicy);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SetAverageMonthlyIncomeImplCopyWith<_$SetAverageMonthlyIncomeImpl>
-      get copyWith => __$$SetAverageMonthlyIncomeImplCopyWithImpl<
-          _$SetAverageMonthlyIncomeImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetFirstName value) setFirstName,
-    required TResult Function(_SetLastName value) setLastName,
-    required TResult Function(_SetGender value) setGender,
-    required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
-    required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
-    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
-    required TResult Function(_SetHasChildren value) setHasChildren,
-    required TResult Function(_SetPets value) setPets,
-    required TResult Function(_SetAverageMonthlyIncome value)
-        setAverageMonthlyIncome,
-    required TResult Function(_SetPercentageSpentOnCosmetics value)
-        setPercentageSpentOnCosmetics,
-    required TResult Function(_SetVkProfile value) setVkProfile,
-    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
-    required TResult Function(_SendResultSurvey value) sendResultSurvey,
-  }) {
-    return setAverageMonthlyIncome(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SetFirstName value)? setFirstName,
-    TResult? Function(_SetLastName value)? setLastName,
-    TResult? Function(_SetGender value)? setGender,
-    TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
-    TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
-    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult? Function(_SetHasChildren value)? setHasChildren,
-    TResult? Function(_SetPets value)? setPets,
-    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult? Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult? Function(_SetVkProfile value)? setVkProfile,
-    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
-    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
-  }) {
-    return setAverageMonthlyIncome?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetFirstName value)? setFirstName,
-    TResult Function(_SetLastName value)? setLastName,
-    TResult Function(_SetGender value)? setGender,
-    TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
-    TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
-    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult Function(_SetHasChildren value)? setHasChildren,
-    TResult Function(_SetPets value)? setPets,
-    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult Function(_SetVkProfile value)? setVkProfile,
-    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
-    TResult Function(_SendResultSurvey value)? sendResultSurvey,
-    required TResult orElse(),
-  }) {
-    if (setAverageMonthlyIncome != null) {
-      return setAverageMonthlyIncome(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetAverageMonthlyIncome implements SurveyEvent {
-  const factory _SetAverageMonthlyIncome(final int averageMonthlyIncome) =
-      _$SetAverageMonthlyIncomeImpl;
-
-  int get averageMonthlyIncome;
-  @JsonKey(ignore: true)
-  _$$SetAverageMonthlyIncomeImplCopyWith<_$SetAverageMonthlyIncomeImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SetPercentageSpentOnCosmeticsImplCopyWith<$Res> {
-  factory _$$SetPercentageSpentOnCosmeticsImplCopyWith(
-          _$SetPercentageSpentOnCosmeticsImpl value,
-          $Res Function(_$SetPercentageSpentOnCosmeticsImpl) then) =
-      __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int percentageSpentOnCosmetics});
-}
-
-/// @nodoc
-class __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetPercentageSpentOnCosmeticsImpl>
-    implements _$$SetPercentageSpentOnCosmeticsImplCopyWith<$Res> {
-  __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl(
-      _$SetPercentageSpentOnCosmeticsImpl _value,
-      $Res Function(_$SetPercentageSpentOnCosmeticsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? percentageSpentOnCosmetics = null,
-  }) {
-    return _then(_$SetPercentageSpentOnCosmeticsImpl(
-      null == percentageSpentOnCosmetics
-          ? _value.percentageSpentOnCosmetics
-          : percentageSpentOnCosmetics // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SetPercentageSpentOnCosmeticsImpl
-    with DiagnosticableTreeMixin
-    implements _SetPercentageSpentOnCosmetics {
-  const _$SetPercentageSpentOnCosmeticsImpl(this.percentageSpentOnCosmetics);
-
-  @override
-  final int percentageSpentOnCosmetics;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setPercentageSpentOnCosmetics(percentageSpentOnCosmetics: $percentageSpentOnCosmetics)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'SurveyEvent.setPercentageSpentOnCosmetics'))
-      ..add(DiagnosticsProperty(
-          'percentageSpentOnCosmetics', percentageSpentOnCosmetics));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetPercentageSpentOnCosmeticsImpl &&
-            (identical(other.percentageSpentOnCosmetics,
-                    percentageSpentOnCosmetics) ||
-                other.percentageSpentOnCosmetics ==
-                    percentageSpentOnCosmetics));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, percentageSpentOnCosmetics);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetPercentageSpentOnCosmeticsImplCopyWith<
-          _$SetPercentageSpentOnCosmeticsImpl>
-      get copyWith => __$$SetPercentageSpentOnCosmeticsImplCopyWithImpl<
-          _$SetPercentageSpentOnCosmeticsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetFirstName value) setFirstName,
-    required TResult Function(_SetLastName value) setLastName,
-    required TResult Function(_SetGender value) setGender,
-    required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
-    required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
-    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
-    required TResult Function(_SetHasChildren value) setHasChildren,
-    required TResult Function(_SetPets value) setPets,
-    required TResult Function(_SetAverageMonthlyIncome value)
-        setAverageMonthlyIncome,
-    required TResult Function(_SetPercentageSpentOnCosmetics value)
-        setPercentageSpentOnCosmetics,
-    required TResult Function(_SetVkProfile value) setVkProfile,
-    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
-    required TResult Function(_SendResultSurvey value) sendResultSurvey,
-  }) {
-    return setPercentageSpentOnCosmetics(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SetFirstName value)? setFirstName,
-    TResult? Function(_SetLastName value)? setLastName,
-    TResult? Function(_SetGender value)? setGender,
-    TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
-    TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
-    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult? Function(_SetHasChildren value)? setHasChildren,
-    TResult? Function(_SetPets value)? setPets,
-    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult? Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult? Function(_SetVkProfile value)? setVkProfile,
-    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
-    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
-  }) {
-    return setPercentageSpentOnCosmetics?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetFirstName value)? setFirstName,
-    TResult Function(_SetLastName value)? setLastName,
-    TResult Function(_SetGender value)? setGender,
-    TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
-    TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
-    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult Function(_SetHasChildren value)? setHasChildren,
-    TResult Function(_SetPets value)? setPets,
-    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult Function(_SetVkProfile value)? setVkProfile,
-    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
-    TResult Function(_SendResultSurvey value)? sendResultSurvey,
-    required TResult orElse(),
-  }) {
-    if (setPercentageSpentOnCosmetics != null) {
-      return setPercentageSpentOnCosmetics(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetPercentageSpentOnCosmetics implements SurveyEvent {
-  const factory _SetPercentageSpentOnCosmetics(
-          final int percentageSpentOnCosmetics) =
-      _$SetPercentageSpentOnCosmeticsImpl;
-
-  int get percentageSpentOnCosmetics;
-  @JsonKey(ignore: true)
-  _$$SetPercentageSpentOnCosmeticsImplCopyWith<
-          _$SetPercentageSpentOnCosmeticsImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SetVkProfileImplCopyWith<$Res> {
-  factory _$$SetVkProfileImplCopyWith(
-          _$SetVkProfileImpl value, $Res Function(_$SetVkProfileImpl) then) =
-      __$$SetVkProfileImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String vkProfile});
-}
-
-/// @nodoc
-class __$$SetVkProfileImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetVkProfileImpl>
-    implements _$$SetVkProfileImplCopyWith<$Res> {
-  __$$SetVkProfileImplCopyWithImpl(
-      _$SetVkProfileImpl _value, $Res Function(_$SetVkProfileImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? vkProfile = null,
-  }) {
-    return _then(_$SetVkProfileImpl(
-      null == vkProfile
-          ? _value.vkProfile
-          : vkProfile // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SetVkProfileImpl with DiagnosticableTreeMixin implements _SetVkProfile {
-  const _$SetVkProfileImpl(this.vkProfile);
-
-  @override
-  final String vkProfile;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setVkProfile(vkProfile: $vkProfile)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SurveyEvent.setVkProfile'))
-      ..add(DiagnosticsProperty('vkProfile', vkProfile));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetVkProfileImpl &&
-            (identical(other.vkProfile, vkProfile) ||
-                other.vkProfile == vkProfile));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, vkProfile);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetVkProfileImplCopyWith<_$SetVkProfileImpl> get copyWith =>
-      __$$SetVkProfileImplCopyWithImpl<_$SetVkProfileImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetFirstName value) setFirstName,
-    required TResult Function(_SetLastName value) setLastName,
-    required TResult Function(_SetGender value) setGender,
-    required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
-    required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
-    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
-    required TResult Function(_SetHasChildren value) setHasChildren,
-    required TResult Function(_SetPets value) setPets,
-    required TResult Function(_SetAverageMonthlyIncome value)
-        setAverageMonthlyIncome,
-    required TResult Function(_SetPercentageSpentOnCosmetics value)
-        setPercentageSpentOnCosmetics,
-    required TResult Function(_SetVkProfile value) setVkProfile,
-    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
-    required TResult Function(_SendResultSurvey value) sendResultSurvey,
-  }) {
-    return setVkProfile(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SetFirstName value)? setFirstName,
-    TResult? Function(_SetLastName value)? setLastName,
-    TResult? Function(_SetGender value)? setGender,
-    TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
-    TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
-    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult? Function(_SetHasChildren value)? setHasChildren,
-    TResult? Function(_SetPets value)? setPets,
-    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult? Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult? Function(_SetVkProfile value)? setVkProfile,
-    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
-    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
-  }) {
-    return setVkProfile?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetFirstName value)? setFirstName,
-    TResult Function(_SetLastName value)? setLastName,
-    TResult Function(_SetGender value)? setGender,
-    TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
-    TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
-    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult Function(_SetHasChildren value)? setHasChildren,
-    TResult Function(_SetPets value)? setPets,
-    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult Function(_SetVkProfile value)? setVkProfile,
-    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
-    TResult Function(_SendResultSurvey value)? sendResultSurvey,
-    required TResult orElse(),
-  }) {
-    if (setVkProfile != null) {
-      return setVkProfile(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetVkProfile implements SurveyEvent {
-  const factory _SetVkProfile(final String vkProfile) = _$SetVkProfileImpl;
-
-  String get vkProfile;
-  @JsonKey(ignore: true)
-  _$$SetVkProfileImplCopyWith<_$SetVkProfileImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SetTelegramProfileImplCopyWith<$Res> {
-  factory _$$SetTelegramProfileImplCopyWith(_$SetTelegramProfileImpl value,
-          $Res Function(_$SetTelegramProfileImpl) then) =
-      __$$SetTelegramProfileImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String telegramProfile});
-}
-
-/// @nodoc
-class __$$SetTelegramProfileImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetTelegramProfileImpl>
-    implements _$$SetTelegramProfileImplCopyWith<$Res> {
-  __$$SetTelegramProfileImplCopyWithImpl(_$SetTelegramProfileImpl _value,
-      $Res Function(_$SetTelegramProfileImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? telegramProfile = null,
-  }) {
-    return _then(_$SetTelegramProfileImpl(
-      null == telegramProfile
-          ? _value.telegramProfile
-          : telegramProfile // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SetTelegramProfileImpl
-    with DiagnosticableTreeMixin
-    implements _SetTelegramProfile {
-  const _$SetTelegramProfileImpl(this.telegramProfile);
-
-  @override
-  final String telegramProfile;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setTelegramProfile(telegramProfile: $telegramProfile)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SurveyEvent.setTelegramProfile'))
-      ..add(DiagnosticsProperty('telegramProfile', telegramProfile));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetTelegramProfileImpl &&
-            (identical(other.telegramProfile, telegramProfile) ||
-                other.telegramProfile == telegramProfile));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, telegramProfile);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetTelegramProfileImplCopyWith<_$SetTelegramProfileImpl> get copyWith =>
-      __$$SetTelegramProfileImplCopyWithImpl<_$SetTelegramProfileImpl>(
+  _$$SetAcceptPolicyImplCopyWith<_$SetAcceptPolicyImpl> get copyWith =>
+      __$$SetAcceptPolicyImplCopyWithImpl<_$SetAcceptPolicyImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -3339,203 +5022,33 @@ class _$SetTelegramProfileImpl
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
-    required TResult Function(_SendResultSurvey value) sendResultSurvey,
-  }) {
-    return setTelegramProfile(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SetFirstName value)? setFirstName,
-    TResult? Function(_SetLastName value)? setLastName,
-    TResult? Function(_SetGender value)? setGender,
-    TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
-    TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
-    TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult? Function(_SetHasChildren value)? setHasChildren,
-    TResult? Function(_SetPets value)? setPets,
-    TResult? Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult? Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult? Function(_SetVkProfile value)? setVkProfile,
-    TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
-    TResult? Function(_SendResultSurvey value)? sendResultSurvey,
-  }) {
-    return setTelegramProfile?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetFirstName value)? setFirstName,
-    TResult Function(_SetLastName value)? setLastName,
-    TResult Function(_SetGender value)? setGender,
-    TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
-    TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
-    TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
-    TResult Function(_SetHasChildren value)? setHasChildren,
-    TResult Function(_SetPets value)? setPets,
-    TResult Function(_SetAverageMonthlyIncome value)? setAverageMonthlyIncome,
-    TResult Function(_SetPercentageSpentOnCosmetics value)?
-        setPercentageSpentOnCosmetics,
-    TResult Function(_SetVkProfile value)? setVkProfile,
-    TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
-    TResult Function(_SendResultSurvey value)? sendResultSurvey,
-    required TResult orElse(),
-  }) {
-    if (setTelegramProfile != null) {
-      return setTelegramProfile(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetTelegramProfile implements SurveyEvent {
-  const factory _SetTelegramProfile(final String telegramProfile) =
-      _$SetTelegramProfileImpl;
-
-  String get telegramProfile;
-  @JsonKey(ignore: true)
-  _$$SetTelegramProfileImplCopyWith<_$SetTelegramProfileImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SetAvatarImageImplCopyWith<$Res> {
-  factory _$$SetAvatarImageImplCopyWith(_$SetAvatarImageImpl value,
-          $Res Function(_$SetAvatarImageImpl) then) =
-      __$$SetAvatarImageImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String avatarImage});
-}
-
-/// @nodoc
-class __$$SetAvatarImageImplCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res, _$SetAvatarImageImpl>
-    implements _$$SetAvatarImageImplCopyWith<$Res> {
-  __$$SetAvatarImageImplCopyWithImpl(
-      _$SetAvatarImageImpl _value, $Res Function(_$SetAvatarImageImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? avatarImage = null,
-  }) {
-    return _then(_$SetAvatarImageImpl(
-      null == avatarImage
-          ? _value.avatarImage
-          : avatarImage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SetAvatarImageImpl
-    with DiagnosticableTreeMixin
-    implements _SetAvatarImage {
-  const _$SetAvatarImageImpl(this.avatarImage);
-
-  @override
-  final String avatarImage;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyEvent.setAvatarImage(avatarImage: $avatarImage)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SurveyEvent.setAvatarImage'))
-      ..add(DiagnosticsProperty('avatarImage', avatarImage));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetAvatarImageImpl &&
-            (identical(other.avatarImage, avatarImage) ||
-                other.avatarImage == avatarImage));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, avatarImage);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetAvatarImageImplCopyWith<_$SetAvatarImageImpl> get copyWith =>
-      __$$SetAvatarImageImplCopyWithImpl<_$SetAvatarImageImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetFirstName value) setFirstName,
-    required TResult Function(_SetLastName value) setLastName,
-    required TResult Function(_SetGender value) setGender,
-    required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
-    required TResult Function(_SetEmail value) setEmail,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
     required TResult Function(_SetCity value) setCity,
     required TResult Function(_SetStreet value) setStreet,
     required TResult Function(_SetHouseNumber value) setHouseNumber,
     required TResult Function(_SetApartmentNumber value) setApartmentNumber,
     required TResult Function(_SetEntrance value) setEntrance,
     required TResult Function(_SetPostalCode value) setPostalCode,
-    required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
-    required TResult Function(_SetHasChildren value) setHasChildren,
-    required TResult Function(_SetPets value) setPets,
-    required TResult Function(_SetAverageMonthlyIncome value)
-        setAverageMonthlyIncome,
-    required TResult Function(_SetPercentageSpentOnCosmetics value)
-        setPercentageSpentOnCosmetics,
-    required TResult Function(_SetVkProfile value) setVkProfile,
-    required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
-    return setAvatarImage(this);
+    return setAcceptPolicy(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -3544,27 +5057,33 @@ class _$SetAvatarImageImpl
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
-    return setAvatarImage?.call(this);
+    return setAcceptPolicy?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -3573,24 +5092,33 @@ class _$SetAvatarImageImpl
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {
-    if (setAvatarImage != null) {
-      return setAvatarImage(this);
+    if (setAcceptPolicy != null) {
+      return setAcceptPolicy(this);
     }
     return orElse();
   }
 }
 
-abstract class _SetAvatarImage implements SurveyEvent {
-  const factory _SetAvatarImage(final String avatarImage) =
-      _$SetAvatarImageImpl;
+abstract class _SetAcceptPolicy implements SurveyEvent {
+  const factory _SetAcceptPolicy(final bool acceptPolicy) =
+      _$SetAcceptPolicyImpl;
 
-  String get avatarImage;
+  bool get acceptPolicy;
   @JsonKey(ignore: true)
-  _$$SetAvatarImageImplCopyWith<_$SetAvatarImageImpl> get copyWith =>
+  _$$SetAcceptPolicyImplCopyWith<_$SetAcceptPolicyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3640,18 +5168,15 @@ class _$SendResultSurveyImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_SetFirstName value) setFirstName,
     required TResult Function(_SetLastName value) setLastName,
     required TResult Function(_SetGender value) setGender,
     required TResult Function(_SetBirthdate value) setBirthdate,
-    required TResult Function(_SetLogin value) setLogin,
+    required TResult Function(_SetAppName value) setAppName,
     required TResult Function(_SetEmail value) setEmail,
-    required TResult Function(_SetCity value) setCity,
-    required TResult Function(_SetStreet value) setStreet,
-    required TResult Function(_SetHouseNumber value) setHouseNumber,
-    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
-    required TResult Function(_SetEntrance value) setEntrance,
-    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetAddress value) setAddress,
     required TResult Function(_SetPeopleLivingWith value) setPeopleLivingWith,
     required TResult Function(_SetHasChildren value) setHasChildren,
     required TResult Function(_SetPets value) setPets,
@@ -3661,7 +5186,16 @@ class _$SendResultSurveyImpl
         setPercentageSpentOnCosmetics,
     required TResult Function(_SetVkProfile value) setVkProfile,
     required TResult Function(_SetTelegramProfile value) setTelegramProfile,
-    required TResult Function(_SetAvatarImage value) setAvatarImage,
+    required TResult Function(_SetProfilePhoto value) setProfilePhoto,
+    required TResult Function(_SetDeliveryAddress value) setDeliveryAddress,
+    required TResult Function(_SetCity value) setCity,
+    required TResult Function(_SetStreet value) setStreet,
+    required TResult Function(_SetHouseNumber value) setHouseNumber,
+    required TResult Function(_SetApartmentNumber value) setApartmentNumber,
+    required TResult Function(_SetEntrance value) setEntrance,
+    required TResult Function(_SetPostalCode value) setPostalCode,
+    required TResult Function(_SetWantAdvertising value) setWantAdvertising,
+    required TResult Function(_SetAcceptPolicy value) setAcceptPolicy,
     required TResult Function(_SendResultSurvey value) sendResultSurvey,
   }) {
     return sendResultSurvey(this);
@@ -3670,18 +5204,15 @@ class _$SendResultSurveyImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetPassword value)? setPassword,
     TResult? Function(_SetFirstName value)? setFirstName,
     TResult? Function(_SetLastName value)? setLastName,
     TResult? Function(_SetGender value)? setGender,
     TResult? Function(_SetBirthdate value)? setBirthdate,
-    TResult? Function(_SetLogin value)? setLogin,
+    TResult? Function(_SetAppName value)? setAppName,
     TResult? Function(_SetEmail value)? setEmail,
-    TResult? Function(_SetCity value)? setCity,
-    TResult? Function(_SetStreet value)? setStreet,
-    TResult? Function(_SetHouseNumber value)? setHouseNumber,
-    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult? Function(_SetEntrance value)? setEntrance,
-    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetAddress value)? setAddress,
     TResult? Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult? Function(_SetHasChildren value)? setHasChildren,
     TResult? Function(_SetPets value)? setPets,
@@ -3690,7 +5221,16 @@ class _$SendResultSurveyImpl
         setPercentageSpentOnCosmetics,
     TResult? Function(_SetVkProfile value)? setVkProfile,
     TResult? Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult? Function(_SetAvatarImage value)? setAvatarImage,
+    TResult? Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult? Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult? Function(_SetCity value)? setCity,
+    TResult? Function(_SetStreet value)? setStreet,
+    TResult? Function(_SetHouseNumber value)? setHouseNumber,
+    TResult? Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult? Function(_SetEntrance value)? setEntrance,
+    TResult? Function(_SetPostalCode value)? setPostalCode,
+    TResult? Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult? Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult? Function(_SendResultSurvey value)? sendResultSurvey,
   }) {
     return sendResultSurvey?.call(this);
@@ -3699,18 +5239,15 @@ class _$SendResultSurveyImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_SetFirstName value)? setFirstName,
     TResult Function(_SetLastName value)? setLastName,
     TResult Function(_SetGender value)? setGender,
     TResult Function(_SetBirthdate value)? setBirthdate,
-    TResult Function(_SetLogin value)? setLogin,
+    TResult Function(_SetAppName value)? setAppName,
     TResult Function(_SetEmail value)? setEmail,
-    TResult Function(_SetCity value)? setCity,
-    TResult Function(_SetStreet value)? setStreet,
-    TResult Function(_SetHouseNumber value)? setHouseNumber,
-    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
-    TResult Function(_SetEntrance value)? setEntrance,
-    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetAddress value)? setAddress,
     TResult Function(_SetPeopleLivingWith value)? setPeopleLivingWith,
     TResult Function(_SetHasChildren value)? setHasChildren,
     TResult Function(_SetPets value)? setPets,
@@ -3719,7 +5256,16 @@ class _$SendResultSurveyImpl
         setPercentageSpentOnCosmetics,
     TResult Function(_SetVkProfile value)? setVkProfile,
     TResult Function(_SetTelegramProfile value)? setTelegramProfile,
-    TResult Function(_SetAvatarImage value)? setAvatarImage,
+    TResult Function(_SetProfilePhoto value)? setProfilePhoto,
+    TResult Function(_SetDeliveryAddress value)? setDeliveryAddress,
+    TResult Function(_SetCity value)? setCity,
+    TResult Function(_SetStreet value)? setStreet,
+    TResult Function(_SetHouseNumber value)? setHouseNumber,
+    TResult Function(_SetApartmentNumber value)? setApartmentNumber,
+    TResult Function(_SetEntrance value)? setEntrance,
+    TResult Function(_SetPostalCode value)? setPostalCode,
+    TResult Function(_SetWantAdvertising value)? setWantAdvertising,
+    TResult Function(_SetAcceptPolicy value)? setAcceptPolicy,
     TResult Function(_SendResultSurvey value)? sendResultSurvey,
     required TResult orElse(),
   }) {

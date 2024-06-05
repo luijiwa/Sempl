@@ -59,12 +59,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
       case AuthenticationStatus.unauthenticated:
         log('case 1 unauthenticated', name: '_onAuthenticationStatusChanged');
 
-        return emit(AuthState.unauthenticated());
+        return emit(
+            state.copyWith(status: AuthenticationStatus.unauthenticated));
 
       case AuthenticationStatus.authenticated:
         log('case 2 authenticated', name: '_onAuthenticationStatusChanged');
       case AuthenticationStatus.initial:
-        return emit(AuthState.initial());
+        return emit(state.copyWith(status: AuthenticationStatus.initial));
     }
   }
 

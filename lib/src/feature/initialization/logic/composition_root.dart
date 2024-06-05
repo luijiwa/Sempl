@@ -89,8 +89,7 @@ final class CompositionRoot {
       dio: interceptedDio,
     );
     final surveyRepository = SurveyRepositoryImpl(
-      SurveyDataSourceNetwork(restClient),
-    );
+        dataSource: SurveyDataSourceNetwork(restClient), storage: storage);
     final itemRepository = ItemRepositoryImpl(
       ItemDataSourceNetwork(restClient),
     );

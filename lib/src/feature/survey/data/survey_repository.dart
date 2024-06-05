@@ -1,3 +1,4 @@
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/feature/survey/data/survey_data_source.dart';
 
 abstract interface class SurveyRepository<T> {
@@ -5,12 +6,18 @@ abstract interface class SurveyRepository<T> {
   Future<void> sendResultSurvey(Map<String, dynamic> survey);
 }
 
-final class SurveyRepositoryImpl implements SurveyRepository {
-  final SurveyDataSource _dataSource;
-
-  const SurveyRepositoryImpl(this._dataSource);
+final class SurveyRepositoryImpl<T> implements SurveyRepository {
+  final SurveyDataSource<T> _dataSource;
+  final TokenStorage<T> _storage;
+  const SurveyRepositoryImpl({
+    required SurveyDataSource<T> dataSource,
+    required TokenStorage<T> storage,
+  })  : _dataSource = dataSource,
+        _storage = storage;
 
   @override
-  Future<void> sendResultSurvey(Map<String, dynamic> survey) =>
-      _dataSource.sendResultSurvey(survey);
+  Future<void> sendResultSurvey(Map<String, dynamic> survey) async {
+    final newToken = await _dataSource.sendResultSurvey(survey);
+    await _storage.save(newToken);
+  }
 }

@@ -122,11 +122,21 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
                     textAlign: TextAlign.start,
                   ),
                   SizedBox(height: height * 0.006),
-                  const CheckboxRowWidget(
-                    title:
-                        'Я хочу получать рекламные электронные письма и информацию о приложениях',
-                    value: true,
-                    maxLines: 2,
+                  BlocBuilder<SurveyBloc, SurveyState>(
+                    buildWhen: (previous, current) =>
+                        previous.surveyModel.wantAdvertising !=
+                        previous.surveyModel.wantAdvertising,
+                    builder: (context, state) {
+                      return CheckboxRowWidget(
+                        title:
+                            'Я хочу получать рекламные электронные письма и информацию о приложениях',
+                        value: state.surveyModel.wantAdvertising,
+                        maxLines: 2,
+                        onChange: (value) {
+                          bloc.add(SurveyEvent.setWantAdvertising(value));
+                        },
+                      );
+                    },
                   )
                 ],
               ),
@@ -140,10 +150,20 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
                     textAlign: TextAlign.start,
                   ),
                   SizedBox(height: height * 0.006),
-                  const CheckboxRowWidget(
-                    title: 'Я принимаю все правила',
-                    value: false,
-                    maxLines: 2,
+                  BlocBuilder<SurveyBloc, SurveyState>(
+                    buildWhen: (previous, current) =>
+                        previous.surveyModel.acceptPolicy !=
+                        previous.surveyModel.acceptPolicy,
+                    builder: (context, state) {
+                      return CheckboxRowWidget(
+                        title: 'Я принимаю все правила',
+                        value: state.surveyModel.acceptPolicy,
+                        maxLines: 2,
+                        onChange: (value) {
+                          bloc.add(SurveyEvent.setAcceptPolicy(value));
+                        },
+                      );
+                    },
                   )
                 ],
               ),
