@@ -103,7 +103,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                         initialName: fieldData.firstName,
                         lastNameController: _lastNameController,
                         initialLastName: fieldData.lastName,
-                        onChangeGender: logger.info,
+                        onChangeGender: null,
                         initialGender: fieldData.gender,
                         initialBirthdate: fieldData.birthdate,
                         birthdateController: _dateBirthController,

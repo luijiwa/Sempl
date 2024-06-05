@@ -57,9 +57,12 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     });
 
     on<_SetGender>((event, emit) {
-      final gender = event.gender == 'Мужской'
-          ? 'male'
-          : (event.gender == 'Женский' ? 'female' : 'other');
+      final gender = switch (event.gender) {
+        'Мужской' => 'male',
+        'Женский' => 'female',
+        _ => 'other',
+      };
+
       emit(
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(

@@ -22,8 +22,9 @@ class PersonalDataFieldsWidget extends StatefulWidget {
     this.loginController,
     this.emailController,
     this.onChangeGender,
+    this.selectedGenderValueNotifier,
   });
-  final void Function(String)? onChangeGender;
+  final void Function(String?)? onChangeGender;
 
   final TextEditingController? nameController;
   final TextEditingController? lastNameController;
@@ -31,6 +32,7 @@ class PersonalDataFieldsWidget extends StatefulWidget {
   final TextEditingController? birthdateController;
   final TextEditingController? loginController;
   final TextEditingController? emailController;
+  final ValueNotifier<String?>? selectedGenderValueNotifier;
 
   final String? initialName;
   final String? initialLastName;
@@ -117,9 +119,10 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
         const SizedBox(height: 4),
         DropdownCustomWidgetNew(
           initialValue: widget.initialGender,
-          onChanged: (value) => widget.onChangeGender,
+          // onChanged: (value) => widget.onChangeGender,
           hint: 'Пол',
           listItems: const ['Мужской', 'Женский', 'Не указывать'],
+          selectedValueNotifier: widget.selectedGenderValueNotifier,
         ),
         SizedBox(height: width * 0.1),
         TextFormField(

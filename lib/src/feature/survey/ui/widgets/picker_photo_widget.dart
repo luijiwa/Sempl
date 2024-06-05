@@ -66,7 +66,7 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => SetPhotoWidget(
-                      surveyContext: context,
+                      surveyBloc: context.read<SurveyBloc>(),
                     ),
                   ),
                 );

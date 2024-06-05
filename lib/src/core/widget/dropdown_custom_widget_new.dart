@@ -1,20 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 
 class DropdownCustomWidgetNew extends StatefulWidget {
   const DropdownCustomWidgetNew({
     super.key,
     required this.listItems,
     required this.hint,
-    required this.onChanged,
-    this.initialValue, // Add initialValue parameter
+    this.onChanged,
+    this.initialValue,
+    this.selectedValueNotifier,
   });
 
   final List<String> listItems;
   final String hint;
-  final ValueChanged<String?> onChanged;
-  final String? initialValue; // Add initialValue field
+  final void Function(String?)? onChanged;
+  final String? initialValue;
+  final ValueNotifier<String?>? selectedValueNotifier;
 
   @override
   State<DropdownCustomWidgetNew> createState() =>
@@ -22,7 +26,13 @@ class DropdownCustomWidgetNew extends StatefulWidget {
 }
 
 class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
-  String? selectedValue;
+  @override
+  void initState() {
+    super.initState();
+    if (widget.selectedValueNotifier != null) {
+      widget.selectedValueNotifier!.value = widget.initialValue;
+    }
+  }
 
   // Styles
   final TextStyle dropdownHintTextStyle = const TextStyle(
@@ -70,7 +80,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
               ),
             ),
           ),
-          // If it's last item, we will not add Divider after it.
           if (item != items.last)
             const DropdownMenuItem<String>(
               enabled: false,
@@ -101,7 +110,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
               ),
             ),
           ),
-          // If it's last item, we will not add Divider after it.
           if (item != items.last)
             const DropdownMenuItem<String>(
               enabled: false,
@@ -119,7 +127,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
       if (i.isEven) {
         itemsHeights.add(48);
       }
-      //Dividers indexes will be the odd indexes
       if (i.isOdd) {
         itemsHeights.add(0);
       }
@@ -133,7 +140,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
       final height = MediaQuery.of(context).size.height;
       final width = MediaQuery.of(context).size.width;
       final MenuItemStyleData dropdownMenuItemStyleData = MenuItemStyleData(
-        // height: 48,
         customHeights: _getCustomItemsHeights(),
         padding: const EdgeInsets.symmetric().copyWith(
           left: 14,
@@ -141,7 +147,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
         ),
       );
       final ButtonStyleData dropdownButtonStyleData = ButtonStyleData(
-        // height: height * 0.05,
         padding: EdgeInsets.symmetric(
                 vertical: height * 0.0, horizontal: height * 0.01)
             .copyWith(right: width * 0.05),
@@ -151,11 +156,8 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
           color: Colors.white,
         ),
       );
-      final maxHeight = constraints.maxHeight.toDouble();
-      final maxWidth = constraints.maxWidth.toDouble();
       return SizedBox(
-        height: width * 0.123, // 0.12216,
-
+        height: width * 0.123,
         child: DropdownButtonHideUnderline(
           child: DropdownButtonFormField2<String>(
             validator: (value) => value == null ? 'Field is required' : null,
@@ -211,12 +213,11 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
             selectedItemBuilder: (context) =>
                 _listChecked(widget.listItems).toList(),
             items: _addDividersAfterItems(widget.listItems),
-            value: selectedValue,
+            value: widget.selectedValueNotifier?.value ?? widget.initialValue,
             onChanged: (value) {
-              setState(() {
-                selectedValue = value;
-              });
-              widget.onChanged(value);
+              widget.selectedValueNotifier?.value = value;
+              logger.i(value ?? '');
+              if (widget.onChanged != null) widget.onChanged!(value);
             },
             iconStyleData: dropdownIconStyleData,
             dropdownStyleData: dropdownDropdownStyleData,

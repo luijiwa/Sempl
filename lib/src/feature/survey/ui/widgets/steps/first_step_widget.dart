@@ -27,6 +27,7 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
   late final TextEditingController _birthDateController;
   late final TextEditingController _loginController;
   late final TextEditingController _emailController;
+  late final ValueNotifier<String?> _selectedGenderValueNotifier;
 
   void _trySubmitForm() {
     if (_formKey.currentState!.validate()) {
@@ -46,6 +47,7 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
     _birthDateController = TextEditingController();
     _loginController = TextEditingController();
     _emailController = TextEditingController();
+    _selectedGenderValueNotifier = ValueNotifier<String?>(null);
 
     /// Добавление слушателей
     _nameController.addListener(() {
@@ -78,6 +80,13 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
         SurveyEvent.setEmail(_emailController.text),
       );
     });
+    _selectedGenderValueNotifier.addListener(() {
+      final selectedValue = _selectedGenderValueNotifier.value;
+      if (selectedValue == null) return;
+      BlocProvider.of<SurveyBloc>(context).add(
+        SurveyEvent.setGender(selectedValue),
+      );
+    });
   }
 
   @override
@@ -104,8 +113,7 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
               PersonalDataFieldsWidget(
                 nameController: _nameController,
                 lastNameController: _lastNameController,
-                onChangeGender: (gender) =>
-                    bloc.add(SurveyEvent.setGender(gender)),
+                selectedGenderValueNotifier: _selectedGenderValueNotifier,
                 birthdateController: _birthDateController,
                 loginController: _loginController,
                 emailController: _emailController,

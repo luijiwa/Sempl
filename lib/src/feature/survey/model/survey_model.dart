@@ -7,7 +7,7 @@ part 'survey_model.g.dart';
 class SurveyModel with _$SurveyModel {
   const factory SurveyModel({
     @Default('') String login,
-    @Default('') String password,
+    @Default('default') String password,
     @Default('') String firstName,
     @Default('') String lastName,
     @Default('') String gender,

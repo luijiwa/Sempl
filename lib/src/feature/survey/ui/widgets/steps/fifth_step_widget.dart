@@ -17,14 +17,11 @@ class _FifthStepWidgetState extends State<FifthStepWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22),
-        child: image == null
-            ? PickerPhotoWidget(
-                onNextPage: widget.onNextPage,
-                image: image,
-              )
-            : SetPhotoWidget(
-                surveyContext: context,
-              ));
+      padding: const EdgeInsets.symmetric(horizontal: 22),
+      child: PickerPhotoWidget(
+        onNextPage: widget.onNextPage,
+        image: image,
+      ),
+    );
   }
 }
