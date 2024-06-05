@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/router/redirect_builder.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 
@@ -17,16 +18,14 @@ final class RedirectIfAuthenticatedGuard extends Guard {
   String? redirect(BuildContext context, GoRouterState state) {
     final auth = AuthScope.of(context);
 
-// final onboarding = SettingsScope.of(context).locale
-    // check if the user is authenticated and registered
     if (auth.status == AuthenticationStatus.authenticated) {
+      logger.info(auth.status.toString() + auth.registrationStatus.toString());
       if (auth.registrationStatus == LoginStatus.unregistered) {
         return AppRoutes.loginConfirmation.path;
       } else {
         return AppRoutes.main.path;
       }
     }
-    // if the user is authenticated but not registered, redirect to the login confirmation page
 
     return null;
   }

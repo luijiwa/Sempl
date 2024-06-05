@@ -20,13 +20,70 @@ class FirstStepWidget extends StatefulWidget {
 }
 
 class _FirstStepWidgetState extends State<FirstStepWidget> {
-  final _formKey = GlobalKey<FormState>();
+  late final GlobalKey<FormState> _formKey;
+  late final TextEditingController _nameController;
+  late final TextEditingController _lastNameController;
+  late final TextEditingController _genderController;
+  late final TextEditingController _birthDateController;
+  late final TextEditingController _loginController;
+  late final TextEditingController _emailController;
 
   void _trySubmitForm() {
     if (_formKey.currentState!.validate()) {
       // If the form is valid, proceed to the next page or submit the data.
       widget.onNextPage();
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    //Инициализация контроллеров
+    _formKey = GlobalKey<FormState>();
+    _nameController = TextEditingController();
+    _lastNameController = TextEditingController();
+    _genderController = TextEditingController();
+    _birthDateController = TextEditingController();
+    _loginController = TextEditingController();
+    _emailController = TextEditingController();
+
+    /// Добавление слушателей
+    _nameController.addListener(() {
+      BlocProvider.of<SurveyBloc>(context).add(
+        SurveyEvent.setFirstName(_nameController.value.text),
+      );
+    });
+    _lastNameController.addListener(() {
+      BlocProvider.of<SurveyBloc>(context).add(
+        SurveyEvent.setLastName(_lastNameController.text),
+      );
+    });
+    _genderController.addListener(() {
+      BlocProvider.of<SurveyBloc>(context).add(
+        SurveyEvent.setGender(_genderController.text),
+      );
+    });
+    _birthDateController.addListener(() {
+      BlocProvider.of<SurveyBloc>(context).add(
+        SurveyEvent.setBirthdate(_birthDateController.text),
+      );
+    });
+    _loginController.addListener(() {
+      BlocProvider.of<SurveyBloc>(context).add(
+        SurveyEvent.setLogin(_loginController.text),
+      );
+    });
+    _emailController.addListener(() {
+      BlocProvider.of<SurveyBloc>(context).add(
+        SurveyEvent.setEmail(_emailController.text),
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    super.dispose();
   }
 
   @override
@@ -45,18 +102,13 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
             children: [
               SizedBox(height: height * 0.035),
               PersonalDataFieldsWidget(
-                onChangeName: (String firstName) =>
-                    bloc.add(SurveyEvent.setFirstName(firstName)),
-                onChangeLastName: (String lastName) =>
-                    bloc.add(SurveyEvent.setLastName(lastName)),
-                onChangeGender: (String gender) =>
+                nameController: _nameController,
+                lastNameController: _lastNameController,
+                onChangeGender: (gender) =>
                     bloc.add(SurveyEvent.setGender(gender)),
-                onChangeBirthdate: (String birthdate) =>
-                    bloc.add(SurveyEvent.setBirthdate(birthdate)),
-                onChangeLogin: (String login) =>
-                    bloc.add(SurveyEvent.setLogin(login)),
-                onChangeEmail: (String email) =>
-                    bloc.add(SurveyEvent.setEmail(email)),
+                birthdateController: _birthDateController,
+                loginController: _loginController,
+                emailController: _emailController,
               ),
               // const QuestionsPadding(),
               // const PasswordGroupWidget(),

@@ -14,6 +14,13 @@ class AddressDataFieldsWidget extends StatelessWidget {
     this.initialApartment,
     this.initialZipCode,
     this.initialEntrance,
+    //Контроллеры
+    this.cityController,
+    this.streetController,
+    this.houseController,
+    this.apartmentController,
+    this.entranceController,
+    this.zipCodeController,
   });
   final String? initialCity;
   final String? initialStreet;
@@ -21,6 +28,12 @@ class AddressDataFieldsWidget extends StatelessWidget {
   final String? initialApartment;
   final String? initialEntrance;
   final String? initialZipCode;
+  final TextEditingController? cityController;
+  final TextEditingController? streetController;
+  final TextEditingController? houseController;
+  final TextEditingController? apartmentController;
+  final TextEditingController? entranceController;
+  final TextEditingController? zipCodeController;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -30,103 +43,104 @@ class AddressDataFieldsWidget extends StatelessWidget {
     var zipCodeFormatter = MaskTextInputFormatter(
         mask: '### ###', filter: {"#": RegExp(r'[0-9]')});
 
-    return Form(
-      key: key, // Привязка формы к GlobalKey
-
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          AutoSizeText(
-            'АДРЕС ДОСТАВКИ',
-            style: Theme.of(context).textTheme.appProfileTitle,
-            maxLines: 1,
-          ),
-          SizedBox(height: width * 0.05),
-          RequiredInputField(
-              hintText: 'Город',
-              initialValue: initialCity,
-              keyboardType: TextInputType.streetAddress,
-              inputFormatters: [
-                // Запрещает вводить любые символы, кроме букв, пробелов и дефиса
-                // (в том числе и в unicode-символах)
-                // (например, кириллица, тире, пробелы и т.д.)
-                FilteringTextInputFormatter.allow(
-                    RegExp(r'[a-zA-Zа-яА-Я., -]+')),
-              ]),
-          const SizedBox(height: 4),
-          RequiredInputField(
-              hintText: 'Улица',
-              keyboardType: TextInputType.streetAddress,
-              initialValue: initialStreet,
-              inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp(r'[а-яА-Я0-9/ -]+')),
-              ]),
-          const SizedBox(height: 4),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(
-                child: RequiredInputField(
-                  hintText: 'Номер дома',
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        AutoSizeText(
+          'АДРЕС ДОСТАВКИ',
+          style: Theme.of(context).textTheme.appProfileTitle,
+          maxLines: 1,
+        ),
+        SizedBox(height: width * 0.05),
+        RequiredInputField(
+            hintText: 'Город',
+            initialValue: initialCity,
+            keyboardType: TextInputType.streetAddress,
+            controller: cityController,
+            inputFormatters: [
+              // Запрещает вводить любые символы, кроме букв, пробелов и дефиса
+              // (в том числе и в unicode-символах)
+              // (например, кириллица, тире, пробелы и т.д.)
+              FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Zа-яА-Я., -]+')),
+            ]),
+        const SizedBox(height: 4),
+        RequiredInputField(
+            hintText: 'Улица',
+            keyboardType: TextInputType.streetAddress,
+            initialValue: initialStreet,
+            controller: streetController,
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp(r'[а-яА-Я0-9/ -]+')),
+            ]),
+        const SizedBox(height: 4),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Expanded(
+              child: RequiredInputField(
+                hintText: 'Номер дома',
+                keyboardType: TextInputType.streetAddress,
+                initialValue: initialHouse,
+                controller: houseController,
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(
+                      RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
+                ],
+              ),
+            ),
+            const SizedBox(width: 4),
+            Expanded(
+              child: RequiredInputField(
+                  hintText: 'Номер квартиры',
                   keyboardType: TextInputType.streetAddress,
-                  initialValue: initialHouse,
+                  controller: apartmentController,
+                  initialValue: initialApartment,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(
                         RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
-                  ],
+                  ]),
+            ),
+          ],
+        ),
+        const SizedBox(height: 4),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Expanded(
+              child: TextFormField(
+                keyboardType: TextInputType.streetAddress,
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(
+                      RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
+                ],
+                initialValue: initialEntrance,
+                controller: entranceController,
+                decoration: InputDecoration(
+                  contentPadding: edgeInsets,
+                  hintText: 'Подъезд',
                 ),
               ),
-              const SizedBox(width: 4),
-              Expanded(
-                child: RequiredInputField(
-                    hintText: 'Номер квартиры',
-                    keyboardType: TextInputType.streetAddress,
-                    initialValue: initialApartment,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(
-                          RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
-                    ]),
+            ),
+            const SizedBox(width: 4),
+            Expanded(
+              child: RequiredInputField(
+                initialValue: initialZipCode,
+                controller: zipCodeController,
+                hintText: 'Почтовый индекс',
+                keyboardType: TextInputType.number,
+                inputFormatters: [zipCodeFormatter],
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return '';
+                  }
+                  return null;
+                },
               ),
-            ],
-          ),
-          const SizedBox(height: 4),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(
-                child: TextFormField(
-                  keyboardType: TextInputType.streetAddress,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(
-                        RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
-                  ],
-                  initialValue: initialEntrance,
-                  decoration: InputDecoration(
-                    contentPadding: edgeInsets,
-                    hintText: 'Подъезд',
-                  ),
-                ),
-              ),
-              const SizedBox(width: 4),
-              Expanded(
-                child: RequiredInputField(
-                  initialValue: initialZipCode,
-                  hintText: 'Почтовый индекс',
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [zipCodeFormatter],
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return '';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

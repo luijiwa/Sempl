@@ -123,15 +123,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
                 ),
               ),
               errorBuilder: (_, __) => const SizedBox.shrink(),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return '';
-                }
-                if (state.statusSend2.isFailure) {
-                  return '';
-                }
-                return null;
-              },
+              errorText: state.statusSend2.isFailure ? '' : null,
             );
           },
         ),

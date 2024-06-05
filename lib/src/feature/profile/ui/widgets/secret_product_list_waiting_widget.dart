@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/profile/bloc/profile_bloc.dart';
-import 'package:sempl/src/feature/review_items/widgets/item_with_button_widget.dart';
 
 class SecretProductWaitingListWidget extends StatefulWidget {
   const SecretProductWaitingListWidget({

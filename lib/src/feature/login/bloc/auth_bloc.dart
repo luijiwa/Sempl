@@ -34,7 +34,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
     on<_SignOut>(_onLogout);
     authRepository
         .getAuthenticationStatusStream()
-        .map(($status) => AuthState(status: $status))
+        .map(($status) =>
+            AuthState(status: $status, loginStatus: state.loginStatus))
         .listen(($state) {
       if ($state != state) {
         setState($state);

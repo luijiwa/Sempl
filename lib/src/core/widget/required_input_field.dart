@@ -14,6 +14,7 @@ class RequiredInputField extends StatefulWidget {
     this.inputFormatters,
     this.keyboardType,
     this.initialValue,
+    this.controller,
   });
 
   final String hintText;
@@ -22,6 +23,7 @@ class RequiredInputField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
   final String? initialValue;
+  final TextEditingController? controller;
   @override
   State<RequiredInputField> createState() => _RequiredInputFieldState();
 }
@@ -33,7 +35,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController();
+    _controller = widget.controller ?? TextEditingController();
     _controller.text = widget.initialValue ?? '';
     _isTextEmpty = widget.initialValue == null || widget.initialValue == '';
     _controller.addListener(_textListener);
@@ -102,6 +104,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                 controller: _controller,
                 inputFormatters: widget.inputFormatters,
                 keyboardType: widget.keyboardType,
+                validator: widget.validator ?? _defaultValidator,
                 decoration: InputDecoration(
                   filled: widget.isError ? true : false,
                   fillColor: const Color(0xFFE25C74).withOpacity(0.2),
@@ -121,5 +124,12 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
         ),
       ],
     );
+  }
+
+  String? _defaultValidator(value) {
+    if (value == null || value.isEmpty) {
+      return '';
+    }
+    return null;
   }
 }
