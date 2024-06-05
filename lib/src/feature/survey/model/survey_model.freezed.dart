@@ -29,14 +29,14 @@ mixin _$SurveyModel {
   String get appName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  String get role => throw _privateConstructorUsedError;
   int get peopleLivingWith => throw _privateConstructorUsedError;
-  bool? get hasChildren => throw _privateConstructorUsedError;
+  bool get hasChildren => throw _privateConstructorUsedError;
   String get pets => throw _privateConstructorUsedError;
   int get averageMonthlyIncome => throw _privateConstructorUsedError;
   int get percentageSpentOnCosmetics => throw _privateConstructorUsedError;
   String get vkProfile => throw _privateConstructorUsedError;
   String get telegramProfile => throw _privateConstructorUsedError;
+  String get profilePhoto => throw _privateConstructorUsedError;
   String get deliveryAddress => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
   String get street => throw _privateConstructorUsedError;
@@ -44,7 +44,8 @@ mixin _$SurveyModel {
   String get apartmentNumber => throw _privateConstructorUsedError;
   String get entrance => throw _privateConstructorUsedError;
   String get postalCode => throw _privateConstructorUsedError;
-  String get profilePhoto => throw _privateConstructorUsedError;
+  bool get wantAdvertising => throw _privateConstructorUsedError;
+  bool get acceptPolicy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -68,14 +69,14 @@ abstract class $SurveyModelCopyWith<$Res> {
       String appName,
       String email,
       String address,
-      String role,
       int peopleLivingWith,
-      bool? hasChildren,
+      bool hasChildren,
       String pets,
       int averageMonthlyIncome,
       int percentageSpentOnCosmetics,
       String vkProfile,
       String telegramProfile,
+      String profilePhoto,
       String deliveryAddress,
       String city,
       String street,
@@ -83,7 +84,8 @@ abstract class $SurveyModelCopyWith<$Res> {
       String apartmentNumber,
       String entrance,
       String postalCode,
-      String profilePhoto});
+      bool wantAdvertising,
+      bool acceptPolicy});
 }
 
 /// @nodoc
@@ -108,14 +110,14 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
     Object? appName = null,
     Object? email = null,
     Object? address = null,
-    Object? role = null,
     Object? peopleLivingWith = null,
-    Object? hasChildren = freezed,
+    Object? hasChildren = null,
     Object? pets = null,
     Object? averageMonthlyIncome = null,
     Object? percentageSpentOnCosmetics = null,
     Object? vkProfile = null,
     Object? telegramProfile = null,
+    Object? profilePhoto = null,
     Object? deliveryAddress = null,
     Object? city = null,
     Object? street = null,
@@ -123,7 +125,8 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
     Object? apartmentNumber = null,
     Object? entrance = null,
     Object? postalCode = null,
-    Object? profilePhoto = null,
+    Object? wantAdvertising = null,
+    Object? acceptPolicy = null,
   }) {
     return _then(_value.copyWith(
       login: null == login
@@ -162,18 +165,14 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
-              as String,
       peopleLivingWith: null == peopleLivingWith
           ? _value.peopleLivingWith
           : peopleLivingWith // ignore: cast_nullable_to_non_nullable
               as int,
-      hasChildren: freezed == hasChildren
+      hasChildren: null == hasChildren
           ? _value.hasChildren
           : hasChildren // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       pets: null == pets
           ? _value.pets
           : pets // ignore: cast_nullable_to_non_nullable
@@ -193,6 +192,10 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
       telegramProfile: null == telegramProfile
           ? _value.telegramProfile
           : telegramProfile // ignore: cast_nullable_to_non_nullable
+              as String,
+      profilePhoto: null == profilePhoto
+          ? _value.profilePhoto
+          : profilePhoto // ignore: cast_nullable_to_non_nullable
               as String,
       deliveryAddress: null == deliveryAddress
           ? _value.deliveryAddress
@@ -222,10 +225,14 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      profilePhoto: null == profilePhoto
-          ? _value.profilePhoto
-          : profilePhoto // ignore: cast_nullable_to_non_nullable
-              as String,
+      wantAdvertising: null == wantAdvertising
+          ? _value.wantAdvertising
+          : wantAdvertising // ignore: cast_nullable_to_non_nullable
+              as bool,
+      acceptPolicy: null == acceptPolicy
+          ? _value.acceptPolicy
+          : acceptPolicy // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -248,14 +255,14 @@ abstract class _$$SurveyModelImplCopyWith<$Res>
       String appName,
       String email,
       String address,
-      String role,
       int peopleLivingWith,
-      bool? hasChildren,
+      bool hasChildren,
       String pets,
       int averageMonthlyIncome,
       int percentageSpentOnCosmetics,
       String vkProfile,
       String telegramProfile,
+      String profilePhoto,
       String deliveryAddress,
       String city,
       String street,
@@ -263,7 +270,8 @@ abstract class _$$SurveyModelImplCopyWith<$Res>
       String apartmentNumber,
       String entrance,
       String postalCode,
-      String profilePhoto});
+      bool wantAdvertising,
+      bool acceptPolicy});
 }
 
 /// @nodoc
@@ -286,14 +294,14 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
     Object? appName = null,
     Object? email = null,
     Object? address = null,
-    Object? role = null,
     Object? peopleLivingWith = null,
-    Object? hasChildren = freezed,
+    Object? hasChildren = null,
     Object? pets = null,
     Object? averageMonthlyIncome = null,
     Object? percentageSpentOnCosmetics = null,
     Object? vkProfile = null,
     Object? telegramProfile = null,
+    Object? profilePhoto = null,
     Object? deliveryAddress = null,
     Object? city = null,
     Object? street = null,
@@ -301,7 +309,8 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
     Object? apartmentNumber = null,
     Object? entrance = null,
     Object? postalCode = null,
-    Object? profilePhoto = null,
+    Object? wantAdvertising = null,
+    Object? acceptPolicy = null,
   }) {
     return _then(_$SurveyModelImpl(
       login: null == login
@@ -340,18 +349,14 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
-              as String,
       peopleLivingWith: null == peopleLivingWith
           ? _value.peopleLivingWith
           : peopleLivingWith // ignore: cast_nullable_to_non_nullable
               as int,
-      hasChildren: freezed == hasChildren
+      hasChildren: null == hasChildren
           ? _value.hasChildren
           : hasChildren // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       pets: null == pets
           ? _value.pets
           : pets // ignore: cast_nullable_to_non_nullable
@@ -371,6 +376,10 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
       telegramProfile: null == telegramProfile
           ? _value.telegramProfile
           : telegramProfile // ignore: cast_nullable_to_non_nullable
+              as String,
+      profilePhoto: null == profilePhoto
+          ? _value.profilePhoto
+          : profilePhoto // ignore: cast_nullable_to_non_nullable
               as String,
       deliveryAddress: null == deliveryAddress
           ? _value.deliveryAddress
@@ -400,17 +409,21 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      profilePhoto: null == profilePhoto
-          ? _value.profilePhoto
-          : profilePhoto // ignore: cast_nullable_to_non_nullable
-              as String,
+      wantAdvertising: null == wantAdvertising
+          ? _value.wantAdvertising
+          : wantAdvertising // ignore: cast_nullable_to_non_nullable
+              as bool,
+      acceptPolicy: null == acceptPolicy
+          ? _value.acceptPolicy
+          : acceptPolicy // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SurveyModelImpl implements _SurveyModel {
+class _$SurveyModelImpl with DiagnosticableTreeMixin implements _SurveyModel {
   const _$SurveyModelImpl(
       {this.login = '',
       this.password = '',
@@ -421,7 +434,6 @@ class _$SurveyModelImpl implements _SurveyModel {
       this.appName = '',
       this.email = '',
       this.address = '',
-      this.role = '',
       this.peopleLivingWith = 0,
       this.hasChildren = false,
       this.pets = '',
@@ -429,6 +441,7 @@ class _$SurveyModelImpl implements _SurveyModel {
       this.percentageSpentOnCosmetics = 0,
       this.vkProfile = '',
       this.telegramProfile = '',
+      this.profilePhoto = '',
       this.deliveryAddress = '',
       this.city = '',
       this.street = '',
@@ -436,7 +449,8 @@ class _$SurveyModelImpl implements _SurveyModel {
       this.apartmentNumber = '',
       this.entrance = '',
       this.postalCode = '',
-      this.profilePhoto = ''});
+      this.wantAdvertising = true,
+      this.acceptPolicy = true});
 
   factory _$SurveyModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SurveyModelImplFromJson(json);
@@ -470,13 +484,10 @@ class _$SurveyModelImpl implements _SurveyModel {
   final String address;
   @override
   @JsonKey()
-  final String role;
-  @override
-  @JsonKey()
   final int peopleLivingWith;
   @override
   @JsonKey()
-  final bool? hasChildren;
+  final bool hasChildren;
   @override
   @JsonKey()
   final String pets;
@@ -492,6 +503,9 @@ class _$SurveyModelImpl implements _SurveyModel {
   @override
   @JsonKey()
   final String telegramProfile;
+  @override
+  @JsonKey()
+  final String profilePhoto;
   @override
   @JsonKey()
   final String deliveryAddress;
@@ -515,11 +529,48 @@ class _$SurveyModelImpl implements _SurveyModel {
   final String postalCode;
   @override
   @JsonKey()
-  final String profilePhoto;
+  final bool wantAdvertising;
+  @override
+  @JsonKey()
+  final bool acceptPolicy;
 
   @override
-  String toString() {
-    return 'SurveyModel(login: $login, password: $password, firstName: $firstName, lastName: $lastName, gender: $gender, birthdate: $birthdate, appName: $appName, email: $email, address: $address, role: $role, peopleLivingWith: $peopleLivingWith, hasChildren: $hasChildren, pets: $pets, averageMonthlyIncome: $averageMonthlyIncome, percentageSpentOnCosmetics: $percentageSpentOnCosmetics, vkProfile: $vkProfile, telegramProfile: $telegramProfile, deliveryAddress: $deliveryAddress, city: $city, street: $street, houseNumber: $houseNumber, apartmentNumber: $apartmentNumber, entrance: $entrance, postalCode: $postalCode, profilePhoto: $profilePhoto)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyModel(login: $login, password: $password, firstName: $firstName, lastName: $lastName, gender: $gender, birthdate: $birthdate, appName: $appName, email: $email, address: $address, peopleLivingWith: $peopleLivingWith, hasChildren: $hasChildren, pets: $pets, averageMonthlyIncome: $averageMonthlyIncome, percentageSpentOnCosmetics: $percentageSpentOnCosmetics, vkProfile: $vkProfile, telegramProfile: $telegramProfile, profilePhoto: $profilePhoto, deliveryAddress: $deliveryAddress, city: $city, street: $street, houseNumber: $houseNumber, apartmentNumber: $apartmentNumber, entrance: $entrance, postalCode: $postalCode, wantAdvertising: $wantAdvertising, acceptPolicy: $acceptPolicy)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyModel'))
+      ..add(DiagnosticsProperty('login', login))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('firstName', firstName))
+      ..add(DiagnosticsProperty('lastName', lastName))
+      ..add(DiagnosticsProperty('gender', gender))
+      ..add(DiagnosticsProperty('birthdate', birthdate))
+      ..add(DiagnosticsProperty('appName', appName))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('address', address))
+      ..add(DiagnosticsProperty('peopleLivingWith', peopleLivingWith))
+      ..add(DiagnosticsProperty('hasChildren', hasChildren))
+      ..add(DiagnosticsProperty('pets', pets))
+      ..add(DiagnosticsProperty('averageMonthlyIncome', averageMonthlyIncome))
+      ..add(DiagnosticsProperty(
+          'percentageSpentOnCosmetics', percentageSpentOnCosmetics))
+      ..add(DiagnosticsProperty('vkProfile', vkProfile))
+      ..add(DiagnosticsProperty('telegramProfile', telegramProfile))
+      ..add(DiagnosticsProperty('profilePhoto', profilePhoto))
+      ..add(DiagnosticsProperty('deliveryAddress', deliveryAddress))
+      ..add(DiagnosticsProperty('city', city))
+      ..add(DiagnosticsProperty('street', street))
+      ..add(DiagnosticsProperty('houseNumber', houseNumber))
+      ..add(DiagnosticsProperty('apartmentNumber', apartmentNumber))
+      ..add(DiagnosticsProperty('entrance', entrance))
+      ..add(DiagnosticsProperty('postalCode', postalCode))
+      ..add(DiagnosticsProperty('wantAdvertising', wantAdvertising))
+      ..add(DiagnosticsProperty('acceptPolicy', acceptPolicy));
   }
 
   @override
@@ -540,7 +591,6 @@ class _$SurveyModelImpl implements _SurveyModel {
             (identical(other.appName, appName) || other.appName == appName) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.address, address) || other.address == address) &&
-            (identical(other.role, role) || other.role == role) &&
             (identical(other.peopleLivingWith, peopleLivingWith) ||
                 other.peopleLivingWith == peopleLivingWith) &&
             (identical(other.hasChildren, hasChildren) ||
@@ -556,6 +606,8 @@ class _$SurveyModelImpl implements _SurveyModel {
                 other.vkProfile == vkProfile) &&
             (identical(other.telegramProfile, telegramProfile) ||
                 other.telegramProfile == telegramProfile) &&
+            (identical(other.profilePhoto, profilePhoto) ||
+                other.profilePhoto == profilePhoto) &&
             (identical(other.deliveryAddress, deliveryAddress) ||
                 other.deliveryAddress == deliveryAddress) &&
             (identical(other.city, city) || other.city == city) &&
@@ -568,8 +620,10 @@ class _$SurveyModelImpl implements _SurveyModel {
                 other.entrance == entrance) &&
             (identical(other.postalCode, postalCode) ||
                 other.postalCode == postalCode) &&
-            (identical(other.profilePhoto, profilePhoto) ||
-                other.profilePhoto == profilePhoto));
+            (identical(other.wantAdvertising, wantAdvertising) ||
+                other.wantAdvertising == wantAdvertising) &&
+            (identical(other.acceptPolicy, acceptPolicy) ||
+                other.acceptPolicy == acceptPolicy));
   }
 
   @JsonKey(ignore: true)
@@ -585,7 +639,6 @@ class _$SurveyModelImpl implements _SurveyModel {
         appName,
         email,
         address,
-        role,
         peopleLivingWith,
         hasChildren,
         pets,
@@ -593,6 +646,7 @@ class _$SurveyModelImpl implements _SurveyModel {
         percentageSpentOnCosmetics,
         vkProfile,
         telegramProfile,
+        profilePhoto,
         deliveryAddress,
         city,
         street,
@@ -600,7 +654,8 @@ class _$SurveyModelImpl implements _SurveyModel {
         apartmentNumber,
         entrance,
         postalCode,
-        profilePhoto
+        wantAdvertising,
+        acceptPolicy
       ]);
 
   @JsonKey(ignore: true)
@@ -628,14 +683,14 @@ abstract class _SurveyModel implements SurveyModel {
       final String appName,
       final String email,
       final String address,
-      final String role,
       final int peopleLivingWith,
-      final bool? hasChildren,
+      final bool hasChildren,
       final String pets,
       final int averageMonthlyIncome,
       final int percentageSpentOnCosmetics,
       final String vkProfile,
       final String telegramProfile,
+      final String profilePhoto,
       final String deliveryAddress,
       final String city,
       final String street,
@@ -643,7 +698,8 @@ abstract class _SurveyModel implements SurveyModel {
       final String apartmentNumber,
       final String entrance,
       final String postalCode,
-      final String profilePhoto}) = _$SurveyModelImpl;
+      final bool wantAdvertising,
+      final bool acceptPolicy}) = _$SurveyModelImpl;
 
   factory _SurveyModel.fromJson(Map<String, dynamic> json) =
       _$SurveyModelImpl.fromJson;
@@ -667,11 +723,9 @@ abstract class _SurveyModel implements SurveyModel {
   @override
   String get address;
   @override
-  String get role;
-  @override
   int get peopleLivingWith;
   @override
-  bool? get hasChildren;
+  bool get hasChildren;
   @override
   String get pets;
   @override
@@ -682,6 +736,8 @@ abstract class _SurveyModel implements SurveyModel {
   String get vkProfile;
   @override
   String get telegramProfile;
+  @override
+  String get profilePhoto;
   @override
   String get deliveryAddress;
   @override
@@ -697,7 +753,9 @@ abstract class _SurveyModel implements SurveyModel {
   @override
   String get postalCode;
   @override
-  String get profilePhoto;
+  bool get wantAdvertising;
+  @override
+  bool get acceptPolicy;
   @override
   @JsonKey(ignore: true)
   _$$SurveyModelImplCopyWith<_$SurveyModelImpl> get copyWith =>

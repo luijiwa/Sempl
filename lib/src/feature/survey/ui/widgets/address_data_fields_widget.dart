@@ -57,6 +57,7 @@ class AddressDataFieldsWidget extends StatelessWidget {
             hintText: 'Город',
             initialValue: initialCity,
             keyboardType: TextInputType.streetAddress,
+            controller: cityController,
             inputFormatters: [
               // Запрещает вводить любые символы, кроме букв, пробелов и дефиса
               // (в том числе и в unicode-символах)
@@ -68,6 +69,7 @@ class AddressDataFieldsWidget extends StatelessWidget {
             hintText: 'Улица',
             keyboardType: TextInputType.streetAddress,
             initialValue: initialStreet,
+            controller: streetController,
             inputFormatters: [
               FilteringTextInputFormatter.allow(RegExp(r'[а-яА-Я0-9/ -]+')),
             ]),
@@ -80,6 +82,7 @@ class AddressDataFieldsWidget extends StatelessWidget {
                 hintText: 'Номер дома',
                 keyboardType: TextInputType.streetAddress,
                 initialValue: initialHouse,
+                controller: houseController,
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(
                       RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
@@ -91,6 +94,7 @@ class AddressDataFieldsWidget extends StatelessWidget {
               child: RequiredInputField(
                   hintText: 'Номер квартиры',
                   keyboardType: TextInputType.streetAddress,
+                  controller: apartmentController,
                   initialValue: initialApartment,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(
@@ -111,6 +115,7 @@ class AddressDataFieldsWidget extends StatelessWidget {
                       RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
                 ],
                 initialValue: initialEntrance,
+                controller: entranceController,
                 decoration: InputDecoration(
                   contentPadding: edgeInsets,
                   hintText: 'Подъезд',
@@ -121,6 +126,7 @@ class AddressDataFieldsWidget extends StatelessWidget {
             Expanded(
               child: RequiredInputField(
                 initialValue: initialZipCode,
+                controller: zipCodeController,
                 hintText: 'Почтовый индекс',
                 keyboardType: TextInputType.number,
                 inputFormatters: [zipCodeFormatter],

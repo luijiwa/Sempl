@@ -1,9 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/core/widget/out_button.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/confirmation_survey_screen.dart';
 
 /// Сделать его состоянием пятого экрана
@@ -101,27 +103,33 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
             SizedBox(
               height: 0.1186228814 * width,
               width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  // surveyContext
-                  //     .read<SurveyBloc>()
-                  //     .add(const SurveyEvent.sendResultSurvey());
+              child: BlocConsumer<SurveyBloc, SurveyState>(
+                listener: (context, state) {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return const ConfirmationSurveyScreen();
                   }));
                 },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  foregroundColor: Colors.white,
-                  backgroundColor: const Color(0xFF99BFD4),
-                ),
-                child: AutoSizeText(
-                  'СОХРАНИТЬ И ОПУБЛИКОВАТЬ',
-                  style: TextStyle(
-                    fontSize: width > 320 ? 15 : 12,
-                    color: AppThemeColor.grey,
-                  ),
-                ),
+                builder: (context, state) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      // surveyContext
+                      //     .read<SurveyBloc>()
+                      //     .add(const SurveyEvent.sendResultSurvey());
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      foregroundColor: Colors.white,
+                      backgroundColor: const Color(0xFF99BFD4),
+                    ),
+                    child: AutoSizeText(
+                      'СОХРАНИТЬ И ОПУБЛИКОВАТЬ',
+                      style: TextStyle(
+                        fontSize: width > 320 ? 15 : 12,
+                        color: AppThemeColor.grey,
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             const BottomPadding(),

@@ -227,6 +227,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
 
     try {
       final surveyJson = state.surveyModel.toJson();
+
       if (!kDebugMode) await _surveyRepository.sendResultSurvey(surveyJson);
       if (kDebugMode) logger.info(surveyJson);
     } catch (e) {

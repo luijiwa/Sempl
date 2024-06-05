@@ -17,7 +17,6 @@ _$SurveyModelImpl _$$SurveyModelImplFromJson(Map<String, dynamic> json) =>
       appName: json['app_name'] as String? ?? '',
       email: json['email'] as String? ?? '',
       address: json['address'] as String? ?? '',
-      role: json['role'] as String? ?? '',
       peopleLivingWith: json['people_living_with'] as int? ?? 0,
       hasChildren: json['has_children'] as bool? ?? false,
       pets: json['pets'] as String? ?? '',
@@ -26,6 +25,7 @@ _$SurveyModelImpl _$$SurveyModelImplFromJson(Map<String, dynamic> json) =>
           json['percentage_spent_on_cosmetics'] as int? ?? 0,
       vkProfile: json['vk_profile'] as String? ?? '',
       telegramProfile: json['telegram_profile'] as String? ?? '',
+      profilePhoto: json['profile_photo'] as String? ?? '',
       deliveryAddress: json['delivery_address'] as String? ?? '',
       city: json['city'] as String? ?? '',
       street: json['street'] as String? ?? '',
@@ -33,7 +33,8 @@ _$SurveyModelImpl _$$SurveyModelImplFromJson(Map<String, dynamic> json) =>
       apartmentNumber: json['apartment_number'] as String? ?? '',
       entrance: json['entrance'] as String? ?? '',
       postalCode: json['postal_code'] as String? ?? '',
-      profilePhoto: json['profile_photo'] as String? ?? '',
+      wantAdvertising: json['want_advertising'] as bool? ?? true,
+      acceptPolicy: json['accept_policy'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$$SurveyModelImplToJson(_$SurveyModelImpl instance) =>
@@ -47,7 +48,6 @@ Map<String, dynamic> _$$SurveyModelImplToJson(_$SurveyModelImpl instance) =>
       'app_name': instance.appName,
       'email': instance.email,
       'address': instance.address,
-      'role': instance.role,
       'people_living_with': instance.peopleLivingWith,
       'has_children': instance.hasChildren,
       'pets': instance.pets,
@@ -55,6 +55,7 @@ Map<String, dynamic> _$$SurveyModelImplToJson(_$SurveyModelImpl instance) =>
       'percentage_spent_on_cosmetics': instance.percentageSpentOnCosmetics,
       'vk_profile': instance.vkProfile,
       'telegram_profile': instance.telegramProfile,
+      'profile_photo': instance.profilePhoto,
       'delivery_address': instance.deliveryAddress,
       'city': instance.city,
       'street': instance.street,
@@ -62,5 +63,6 @@ Map<String, dynamic> _$$SurveyModelImplToJson(_$SurveyModelImpl instance) =>
       'apartment_number': instance.apartmentNumber,
       'entrance': instance.entrance,
       'postal_code': instance.postalCode,
-      'profile_photo': instance.profilePhoto,
+      'want_advertising': instance.wantAdvertising,
+      'accept_policy': instance.acceptPolicy,
     };

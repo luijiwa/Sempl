@@ -11,7 +11,7 @@ final class SurveyDataSourceNetwork implements SurveyDataSource {
   @override
   Future<void> sendResultSurvey(Map<String, dynamic> survey) async {
     try {
-      await _client.post('/api/users/create', body: survey);
+      await _client.post('/api/auth/verify-code-and-register', body: survey);
     } catch (e) {
       rethrow;
     }
