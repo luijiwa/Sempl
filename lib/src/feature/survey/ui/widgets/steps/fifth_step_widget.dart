@@ -116,15 +116,30 @@ class PickerPhotoWidget extends StatelessWidget {
           ),
         )),
         const Spacer(),
-        BlocProvider.value(
-          value: context.read<SurveyBloc>(),
-          child: NextStepButton(
-              title: 'ПРОДОЛЖИТЬ',
-              onPressed: () {
-                context
-                    .read<SurveyBloc>()
-                    .add(const SurveyEvent.sendResultSurvey());
-              }),
+        BlocConsumer<SurveyBloc, SurveyState>(
+          listenWhen: (previous, current) => previous.status != current.status,
+          listener: (context, state) {
+            if (state.status.isSuccess) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const ConfirmationSurveyScreen();
+              }));
+            } else if (state.status.isFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Что-то пошло не так'),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            return NextStepButton(
+                title: 'ПРОДОЛЖИТЬ',
+                onPressed: () {
+                  context
+                      .read<SurveyBloc>()
+                      .add(const SurveyEvent.sendResultSurvey());
+                });
+          },
         ),
         const BottomPadding(),
       ],

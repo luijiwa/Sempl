@@ -72,7 +72,7 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
     });
     _loginController.addListener(() {
       BlocProvider.of<SurveyBloc>(context).add(
-        SurveyEvent.setLogin(_loginController.text),
+        SurveyEvent.setAppName(_loginController.text),
       );
     });
     _emailController.addListener(() {

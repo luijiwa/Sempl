@@ -59,6 +59,11 @@ class _SecondStepWidgetState extends State<SecondStepWidget> {
         SurveyEvent.setEntrance(_entranceController.value.text),
       );
     });
+    _zipCodeController.addListener(() {
+      BlocProvider.of<SurveyBloc>(context).add(
+        SurveyEvent.setPostalCode(_zipCodeController.value.text),
+      );
+    });
   }
 
   @override

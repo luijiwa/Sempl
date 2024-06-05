@@ -104,7 +104,8 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                         lastNameController: _lastNameController,
                         initialLastName: fieldData.lastName,
                         onChangeGender: null,
-                        initialGender: fieldData.gender,
+                        initialGender:
+                            fieldData.gender == 'male' ? 'Mужской' : 'Женский',
                         initialBirthdate: fieldData.birthdate,
                         birthdateController: _dateBirthController,
                         initialLogin: fieldData.login,

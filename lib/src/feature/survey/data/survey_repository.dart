@@ -17,7 +17,11 @@ final class SurveyRepositoryImpl<T> implements SurveyRepository {
 
   @override
   Future<void> sendResultSurvey(Map<String, dynamic> survey) async {
-    final newToken = await _dataSource.sendResultSurvey(survey);
-    await _storage.save(newToken);
+    try {
+      final newToken = await _dataSource.sendResultSurvey(survey);
+      await _storage.save(newToken);
+    } catch (e) {
+      rethrow;
+    }
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
@@ -74,7 +75,9 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     });
 
     on<_SetBirthdate>((event, emit) {
-      final birthdate = event.birthdate.replaceAll('/', '-');
+      final parts = event.birthdate.split('/');
+      final birthdate =
+          '${parts[2]}-${parts[1]}-${parts[0]}'; // 31/01/2000 => 2000-01-31
       emit(
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
@@ -90,6 +93,8 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
             appName: event.appName,
+            login: event.appName,
+            password: event.appName,
           ),
         ),
       );
@@ -237,6 +242,10 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
             houseNumber: event.houseNumber,
+            deliveryAddress:
+                '${state.surveyModel.city} ${state.surveyModel.street} ${event.houseNumber}',
+            address:
+                '${state.surveyModel.city} ${state.surveyModel.street} ${event.houseNumber}',
           ),
         ),
       );
@@ -298,19 +307,20 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
   Future<void> _onSendResultSurvey(
       _SendResultSurvey event, Emitter<SurveyState> emit) async {
     if (state.status == ButtonPushStatus.loading) return;
-    emit(state.copyWith(
-      status: ButtonPushStatus.loading,
-    ));
+    emit(state.copyWith(status: ButtonPushStatus.loading));
 
     try {
       final surveyJson = state.surveyModel.toJson();
 
-      if (!kDebugMode) await _surveyRepository.sendResultSurvey(surveyJson);
-      if (kDebugMode) logger.info(surveyJson);
-    } catch (e) {
+      // if (!kDebugMode)
+      await _surveyRepository.sendResultSurvey(surveyJson);
+      // if (kDebugMode) logger.info(surveyJson);
+      emit(state.copyWith(status: ButtonPushStatus.success));
+    } catch (e, stackTrace) {
       emit(state.copyWith(
         status: ButtonPushStatus.failure,
       ));
+      logger.e(e, stackTrace: stackTrace);
     }
   }
 }

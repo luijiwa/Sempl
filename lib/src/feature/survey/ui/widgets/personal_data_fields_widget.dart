@@ -118,7 +118,6 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
         ),
         const SizedBox(height: 4),
         DropdownCustomWidgetNew(
-          initialValue: widget.initialGender,
           // onChanged: (value) => widget.onChangeGender,
           hint: 'Пол',
           listItems: const ['Мужской', 'Женский', 'Не указывать'],
