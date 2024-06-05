@@ -110,7 +110,8 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
               controller: widget.codeController,
               keyboardType: TextInputType.number,
               length: 5,
-              defaultPinTheme: pinTheme,
+              defaultPinTheme:
+                  state.statusSend2.isFailure ? errorPinTheme : pinTheme,
               errorPinTheme: errorPinTheme,
               submittedPinTheme: pinTheme.copyWith(
                 decoration: BoxDecoration(
