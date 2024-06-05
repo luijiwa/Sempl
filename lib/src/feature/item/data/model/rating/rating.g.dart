@@ -38,6 +38,10 @@ _$ReviewDataImpl _$$ReviewDataImplFromJson(Map<String, dynamic> json) =>
       cons: json['cons'] as String? ?? '',
       image: json['image'] as String? ?? '',
       media: json['media'] as String? ?? '',
+      likesCount: json['likes_count'] as int? ?? 0,
+      dislikesCount: json['dislikes_count'] as int? ?? 0,
+      userHasLiked: json['user_has_liked'] as bool? ?? false,
+      userHasDisliked: json['user_has_disliked'] as bool? ?? false,
       createdAt: json['created_at'] as String? ?? '',
       updatedAt: json['updated_at'] as String? ?? '',
     );
@@ -54,6 +58,10 @@ Map<String, dynamic> _$$ReviewDataImplToJson(_$ReviewDataImpl instance) =>
       'cons': instance.cons,
       'image': instance.image,
       'media': instance.media,
+      'likes_count': instance.likesCount,
+      'dislikes_count': instance.dislikesCount,
+      'user_has_liked': instance.userHasLiked,
+      'user_has_disliked': instance.userHasDisliked,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
     };

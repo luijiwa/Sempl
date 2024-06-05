@@ -20,18 +20,24 @@ mixin _$ItemEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadItem value) loadItem,
     required TResult Function(_ChangeIsFavorite value) changeIsFavorite,
+    required TResult Function(_AddLikeToComment value) addLikeToComment,
+    required TResult Function(_AddDislikeToComment value) addDislikeToComment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadItem value)? loadItem,
     TResult? Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult? Function(_AddLikeToComment value)? addLikeToComment,
+    TResult? Function(_AddDislikeToComment value)? addDislikeToComment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadItem value)? loadItem,
     TResult Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult Function(_AddLikeToComment value)? addLikeToComment,
+    TResult Function(_AddDislikeToComment value)? addDislikeToComment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,8 @@ class _$LoadItemImpl implements _LoadItem {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadItem value) loadItem,
     required TResult Function(_ChangeIsFavorite value) changeIsFavorite,
+    required TResult Function(_AddLikeToComment value) addLikeToComment,
+    required TResult Function(_AddDislikeToComment value) addDislikeToComment,
   }) {
     return loadItem(this);
   }
@@ -129,6 +137,8 @@ class _$LoadItemImpl implements _LoadItem {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadItem value)? loadItem,
     TResult? Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult? Function(_AddLikeToComment value)? addLikeToComment,
+    TResult? Function(_AddDislikeToComment value)? addDislikeToComment,
   }) {
     return loadItem?.call(this);
   }
@@ -138,6 +148,8 @@ class _$LoadItemImpl implements _LoadItem {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadItem value)? loadItem,
     TResult Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult Function(_AddLikeToComment value)? addLikeToComment,
+    TResult Function(_AddDislikeToComment value)? addDislikeToComment,
     required TResult orElse(),
   }) {
     if (loadItem != null) {
@@ -196,6 +208,8 @@ class _$ChangeIsFavoriteImpl implements _ChangeIsFavorite {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadItem value) loadItem,
     required TResult Function(_ChangeIsFavorite value) changeIsFavorite,
+    required TResult Function(_AddLikeToComment value) addLikeToComment,
+    required TResult Function(_AddDislikeToComment value) addDislikeToComment,
   }) {
     return changeIsFavorite(this);
   }
@@ -205,6 +219,8 @@ class _$ChangeIsFavoriteImpl implements _ChangeIsFavorite {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadItem value)? loadItem,
     TResult? Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult? Function(_AddLikeToComment value)? addLikeToComment,
+    TResult? Function(_AddDislikeToComment value)? addDislikeToComment,
   }) {
     return changeIsFavorite?.call(this);
   }
@@ -214,6 +230,8 @@ class _$ChangeIsFavoriteImpl implements _ChangeIsFavorite {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadItem value)? loadItem,
     TResult Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult Function(_AddLikeToComment value)? addLikeToComment,
+    TResult Function(_AddDislikeToComment value)? addDislikeToComment,
     required TResult orElse(),
   }) {
     if (changeIsFavorite != null) {
@@ -225,6 +243,227 @@ class _$ChangeIsFavoriteImpl implements _ChangeIsFavorite {
 
 abstract class _ChangeIsFavorite implements ItemEvent {
   const factory _ChangeIsFavorite() = _$ChangeIsFavoriteImpl;
+}
+
+/// @nodoc
+abstract class _$$AddLikeToCommentImplCopyWith<$Res> {
+  factory _$$AddLikeToCommentImplCopyWith(_$AddLikeToCommentImpl value,
+          $Res Function(_$AddLikeToCommentImpl) then) =
+      __$$AddLikeToCommentImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int commentId});
+}
+
+/// @nodoc
+class __$$AddLikeToCommentImplCopyWithImpl<$Res>
+    extends _$ItemEventCopyWithImpl<$Res, _$AddLikeToCommentImpl>
+    implements _$$AddLikeToCommentImplCopyWith<$Res> {
+  __$$AddLikeToCommentImplCopyWithImpl(_$AddLikeToCommentImpl _value,
+      $Res Function(_$AddLikeToCommentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? commentId = null,
+  }) {
+    return _then(_$AddLikeToCommentImpl(
+      null == commentId
+          ? _value.commentId
+          : commentId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddLikeToCommentImpl implements _AddLikeToComment {
+  const _$AddLikeToCommentImpl(this.commentId);
+
+  @override
+  final int commentId;
+
+  @override
+  String toString() {
+    return 'ItemEvent.addLikeToComment(commentId: $commentId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddLikeToCommentImpl &&
+            (identical(other.commentId, commentId) ||
+                other.commentId == commentId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, commentId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddLikeToCommentImplCopyWith<_$AddLikeToCommentImpl> get copyWith =>
+      __$$AddLikeToCommentImplCopyWithImpl<_$AddLikeToCommentImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadItem value) loadItem,
+    required TResult Function(_ChangeIsFavorite value) changeIsFavorite,
+    required TResult Function(_AddLikeToComment value) addLikeToComment,
+    required TResult Function(_AddDislikeToComment value) addDislikeToComment,
+  }) {
+    return addLikeToComment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadItem value)? loadItem,
+    TResult? Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult? Function(_AddLikeToComment value)? addLikeToComment,
+    TResult? Function(_AddDislikeToComment value)? addDislikeToComment,
+  }) {
+    return addLikeToComment?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadItem value)? loadItem,
+    TResult Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult Function(_AddLikeToComment value)? addLikeToComment,
+    TResult Function(_AddDislikeToComment value)? addDislikeToComment,
+    required TResult orElse(),
+  }) {
+    if (addLikeToComment != null) {
+      return addLikeToComment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddLikeToComment implements ItemEvent {
+  const factory _AddLikeToComment(final int commentId) = _$AddLikeToCommentImpl;
+
+  int get commentId;
+  @JsonKey(ignore: true)
+  _$$AddLikeToCommentImplCopyWith<_$AddLikeToCommentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddDislikeToCommentImplCopyWith<$Res> {
+  factory _$$AddDislikeToCommentImplCopyWith(_$AddDislikeToCommentImpl value,
+          $Res Function(_$AddDislikeToCommentImpl) then) =
+      __$$AddDislikeToCommentImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int commentId});
+}
+
+/// @nodoc
+class __$$AddDislikeToCommentImplCopyWithImpl<$Res>
+    extends _$ItemEventCopyWithImpl<$Res, _$AddDislikeToCommentImpl>
+    implements _$$AddDislikeToCommentImplCopyWith<$Res> {
+  __$$AddDislikeToCommentImplCopyWithImpl(_$AddDislikeToCommentImpl _value,
+      $Res Function(_$AddDislikeToCommentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? commentId = null,
+  }) {
+    return _then(_$AddDislikeToCommentImpl(
+      null == commentId
+          ? _value.commentId
+          : commentId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddDislikeToCommentImpl implements _AddDislikeToComment {
+  const _$AddDislikeToCommentImpl(this.commentId);
+
+  @override
+  final int commentId;
+
+  @override
+  String toString() {
+    return 'ItemEvent.addDislikeToComment(commentId: $commentId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddDislikeToCommentImpl &&
+            (identical(other.commentId, commentId) ||
+                other.commentId == commentId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, commentId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddDislikeToCommentImplCopyWith<_$AddDislikeToCommentImpl> get copyWith =>
+      __$$AddDislikeToCommentImplCopyWithImpl<_$AddDislikeToCommentImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadItem value) loadItem,
+    required TResult Function(_ChangeIsFavorite value) changeIsFavorite,
+    required TResult Function(_AddLikeToComment value) addLikeToComment,
+    required TResult Function(_AddDislikeToComment value) addDislikeToComment,
+  }) {
+    return addDislikeToComment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadItem value)? loadItem,
+    TResult? Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult? Function(_AddLikeToComment value)? addLikeToComment,
+    TResult? Function(_AddDislikeToComment value)? addDislikeToComment,
+  }) {
+    return addDislikeToComment?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadItem value)? loadItem,
+    TResult Function(_ChangeIsFavorite value)? changeIsFavorite,
+    TResult Function(_AddLikeToComment value)? addLikeToComment,
+    TResult Function(_AddDislikeToComment value)? addDislikeToComment,
+    required TResult orElse(),
+  }) {
+    if (addDislikeToComment != null) {
+      return addDislikeToComment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddDislikeToComment implements ItemEvent {
+  const factory _AddDislikeToComment(final int commentId) =
+      _$AddDislikeToCommentImpl;
+
+  int get commentId;
+  @JsonKey(ignore: true)
+  _$$AddDislikeToCommentImplCopyWith<_$AddDislikeToCommentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -27,10 +27,28 @@ class ReviewData with _$ReviewData {
     @Default('') String cons,
     @Default('') String image,
     @Deprecated('Не понятен тип') @Default('') String media,
+    @Default(0) int likesCount,
+    @Default(0) int dislikesCount,
+    @Default(false) bool userHasLiked,
+    @Default(false) bool userHasDisliked,
     @Default('') String createdAt,
     @Default('') String updatedAt,
   }) = _ReviewData;
-
+  //  "id": 2,
+  //   "user_id": 11,
+  //   "user_name": "admin",
+  //   "product_id": 1,
+  //   "rating": 5,
+  //   "comment": "Отличный продукт! Очень рекомендую.",
+  //   "pros": "Отличное качество, быстрая доставка",
+  //   "cons": "Нет",
+  //   "media": null,
+  //   "likes_count": 1,
+  //   "dislikes_count": 0,
+  //   "user_has_liked": true,
+  //   "user_has_disliked": false,
+  //   "created_at": "2024-05-21T13:23:33.000000Z",
+  //   "updated_at": "2024-06-04T16:22:23.000000Z"
   const ReviewData._();
   String get userNameUpper => userName.toUpperCase();
   DateTime get createdAtInDate => DateTime.parse(createdAt);

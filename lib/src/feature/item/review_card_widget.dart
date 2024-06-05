@@ -386,53 +386,78 @@ class CommentItem extends StatelessWidget {
             alignment: WrapAlignment.start,
             spacing: width * 0.02545,
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: width * 0.038175, vertical: width * 0.02545),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: AppThemeColor.grey,
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SvgPicture.asset(
-                      width: width * 0.043265,
-                      colorFilter: const ColorFilter.mode(
-                          AppThemeColor.gris, BlendMode.srcIn),
-                      'assets/icons/like.svg',
-                    ),
-                    const SizedBox(width: 5),
-                    const Text(
-                      "2",
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: width * 0.038175, vertical: width * 0.02545),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: AppThemeColor.grey,
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Transform.flip(
-                      flipY: true,
-                      child: SvgPicture.asset(
+              InkWell(
+                onTap: () => context
+                    .read<ItemBloc>()
+                    .add(ItemEvent.addLikeToComment(review.id)),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: width * 0.038175, vertical: width * 0.02545),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: AppThemeColor.grey,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgPicture.asset(
                         width: width * 0.043265,
                         colorFilter: const ColorFilter.mode(
-                            AppThemeColor.blueColor, BlendMode.srcIn),
+                            AppThemeColor.gris, BlendMode.srcIn),
                         'assets/icons/like.svg',
                       ),
-                    ),
-                    const SizedBox(width: 5),
-                    const Text(
-                      "0",
-                    ),
-                  ],
+                      const SizedBox(width: 5),
+                      BlocBuilder<ItemBloc, ItemState>(
+                        buildWhen: (previous, current) =>
+                            previous.itemRating.data[index].likesCount !=
+                            current.itemRating.data[index].likesCount,
+                        builder: (context, state) {
+                          return Text(
+                            state.itemRating.data[index].likesCount.toString(),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => context
+                    .read<ItemBloc>()
+                    .add(ItemEvent.addDislikeToComment(review.id)),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: width * 0.038175, vertical: width * 0.02545),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: AppThemeColor.grey,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Transform.flip(
+                        flipY: true,
+                        child: SvgPicture.asset(
+                          width: width * 0.043265,
+                          colorFilter: const ColorFilter.mode(
+                              AppThemeColor.blueColor, BlendMode.srcIn),
+                          'assets/icons/like.svg',
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      BlocBuilder<ItemBloc, ItemState>(
+                        buildWhen: (previous, current) =>
+                            previous.itemRating.data[index].dislikesCount !=
+                            current.itemRating.data[index].dislikesCount,
+                        builder: (context, state) {
+                          return Text(
+                            state.itemRating.data[index].dislikesCount
+                                .toString(),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

@@ -246,6 +246,10 @@ mixin _$ReviewData {
   String get image => throw _privateConstructorUsedError;
   @Deprecated('Не понятен тип')
   String get media => throw _privateConstructorUsedError;
+  int get likesCount => throw _privateConstructorUsedError;
+  int get dislikesCount => throw _privateConstructorUsedError;
+  bool get userHasLiked => throw _privateConstructorUsedError;
+  bool get userHasDisliked => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
 
@@ -272,6 +276,10 @@ abstract class $ReviewDataCopyWith<$Res> {
       String cons,
       String image,
       @Deprecated('Не понятен тип') String media,
+      int likesCount,
+      int dislikesCount,
+      bool userHasLiked,
+      bool userHasDisliked,
       String createdAt,
       String updatedAt});
 }
@@ -299,6 +307,10 @@ class _$ReviewDataCopyWithImpl<$Res, $Val extends ReviewData>
     Object? cons = null,
     Object? image = null,
     Object? media = null,
+    Object? likesCount = null,
+    Object? dislikesCount = null,
+    Object? userHasLiked = null,
+    Object? userHasDisliked = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
@@ -343,6 +355,22 @@ class _$ReviewDataCopyWithImpl<$Res, $Val extends ReviewData>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as String,
+      likesCount: null == likesCount
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      dislikesCount: null == dislikesCount
+          ? _value.dislikesCount
+          : dislikesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      userHasLiked: null == userHasLiked
+          ? _value.userHasLiked
+          : userHasLiked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userHasDisliked: null == userHasDisliked
+          ? _value.userHasDisliked
+          : userHasDisliked // ignore: cast_nullable_to_non_nullable
+              as bool,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -374,6 +402,10 @@ abstract class _$$ReviewDataImplCopyWith<$Res>
       String cons,
       String image,
       @Deprecated('Не понятен тип') String media,
+      int likesCount,
+      int dislikesCount,
+      bool userHasLiked,
+      bool userHasDisliked,
       String createdAt,
       String updatedAt});
 }
@@ -399,6 +431,10 @@ class __$$ReviewDataImplCopyWithImpl<$Res>
     Object? cons = null,
     Object? image = null,
     Object? media = null,
+    Object? likesCount = null,
+    Object? dislikesCount = null,
+    Object? userHasLiked = null,
+    Object? userHasDisliked = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
@@ -443,6 +479,22 @@ class __$$ReviewDataImplCopyWithImpl<$Res>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as String,
+      likesCount: null == likesCount
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      dislikesCount: null == dislikesCount
+          ? _value.dislikesCount
+          : dislikesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      userHasLiked: null == userHasLiked
+          ? _value.userHasLiked
+          : userHasLiked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userHasDisliked: null == userHasDisliked
+          ? _value.userHasDisliked
+          : userHasDisliked // ignore: cast_nullable_to_non_nullable
+              as bool,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -469,6 +521,10 @@ class _$ReviewDataImpl extends _ReviewData with DiagnosticableTreeMixin {
       this.cons = '',
       this.image = '',
       @Deprecated('Не понятен тип') this.media = '',
+      this.likesCount = 0,
+      this.dislikesCount = 0,
+      this.userHasLiked = false,
+      this.userHasDisliked = false,
       this.createdAt = '',
       this.updatedAt = ''})
       : super._();
@@ -509,6 +565,18 @@ class _$ReviewDataImpl extends _ReviewData with DiagnosticableTreeMixin {
   final String media;
   @override
   @JsonKey()
+  final int likesCount;
+  @override
+  @JsonKey()
+  final int dislikesCount;
+  @override
+  @JsonKey()
+  final bool userHasLiked;
+  @override
+  @JsonKey()
+  final bool userHasDisliked;
+  @override
+  @JsonKey()
   final String createdAt;
   @override
   @JsonKey()
@@ -516,7 +584,7 @@ class _$ReviewDataImpl extends _ReviewData with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ReviewData(id: $id, userId: $userId, userName: $userName, productId: $productId, rating: $rating, comment: $comment, pros: $pros, cons: $cons, image: $image, media: $media, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'ReviewData(id: $id, userId: $userId, userName: $userName, productId: $productId, rating: $rating, comment: $comment, pros: $pros, cons: $cons, image: $image, media: $media, likesCount: $likesCount, dislikesCount: $dislikesCount, userHasLiked: $userHasLiked, userHasDisliked: $userHasDisliked, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -534,6 +602,10 @@ class _$ReviewDataImpl extends _ReviewData with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('cons', cons))
       ..add(DiagnosticsProperty('image', image))
       ..add(DiagnosticsProperty('media', media))
+      ..add(DiagnosticsProperty('likesCount', likesCount))
+      ..add(DiagnosticsProperty('dislikesCount', dislikesCount))
+      ..add(DiagnosticsProperty('userHasLiked', userHasLiked))
+      ..add(DiagnosticsProperty('userHasDisliked', userHasDisliked))
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('updatedAt', updatedAt));
   }
@@ -555,6 +627,14 @@ class _$ReviewDataImpl extends _ReviewData with DiagnosticableTreeMixin {
             (identical(other.cons, cons) || other.cons == cons) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.media, media) || other.media == media) &&
+            (identical(other.likesCount, likesCount) ||
+                other.likesCount == likesCount) &&
+            (identical(other.dislikesCount, dislikesCount) ||
+                other.dislikesCount == dislikesCount) &&
+            (identical(other.userHasLiked, userHasLiked) ||
+                other.userHasLiked == userHasLiked) &&
+            (identical(other.userHasDisliked, userHasDisliked) ||
+                other.userHasDisliked == userHasDisliked) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -563,8 +643,24 @@ class _$ReviewDataImpl extends _ReviewData with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userId, userName, productId,
-      rating, comment, pros, cons, image, media, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      userId,
+      userName,
+      productId,
+      rating,
+      comment,
+      pros,
+      cons,
+      image,
+      media,
+      likesCount,
+      dislikesCount,
+      userHasLiked,
+      userHasDisliked,
+      createdAt,
+      updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -592,6 +688,10 @@ abstract class _ReviewData extends ReviewData {
       final String cons,
       final String image,
       @Deprecated('Не понятен тип') final String media,
+      final int likesCount,
+      final int dislikesCount,
+      final bool userHasLiked,
+      final bool userHasDisliked,
       final String createdAt,
       final String updatedAt}) = _$ReviewDataImpl;
   const _ReviewData._() : super._();
@@ -620,6 +720,14 @@ abstract class _ReviewData extends ReviewData {
   @override
   @Deprecated('Не понятен тип')
   String get media;
+  @override
+  int get likesCount;
+  @override
+  int get dislikesCount;
+  @override
+  bool get userHasLiked;
+  @override
+  bool get userHasDisliked;
   @override
   String get createdAt;
   @override

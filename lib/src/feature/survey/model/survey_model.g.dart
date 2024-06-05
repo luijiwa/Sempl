@@ -9,7 +9,7 @@ part of 'survey_model.dart';
 _$SurveyModelImpl _$$SurveyModelImplFromJson(Map<String, dynamic> json) =>
     _$SurveyModelImpl(
       login: json['login'] as String? ?? '',
-      password: json['password'] as String? ?? '',
+      password: json['password'] as String? ?? 'default',
       firstName: json['first_name'] as String? ?? '',
       lastName: json['last_name'] as String? ?? '',
       gender: json['gender'] as String? ?? '',

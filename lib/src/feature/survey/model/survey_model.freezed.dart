@@ -426,7 +426,7 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
 class _$SurveyModelImpl with DiagnosticableTreeMixin implements _SurveyModel {
   const _$SurveyModelImpl(
       {this.login = '',
-      this.password = '',
+      this.password = 'default',
       this.firstName = '',
       this.lastName = '',
       this.gender = '',
