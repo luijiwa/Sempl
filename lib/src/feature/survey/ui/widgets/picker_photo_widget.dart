@@ -1,4 +1,5 @@
 import 'dart:io' show File;
+import 'package:permission_handler/permission_handler.dart';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -40,15 +41,7 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
         Center(
             child: InkWell(
           onTap: () async {
-            final ImagePicker picker = ImagePicker();
-
-            final imagePick =
-                await picker.pickImage(source: ImageSource.gallery);
-            setState(() {
-              if (imagePick != null) {
-                widget.image = File(imagePick.path);
-              }
-            });
+            pickImageWithPermission();
           },
           child: Container(
             margin: const EdgeInsets.only(top: 20),
@@ -82,5 +75,41 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
         const BottomPadding(),
       ],
     );
+  }
+
+  Future<void> pickFile() async {
+    var picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
+
+    if (pickedFile != null) {
+      // Handle the picked file, emit bloc state
+      // ...
+    } else {
+      // No file was captured, emit bloc error state, or handle as you want
+    }
+  }
+
+  Future<void> pickImageWithPermission() async {
+    PermissionStatus cameraPermissionStatus = await Permission.camera.status;
+    PermissionStatus storagePermissionStatus = await Permission.storage.status;
+
+    if (cameraPermissionStatus.isGranted && storagePermissionStatus.isGranted) {
+      // Permissions are already granted, proceed to pick file
+      pickFile();
+    } else {
+      Map<Permission, PermissionStatus> permissionStatuses = await [
+        Permission.camera,
+        Permission.storage,
+      ].request();
+
+      if (permissionStatuses[Permission.camera]!.isGranted &&
+          permissionStatuses[Permission.storage]!.isGranted) {
+        // Permissions granted, proceed to pick file
+        pickFile();
+      } else {
+        // Permissions denied, handle accordingly (show an error message, request again, or emit your bloc state.)
+        // ...
+      }
+    }
   }
 }

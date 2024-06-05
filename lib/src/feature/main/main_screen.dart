@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/item_in_list_widget.dart';
@@ -33,6 +36,13 @@ class _MainScreenState extends State<MainScreen> {
     return BlocProvider(
       create: (context) => _bloc,
       child: Scaffold(
+        floatingActionButton: kDebugMode
+            ? FloatingActionButton(
+                onPressed: () {
+                  context.goNamed(AppRoutes.loginConfirmation.name);
+                },
+              )
+            : null,
         backgroundColor: Colors.white,
         body: MainScreenView(width: width),
       ),

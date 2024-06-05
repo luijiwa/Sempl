@@ -13,7 +13,7 @@ class CheckboxRowWidget extends StatefulWidget {
   final String title;
   final int maxLines;
   final bool value;
-  final ValueChanged<bool>? onChange;
+  final void Function(bool?)? onChange;
   @override
   State<CheckboxRowWidget> createState() => _CheckboxRowWidgetState();
 }
@@ -41,11 +41,12 @@ class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
         children: [
           Checkbox(
             value: _value,
-            onChanged: (value) {
-              setState(() {
-                _value = value!;
-              });
-            },
+            onChanged: widget.onChange ??
+                (value) {
+                  setState(() {
+                    _value = value!;
+                  });
+                },
             activeColor: const Color(0xFF99BFD4),
             side: WidgetStateBorderSide.resolveWith(
               (states) => BorderSide(

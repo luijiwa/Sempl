@@ -57,23 +57,29 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     });
 
     on<_SetGender>((event, emit) {
+      final gender = event.gender == 'Мужской'
+          ? 'male'
+          : (event.gender == 'Женский' ? 'female' : 'other');
       emit(
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
-            gender: event.gender,
+            gender: gender,
           ),
         ),
       );
+      logger.i(state.surveyModel.gender);
     });
 
     on<_SetBirthdate>((event, emit) {
+      final birthdate = event.birthdate.replaceAll('/', '-');
       emit(
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
-            birthdate: event.birthdate,
+            birthdate: birthdate,
           ),
         ),
       );
+      logger.i(state.surveyModel.birthdate);
     });
 
     on<_SetAppName>((event, emit) {
@@ -137,6 +143,9 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     });
 
     on<_SetAverageMonthlyIncome>((event, emit) {
+      final value = int.tryParse(
+              event.averageMonthlyIncome.replaceAll(RegExp(r'[%\s]'), '')) ??
+          9999;
       emit(
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
@@ -148,11 +157,13 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     });
 
     on<_SetPercentageSpentOnCosmetics>((event, emit) {
+      final value = int.tryParse(event.percentageSpentOnCosmetics
+              .replaceAll(RegExp(r'[%\s]'), '')) ??
+          9999;
       emit(
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
-            percentageSpentOnCosmetics:
-                int.tryParse(event.percentageSpentOnCosmetics) ?? 9999,
+            percentageSpentOnCosmetics: value,
           ),
         ),
       );
@@ -262,7 +273,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       emit(
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
-            wantAdvertising: event.wantAdvertising,
+            wantAdvertising: !state.surveyModel.wantAdvertising,
           ),
         ),
       );

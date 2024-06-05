@@ -133,7 +133,7 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
                         value: state.surveyModel.wantAdvertising,
                         maxLines: 2,
                         onChange: (value) {
-                          bloc.add(SurveyEvent.setWantAdvertising(value));
+                          bloc.add(SurveyEvent.setWantAdvertising(value!));
                         },
                       );
                     },
@@ -160,7 +160,7 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
                         value: state.surveyModel.acceptPolicy,
                         maxLines: 2,
                         onChange: (value) {
-                          bloc.add(SurveyEvent.setAcceptPolicy(value));
+                          bloc.add(SurveyEvent.setAcceptPolicy(value!));
                         },
                       );
                     },
