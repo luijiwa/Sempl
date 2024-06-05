@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/feature/item/data/model/item/item.dart';
 import 'package:sempl/src/feature/item/data/model/rating/rating.dart';
 import 'package:sempl/src/feature/item/data/repository/item_repository.dart';
@@ -60,33 +61,42 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     emit(state.copyWith(item: item));
   }
 
-  FutureOr<void> _onAddLikeToComment(
-      _AddLikeToComment event, Emitter<ItemState> emit) {
-    final itemRating = state.itemRating.copyWith(
-        data: state.itemRating.data
-            .map((e) => e.id == event.commentId
-                ? e.copyWith(
-                    likesCount: e.userHasLiked == false
-                        ? e.likesCount + 1
-                        : e.likesCount - 1,
-                    userHasLiked: !e.userHasLiked)
-                : e)
-            .toList());
-    emit(state.copyWith(itemRating: itemRating));
+  Future<void> _onAddLikeToComment(
+      _AddLikeToComment event, Emitter<ItemState> emit) async {
+    try {
+      final itemRating = state.itemRating.copyWith(
+          data: state.itemRating.data
+              .map((e) => e.id == event.commentId
+                  ? e.copyWith(
+                      likesCount:
+                          e.userHasLiked ? e.likesCount - 1 : e.likesCount + 1,
+                      userHasLiked: !e.userHasLiked)
+                  : e)
+              .toList());
+      emit(state.copyWith(itemRating: itemRating));
+      await _itemRepository.addLikeToComment(event.commentId);
+    } catch (e) {
+      logger.e(e);
+    }
   }
 
-  FutureOr<void> _onAddDislikeToComment(
-      _AddDislikeToComment event, Emitter<ItemState> emit) {
-    final itemRating = state.itemRating.copyWith(
-        data: state.itemRating.data
-            .map((e) => e.id == event.commentId
-                ? e.copyWith(
-                    dislikesCount: e.userHasDisliked == false
-                        ? e.dislikesCount + 1
-                        : e.dislikesCount - 1,
-                    userHasLiked: !e.userHasDisliked)
-                : e)
-            .toList());
-    emit(state.copyWith(itemRating: itemRating));
+  Future<void> _onAddDislikeToComment(
+      _AddDislikeToComment event, Emitter<ItemState> emit) async {
+    try {
+      final itemRating = state.itemRating.copyWith(
+          data: state.itemRating.data
+              .map((e) => e.id == event.commentId
+                  ? e.copyWith(
+                      dislikesCount: e.userHasDisliked
+                          ? e.dislikesCount - 1
+                          : e.dislikesCount + 1,
+                      userHasDisliked: !e.userHasDisliked)
+                  : e)
+              .toList());
+      emit(state.copyWith(itemRating: itemRating));
+      await _itemRepository.addDislikeToComment(event.commentId);
+    } catch (e) {
+      logger.e(e);
+    }
   }
 }

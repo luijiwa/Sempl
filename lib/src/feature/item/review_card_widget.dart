@@ -400,11 +400,23 @@ class CommentItem extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SvgPicture.asset(
-                        width: width * 0.043265,
-                        colorFilter: const ColorFilter.mode(
-                            AppThemeColor.gris, BlendMode.srcIn),
-                        'assets/icons/like.svg',
+                      BlocBuilder<ItemBloc, ItemState>(
+                        buildWhen: (previous, current) =>
+                            previous.itemRating.data[index].userHasLiked !=
+                            current.itemRating.data[index].userHasLiked,
+                        builder: (context, state) {
+                          final isLike =
+                              state.itemRating.data[index].userHasLiked;
+                          return SvgPicture.asset(
+                            width: width * 0.043265,
+                            colorFilter: ColorFilter.mode(
+                                isLike
+                                    ? AppThemeColor.blueColor
+                                    : AppThemeColor.gris,
+                                BlendMode.srcIn),
+                            'assets/icons/like.svg',
+                          );
+                        },
                       ),
                       const SizedBox(width: 5),
                       BlocBuilder<ItemBloc, ItemState>(
@@ -437,11 +449,23 @@ class CommentItem extends StatelessWidget {
                     children: [
                       Transform.flip(
                         flipY: true,
-                        child: SvgPicture.asset(
-                          width: width * 0.043265,
-                          colorFilter: const ColorFilter.mode(
-                              AppThemeColor.blueColor, BlendMode.srcIn),
-                          'assets/icons/like.svg',
+                        child: BlocBuilder<ItemBloc, ItemState>(
+                          buildWhen: (previous, current) =>
+                              previous.itemRating.data[index].userHasDisliked !=
+                              current.itemRating.data[index].userHasDisliked,
+                          builder: (context, state) {
+                            final isDislike =
+                                state.itemRating.data[index].userHasDisliked;
+                            return SvgPicture.asset(
+                              width: width * 0.043265,
+                              colorFilter: ColorFilter.mode(
+                                  isDislike
+                                      ? AppThemeColor.blueColor
+                                      : AppThemeColor.gris,
+                                  BlendMode.srcIn),
+                              'assets/icons/like.svg',
+                            );
+                          },
                         ),
                       ),
                       const SizedBox(width: 5),
