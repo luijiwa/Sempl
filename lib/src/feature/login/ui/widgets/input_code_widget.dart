@@ -9,6 +9,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/enums/button_push.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
+import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 
 class InputCodeWidget extends StatefulWidget {
   const InputCodeWidget({
@@ -116,7 +117,9 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
               submittedPinTheme: pinTheme.copyWith(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: blueColor,
+                    color: state.statusSend2.isFailure
+                        ? const Color(0xFFE36F6F)
+                        : blueColor,
                     width: 0.5,
                   ),
                   borderRadius: BorderRadius.circular(10),
@@ -139,6 +142,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
                 onPressed: () {
                   if (_start == 0) {
                     resetTimer();
+                    AuthScope.of(context).retrySendCode();
                   } else {
                     null;
                   }

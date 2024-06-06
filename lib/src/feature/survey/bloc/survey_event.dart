@@ -15,8 +15,8 @@ class SurveyEvent with _$SurveyEvent {
       _SetPeopleLivingWith; //в модели int
   const factory SurveyEvent.setHasChildren(bool hasChildren) = _SetHasChildren;
   const factory SurveyEvent.setPets(String pets) = _SetPets;
-  const factory SurveyEvent.setAverageMonthlyIncome(String averageMonthlyIncome) =
-      _SetAverageMonthlyIncome; //в модели int
+  const factory SurveyEvent.setAverageMonthlyIncome(
+      String averageMonthlyIncome) = _SetAverageMonthlyIncome; //в модели int
   const factory SurveyEvent.setPercentageSpentOnCosmetics(
           String percentageSpentOnCosmetics) =
       _SetPercentageSpentOnCosmetics; //в модели int

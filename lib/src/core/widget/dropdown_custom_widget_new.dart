@@ -98,15 +98,12 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
         [
           DropdownMenuItem<String>(
             value: item,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 3),
-              child: SizedBox(
-                width: double.infinity,
-                child: Text(
-                  item,
-                  style: dropdownItemTextStyle,
-                  overflow: TextOverflow.ellipsis,
-                ),
+            child: SizedBox(
+              width: double.infinity,
+              child: Text(
+                item,
+                style: dropdownItemTextStyle,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
@@ -147,9 +144,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
         ),
       );
       final ButtonStyleData dropdownButtonStyleData = ButtonStyleData(
-        padding: EdgeInsets.symmetric(
-                vertical: height * 0.0, horizontal: height * 0.01)
-            .copyWith(right: width * 0.05),
+        padding: EdgeInsets.only(right: width * 0.05),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           border: Border.all(color: AppThemeColor.gris, width: 0.5),

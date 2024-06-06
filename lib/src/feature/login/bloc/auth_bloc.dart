@@ -30,6 +30,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
     on<_SendPhone>(_onSendPhone);
     on<_SendCode>(_onSendCode);
     on<_SaveCode>(_onSavCode);
+    on<_RetrySendCode>(_onRetrySendCode);
 
     on<_SignOut>(_onLogout);
     authRepository
@@ -124,5 +125,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
 
   FutureOr<void> _onSavCode(_SaveCode event, Emitter<AuthState> emit) {
     emit(state.copyWith(code: event.code));
+  }
+
+  Future<void> _onRetrySendCode(
+      _RetrySendCode event, Emitter<AuthState> emit) async {
+    if (state.loginStatus == LoginStatus.registered) {
+      await _authRepository.signInFirstStepWithPhone(state.phone);
+      if (state.loginStatus == LoginStatus.unregistered) {
+        await _authRepository.registrationRequest(state.phone);
+      }
+    }
   }
 }

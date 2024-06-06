@@ -22,6 +22,7 @@ mixin _$AuthEvent {
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
     required TResult Function(_SaveCode value) saveCode,
     required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
@@ -33,6 +34,7 @@ mixin _$AuthEvent {
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
     TResult? Function(_SaveCode value)? saveCode,
     TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
@@ -44,6 +46,7 @@ mixin _$AuthEvent {
     TResult Function(_SignOut value)? signOut,
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
     TResult Function(_SaveCode value)? saveCode,
     TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
@@ -147,6 +150,7 @@ class _$StatusChandedImpl
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
     required TResult Function(_SaveCode value) saveCode,
     required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
@@ -161,6 +165,7 @@ class _$StatusChandedImpl
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
     TResult? Function(_SaveCode value)? saveCode,
     TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
@@ -175,6 +180,7 @@ class _$StatusChandedImpl
     TResult Function(_SignOut value)? signOut,
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
     TResult Function(_SaveCode value)? saveCode,
     TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
@@ -245,6 +251,7 @@ class _$SignOutImpl with DiagnosticableTreeMixin implements _SignOut {
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
     required TResult Function(_SaveCode value) saveCode,
     required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
@@ -259,6 +266,7 @@ class _$SignOutImpl with DiagnosticableTreeMixin implements _SignOut {
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
     TResult? Function(_SaveCode value)? saveCode,
     TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
@@ -273,6 +281,7 @@ class _$SignOutImpl with DiagnosticableTreeMixin implements _SignOut {
     TResult Function(_SignOut value)? signOut,
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
     TResult Function(_SaveCode value)? saveCode,
     TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
@@ -365,6 +374,7 @@ class _$SendPhoneImpl with DiagnosticableTreeMixin implements _SendPhone {
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
     required TResult Function(_SaveCode value) saveCode,
     required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
@@ -379,6 +389,7 @@ class _$SendPhoneImpl with DiagnosticableTreeMixin implements _SendPhone {
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
     TResult? Function(_SaveCode value)? saveCode,
     TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
@@ -393,6 +404,7 @@ class _$SendPhoneImpl with DiagnosticableTreeMixin implements _SendPhone {
     TResult Function(_SignOut value)? signOut,
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
     TResult Function(_SaveCode value)? saveCode,
     TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
@@ -490,6 +502,7 @@ class _$SendCodeImpl with DiagnosticableTreeMixin implements _SendCode {
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
     required TResult Function(_SaveCode value) saveCode,
     required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
@@ -504,6 +517,7 @@ class _$SendCodeImpl with DiagnosticableTreeMixin implements _SendCode {
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
     TResult? Function(_SaveCode value)? saveCode,
     TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
@@ -518,6 +532,7 @@ class _$SendCodeImpl with DiagnosticableTreeMixin implements _SendCode {
     TResult Function(_SignOut value)? signOut,
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
     TResult Function(_SaveCode value)? saveCode,
     TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
@@ -537,6 +552,103 @@ abstract class _SendCode implements AuthEvent {
   @JsonKey(ignore: true)
   _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RetrySendCodeImplCopyWith<$Res> {
+  factory _$$RetrySendCodeImplCopyWith(
+          _$RetrySendCodeImpl value, $Res Function(_$RetrySendCodeImpl) then) =
+      __$$RetrySendCodeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RetrySendCodeImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$RetrySendCodeImpl>
+    implements _$$RetrySendCodeImplCopyWith<$Res> {
+  __$$RetrySendCodeImplCopyWithImpl(
+      _$RetrySendCodeImpl _value, $Res Function(_$RetrySendCodeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RetrySendCodeImpl
+    with DiagnosticableTreeMixin
+    implements _RetrySendCode {
+  const _$RetrySendCodeImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.retrySendCode()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthEvent.retrySendCode'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RetrySendCodeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_StatusChanded value) statusChanded,
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_SendPhone value) sendPhone,
+    required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
+    required TResult Function(_SaveCode value) saveCode,
+    required TResult Function(_OnboardingViewed value) onboardingViewed,
+    required TResult Function(_Register value) register,
+  }) {
+    return retrySendCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StatusChanded value)? statusChanded,
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_SendPhone value)? sendPhone,
+    TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
+    TResult? Function(_SaveCode value)? saveCode,
+    TResult? Function(_OnboardingViewed value)? onboardingViewed,
+    TResult? Function(_Register value)? register,
+  }) {
+    return retrySendCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_StatusChanded value)? statusChanded,
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_SendPhone value)? sendPhone,
+    TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
+    TResult Function(_SaveCode value)? saveCode,
+    TResult Function(_OnboardingViewed value)? onboardingViewed,
+    TResult Function(_Register value)? register,
+    required TResult orElse(),
+  }) {
+    if (retrySendCode != null) {
+      return retrySendCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RetrySendCode implements AuthEvent {
+  const factory _RetrySendCode() = _$RetrySendCodeImpl;
 }
 
 /// @nodoc
@@ -615,6 +727,7 @@ class _$SaveCodeImpl with DiagnosticableTreeMixin implements _SaveCode {
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
     required TResult Function(_SaveCode value) saveCode,
     required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
@@ -629,6 +742,7 @@ class _$SaveCodeImpl with DiagnosticableTreeMixin implements _SaveCode {
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
     TResult? Function(_SaveCode value)? saveCode,
     TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
@@ -643,6 +757,7 @@ class _$SaveCodeImpl with DiagnosticableTreeMixin implements _SaveCode {
     TResult Function(_SignOut value)? signOut,
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
     TResult Function(_SaveCode value)? saveCode,
     TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
@@ -714,6 +829,7 @@ class _$OnboardingViewedImpl
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
     required TResult Function(_SaveCode value) saveCode,
     required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
@@ -728,6 +844,7 @@ class _$OnboardingViewedImpl
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
     TResult? Function(_SaveCode value)? saveCode,
     TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
@@ -742,6 +859,7 @@ class _$OnboardingViewedImpl
     TResult Function(_SignOut value)? signOut,
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
     TResult Function(_SaveCode value)? saveCode,
     TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,
@@ -806,6 +924,7 @@ class _$RegisterImpl with DiagnosticableTreeMixin implements _Register {
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_SendPhone value) sendPhone,
     required TResult Function(_SendCode value) sendCode,
+    required TResult Function(_RetrySendCode value) retrySendCode,
     required TResult Function(_SaveCode value) saveCode,
     required TResult Function(_OnboardingViewed value) onboardingViewed,
     required TResult Function(_Register value) register,
@@ -820,6 +939,7 @@ class _$RegisterImpl with DiagnosticableTreeMixin implements _Register {
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_SendPhone value)? sendPhone,
     TResult? Function(_SendCode value)? sendCode,
+    TResult? Function(_RetrySendCode value)? retrySendCode,
     TResult? Function(_SaveCode value)? saveCode,
     TResult? Function(_OnboardingViewed value)? onboardingViewed,
     TResult? Function(_Register value)? register,
@@ -834,6 +954,7 @@ class _$RegisterImpl with DiagnosticableTreeMixin implements _Register {
     TResult Function(_SignOut value)? signOut,
     TResult Function(_SendPhone value)? sendPhone,
     TResult Function(_SendCode value)? sendCode,
+    TResult Function(_RetrySendCode value)? retrySendCode,
     TResult Function(_SaveCode value)? saveCode,
     TResult Function(_OnboardingViewed value)? onboardingViewed,
     TResult Function(_Register value)? register,

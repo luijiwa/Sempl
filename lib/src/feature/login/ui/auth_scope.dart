@@ -18,6 +18,8 @@ abstract interface class AuthController {
   /// Sign in with phone and code
   void signInWithPhoneAndCode(String code);
 
+  void retrySendCode();
+
   void saveCode(String code);
 
   /// Sign out
@@ -78,6 +80,8 @@ class _AuthScopeState extends State<AuthScope> implements AuthController {
   void submitRegistrationForm(Map<String, String> form) =>
       _authBloc.add(const AuthEvent.register()); //TODO
 
+  @override
+  void retrySendCode() => const AuthEvent.retrySendCode();
   @override
   Widget build(BuildContext context) => BlocBuilder<AuthBloc, AuthState>(
         bloc: _authBloc,
