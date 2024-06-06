@@ -295,7 +295,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       emit(
         state.copyWith(
           surveyModel: state.surveyModel.copyWith(
-            acceptPolicy: event.acceptPolicy,
+            acceptPolicy: !state.surveyModel.acceptPolicy,
           ),
         ),
       );

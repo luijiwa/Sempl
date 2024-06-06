@@ -251,7 +251,7 @@ class PetsWidget extends StatelessWidget {
           itemBuilder: (context, index) {
             return CheckboxRowWidget(
               title: pets[index],
-              value: index == 1,
+              value: false,
               onChange: (value) => (value) => value == true
                   ? context.read<SurveyBloc>().add(
                         SurveyEvent.setPets(pets[index]),

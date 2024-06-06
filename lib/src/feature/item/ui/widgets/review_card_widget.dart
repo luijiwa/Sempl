@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
-import 'package:sempl/src/feature/item/full_screen_review_widget.dart';
+import 'package:sempl/src/feature/item/ui/widgets/full_screen_review_widget.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:shimmer/shimmer.dart';
 

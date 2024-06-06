@@ -28,7 +28,7 @@ class _FifthStepWidgetState extends State<FifthStepWidget> {
 
   void _pickImage() async {
     final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.camera);
+        await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
         image = File(pickedFile.path);

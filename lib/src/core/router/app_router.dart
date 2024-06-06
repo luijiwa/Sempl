@@ -8,7 +8,7 @@ import 'package:sempl/src/feature/delivery/delivery_screen.dart';
 import 'package:sempl/src/feature/feedback/ui/feedback_screen.dart';
 import 'package:sempl/src/feature/feedback/ui/widgets/%D1%81onfirmation_feedback_screen.dart';
 import 'package:sempl/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
-import 'package:sempl/src/feature/item/item_screen.dart';
+import 'package:sempl/src/feature/item/ui/item_screen.dart';
 import 'package:sempl/src/feature/login/ui/login_screen.dart';
 import 'package:sempl/src/feature/main/main_screen.dart';
 import 'package:sempl/src/feature/onboarding/onboarding_screen.dart';

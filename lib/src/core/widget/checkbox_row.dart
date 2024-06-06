@@ -19,7 +19,7 @@ class CheckboxRowWidget extends StatefulWidget {
 }
 
 class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
-  bool _value = false;
+  late bool _value;
 
   @override
   void initState() {
@@ -31,6 +31,7 @@ class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        widget.onChange?.call(_value);
         setState(() {
           _value = !_value;
         });
@@ -41,12 +42,12 @@ class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
         children: [
           Checkbox(
             value: _value,
-            onChanged: widget.onChange ??
-                (value) {
-                  setState(() {
-                    _value = value!;
-                  });
-                },
+            onChanged: (value) {
+              widget.onChange?.call(_value);
+              setState(() {
+                _value = value!;
+              });
+            },
             activeColor: const Color(0xFF99BFD4),
             side: WidgetStateBorderSide.resolveWith(
               (states) => BorderSide(
