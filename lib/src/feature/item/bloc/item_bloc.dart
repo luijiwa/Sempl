@@ -70,7 +70,12 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
                   ? e.copyWith(
                       likesCount:
                           e.userHasLiked ? e.likesCount - 1 : e.likesCount + 1,
-                      userHasLiked: !e.userHasLiked)
+                      dislikesCount: e.userHasDisliked
+                          ? e.dislikesCount - 1
+                          : e.dislikesCount,
+                      userHasLiked: !e.userHasLiked,
+                      userHasDisliked: false,
+                    )
                   : e)
               .toList());
       emit(state.copyWith(itemRating: itemRating));
@@ -90,7 +95,11 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
                       dislikesCount: e.userHasDisliked
                           ? e.dislikesCount - 1
                           : e.dislikesCount + 1,
-                      userHasDisliked: !e.userHasDisliked)
+                      userHasDisliked: !e.userHasDisliked,
+                      likesCount:
+                          e.userHasLiked ? e.likesCount - 1 : e.likesCount,
+                      userHasLiked: false,
+                    )
                   : e)
               .toList());
       emit(state.copyWith(itemRating: itemRating));

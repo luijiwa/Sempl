@@ -36,7 +36,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
-            resizeToAvoidBottomInset: _currentPageIndex == 0 ? true : false,
+            resizeToAvoidBottomInset: false,
             appBar: AppBar(
               title: const Text('SEMPL!'),
               centerTitle: true,

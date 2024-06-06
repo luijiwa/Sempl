@@ -8,6 +8,7 @@ import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ItemCard extends StatelessWidget {
@@ -70,8 +71,11 @@ class ItemCard extends StatelessWidget {
                           color: AppThemeColor.blueColor,
                         ),
                         SizedBox(width: width * 0.03),
-                        GestureDetector(
-                          onTap: () {},
+                        InkWell(
+                          onTap: () {
+                            Share.share(
+                                'Я Получил этот товар на https://sempl.com');
+                          },
                           child: SvgPicture.asset(
                             'assets/icons/share_icon.svg',
                             colorFilter: const ColorFilter.mode(
