@@ -39,7 +39,9 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
     color: AppThemeColor.gris,
   );
 
-  final TextStyle dropdownItemTextStyle = const TextStyle();
+  final TextStyle dropdownItemTextStyle = const TextStyle(
+    color: AppThemeColor.black,
+  );
 
   final IconStyleData dropdownIconStyleData = const IconStyleData(
     icon: Icon(
@@ -151,73 +153,40 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
           color: Colors.white,
         ),
       );
-      return SizedBox(
-        height: width * 0.123,
-        child: DropdownButtonHideUnderline(
-          child: DropdownButtonFormField2<String>(
-            validator: (value) => value == null ? 'Field is required' : null,
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-              ),
-              focusedBorder: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                borderSide:
-                    BorderSide(width: 0.5, color: AppThemeColor.blueColor),
-              ),
-              hintStyle: const TextStyle(
-                fontSize: 14,
-                color: AppThemeColor.gris,
-              ),
-              disabledBorder: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-              ),
-              enabledBorder: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                borderSide: BorderSide(width: 0.5, color: AppThemeColor.gris),
-              ),
-              errorBorder: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                borderSide: BorderSide(width: 0.5, color: AppThemeColor.rose),
-              ),
-              focusedErrorBorder: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                borderSide: BorderSide(width: 0.5, color: AppThemeColor.rose),
-              ),
-              alignLabelWithHint: true,
-              filled: true,
-              fillColor: Colors.white,
-              errorStyle: const TextStyle(fontSize: 0),
-              contentPadding: EdgeInsets.symmetric(
-                  vertical: width * 0.02803813559,
-                  horizontal: width * 0.0496059322),
-            ),
-            isExpanded: true,
-            hint: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    widget.hint,
-                    style: dropdownHintTextStyle,
-                  ),
-                ),
-              ],
-            ),
-            selectedItemBuilder: (context) =>
-                _listChecked(widget.listItems).toList(),
-            items: _addDividersAfterItems(widget.listItems),
-            value: widget.selectedValueNotifier?.value ?? widget.initialValue,
-            onChanged: (value) {
-              widget.selectedValueNotifier?.value = value;
-              logger.i(value ?? '');
-              if (widget.onChanged != null) widget.onChanged!(value);
-            },
-            iconStyleData: dropdownIconStyleData,
-            dropdownStyleData: dropdownDropdownStyleData,
-            menuItemStyleData: dropdownMenuItemStyleData,
+      return DropdownButtonHideUnderline(
+        child: DropdownButtonFormField2<String>(
+          validator: (value) => value == null ? '' : null,
+          decoration: InputDecoration(
+            alignLabelWithHint: true,
+            filled: true,
+            fillColor: Colors.white,
+            errorStyle: const TextStyle(fontSize: 0),
+            contentPadding: EdgeInsets.symmetric(
+                vertical: width * 0.02803813559, horizontal: width * 0.02),
           ),
+          isExpanded: true,
+          hint: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.hint,
+                  style: dropdownHintTextStyle,
+                ),
+              ),
+            ],
+          ),
+          selectedItemBuilder: (context) =>
+              _listChecked(widget.listItems).toList(),
+          items: _addDividersAfterItems(widget.listItems),
+          value: widget.selectedValueNotifier?.value ?? widget.initialValue,
+          onChanged: (value) {
+            widget.selectedValueNotifier?.value = value;
+            logger.i(value ?? '');
+            if (widget.onChanged != null) widget.onChanged!(value);
+          },
+          iconStyleData: dropdownIconStyleData,
+          dropdownStyleData: dropdownDropdownStyleData,
+          menuItemStyleData: dropdownMenuItemStyleData,
         ),
       );
     });

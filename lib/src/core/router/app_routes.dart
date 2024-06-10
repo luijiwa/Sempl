@@ -32,6 +32,10 @@ enum AppRoutes {
     name: 'item',
     path: '/item:id',
   ),
+  newSempl(
+    name: 'newSempl',
+    path: '/newSempl:id',
+  ),
   delivery(
     name: 'delivery',
     path: '/delivery:itemId',

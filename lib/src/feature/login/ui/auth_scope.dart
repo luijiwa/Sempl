@@ -81,7 +81,7 @@ class _AuthScopeState extends State<AuthScope> implements AuthController {
       _authBloc.add(const AuthEvent.register()); //TODO
 
   @override
-  void retrySendCode() => const AuthEvent.retrySendCode();
+  void retrySendCode() => _authBloc.add(const AuthEvent.retrySendCode());
   @override
   Widget build(BuildContext context) => BlocBuilder<AuthBloc, AuthState>(
         bloc: _authBloc,

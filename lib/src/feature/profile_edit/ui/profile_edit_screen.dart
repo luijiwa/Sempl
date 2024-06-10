@@ -107,7 +107,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                         onChangeGender: null,
                         initialGender:
                             fieldData.gender == 'male' ? 'Mужской' : 'Женский',
-                        initialBirthdate: fieldData.birthdate,
+                        initialBirthdate: fieldData.birthdateReverse,
                         birthdateController: _dateBirthController,
                         initialLogin: fieldData.login,
                         emailController: _emailController,

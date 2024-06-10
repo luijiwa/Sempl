@@ -36,7 +36,7 @@ class MainScreenAppBar extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const PointsWidget(),
+                      // const PointsWidget(),
                       SizedBox(width: width * 0.02),
                       const AppBarProfileIconButtonWidget(),
                     ],

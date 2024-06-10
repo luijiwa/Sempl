@@ -14,7 +14,7 @@ class CustomSliverAppBar extends StatelessWidget {
       backgroundColor: AppThemeColor.grey,
       leading: const CustomBackButton(),
       actions: [
-        const PointsWidget(),
+        // const PointsWidget(),
         SizedBox(width: width * 0.02),
         const AppBarProfileIconButtonWidget(),
         const SizedBox(width: 22),

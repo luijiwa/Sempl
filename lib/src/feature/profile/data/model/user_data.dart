@@ -53,5 +53,8 @@ class User with _$User {
   String get fullName => '$firstName $lastName';
   String get loginUpper => login.toUpperCase();
 
+  ///birthdate format: '2022-12-31' а нужно в формате '31/12/2022'
+  String get birthdateReverse => birthdate.split('-').reversed.join('/');
+
   factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
 }

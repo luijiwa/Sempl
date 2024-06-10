@@ -48,7 +48,7 @@ class _ItemInListWithReviewWidgetState extends State<ItemInListWithReviewWidget>
         onTapDown: _onTapDown,
         onTapUp: _onTapUp,
         onTap: () =>
-            context.goNamed(AppRoutes.itemScreen.name, pathParameters: {
+            context.pushNamed(AppRoutes.itemScreen.name, pathParameters: {
           'id': '1',
         }),
         child: Container(

@@ -97,7 +97,7 @@ class ProfileAvatarRowWidget extends StatelessWidget {
                           maxLines: 1,
                         ),
                         SizedBox(height: height * 0.0059),
-                        const PointsWidget(),
+                        // const PointsWidget(),
                       ],
                     ),
                     const Spacer(),

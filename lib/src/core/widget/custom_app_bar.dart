@@ -50,7 +50,7 @@ class CustomAppBar extends StatelessWidget {
                 },
               ),
               const Spacer(),
-              const PointsWidget(),
+              // // const PointsWidget(),
               SizedBox(width: width * 0.02),
               const AppBarProfileIconButtonWidget(),
               const SizedBox(width: 22),

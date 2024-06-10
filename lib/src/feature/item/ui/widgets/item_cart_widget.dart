@@ -66,10 +66,10 @@ class ItemCard extends StatelessWidget {
                           ],
                         ),
                         const Spacer(),
-                        const Icon(
-                          Icons.favorite_outline_rounded,
-                          color: AppThemeColor.blueColor,
-                        ),
+                        // const Icon(
+                        //   Icons.favorite_outline_rounded,
+                        //   color: AppThemeColor.blueColor,
+                        // ),
                         SizedBox(width: width * 0.03),
                         InkWell(
                           onTap: () {
