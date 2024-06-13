@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:sempl/src/core/widget/blue_item_with_cross.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/categories_button_widget.dart';
 import 'package:sempl/src/core/widget/custom_sliver_app_bar.dart';
@@ -63,7 +64,7 @@ class RecentProductsScreen extends StatelessWidget {
                 //   spacing: 3.0,
                 //   runSpacing: 3.0,
                 //   children: [
-                //     BlueItemWithCross(text: 'Категории: шампуни'),
+                // BlueItemWithCross(text: 'Категории: шампуни'),
                 //     BlueItemWithCross(text: 'Шапмпуни для волос'),
                 //     BlueItemWithCross(text: 'Item 3'),
                 //     BlueItemWithCross(text: 'Item 4'),

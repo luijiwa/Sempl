@@ -155,10 +155,10 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
   }) {
     return _then(_value.copyWith(
-      status: freezed == status
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
@@ -188,10 +188,10 @@ class __$$CartStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
   }) {
     return _then(_$CartStateImpl(
-      status: freezed == status
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
@@ -226,12 +226,11 @@ class _$CartStateImpl with DiagnosticableTreeMixin implements _CartState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CartStateImpl &&
-            const DeepCollectionEquality().equals(other.status, status));
+            (identical(other.status, status) || other.status == status));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(status));
+  int get hashCode => Object.hash(runtimeType, status);
 
   @JsonKey(ignore: true)
   @override

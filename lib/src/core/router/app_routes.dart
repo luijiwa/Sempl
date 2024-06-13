@@ -11,6 +11,10 @@ enum AppRoutes {
     name: 'survey',
     path: '/survey',
   ),
+  cart(
+    name: 'cart',
+    path: '/cart',
+  ),
   main(
     name: 'main',
     path: '/main',

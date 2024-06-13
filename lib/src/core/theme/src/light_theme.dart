@@ -8,6 +8,11 @@ ThemeData createLightTheme() {
     ),
     fontFamily: 'SourceSans3',
     scaffoldBackgroundColor: AppThemeColor.grey,
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: AppThemeColor.blueColor,
+      selectionColor: AppThemeColor.blueColor.withOpacity(0.3),
+      selectionHandleColor: AppThemeColor.blueColor,
+    ),
     extensions: const <ThemeExtension<dynamic>>[
       // ThemeColors.dark,
     ],

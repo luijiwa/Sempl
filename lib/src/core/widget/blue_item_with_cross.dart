@@ -9,14 +9,16 @@ class BlueItemWithCross extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(40.0),
         color: AppThemeColor.blueColor,
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: width * 0.0203, vertical: width * 0.01527),
+        padding: EdgeInsets.symmetric(vertical: width * 0.01527).copyWith(
+          left: width * 0.017815,
+          right: width * 0.031,
+        ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

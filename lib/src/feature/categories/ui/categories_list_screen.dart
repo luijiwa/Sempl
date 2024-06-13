@@ -44,11 +44,21 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
               centerTitle: true,
               leading: CustomBackButton(),
             ),
-            const SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: 22),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 22),
               sliver: SliverToBoxAdapter(
-                child: SearchInputWidget(),
-              ),
+                  child: TextField(
+                decoration:
+                    Theme.of(context).inputDecorationTheme.searchInput.copyWith(
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: height * 0.013,
+                              horizontal: height * 0.023),
+                          prefixIcon: const Icon(Icons.search),
+                          hintText: 'Поиск в категориях',
+                        ),
+              )
+                  //  SearchInputWidget(),
+                  ),
             ),
             BlocBuilder<MainScreenBloc, MainScreenState>(
               buildWhen: (previous, current) =>

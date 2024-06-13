@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sempl/src/core/constant/generated/assets.gen.dart';
+import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
 import 'package:sempl/src/core/widget/points_widget.dart';
 import 'package:sempl/src/core/theme/theme.dart';
@@ -50,6 +52,15 @@ class CustomAppBar extends StatelessWidget {
                 },
               ),
               const Spacer(),
+              IconButton(
+                onPressed: () => context.pushNamed(AppRoutes.cart.name),
+                icon: Assets.icons.cart.svg(
+                  colorFilter: const ColorFilter.mode(
+                    AppThemeColor.blueColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ),
               // // const PointsWidget(),
               SizedBox(width: width * 0.02),
               const AppBarProfileIconButtonWidget(),

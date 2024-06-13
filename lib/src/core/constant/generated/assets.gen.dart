@@ -21,6 +21,9 @@ class $AssetsIconsGen {
   SvgGenImage get arrowRight =>
       const SvgGenImage('assets/icons/arrow_right.svg');
 
+  /// File path: assets/icons/cart.svg
+  SvgGenImage get cart => const SvgGenImage('assets/icons/cart.svg');
+
   /// File path: assets/icons/delete_icon.svg
   SvgGenImage get deleteIcon =>
       const SvgGenImage('assets/icons/delete_icon.svg');
@@ -71,6 +74,7 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [
         frame2,
         arrowRight,
+        cart,
         deleteIcon,
         exit,
         like,

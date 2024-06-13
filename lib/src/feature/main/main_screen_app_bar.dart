@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sempl/src/core/constant/generated/assets.gen.dart';
+import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
 import 'package:sempl/src/core/widget/points_widget.dart';
 import 'package:sempl/src/core/theme/theme.dart';
@@ -37,6 +40,15 @@ class MainScreenAppBar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       // const PointsWidget(),
+                      IconButton(
+                        onPressed: () => context.pushNamed(AppRoutes.cart.name),
+                        icon: Assets.icons.cart.svg(
+                          colorFilter: const ColorFilter.mode(
+                            Colors.white,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
                       SizedBox(width: width * 0.02),
                       const AppBarProfileIconButtonWidget(),
                     ],

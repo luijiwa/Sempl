@@ -35,11 +35,24 @@ extension CustomInputFormStyles on InputDecorationTheme {
 
   InputDecoration get searchInput {
     return const InputDecoration(
-      border: InputBorder.none,
-      focusedBorder: InputBorder.none,
-      disabledBorder: InputBorder.none,
-      enabledBorder: InputBorder.none,
-      filled: false,
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+      ),
+      disabledBorder: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+      ),
+      filled: true,
+      fillColor: Color(0xffEEEEEE),
     );
   }
 }

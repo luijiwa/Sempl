@@ -70,14 +70,14 @@ class ItemInListWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     maxLines: 3,
                     style: const TextStyle(
-                      fontSize: 13,
+                      fontSize: 14,
                       height: 1,
                     )),
               ),
               Text(
                 "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
                     .toUpperCase(),
-                style: const TextStyle(fontSize: 8),
+                style: const TextStyle(fontSize: 10),
               ),
               const SizedBox(height: 11),
               StarRatingWidget(

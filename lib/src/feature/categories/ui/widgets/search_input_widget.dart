@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 
+@Deprecated('Не используется так как дизайнеру не понравилось')
 class SearchInputWidget extends StatefulWidget {
   const SearchInputWidget({
     super.key,

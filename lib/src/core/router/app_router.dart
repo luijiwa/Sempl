@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/router/auth_guard.dart';
 import 'package:sempl/src/core/router/redirect_builder.dart';
+import 'package:sempl/src/feature/cart/ui/cart_screen.dart';
 import 'package:sempl/src/feature/confirmation/confirmation_screen.dart';
 import 'package:sempl/src/feature/delivery/delivery_screen.dart';
 import 'package:sempl/src/feature/feedback/ui/feedback_screen.dart';
@@ -27,6 +28,13 @@ class AppRouter {
     debugLogDiagnostics: true,
     initialLocation: AppRoutes.onboarding.path,
     routes: <GoRoute>[
+      GoRoute(
+        name: AppRoutes.cart.name,
+        path: AppRoutes.cart.path,
+        builder: (context, state) {
+          return const CartScreen();
+        },
+      ),
       GoRoute(
         name: AppRoutes.surveyOrder.name,
         path: AppRoutes.surveyOrder.path,
