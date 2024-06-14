@@ -21,7 +21,7 @@ class _CartScreenState extends State<CartScreen> {
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               slivers: [
                 SliverAppBar(
-                  title: Text('Cart'),
+                  title: Text('Корзина'),
                 ),
               ],
             ),

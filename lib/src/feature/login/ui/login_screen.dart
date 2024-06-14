@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: Colors.white,
               appBar: PreferredSize(
                 preferredSize: Size.fromHeight(maxHeight * 0.276),
-                child: const HeaderWidget(),
+                child: const HeaderWidget(currentPage: 1),
               ),
               body: SafeArea(
                 maintainBottomViewPadding: true,

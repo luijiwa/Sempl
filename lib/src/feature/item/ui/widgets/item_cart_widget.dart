@@ -114,19 +114,14 @@ class ItemCard extends StatelessWidget {
                       height: 0.1186228814 * width,
                       width: double.maxFinite,
                       child: ElevatedButton(
-                        onPressed: () {
-                          context.pushNamed(AppRoutes.delivery.name,
-                              pathParameters: {
-                                'itemId': item.id.toString(),
-                              });
-                        },
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           foregroundColor: Colors.white,
                           backgroundColor: const Color(0xFF99BFD4),
                         ),
                         child: AutoSizeText(
-                          'ЗАКАЗАТЬ',
+                          'ПОЛОЖИТЬ В КОРЗИНУ',
                           style: TextStyle(
                             fontSize: width > 320 ? 15 : 12,
                             color: AppThemeColor.grey,
