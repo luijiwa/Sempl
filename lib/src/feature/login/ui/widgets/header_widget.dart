@@ -1,12 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/custom_back_button.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({
+    required this.currentPage,
     super.key,
   });
-
+  final int currentPage;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height / 100;
