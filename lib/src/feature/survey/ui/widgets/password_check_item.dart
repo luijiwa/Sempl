@@ -4,10 +4,8 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class PasswordCheckItem extends StatelessWidget {
   const PasswordCheckItem({
-    super.key,
-    required this.text,
+    required this.text, required this.status, super.key,
     this.maxLines = 1,
-    required this.status,
   });
   final String text;
   final int maxLines;

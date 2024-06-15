@@ -2,16 +2,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/bottom_padding.dart';
 
 class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
   const ConfirmationOrderTypeTwoScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       body: LayoutBuilder(builder: (context, constraints) {
         final maxHeight = constraints.maxHeight.toDouble();
         final maxWidth = constraints.maxWidth.toDouble();
@@ -89,7 +88,7 @@ class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
                       child: Column(children: [
                         Padding(
                           padding: EdgeInsets.only(
-                              right: maxWidth * 0.078, top: maxHeight * 0.0237),
+                              right: maxWidth * 0.078, top: maxHeight * 0.0237,),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -141,11 +140,11 @@ class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: maxWidth > 320 ? 15 : 12,
                                         color: const Color(0xFF86A6B8),
-                                      )),
+                                      ),),
                                   SvgPicture.asset(
                                     colorFilter: const ColorFilter.mode(
                                         AppThemeColor.blueColor,
-                                        BlendMode.srcIn),
+                                        BlendMode.srcIn,),
                                     'assets/icons/arrow_right.svg',
                                   ),
                                 ],
@@ -154,15 +153,14 @@ class ConfirmationOrderTypeTwoScreen extends StatelessWidget {
                           ),
                         ),
                         const BottomPadding(),
-                      ]),
+                      ],),
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         );
-      }),
+      },),
     );
-  }
 }

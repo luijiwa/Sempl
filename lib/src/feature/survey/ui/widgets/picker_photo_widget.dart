@@ -1,18 +1,18 @@
 import 'dart:io' show File;
-import 'package:permission_handler/permission_handler.dart';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/five_step_resize_image_widget.dart';
 
 class PickerPhotoWidget extends StatefulWidget {
-  PickerPhotoWidget({super.key, required this.onNextPage, required this.image});
+  PickerPhotoWidget({required this.onNextPage, required this.image, super.key});
   final VoidCallback onNextPage;
   File? image;
 
@@ -56,7 +56,7 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
               ],
             ),
           ),
-        )),
+        ),),
         const Spacer(),
         BlocProvider.value(
           value: context.read<SurveyBloc>(),
@@ -71,7 +71,7 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
                     ),
                   ),
                 );
-              }),
+              },),
         ),
         const BottomPadding(),
       ],
@@ -79,7 +79,7 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
   }
 
   Future<void> pickFile() async {
-    var picker = ImagePicker();
+    final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.camera);
 
     if (pickedFile != null) {
@@ -91,14 +91,14 @@ class _PickerPhotoWidgetState extends State<PickerPhotoWidget> {
   }
 
   Future<void> pickImageWithPermission() async {
-    PermissionStatus cameraPermissionStatus = await Permission.camera.status;
-    PermissionStatus storagePermissionStatus = await Permission.storage.status;
+    final PermissionStatus cameraPermissionStatus = await Permission.camera.status;
+    final PermissionStatus storagePermissionStatus = await Permission.storage.status;
 
     if (cameraPermissionStatus.isGranted && storagePermissionStatus.isGranted) {
       // Permissions are already granted, proceed to pick file
       pickFile();
     } else {
-      Map<Permission, PermissionStatus> permissionStatuses = await [
+      final Map<Permission, PermissionStatus> permissionStatuses = await [
         Permission.camera,
         Permission.storage,
       ].request();

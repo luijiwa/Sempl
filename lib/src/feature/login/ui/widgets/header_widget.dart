@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:sempl/src/core/theme/theme.dart';
-import 'package:sempl/src/core/widget/custom_back_button.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({
@@ -24,7 +23,7 @@ class HeaderWidget extends StatelessWidget {
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/login_header_background.png"),
               ),
-              color: Color(0xFF99BFD4)),
+              color: Color(0xFF99BFD4),),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22.0)
                 .copyWith(bottom: 4 * height),

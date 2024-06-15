@@ -7,8 +7,7 @@ class CustomBackButton extends StatelessWidget {
   ///add onPressed
   final VoidCallback? onPressed;
   @override
-  Widget build(BuildContext context) {
-    return IconButton(
+  Widget build(BuildContext context) => IconButton(
       icon: const Icon(
         Icons.arrow_back_ios_rounded,
         size: 18,
@@ -22,5 +21,4 @@ class CustomBackButton extends StatelessWidget {
         }
       },
     );
-  }
 }

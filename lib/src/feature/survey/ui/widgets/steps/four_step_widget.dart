@@ -1,13 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 
 class FourStepWidget extends StatefulWidget {
-  const FourStepWidget({super.key, required this.onNextPage});
+  const FourStepWidget({required this.onNextPage, super.key});
   final VoidCallback onNextPage;
 
   @override
@@ -87,7 +87,7 @@ class _FourStepWidgetState extends State<FourStepWidget> {
                     // If the form is valid, proceed to the next page or submit the data.
                     widget.onNextPage();
                   }
-                }),
+                },),
             const BottomPadding(),
           ],
         ),

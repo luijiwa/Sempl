@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:sempl/src/core/components/rest_client/rest_client.dart';
-import 'package:sempl/src/core/components/rest_client/src/auth/refresh_client.dart';
-import 'package:sempl/src/core/utils/logger.dart';
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/subjects.dart';
+import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/core/components/rest_client/src/auth/refresh_client.dart';
+import 'package:sempl/src/core/utils/logger.dart';
 
 /// Token is a simple class that holds the access and refresh token
 
@@ -55,8 +55,7 @@ class AuthInterceptor<T> extends QueuedInterceptor
   /// Create an Auth interceptor
   AuthInterceptor({
     required this.storage,
-    this.refreshClient,
-    required this.buildHeaders,
+    required this.buildHeaders, this.refreshClient,
     @visibleForTesting Dio? retryClient,
   }) : retryClient = retryClient ?? Dio() {
     _storageSubscription = storage.getStream().listen(

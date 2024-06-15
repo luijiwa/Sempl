@@ -1,13 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:sempl/src/core/widget/dropdown_custom_widget_new.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/dropdown_custom_widget_new.dart';
 
 class QuestionWidget extends StatelessWidget {
   const QuestionWidget({
-    super.key,
-    required this.text,
-    required this.index,
+    required this.text, required this.index, super.key,
   });
 
   final List<String> text;

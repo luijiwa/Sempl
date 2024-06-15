@@ -7,10 +7,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class PhoneInputWidget extends StatefulWidget {
   const PhoneInputWidget({
-    super.key,
-    required this.formKey,
-    required this.controller,
-    required this.maskFormatter,
+    required this.formKey, required this.controller, required this.maskFormatter, super.key,
   });
   final GlobalKey<FormState> formKey;
   final TextEditingController controller;
@@ -52,10 +49,9 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                       child: Text(
                         '',
                         style: Theme.of(context).textTheme.titleMedium,
-                      )),
+                      ),),
                 ),
               Stack(
-                alignment: AlignmentDirectional.topStart,
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
@@ -67,7 +63,7 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(30),
-                            bottomLeft: Radius.circular(30)),
+                            bottomLeft: Radius.circular(30),),
                         color: _phoneError
                             ? errorBackgroundColor
                             : AppThemeColor.grey,
@@ -112,7 +108,7 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(
                                 vertical: width * 0.02804,
-                                horizontal: width * 0.0497)
+                                horizontal: width * 0.0497,)
                             .copyWith(left: width * 0.25),
                         hintText: '000 000 00 00',
                         filled: false,
@@ -233,6 +229,6 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
             ),
         ],
       );
-    });
+    },);
   }
 }

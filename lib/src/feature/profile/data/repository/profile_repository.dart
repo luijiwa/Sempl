@@ -29,7 +29,7 @@ final class ProfileRepositoryImpl implements ProfileRepository {
       final newToken = Token(response['access_token'] as String);
       await _storage.save(newToken);
     }
-    return UserData.fromJson(response as Map<String, dynamic>);
+    return UserData.fromJson(response! as Map<String, dynamic>);
   }
 
   @override
@@ -41,7 +41,7 @@ final class ProfileRepositoryImpl implements ProfileRepository {
         final newToken = Token(response['access_token'] as String);
         await _storage.save(newToken);
       }
-      return UserOrders.fromJson(response as Map<String, dynamic>);
+      return UserOrders.fromJson(response! as Map<String, dynamic>);
     } catch (e) {
       rethrow;
     }

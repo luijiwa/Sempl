@@ -59,7 +59,7 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
               builder: (context, state) {
                 final noPlusChecked = !state.plusIsEnabeled;
                 return InputFieldWithCounterWidget(
-                    hint: 'Плюс 1', enabled: noPlusChecked);
+                    hint: 'Плюс 1', enabled: noPlusChecked,);
               },
             ),
             SizedBox(height: width * 0.02545),
@@ -70,7 +70,7 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
                 final noPlusChecked = !state.plusIsEnabeled;
 
                 return InputFieldWithCounterWidget(
-                    hint: 'Плюс 1', enabled: noPlusChecked);
+                    hint: 'Плюс 1', enabled: noPlusChecked,);
               },
             ),
           ],
@@ -111,7 +111,7 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
               builder: (context, state) {
                 final noMinusChecked = !state.minusIsEnabeled;
                 return InputFieldWithCounterWidget(
-                    hint: 'Минус 1', enabled: noMinusChecked);
+                    hint: 'Минус 1', enabled: noMinusChecked,);
               },
             ),
             SizedBox(height: width * 0.02545),
@@ -122,7 +122,7 @@ class _FeedbackStepThreeState extends State<FeedbackStepThree> {
                 final noMinusChecked = !state.minusIsEnabeled;
 
                 return InputFieldWithCounterWidget(
-                    hint: 'Минус 1', enabled: noMinusChecked);
+                    hint: 'Минус 1', enabled: noMinusChecked,);
               },
             ),
           ],

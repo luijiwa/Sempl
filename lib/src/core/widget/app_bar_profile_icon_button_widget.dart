@@ -30,7 +30,6 @@ class AppBarProfileIconButtonWidget extends StatelessWidget {
               ),
               border: Border.all(
                 color: AppThemeColor.blueColor,
-                width: 1.0,
               ),
             ),
           ),
@@ -40,7 +39,7 @@ class AppBarProfileIconButtonWidget extends StatelessWidget {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () => context.pushNamed(AppRoutes.profile.name),
-                )),
+                ),),
           ),
         ],
       ),

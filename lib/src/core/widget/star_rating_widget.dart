@@ -11,8 +11,7 @@ class StarRatingWidget extends StatelessWidget {
   final double size;
   final int rating;
   @override
-  Widget build(BuildContext context) {
-    return Row(
+  Widget build(BuildContext context) => Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         for (int i = 0; i < rating; i++) ...[
@@ -20,7 +19,7 @@ class StarRatingWidget extends StatelessWidget {
             width: size,
             'assets/icons/star_filled.svg',
             colorFilter: const ColorFilter.mode(
-                AppThemeColor.blueColor, BlendMode.srcIn),
+                AppThemeColor.blueColor, BlendMode.srcIn,),
           ),
           SizedBox(width: size / 10),
         ],
@@ -29,13 +28,12 @@ class StarRatingWidget extends StatelessWidget {
             width: size,
             'assets/icons/star_outline.svg',
             colorFilter: const ColorFilter.mode(
-                AppThemeColor.blueColor, BlendMode.srcIn),
+                AppThemeColor.blueColor, BlendMode.srcIn,),
           ),
           SizedBox(width: size / 7),
         ],
       ],
     );
-  }
 }
 
 class StarRatingWithGestureWidget extends StatefulWidget {
@@ -63,8 +61,7 @@ class _StarRatingWithGestureWidgetState
   }
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
+  Widget build(BuildContext context) => GestureDetector(
       onTap: () {
         final pointerLocalPosition = context
                 .findRenderObject()!
@@ -92,5 +89,4 @@ class _StarRatingWithGestureWidgetState
         ],
       ),
     );
-  }
 }

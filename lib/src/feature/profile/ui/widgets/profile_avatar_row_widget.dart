@@ -2,9 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sempl/src/core/utils/enums/screen_status.dart';
-import 'package:sempl/src/core/widget/points_widget.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/feature/profile/bloc/profile_bloc.dart';
 import 'package:sempl/src/feature/profile_edit/ui/profile_edit_screen.dart';
 
@@ -32,7 +31,6 @@ class ProfileAvatarRowWidget extends StatelessWidget {
               case ScreenStatus.success:
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Stack(
                       clipBehavior: Clip.none,
@@ -49,7 +47,6 @@ class ProfileAvatarRowWidget extends StatelessWidget {
                             ),
                             border: Border.all(
                               color: AppThemeColor.blueColor,
-                              width: 1.0,
                             ),
                           ),
                         ),
@@ -65,12 +62,11 @@ class ProfileAvatarRowWidget extends StatelessWidget {
                                 color: AppThemeColor.blueColor,
                                 border: Border.all(
                                   color: Colors.white,
-                                  width: 1.0,
-                                )),
+                                ),),
                             child: SvgPicture.asset(
                               'assets/icons/pen_write.svg',
                               colorFilter: const ColorFilter.mode(
-                                  Colors.white, BlendMode.srcIn),
+                                  Colors.white, BlendMode.srcIn,),
                             ),
                           ),
                         ),
@@ -114,18 +110,17 @@ class ProfileAvatarRowWidget extends StatelessWidget {
                         minimumSize: Size.zero,
                         padding: EdgeInsets.symmetric(
                             horizontal: width * 0.0357,
-                            vertical: height * 0.0059),
+                            vertical: height * 0.0059,),
                         backgroundColor: AppThemeColor.blueColor,
                         elevation: 0,
                         textStyle: Theme.of(context)
                             .textTheme
                             .appBodyMedium
                             .copyWith(
-                                color: Colors.white, fontSize: 8, height: 0),
+                                color: Colors.white, fontSize: 8, height: 0,),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
@@ -136,16 +131,16 @@ class ProfileAvatarRowWidget extends StatelessWidget {
                                 .copyWith(
                                     color: Colors.white,
                                     fontSize: 12,
-                                    height: 0),
+                                    height: 0,),
                           ),
                           SvgPicture.asset(
                             'assets/icons/settings.svg',
                             colorFilter: const ColorFilter.mode(
-                                Colors.white, BlendMode.srcIn),
+                                Colors.white, BlendMode.srcIn,),
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 );
               default:

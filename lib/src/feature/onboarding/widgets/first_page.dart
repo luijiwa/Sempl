@@ -57,14 +57,13 @@ class FirstPage extends StatelessWidget {
                 height: height * 0.04,
               ),
               Stack(
-                alignment: AlignmentDirectional.topStart,
                 clipBehavior: Clip.none,
                 children: [
                   const ItemInFirstOnboardingPage(),
                   Positioned(
                       bottom: -height * 0.1,
                       left: width * 0.01,
-                      child: const ColoredAdvantagesBoxes()),
+                      child: const ColoredAdvantagesBoxes(),),
                 ],
               ),
               const Spacer(),
@@ -119,7 +118,7 @@ class ItemInFirstOnboardingPage extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 14,
                 height: 1.2,
-              )),
+              ),),
           SizedBox(height: height * 0.01),
           AutoSizeText(
             "5.0 из 89 отзывов".toUpperCase(),
@@ -175,7 +174,7 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
               child: Text(
                 'попробовать продукт'.toUpperCase(),
                 style: textStyle.copyWith(
-                    fontSize: fontSize, color: const Color(0xFFFAF379)),
+                    fontSize: fontSize, color: const Color(0xFFFAF379),),
               ),
             ),
           ),
@@ -192,7 +191,7 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
                   child: Text(
                     'читать отзывы'.toUpperCase(),
                     style: textStyle.copyWith(
-                        fontSize: fontSize, color: const Color(0xFFB5A3F8)),
+                        fontSize: fontSize, color: const Color(0xFFB5A3F8),),
                   ),
                 ),
               ),
@@ -211,7 +210,7 @@ class ColoredAdvantagesBoxes extends StatelessWidget {
                   child: Text(
                     'оставить оценку'.toUpperCase(),
                     style: textStyle.copyWith(
-                        fontSize: fontSize, color: const Color(0xFF496969)),
+                        fontSize: fontSize, color: const Color(0xFF496969),),
                   ),
                 ),
               ),

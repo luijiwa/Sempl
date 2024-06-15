@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/constant/generated/assets.gen.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
-import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
-import 'package:sempl/src/core/widget/points_widget.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, this.onTapBack});
@@ -28,7 +27,6 @@ class CustomAppBar extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: MediaQuery.of(context).padding.top),
           Row(

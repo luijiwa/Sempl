@@ -30,10 +30,9 @@ class ItemWithButtonWidget extends StatelessWidget {
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(30.0)),
           border:
-              Border.all(width: 1, color: AppThemeColor.gris.withOpacity(0.1)),
+              Border.all(color: AppThemeColor.gris.withOpacity(0.1)),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: height * 0.01),
             Image.asset(

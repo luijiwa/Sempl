@@ -6,17 +6,15 @@ import 'package:go_router/go_router.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/login/ui/auth_scope.dart';
-import 'package:sempl/src/feature/login/ui/widgets/header_widget.dart';
+import 'package:sempl/src/feature/login/ui/widgets/header_section.dart';
 import 'package:sempl/src/feature/login/ui/widgets/input_code_widget.dart';
 import 'package:sempl/src/feature/login/ui/widgets/phone_input_widget.dart';
-import 'widgets/header_section.dart';
-import 'widgets/term_of_use.dart';
+import 'package:sempl/src/feature/login/ui/widgets/term_of_use.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,8 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _codeController = TextEditingController();
     maskFormatter = MaskTextInputFormatter(
       mask: '### ### ## ##',
-      filter: {"#": RegExp(r'[0-9]')},
-      type: MaskAutoCompletionType.lazy,
+      filter: {"#": RegExp('[0-9]')},
     );
   }
 
@@ -94,8 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
+  Widget build(BuildContext context) => LayoutBuilder(
       builder: (context, constraints) {
         final double maxHeight = constraints.maxHeight;
         final double maxWidth = constraints.maxWidth;
@@ -120,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         logger.i(DependenciesScope.of(context)
                             .authBloc
                             .state
-                            .status);
+                            .status,);
                         // logger.i(_currentPageIndex);
                       },
                       child: const Icon(Icons.arrow_forward),
@@ -189,8 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 bloc: DependenciesScope.of(context).authBloc,
                                 buildWhen: (previous, current) =>
                                     previous.loginStatus != current.loginStatus,
-                                builder: (context, state) {
-                                  return ElevatedButton(
+                                builder: (context, state) => ElevatedButton(
                                     onPressed: () {
                                       bool isPush = true;
                                       if (_currentPageIndex == 0 &&
@@ -200,14 +195,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                           AuthScope.of(context)
                                               .signInFirstStepWithPhone(
                                                   maskFormatter
-                                                      .getUnmaskedText());
+                                                      .getUnmaskedText(),);
 
                                           setState(() {
                                             _currentPageIndex++;
                                           });
                                           _pageViewController.nextPage(
                                             duration: const Duration(
-                                                milliseconds: 300),
+                                                milliseconds: 300,),
                                             curve: Curves.easeIn,
                                           );
 
@@ -224,7 +219,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       if (_currentPageIndex == 1 && isPush) {
                                         AuthScope.of(context)
                                             .signInWithPhoneAndCode(
-                                                _codeController.text);
+                                                _codeController.text,);
                                         isPush = false;
 
                                         // if (state.loginStatus ==
@@ -245,8 +240,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Icon(Icons.arrow_forward, size: 15),
                                       ],
                                     ),
-                                  );
-                                },
+                                  ),
                               ),
                             ),
                             SizedBox(height: bottomOffset),
@@ -262,5 +256,4 @@ class _LoginScreenState extends State<LoginScreen> {
         );
       },
     );
-  }
 }

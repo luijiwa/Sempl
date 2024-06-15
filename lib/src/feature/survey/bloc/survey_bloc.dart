@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
@@ -152,7 +151,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
 
     on<_SetAverageMonthlyIncome>((event, emit) {
       final value = int.tryParse(
-              event.averageMonthlyIncome.replaceAll(RegExp(r'[%\s]'), '')) ??
+              event.averageMonthlyIncome.replaceAll(RegExp(r'[%\s]'), ''),) ??
           9999;
       emit(
         state.copyWith(
@@ -166,7 +165,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
 
     on<_SetPercentageSpentOnCosmetics>((event, emit) {
       final value = int.tryParse(event.percentageSpentOnCosmetics
-              .replaceAll(RegExp(r'[%\s]'), '')) ??
+              .replaceAll(RegExp(r'[%\s]'), ''),) ??
           9999;
       emit(
         state.copyWith(
@@ -305,7 +304,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
   }
 
   Future<void> _onSendResultSurvey(
-      _SendResultSurvey event, Emitter<SurveyState> emit) async {
+      _SendResultSurvey event, Emitter<SurveyState> emit,) async {
     if (state.status == ButtonPushStatus.loading) return;
     emit(state.copyWith(status: ButtonPushStatus.loading));
 
@@ -319,7 +318,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     } catch (e, stackTrace) {
       emit(state.copyWith(
         status: ButtonPushStatus.failure,
-      ));
+      ),);
       logger.e(e, stackTrace: stackTrace);
     }
   }

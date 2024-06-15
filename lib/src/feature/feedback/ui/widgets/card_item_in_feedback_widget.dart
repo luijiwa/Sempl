@@ -31,10 +31,9 @@ class CardItemInFeedbackWidget extends StatelessWidget {
                 color: AppThemeColor.black.withOpacity(0.02),
                 blurRadius: 10,
                 spreadRadius: 10,
-              )
-            ]),
+              ),
+            ],),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
               imageUrl,

@@ -1,9 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sempl/src/core/utils/enums/screen_status.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
@@ -11,12 +9,10 @@ import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
 import 'package:sempl/src/feature/item/ui/widgets/comments_row_widget.dart';
 import 'package:sempl/src/feature/item/ui/widgets/item_cart_widget.dart';
 import 'package:sempl/src/feature/item/ui/widgets/review_card_widget.dart';
-import 'package:sempl/src/core/theme/theme.dart';
-import 'package:shimmer/shimmer.dart';
 
 class ItemScreen extends StatefulWidget {
   final String id;
-  const ItemScreen({super.key, required this.id});
+  const ItemScreen({required this.id, super.key});
 
   @override
   State<ItemScreen> createState() => _ItemScreenState();
@@ -66,9 +62,9 @@ class _ItemScreenState extends State<ItemScreen> {
               const ReviewCardWidget(),
               const SliverToBoxAdapter(
                 child: BottomPadding(),
-              )
+              ),
             ],
-          )),
+          ),),
     );
   }
 }

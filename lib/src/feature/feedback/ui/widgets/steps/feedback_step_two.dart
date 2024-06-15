@@ -36,16 +36,16 @@ class FeedbackStepTwo extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(
                   right: width * 0.02,
-                  bottom: height * 0.01), // установка отступа для иконки
+                  bottom: height * 0.01,), // установка отступа для иконки
               child: SvgPicture.asset(
                 'assets/icons/text_field_expand.svg',
                 colorFilter: const ColorFilter.mode(
-                    AppThemeColor.greyTwo, BlendMode.srcIn),
+                    AppThemeColor.greyTwo, BlendMode.srcIn,),
               ), // ваша иконка
             ),
           ],
         ),
-      ]),
+      ],),
     );
   }
 }

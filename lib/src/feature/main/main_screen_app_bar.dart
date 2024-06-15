@@ -4,9 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/constant/generated/assets.gen.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
-import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
-import 'package:sempl/src/core/widget/points_widget.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
 
 class MainScreenAppBar extends StatelessWidget {
   const MainScreenAppBar({super.key});
@@ -31,7 +30,6 @@ class MainScreenAppBar extends StatelessWidget {
             background: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -97,7 +95,7 @@ class MainScreenAppBar extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
                               horizontal: width * 0.04,
-                              vertical: height * 0.01),
+                              vertical: height * 0.01,),
                           elevation: 0,
                           foregroundColor: Colors.grey,
                           backgroundColor: AppThemeColor.yellow,
@@ -116,7 +114,7 @@ class MainScreenAppBar extends StatelessWidget {
                             SvgPicture.asset(
                               'assets/icons/arrow_right.svg',
                               colorFilter: const ColorFilter.mode(
-                                  AppThemeColor.black, BlendMode.srcIn),
+                                  AppThemeColor.black, BlendMode.srcIn,),
                             ),
                           ],
                         ),

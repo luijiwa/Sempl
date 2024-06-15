@@ -12,7 +12,7 @@ abstract interface class OnboardingRepository {
 final class OnboardingRepositoryImpl implements OnboardingRepository {
   /// Create locale repository
   const OnboardingRepositoryImpl(
-      {required OnboardingDataSource onboardingDataSource})
+      {required OnboardingDataSource onboardingDataSource,})
       : _onboardingDataSource = onboardingDataSource;
 
   final OnboardingDataSource _onboardingDataSource;

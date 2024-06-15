@@ -10,7 +10,7 @@ class PasswordGroupWidget extends StatelessWidget {
     final double width = MediaQuery.sizeOf(context).width;
 
     final edgeInsets = EdgeInsets.symmetric(
-        vertical: width * 0.02803813559, horizontal: width * 0.0496059322);
+        vertical: width * 0.02803813559, horizontal: width * 0.0496059322,);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -23,10 +23,10 @@ class PasswordGroupWidget extends StatelessWidget {
         ),
         const SizedBox(height: 3),
         const PasswordCheckItem(
-            text: 'Заглавные латинские буквы: от А до Я', status: true),
+            text: 'Заглавные латинские буквы: от А до Я', status: true,),
         const SizedBox(height: 5),
         const PasswordCheckItem(
-            text: 'Строчные латинские буквы: от A до Z', status: false),
+            text: 'Строчные латинские буквы: от A до Z', status: false,),
         const SizedBox(height: 5),
         const PasswordCheckItem(text: 'Числа от 0 до 9', status: false),
         const SizedBox(height: 5),

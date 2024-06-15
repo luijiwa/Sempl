@@ -67,7 +67,7 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
   static final Future<ui.FragmentShader?> _shaderFuture =
       ui.FragmentProgram.fromAsset('assets/shaders/shimmer.frag')
           .then<ui.FragmentShader?>((program) => program.fragmentShader(),
-              onError: (_, __) => null);
+              onError: (_, __) => null,);
 
   /// Seed value notifier for shader mutation.
   late final ValueNotifier<double> _seed;
@@ -99,7 +99,6 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
           size: widget.size,
           child: RepaintBoundary(
             child: FutureBuilder<ui.FragmentShader?>(
-              initialData: null,
               future: _shaderFuture,
               builder: (context, snapshot) => CustomPaint(
                 size: widget.size,

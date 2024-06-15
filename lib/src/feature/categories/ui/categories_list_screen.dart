@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/core/widget/custom_radio_button.dart';
-import 'package:sempl/src/feature/categories/ui/widgets/search_input_widget.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 
 class CategoriesListScreen extends StatefulWidget {
@@ -52,11 +51,11 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
                     Theme.of(context).inputDecorationTheme.searchInput.copyWith(
                           contentPadding: EdgeInsets.symmetric(
                               vertical: height * 0.013,
-                              horizontal: height * 0.023),
+                              horizontal: height * 0.023,),
                           prefixIcon: const Icon(Icons.search),
                           hintText: 'Поиск в категориях',
                         ),
-              )
+              ),
                   //  SearchInputWidget(),
                   ),
             ),
@@ -90,8 +89,7 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
 
 class CategoriesListWidget extends StatelessWidget {
   const CategoriesListWidget({
-    super.key,
-    required this.height,
+    required this.height, super.key,
   });
 
   final double height;
@@ -134,7 +132,7 @@ class CategoriesListWidget extends StatelessWidget {
                               child: Text(categoryName,
                                   style: const TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 15)),
+                                      fontSize: 15,),),
                             ),
                           ),
                           CustomRadioButton(
@@ -163,7 +161,7 @@ class CategoriesListWidget extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 4),
                                 child: Text(product,
-                                    style: const TextStyle(fontSize: 15)),
+                                    style: const TextStyle(fontSize: 15),),
                               ),
                             ),
                             CustomRadioButton(
@@ -177,7 +175,7 @@ class CategoriesListWidget extends StatelessWidget {
                 ],
               );
             },
-          ));
+          ),);
         },
       ),
     );

@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
+import 'package:sempl/src/feature/survey/ui/widgets/page_indicator_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/steps/fifth_step_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/steps/first_step_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/steps/four_step_widget.dart';
-import 'package:sempl/src/feature/survey/ui/widgets/page_indicator_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/steps/second_step_widget.dart';
-
 import 'package:sempl/src/feature/survey/ui/widgets/steps/thirth_step_widget.dart';
 
 class SurveyScreen extends StatefulWidget {
@@ -79,7 +78,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
                             _currentPageIndex = 0;
                           });
                           _pageViewController.jumpToPage(0);
-                        });
+                        },);
                       default:
                         return Container();
                     }
@@ -87,7 +86,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
                   itemCount: 5,
                 ),
               ),
-            ])),
+            ],),),
       ),
     );
   }

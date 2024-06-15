@@ -4,19 +4,15 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class FeedbackCheckboxRowWidget extends StatelessWidget {
   const FeedbackCheckboxRowWidget({
-    super.key,
-    required this.title,
-    required this.value,
+    required this.title, required this.value, required this.onChanged, super.key,
     this.maxLines = 1,
-    required this.onChanged,
   });
   final String title;
   final int maxLines;
   final bool value;
   final ValueChanged<bool> onChanged;
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
+  Widget build(BuildContext context) => GestureDetector(
       child: Row(
         mainAxisSize: MainAxisSize.min,
         // crossAxisAlignment : CrossAxisAlignment.start
@@ -50,5 +46,4 @@ class FeedbackCheckboxRowWidget extends StatelessWidget {
         ],
       ),
     );
-  }
 }

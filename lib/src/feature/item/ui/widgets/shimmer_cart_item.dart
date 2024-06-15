@@ -4,13 +4,12 @@ import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerCartItem extends StatelessWidget {
-  const ShimmerCartItem({super.key, required this.width, required this.height});
+  const ShimmerCartItem({required this.width, required this.height, super.key});
   final double width;
   final double height;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context) => Container(
         margin: const EdgeInsets.symmetric(horizontal: 22),
         padding: const EdgeInsets.symmetric(horizontal: 15)
             .copyWith(top: 25, bottom: 35),
@@ -18,7 +17,7 @@ class ShimmerCartItem extends StatelessWidget {
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(30.0)),
           border: Border.all(
-              width: 0.5, color: AppThemeColor.gris.withOpacity(0.5)),
+              width: 0.5, color: AppThemeColor.gris.withOpacity(0.5),),
         ),
         child: Shimmer.fromColors(
           baseColor: Colors.grey.shade300,
@@ -26,7 +25,6 @@ class ShimmerCartItem extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -42,7 +40,7 @@ class ShimmerCartItem extends StatelessWidget {
                       width: width * 0.25,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                          color: Colors.white),
+                          color: Colors.white,),
                     ),
                   ],
                 ),
@@ -52,7 +50,7 @@ class ShimmerCartItem extends StatelessWidget {
                   width: width * 0.14,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Colors.white),
+                      color: Colors.white,),
                 ),
                 SizedBox(width: width * 0.02),
               ],
@@ -61,7 +59,7 @@ class ShimmerCartItem extends StatelessWidget {
             Container(
               height: height * 0.24,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8), color: Colors.white),
+                  borderRadius: BorderRadius.circular(8), color: Colors.white,),
             ),
             SizedBox(height: height * 0.01),
             SizedBox(height: height * 0.01),
@@ -69,9 +67,8 @@ class ShimmerCartItem extends StatelessWidget {
               height: 0.1186228814 * width,
               width: double.maxFinite,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8), color: Colors.white),
+                  borderRadius: BorderRadius.circular(8), color: Colors.white,),
             ),
-          ]),
-        ));
-  }
+          ],),
+        ),);
 }

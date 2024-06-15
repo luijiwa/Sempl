@@ -10,8 +10,7 @@ import 'package:sempl/src/feature/survey/ui/widgets/questions_padding.dart';
 
 class FirstStepWidget extends StatefulWidget {
   const FirstStepWidget({
-    super.key,
-    required this.onNextPage,
+    required this.onNextPage, super.key,
   });
   final VoidCallback onNextPage;
 
@@ -134,8 +133,7 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
                     buildWhen: (previous, current) =>
                         previous.surveyModel.wantAdvertising !=
                         previous.surveyModel.wantAdvertising,
-                    builder: (context, state) {
-                      return CheckboxRowWidget(
+                    builder: (context, state) => CheckboxRowWidget(
                         title:
                             'Я хочу получать рекламные электронные письма и информацию о приложениях',
                         value: state.surveyModel.wantAdvertising,
@@ -143,9 +141,8 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
                         onChange: (value) {
                           bloc.add(SurveyEvent.setWantAdvertising(value!));
                         },
-                      );
-                    },
-                  )
+                      ),
+                  ),
                 ],
               ),
               SizedBox(height: height * 0.02),
@@ -162,24 +159,21 @@ class _FirstStepWidgetState extends State<FirstStepWidget> {
                     buildWhen: (previous, current) =>
                         previous.surveyModel.acceptPolicy !=
                         previous.surveyModel.acceptPolicy,
-                    builder: (context, state) {
-                      return CheckboxRowWidget(
+                    builder: (context, state) => CheckboxRowWidget(
                         title: 'Я принимаю все правила',
                         value: state.surveyModel.acceptPolicy,
                         maxLines: 2,
                         onChange: (value) {
                           bloc.add(SurveyEvent.setAcceptPolicy(value!));
                         },
-                      );
-                    },
-                  )
+                      ),
+                  ),
                 ],
               ),
               SizedBox(height: height * 0.0681),
               NextStepButton(
                 title: 'ШАГ 2',
                 onPressed: _trySubmitForm,
-                enable: true,
               ),
               const BottomPadding(),
             ],

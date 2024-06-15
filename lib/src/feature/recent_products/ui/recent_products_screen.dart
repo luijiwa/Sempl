@@ -1,15 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:sempl/src/core/widget/blue_item_with_cross.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/categories_button_widget.dart';
 import 'package:sempl/src/core/widget/custom_sliver_app_bar.dart';
 import 'package:sempl/src/core/widget/item_in_list_widget.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 
 class RecentProductsScreen extends StatelessWidget {
-  const RecentProductsScreen({super.key, required this.bloc});
+  const RecentProductsScreen({required this.bloc, super.key});
   final MainScreenBloc bloc;
   @override
   Widget build(BuildContext context) {
@@ -77,18 +76,16 @@ class RecentProductsScreen extends StatelessWidget {
             padding: EdgeInsets.only(top: height * 0.04),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
-                (_, int index) {
-                  return ItemInListWidget(
+                (_, int index) => ItemInListWidget(
                     index: index,
                     applyColorFilter: true,
-                  );
-                },
+                  ),
                 childCount: bloc
                     .state.newSempls.length, // Количество элементов в списке
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: BottomPadding())
+          const SliverToBoxAdapter(child: BottomPadding()),
         ],
       ),
     );

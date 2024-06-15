@@ -1,16 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
+import 'package:sempl/src/core/widget/checkbox_row.dart';
 import 'package:sempl/src/core/widget/dropdown_custom_widget_new.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/questions_padding.dart';
-import 'package:sempl/src/core/widget/checkbox_row.dart';
 
 class ThirthStepWidget extends StatefulWidget {
-  const ThirthStepWidget({super.key, required this.onNextPage});
+  const ThirthStepWidget({required this.onNextPage, super.key});
   final VoidCallback onNextPage;
 
   @override
@@ -55,8 +55,8 @@ class _ThirthStepWidgetState extends State<ThirthStepWidget> {
                       {
                         context
                             .read<SurveyBloc>()
-                            .add(SurveyEvent.setPeopleLivingWith(value))
-                      }
+                            .add(SurveyEvent.setPeopleLivingWith(value)),
+                      },
                   },
                   listItems: const ['1', '2', 'Другое'],
                   hint: 'Выберите количество',
@@ -77,7 +77,7 @@ class _ThirthStepWidgetState extends State<ThirthStepWidget> {
                     if (_formKey.currentState!.validate()) {
                       widget.onNextPage();
                     }
-                  }),
+                  },),
               const BottomPadding(),
             ],
           ),
@@ -103,7 +103,7 @@ class PercentQuestion extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: height * 0.05),
           child: const AutoSizeText(
-              'Какой процент общего семейного дохода вы тратите на покупку косметики и товаров для дома (средства для уборки)?'),
+              'Какой процент общего семейного дохода вы тратите на покупку косметики и товаров для дома (средства для уборки)?',),
         ),
         SizedBox(height: height * 0.012),
         DropdownCustomWidgetNew(
@@ -112,8 +112,8 @@ class PercentQuestion extends StatelessWidget {
               {
                 context
                     .read<SurveyBloc>()
-                    .add(SurveyEvent.setPercentageSpentOnCosmetics(value))
-              }
+                    .add(SurveyEvent.setPercentageSpentOnCosmetics(value)),
+              },
           },
           listItems: const ['5%', '10%', 'Другое'],
           hint: 'Выберите количество',
@@ -139,7 +139,7 @@ class FamilyIncomeQuestionWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: height * 0.05),
           child: const AutoSizeText(
-              'Каков средний ежемесячный доход вашей семьи?'),
+              'Каков средний ежемесячный доход вашей семьи?',),
         ),
         SizedBox(height: height * 0.012),
         DropdownCustomWidgetNew(
@@ -148,8 +148,8 @@ class FamilyIncomeQuestionWidget extends StatelessWidget {
               {
                 context
                     .read<SurveyBloc>()
-                    .add(SurveyEvent.setAverageMonthlyIncome(value))
-              }
+                    .add(SurveyEvent.setAverageMonthlyIncome(value)),
+              },
           },
           listItems: const ['10 000', '20 000', 'Другое'],
           hint: 'Выберите количество',
@@ -199,9 +199,7 @@ class ChildrenQuestionUntilEighteen extends StatelessWidget {
 
 class QuestionWidget extends StatelessWidget {
   const QuestionWidget({
-    super.key,
-    required this.title,
-    required this.child,
+    required this.title, required this.child, super.key,
   });
   final String title;
   final Widget child;
@@ -235,7 +233,7 @@ class PetsWidget extends StatelessWidget {
       'Собака',
       'Грызуны',
       'Рыбки',
-      'Попугаи'
+      'Попугаи',
     ];
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -248,8 +246,7 @@ class PetsWidget extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: pets.length,
-          itemBuilder: (context, index) {
-            return CheckboxRowWidget(
+          itemBuilder: (context, index) => CheckboxRowWidget(
               title: pets[index],
               value: false,
               onChange: (value) => (value) => value == true
@@ -257,9 +254,8 @@ class PetsWidget extends StatelessWidget {
                         SurveyEvent.setPets(pets[index]),
                       )
                   : null,
-            );
-          },
-        )
+            ),
+        ),
       ],
     );
   }

@@ -1,13 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:sempl/src/core/widget/page_indicator_row_widget.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/page_indicator_row_widget.dart';
 import 'package:sempl/src/feature/feedback/ui/widgets/card_item_in_feedback_widget.dart';
 
 class CartItemWithStepIndicatorWidget extends StatelessWidget {
   const CartItemWithStepIndicatorWidget({
-    super.key,
-    required int currentPageIndex,
+    required int currentPageIndex, super.key,
   }) : _currentPageIndex = currentPageIndex;
 
   final int _currentPageIndex;
@@ -17,7 +16,6 @@ class CartItemWithStepIndicatorWidget extends StatelessWidget {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const CardItemInFeedbackWidget(),
@@ -31,7 +29,7 @@ class CartItemWithStepIndicatorWidget extends StatelessWidget {
         ),
         SizedBox(height: width * 0.12),
         AutoSizeText('ШАГ ${_currentPageIndex + 1}',
-            style: Theme.of(context).textTheme.appTitleMedium),
+            style: Theme.of(context).textTheme.appTitleMedium,),
         SizedBox(height: width * 0.041),
         PageIndicatorRowWidget(
           currentPageIndex: _currentPageIndex,

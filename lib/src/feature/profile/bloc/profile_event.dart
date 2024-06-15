@@ -27,5 +27,5 @@ class ProfileEvent with _$ProfileEvent {
       required String birthdate,
       required String login,
       required String email,
-      required String address }) = _Save;
+      required String address, }) = _Save;
 }

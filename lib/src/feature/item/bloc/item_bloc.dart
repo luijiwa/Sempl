@@ -54,15 +54,15 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
   }
 
   FutureOr<void> _onChangeIsFavorite(
-      _ChangeIsFavorite event, Emitter<ItemState> emit) {
+      _ChangeIsFavorite event, Emitter<ItemState> emit,) {
     final item = state.item.copyWith(
         data:
-            state.item.data.copyWith(isFavorite: !state.item.data.isFavorite));
+            state.item.data.copyWith(isFavorite: !state.item.data.isFavorite),);
     emit(state.copyWith(item: item));
   }
 
   Future<void> _onAddLikeToComment(
-      _AddLikeToComment event, Emitter<ItemState> emit) async {
+      _AddLikeToComment event, Emitter<ItemState> emit,) async {
     try {
       final itemRating = state.itemRating.copyWith(
           data: state.itemRating.data
@@ -76,8 +76,8 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
                       userHasLiked: !e.userHasLiked,
                       userHasDisliked: false,
                     )
-                  : e)
-              .toList());
+                  : e,)
+              .toList(),);
       emit(state.copyWith(itemRating: itemRating));
       await _itemRepository.addLikeToComment(event.commentId);
     } catch (e) {
@@ -86,7 +86,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
   }
 
   Future<void> _onAddDislikeToComment(
-      _AddDislikeToComment event, Emitter<ItemState> emit) async {
+      _AddDislikeToComment event, Emitter<ItemState> emit,) async {
     try {
       final itemRating = state.itemRating.copyWith(
           data: state.itemRating.data
@@ -100,8 +100,8 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
                           e.userHasLiked ? e.likesCount - 1 : e.likesCount,
                       userHasLiked: false,
                     )
-                  : e)
-              .toList());
+                  : e,)
+              .toList(),);
       emit(state.copyWith(itemRating: itemRating));
       await _itemRepository.addDislikeToComment(event.commentId);
     } catch (e) {

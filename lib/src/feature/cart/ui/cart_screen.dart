@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sempl/src/core/constant/generated/assets.gen.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
 
-import 'widgets/product_card.dart';
+import 'package:sempl/src/feature/cart/ui/widgets/product_card.dart';
 
 /// {@template cart_screen.class}
 /// CartScreen.
@@ -43,12 +42,12 @@ class _CartScreenState extends State<CartScreen> {
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
+                          topRight: Radius.circular(50),),),
                   sliver: SliverPadding(
                     padding: const EdgeInsets.symmetric(horizontal: 23.0)
                         .copyWith(
                             top: 50,
-                            bottom: MediaQuery.paddingOf(context).bottom + 60),
+                            bottom: MediaQuery.paddingOf(context).bottom + 60,),
                     sliver: SliverList.separated(
                       separatorBuilder: (context, index) => const Divider(
                         color: Colors.transparent,

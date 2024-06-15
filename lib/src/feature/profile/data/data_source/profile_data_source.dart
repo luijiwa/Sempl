@@ -5,7 +5,7 @@ abstract interface class ProfileDataSource {
 
   Future<Map<String, Object?>?> loadUserSamples();
   Future<Map<String, Object?>?> sendProfileDataChange(
-      Map<String, dynamic> body);
+      Map<String, dynamic> body,);
 }
 
 final class ProfileDataSourceNetwork implements ProfileDataSource {
@@ -40,7 +40,7 @@ final class ProfileDataSourceNetwork implements ProfileDataSource {
 
   @override
   Future<Map<String, Object?>?> sendProfileDataChange(
-      Map<String, dynamic> body) async {
+      Map<String, dynamic> body,) async {
     try {
       final response = await _client.put('/api/users/22/update', body: body);
     } catch (e) {

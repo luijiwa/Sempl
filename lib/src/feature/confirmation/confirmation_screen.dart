@@ -27,7 +27,7 @@ class ConfirmationAuthScreen extends StatelessWidget {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage(
-                          "assets/images/confirmation_header_background.png"),
+                          "assets/images/confirmation_header_background.png",),
                     ),
                   ),
                 ),
@@ -37,7 +37,7 @@ class ConfirmationAuthScreen extends StatelessWidget {
                       style: Theme.of(context)
                           .appBarTheme
                           .titleTextStyle!
-                          .copyWith(color: Colors.white)),
+                          .copyWith(color: Colors.white),),
                 ),
               ],
             ),
@@ -50,7 +50,7 @@ class ConfirmationAuthScreen extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
-                        "assets/images/confirmation_body_background.png"),
+                        "assets/images/confirmation_body_background.png",),
                   ),
                   color: Color(0xFF99BFD4),
                   borderRadius: BorderRadius.only(
@@ -98,25 +98,25 @@ class ConfirmationAuthScreen extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Color(0xFF86A6B8),
-                                  )),
+                                  ),),
                               Icon(
                                 size: 15,
                                 Icons.arrow_forward,
                                 color: Color(0xFF86A6B8),
-                              )
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
                     SizedBox(height: 0.06 * maxHeight),
-                  ]),
+                  ],),
                 ),
               ),
-            )
+            ),
           ],
         );
-      }),
+      },),
     );
   }
 }

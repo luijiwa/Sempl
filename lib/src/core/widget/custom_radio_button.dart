@@ -21,8 +21,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
   bool _value = true;
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
+  Widget build(BuildContext context) => GestureDetector(
       onTap: () {
         setState(() {
           _value = !_value;
@@ -35,7 +34,6 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
           shape: BoxShape.circle,
           border: Border.all(
             color: _value ? widget.activeColor : widget.inactiveColor,
-            width: 1.0,
           ),
         ),
         child: AnimatedSwitcher(
@@ -58,5 +56,4 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
         ),
       ),
     );
-  }
 }

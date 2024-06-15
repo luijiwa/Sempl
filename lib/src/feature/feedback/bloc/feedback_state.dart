@@ -12,12 +12,10 @@ class FeedbackState extends Equatable {
   FeedbackState copyWith({
     bool? minusIsEnabeled,
     bool? plusIsEnabeled,
-  }) {
-    return FeedbackState(
+  }) => FeedbackState(
       minusIsEnabeled: minusIsEnabeled ?? this.minusIsEnabeled,
       plusIsEnabeled: plusIsEnabeled ?? this.plusIsEnabeled,
     );
-  }
 
   @override
   List<Object> get props => [minusIsEnabeled, plusIsEnabeled];

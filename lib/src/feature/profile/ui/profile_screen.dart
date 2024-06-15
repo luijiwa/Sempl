@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/core/utils/preferences_dao.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
@@ -14,6 +12,7 @@ import 'package:sempl/src/feature/profile/ui/widgets/exit_and_delete_account_col
 import 'package:sempl/src/feature/profile/ui/widgets/profile_avatar_row_widget.dart';
 import 'package:sempl/src/feature/profile/ui/widgets/recomendation_banner_widget.dart';
 import 'package:sempl/src/feature/profile/ui/widgets/secret_product_list_waiting_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -100,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.all(8.0),
                       sliver: SliverToBoxAdapter(
                           child: SizedBox(
-                              height: MediaQuery.of(context).padding.bottom)),
+                              height: MediaQuery.of(context).padding.bottom,),),
                     ),
                   ],
                 );

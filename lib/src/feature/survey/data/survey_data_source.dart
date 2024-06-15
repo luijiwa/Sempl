@@ -13,7 +13,7 @@ final class SurveyDataSourceNetwork<T> implements SurveyDataSource {
   Future<Token> sendResultSurvey(Map<String, dynamic> survey) async {
     try {
       final response = await _client.post('/api/auth/verify-code-and-register',
-          body: survey);
+          body: survey,);
       if (response is Map<String, dynamic> &&
           response.containsKey('access_token')) {
         return Token(response['access_token'] as String);

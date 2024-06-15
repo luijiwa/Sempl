@@ -34,7 +34,5 @@ final class Localization {
   /// Computes the default locale.
   ///
   /// This is the locale that is used when no locale is specified.
-  static Locale computeDefaultLocale() {
-    return const Locale('ru');
-  }
+  static Locale computeDefaultLocale() => const Locale('ru');
 }

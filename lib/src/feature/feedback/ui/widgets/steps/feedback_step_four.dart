@@ -25,7 +25,7 @@ class FeedbackStepFour extends StatelessWidget {
               color: Colors.white,
               borderRadius: const BorderRadius.all(Radius.circular(30.0)),
               border: Border.all(
-                  width: 1, color: AppThemeColor.gris.withOpacity(0.1)),
+                  color: AppThemeColor.gris.withOpacity(0.1),),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +42,7 @@ class FeedbackStepFour extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.symmetric(
                           horizontal: width * 0.02045,
-                          vertical: width * 0.01018),
+                          vertical: width * 0.01018,),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
                         color: AppThemeColor.blueColor,
@@ -55,14 +55,13 @@ class FeedbackStepFour extends StatelessWidget {
                             .copyWith(
                                 color: Colors.white,
                                 fontSize: 10,
-                                fontFamily: 'Cabin'),
+                                fontFamily: 'Cabin',),
                       ),
                     ),
                   ],
                 ),
                 SizedBox(height: width * 0.052),
                 Wrap(
-                  alignment: WrapAlignment.start,
                   spacing: 10.0,
                   runSpacing: 10.0,
                   children: [
@@ -71,7 +70,7 @@ class FeedbackStepFour extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(7.0),
                         child: SvgPicture.asset(
-                            'assets/icons/pick_photo_or_video.svg'),
+                            'assets/icons/pick_photo_or_video.svg',),
                       ),
                     ),
                     const PhotoPreviewWidget(),
@@ -146,7 +145,7 @@ class VideoPreviewWidget extends StatelessWidget {
             color: Colors.white,
             size: 30,
           ),
-        )
+        ),
       ],
     );
   }

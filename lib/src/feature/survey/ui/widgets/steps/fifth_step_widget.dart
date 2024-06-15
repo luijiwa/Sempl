@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,8 +10,6 @@ import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
 import 'package:sempl/src/core/widget/out_button.dart';
-import 'dart:io';
-
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/confirmation_survey_screen.dart';
 
@@ -17,7 +17,7 @@ import 'package:sempl/src/feature/survey/ui/confirmation_survey_screen.dart';
 class FifthStepWidget extends StatefulWidget {
   final VoidCallback onNextPage;
 
-  const FifthStepWidget({super.key, required this.onNextPage});
+  const FifthStepWidget({required this.onNextPage, super.key});
 
   @override
   State<FifthStepWidget> createState() => _FifthStepWidgetState();
@@ -26,7 +26,7 @@ class FifthStepWidget extends StatefulWidget {
 class _FifthStepWidgetState extends State<FifthStepWidget> {
   File? image;
 
-  void _pickImage() async {
+  Future<void> _pickImage() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
@@ -38,18 +38,16 @@ class _FifthStepWidgetState extends State<FifthStepWidget> {
         barrierLabel: '',
         transitionDuration: const Duration(milliseconds: 150),
         transitionBuilder:
-            (context, animation, secondaryAnimation, Widget? child) {
-          return SlideTransition(
+            (context, animation, secondaryAnimation, Widget? child) => SlideTransition(
             position: Tween<Offset>(
               begin: const Offset(0, 1),
               end: Offset.zero,
             ).animate(animation),
             child: child,
-          );
-        },
+          ),
         context: context,
         pageBuilder: (_, animation, secondaryAnimation) {
-          final myBloc = BlocProvider.of<SurveyBloc>(context, listen: false);
+          final myBloc = BlocProvider.of<SurveyBloc>(context);
 
           return BlocProvider.value(
             value: myBloc,
@@ -65,17 +63,15 @@ class _FifthStepWidgetState extends State<FifthStepWidget> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
+  Widget build(BuildContext context) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: PickerPhotoWidget(onPickImage: _pickImage),
     );
-  }
 }
 
 // PickerPhotoWidget
 class PickerPhotoWidget extends StatelessWidget {
-  const PickerPhotoWidget({super.key, required this.onPickImage});
+  const PickerPhotoWidget({required this.onPickImage, super.key});
 
   final VoidCallback onPickImage;
 
@@ -114,15 +110,13 @@ class PickerPhotoWidget extends StatelessWidget {
               ],
             ),
           ),
-        )),
+        ),),
         const Spacer(),
         BlocConsumer<SurveyBloc, SurveyState>(
           listenWhen: (previous, current) => previous.status != current.status,
           listener: (context, state) {
             if (state.status.isSuccess) {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const ConfirmationSurveyScreen();
-              }));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const ConfirmationSurveyScreen(),),);
             } else if (state.status.isFailure) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
@@ -131,15 +125,13 @@ class PickerPhotoWidget extends StatelessWidget {
               );
             }
           },
-          builder: (context, state) {
-            return NextStepButton(
+          builder: (context, state) => NextStepButton(
                 title: 'ПРОДОЛЖИТЬ',
                 onPressed: () {
                   context
                       .read<SurveyBloc>()
                       .add(const SurveyEvent.sendResultSurvey());
-                });
-          },
+                },),
         ),
         const BottomPadding(),
       ],
@@ -149,7 +141,7 @@ class PickerPhotoWidget extends StatelessWidget {
 
 // SetPhotoWidget
 class SetPhotoWidget extends StatelessWidget {
-  const SetPhotoWidget({super.key, required this.image});
+  const SetPhotoWidget({required this.image, super.key});
 
   final File image;
 
@@ -173,7 +165,6 @@ class SetPhotoWidget extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
@@ -245,13 +236,10 @@ class SetPhotoWidget extends StatelessWidget {
                   listener: (context, state) {
                     state.status.isSuccess
                         ? Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                            return const ConfirmationSurveyScreen();
-                          }))
+                            MaterialPageRoute(builder: (context) => const ConfirmationSurveyScreen(),),)
                         : null;
                   },
-                  builder: (context, state) {
-                    return ElevatedButton(
+                  builder: (context, state) => ElevatedButton(
                       onPressed: () {
                         state.status.isInLoading
                             ? null
@@ -273,8 +261,7 @@ class SetPhotoWidget extends StatelessWidget {
                           color: AppThemeColor.grey,
                         ),
                       ),
-                    );
-                  },
+                    ),
                 ),
               ),
               const BottomPadding(),

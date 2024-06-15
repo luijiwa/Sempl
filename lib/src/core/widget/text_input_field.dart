@@ -5,8 +5,7 @@ import 'package:flutter/services.dart';
 
 class TextInputField extends StatelessWidget {
   const TextInputField({
-    super.key,
-    required this.hintText,
+    required this.hintText, super.key,
     this.inputFormatter,
   });
 
@@ -24,7 +23,7 @@ class TextInputField extends StatelessWidget {
       inputFormatters: inputFormatter != null ? [inputFormatter!] : null,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
-            vertical: width * 0.02803813559, horizontal: width * 0.0496059322),
+            vertical: width * 0.02803813559, horizontal: width * 0.0496059322,),
         hintText: hintText,
       ),
     );

@@ -7,8 +7,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class RequiredInputField extends StatefulWidget {
   const RequiredInputField({
-    super.key,
-    required this.hintText,
+    required this.hintText, super.key,
     this.validator,
     this.isError = false,
     this.inputFormatters,
@@ -63,7 +62,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
     final border = Theme.of(context).inputDecorationTheme.defaultInput.border;
     return Stack(
       children: [
-        Container(
+        DecoratedBox(
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -75,7 +74,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                       vertical: width * 0.02803813559,
-                      horizontal: width * 0.0496059322),
+                      horizontal: width * 0.0496059322,),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: AutoSizeText.rich(
@@ -88,7 +87,7 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                               color: Colors.red,
                               fontSize: 14,
                             ),
-                          )
+                          ),
                         ],
                       ),
                       style: const TextStyle(
@@ -112,11 +111,11 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
                       ? const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(40)),
                           borderSide:
-                              BorderSide(width: 0.5, color: AppThemeColor.rose))
+                              BorderSide(width: 0.5, color: AppThemeColor.rose),)
                       : null,
                   contentPadding: EdgeInsets.symmetric(
                       vertical: width * 0.02803813559,
-                      horizontal: width * 0.0496059322),
+                      horizontal: width * 0.0496059322,),
                 ),
               ),
             ],

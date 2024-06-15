@@ -1,12 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/blue_item_with_cross.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/categories_button_widget.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
-
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/finished_sempls/ui/widgets/item_in_list_with_review_widget.dart';
 
 class FinishedSemplsScreen extends StatelessWidget {
@@ -37,7 +36,7 @@ class FinishedSemplsScreen extends StatelessWidget {
                 ),
                 SliverPadding(
                   padding: EdgeInsets.only(
-                      top: width * 0.063625, bottom: width * 0.02036),
+                      top: width * 0.063625, bottom: width * 0.02036,),
                   sliver: const CategoriesButtonWidget(),
                 ),
                 const SliverToBoxAdapter(
@@ -55,14 +54,14 @@ class FinishedSemplsScreen extends StatelessWidget {
                 ),
                 SliverPadding(
                   padding: EdgeInsets.only(
-                      top: width * 0.08653, bottom: width * 0.03563),
+                      top: width * 0.08653, bottom: width * 0.03563,),
                   sliver: SliverToBoxAdapter(
                       child: Row(
                     children: [
                       const AutoSizeText(
                         '87 СЕМПЛОВ',
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 15),
+                            fontWeight: FontWeight.w600, fontSize: 15,),
                       ),
                       const Spacer(),
                       Wrap(
@@ -70,7 +69,7 @@ class FinishedSemplsScreen extends StatelessWidget {
                           const AutoSizeText('новые'),
                           SvgPicture.asset(
                             colorFilter: const ColorFilter.mode(
-                                AppThemeColor.blueColor, BlendMode.srcIn),
+                                AppThemeColor.blueColor, BlendMode.srcIn,),
                             'assets/icons/step_into.svg',
                           ),
                         ],
@@ -81,27 +80,25 @@ class FinishedSemplsScreen extends StatelessWidget {
                           const AutoSizeText('оценка'),
                           SvgPicture.asset(
                             colorFilter: const ColorFilter.mode(
-                                AppThemeColor.blueColor, BlendMode.srcIn),
+                                AppThemeColor.blueColor, BlendMode.srcIn,),
                             'assets/icons/step_into_up.svg',
                           ),
                         ],
-                      )
+                      ),
                     ],
-                  )),
+                  ),),
                 ),
                 SliverList.separated(
                     itemCount: 4,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const ItemInListWithReviewWidget();
-                    },
+                    itemBuilder: (BuildContext context, int index) => const ItemInListWithReviewWidget(),
                     separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(height: width * 0.02)),
+                        SizedBox(height: width * 0.02),),
               ],
             ),
           ),
           const SliverToBoxAdapter(
             child: BottomPadding(),
-          )
+          ),
         ],
       ),
     );

@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
-import 'package:sempl/src/feature/item/ui/item_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CommentsRowWidget extends StatelessWidget {
@@ -37,7 +36,7 @@ class CommentsRowWidget extends StatelessWidget {
                   const AutoSizeText('новые'),
                   SvgPicture.asset(
                     colorFilter: const ColorFilter.mode(
-                        AppThemeColor.blueColor, BlendMode.srcIn),
+                        AppThemeColor.blueColor, BlendMode.srcIn,),
                     'assets/icons/step_into.svg',
                   ),
                 ],
@@ -47,16 +46,16 @@ class CommentsRowWidget extends StatelessWidget {
                 const AutoSizeText('рейтинг'),
                 SvgPicture.asset(
                   colorFilter: const ColorFilter.mode(
-                      AppThemeColor.blueColor, BlendMode.srcIn),
+                      AppThemeColor.blueColor, BlendMode.srcIn,),
                   'assets/icons/step_into_up.svg',
-                )
-              ]),
-            ]);
+                ),
+              ],),
+            ],);
           default:
             return _ShimmerItemComments(width: width);
         }
       },
-    ));
+    ),);
   }
 }
 
@@ -68,8 +67,7 @@ class _ShimmerItemComments extends StatelessWidget {
   final double width;
 
   @override
-  Widget build(BuildContext context) {
-    return Shimmer.fromColors(
+  Widget build(BuildContext context) => Shimmer.fromColors(
       baseColor: Colors.grey.shade300,
       highlightColor: Colors.grey.shade100,
       child: Row(children: [
@@ -77,7 +75,7 @@ class _ShimmerItemComments extends StatelessWidget {
           height: width * 0.04,
           width: width * 0.43,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8), color: Colors.white),
+              borderRadius: BorderRadius.circular(8), color: Colors.white,),
         ),
         const Spacer(),
         Container(
@@ -85,9 +83,8 @@ class _ShimmerItemComments extends StatelessWidget {
           height: width * 0.04,
           width: width * 0.22,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8), color: Colors.white),
+              borderRadius: BorderRadius.circular(8), color: Colors.white,),
         ),
-      ]),
+      ],),
     );
-  }
 }

@@ -31,8 +31,7 @@ class CompleteExampleListWidget extends StatelessWidget {
         ),
         SliverList.separated(
           itemCount: 2,
-          itemBuilder: (context, index) {
-            return Material(
+          itemBuilder: (context, index) => Material(
               shadowColor: AppThemeColor.black.withOpacity(0.02),
               elevation: 10,
               borderRadius: BorderRadius.circular(20),
@@ -79,11 +78,10 @@ class CompleteExampleListWidget extends StatelessWidget {
                   ),
                 ),
               ),
-            );
-          },
+            ),
           separatorBuilder: (_, __) => const SizedBox(height: 4),
         ),
-      ]),
+      ],),
     );
   }
 }

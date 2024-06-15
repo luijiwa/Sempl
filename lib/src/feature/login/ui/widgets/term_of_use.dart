@@ -6,7 +6,7 @@ import 'package:sempl/src/core/utils/logger.dart';
 
 class TermOfUse extends StatelessWidget {
   const TermOfUse(
-      {super.key, required this.onChanged, required this.isChecked});
+      {required this.onChanged, required this.isChecked, super.key,});
   final void Function(bool?) onChanged;
   final bool isChecked;
   @override
@@ -23,8 +23,6 @@ class TermOfUse extends StatelessWidget {
     );
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
         Checkbox(

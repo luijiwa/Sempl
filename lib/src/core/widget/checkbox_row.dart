@@ -4,9 +4,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class CheckboxRowWidget extends StatefulWidget {
   const CheckboxRowWidget({
-    super.key,
-    required this.title,
-    required this.value,
+    required this.title, required this.value, super.key,
     this.maxLines = 1,
     this.onChange,
   });
@@ -28,8 +26,7 @@ class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
+  Widget build(BuildContext context) => GestureDetector(
       onTap: () {
         widget.onChange?.call(_value);
         setState(() {
@@ -51,7 +48,7 @@ class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
             activeColor: const Color(0xFF99BFD4),
             side: WidgetStateBorderSide.resolveWith(
               (states) => BorderSide(
-                  color: _value ? AppThemeColor.blueColor : AppThemeColor.gris),
+                  color: _value ? AppThemeColor.blueColor : AppThemeColor.gris,),
             ),
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             visualDensity: VisualDensity.compact,
@@ -61,12 +58,11 @@ class _CheckboxRowWidgetState extends State<CheckboxRowWidget> {
               widget.title,
               style: TextStyle(
                   color: _value ? AppThemeColor.black : AppThemeColor.gris,
-                  fontSize: 15),
+                  fontSize: 15,),
               maxLines: widget.maxLines,
             ),
           ),
         ],
       ),
     );
-  }
 }

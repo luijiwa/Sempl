@@ -49,7 +49,7 @@ class ProductCard extends StatelessWidget {
                         Text('Удалить'),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

@@ -4,9 +4,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class OutButton extends StatelessWidget {
   const OutButton({
-    super.key,
-    required this.title,
-    required this.onPressed,
+    required this.title, required this.onPressed, super.key,
   });
   final String title;
   final VoidCallback onPressed;
@@ -21,7 +19,6 @@ class OutButton extends StatelessWidget {
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
           side: const BorderSide(
-            width: 1,
             color: AppThemeColor.blueColor,
           ),
         ),

@@ -41,7 +41,7 @@ final class RestClientDio extends RestClientBase {
       //   response.data,
       //   statusCode: response.statusCode,
       // );
-      return response.data as Map<String, Object?>;
+      return response.data! as Map<String, Object?>;
       // return resp;
     } on RestClientException {
       rethrow;

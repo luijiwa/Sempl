@@ -26,7 +26,6 @@ class FeedbackStepFive extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * 0.13),
@@ -63,8 +62,6 @@ class StarRatingPickWidget extends StatelessWidget {
       glow: false,
       initialRating: 3,
       minRating: 1,
-      direction: Axis.horizontal,
-      itemCount: 5,
       itemPadding: const EdgeInsets.symmetric(horizontal: 3.0),
       updateOnDrag: true,
       ratingWidget: RatingWidget(

@@ -2,16 +2,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/bottom_padding.dart';
 
 class ConfirmationSurveyScreen extends StatelessWidget {
   const ConfirmationSurveyScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       body: LayoutBuilder(builder: (context, constraints) {
         final maxHeight = constraints.maxHeight.toDouble();
         final maxWidth = constraints.maxWidth.toDouble();
@@ -27,7 +26,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage(
-                          "assets/images/survey_confirm_header_background.png"),
+                          "assets/images/survey_confirm_header_background.png",),
                     ),
                   ),
                 ),
@@ -37,7 +36,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                       style: Theme.of(context)
                           .appBarTheme
                           .titleTextStyle!
-                          .copyWith(color: Colors.white)),
+                          .copyWith(color: Colors.white),),
                 ),
               ],
             ),
@@ -50,7 +49,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
-                        "assets/images/survey_suggestion_background.png"),
+                        "assets/images/survey_suggestion_background.png",),
                   ),
                   color: Color(0xFF99BFD4),
                   borderRadius: BorderRadius.only(
@@ -74,7 +73,7 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                                   .appTitleMedium
                                   .copyWith(
                                     color: Colors.white,
-                                  )),
+                                  ),),
                           SizedBox(height: maxWidth * 0.0509),
                           const AutoSizeText(
                             'Регистрация завершена, теперь можно начинать пробовать продукцию',
@@ -111,10 +110,10 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: maxWidth > 320 ? 15 : 12,
                                     color: const Color(0xFF86A6B8),
-                                  )),
+                                  ),),
                               SvgPicture.asset(
                                 colorFilter: const ColorFilter.mode(
-                                    AppThemeColor.blueColor, BlendMode.srcIn),
+                                    AppThemeColor.blueColor, BlendMode.srcIn,),
                                 'assets/icons/arrow_right.svg',
                               ),
                             ],
@@ -123,13 +122,12 @@ class ConfirmationSurveyScreen extends StatelessWidget {
                       ),
                     ),
                     const BottomPadding(),
-                  ]),
+                  ],),
                 ),
               ),
-            )
+            ),
           ],
         );
-      }),
+      },),
     );
-  }
 }

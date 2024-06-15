@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:sempl/src/core/widget/required_input_field.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/required_input_field.dart';
 
 class AddressDataFieldsWidget extends StatelessWidget {
   const AddressDataFieldsWidget({
@@ -39,9 +39,9 @@ class AddressDataFieldsWidget extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final edgeInsets = EdgeInsets.symmetric(
-        vertical: width * 0.02803813559, horizontal: width * 0.0496059322);
-    var zipCodeFormatter = MaskTextInputFormatter(
-        mask: '### ###', filter: {"#": RegExp(r'[0-9]')});
+        vertical: width * 0.02803813559, horizontal: width * 0.0496059322,);
+    final zipCodeFormatter = MaskTextInputFormatter(
+        mask: '### ###', filter: {"#": RegExp('[0-9]')},);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,8 +62,8 @@ class AddressDataFieldsWidget extends StatelessWidget {
               // Запрещает вводить любые символы, кроме букв, пробелов и дефиса
               // (в том числе и в unicode-символах)
               // (например, кириллица, тире, пробелы и т.д.)
-              FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Zа-яА-Я., -]+')),
-            ]),
+              FilteringTextInputFormatter.allow(RegExp('[a-zA-Zа-яА-Я., -]+')),
+            ],),
         const SizedBox(height: 4),
         RequiredInputField(
             hintText: 'Улица',
@@ -71,8 +71,8 @@ class AddressDataFieldsWidget extends StatelessWidget {
             initialValue: initialStreet,
             controller: streetController,
             inputFormatters: [
-              FilteringTextInputFormatter.allow(RegExp(r'[а-яА-Я0-9/ -]+')),
-            ]),
+              FilteringTextInputFormatter.allow(RegExp('[а-яА-Я0-9/ -]+')),
+            ],),
         const SizedBox(height: 4),
         Row(
           mainAxisSize: MainAxisSize.min,
@@ -85,7 +85,7 @@ class AddressDataFieldsWidget extends StatelessWidget {
                 controller: houseController,
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(
-                      RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
+                      RegExp('[a-zA-Zа-яА-Я0-9/. :, -]+'),),
                 ],
               ),
             ),
@@ -98,8 +98,8 @@ class AddressDataFieldsWidget extends StatelessWidget {
                   initialValue: initialApartment,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(
-                        RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
-                  ]),
+                        RegExp('[a-zA-Zа-яА-Я0-9/. :, -]+'),),
+                  ],),
             ),
           ],
         ),
@@ -112,7 +112,7 @@ class AddressDataFieldsWidget extends StatelessWidget {
                 keyboardType: TextInputType.streetAddress,
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(
-                      RegExp(r'[a-zA-Zа-яА-Я0-9/. :, -]+')),
+                      RegExp('[a-zA-Zа-яА-Я0-9/. :, -]+'),),
                 ],
                 initialValue: initialEntrance,
                 controller: entranceController,

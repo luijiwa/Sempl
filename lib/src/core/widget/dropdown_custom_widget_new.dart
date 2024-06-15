@@ -1,14 +1,11 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/material.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/logger.dart';
 
 class DropdownCustomWidgetNew extends StatefulWidget {
   const DropdownCustomWidgetNew({
-    super.key,
-    required this.listItems,
-    required this.hint,
+    required this.listItems, required this.hint, super.key,
     this.onChanged,
     this.initialValue,
     this.selectedValueNotifier,
@@ -47,7 +44,6 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
     icon: Icon(
       Icons.expand_more_rounded,
     ),
-    iconSize: 24,
     iconEnabledColor: AppThemeColor.blueColor,
     iconDisabledColor: Colors.grey,
   );
@@ -134,8 +130,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
+  Widget build(BuildContext context) => LayoutBuilder(builder: (context, constraints) {
       final height = MediaQuery.of(context).size.height;
       final width = MediaQuery.of(context).size.width;
       final MenuItemStyleData dropdownMenuItemStyleData = MenuItemStyleData(
@@ -162,7 +157,7 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
             fillColor: Colors.white,
             errorStyle: const TextStyle(fontSize: 0),
             contentPadding: EdgeInsets.symmetric(
-                vertical: width * 0.02803813559, horizontal: width * 0.02),
+                vertical: width * 0.02803813559, horizontal: width * 0.02,),
           ),
           isExpanded: true,
           hint: Row(
@@ -189,6 +184,5 @@ class _DropdownCustomWidgetNewState extends State<DropdownCustomWidgetNew> {
           menuItemStyleData: dropdownMenuItemStyleData,
         ),
       );
-    });
-  }
+    },);
 }

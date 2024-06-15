@@ -30,7 +30,6 @@ class DeliveryModalWidget extends StatelessWidget {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Адрес доставки'.toUpperCase(),
@@ -56,7 +55,6 @@ class DeliveryModalWidget extends StatelessWidget {
                   },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(
-                      width: 1,
                       color: AppThemeColor.blueColor,
                     ),
                   ),
@@ -103,6 +101,6 @@ class DeliveryModalWidget extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        ),);
   }
 }

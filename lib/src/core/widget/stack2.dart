@@ -9,14 +9,12 @@ class Stack2 extends Stack {
   });
 
   @override
-  RenderStack createRenderObject(BuildContext context) {
-    return RenderStack2(
+  RenderStack createRenderObject(BuildContext context) => RenderStack2(
       alignment: alignment,
       textDirection: textDirection ?? Directionality.of(context),
       fit: fit,
       clipBehavior: clipBehavior,
     );
-  }
 }
 
 class RenderStack2 extends RenderStack {

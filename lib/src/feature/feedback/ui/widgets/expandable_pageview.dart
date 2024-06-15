@@ -43,8 +43,7 @@ class _ExpandablePageViewState extends State<ExpandablePageView> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
+  Widget build(BuildContext context) => TweenAnimationBuilder<double>(
       curve: Curves.easeInOutCubic,
       tween: Tween<double>(begin: _heights.first, end: _currentHeight),
       duration: const Duration(milliseconds: 100),
@@ -57,7 +56,6 @@ class _ExpandablePageViewState extends State<ExpandablePageView> {
         reverse: widget.reverse,
       ),
     );
-  }
 
   Widget _itemBuilder(BuildContext context, int index) {
     final item = widget.itemBuilder(context, index);

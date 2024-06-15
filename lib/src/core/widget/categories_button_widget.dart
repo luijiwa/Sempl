@@ -38,7 +38,7 @@ class CategoriesButtonWidget extends StatelessWidget {
             SvgPicture.asset(
               'assets/icons/subject_icon.svg',
               colorFilter: const ColorFilter.mode(
-                  AppThemeColor.blueColor, BlendMode.srcIn),
+                  AppThemeColor.blueColor, BlendMode.srcIn,),
             ),
             const SizedBox(width: 5),
             AutoSizeText(
@@ -58,6 +58,6 @@ class CategoriesButtonWidget extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    ),);
   }
 }

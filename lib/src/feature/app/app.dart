@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sempl/src/core/router/app_router.dart';
 import 'package:sempl/src/core/theme/theme.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 /// TODO: По ширине 10px   width * 0.02545
 /// TODO: По высоте 10px  height * 0.0118
@@ -18,8 +18,7 @@ class _AppState extends State<App> {
   static final _globalKey = GlobalKey();
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
+  Widget build(BuildContext context) => MaterialApp.router(
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -38,5 +37,4 @@ class _AppState extends State<App> {
         child: child!,
       ),
     );
-  }
 }

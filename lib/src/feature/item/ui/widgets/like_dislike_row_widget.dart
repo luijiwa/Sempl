@@ -7,10 +7,7 @@ import 'package:sempl/src/feature/item/data/model/rating/rating.dart';
 
 class LikeDislikeRowWidget extends StatelessWidget {
   const LikeDislikeRowWidget({
-    super.key,
-    required this.width,
-    required this.review,
-    required this.index,
+    required this.width, required this.review, required this.index, super.key,
   });
 
   final double width;
@@ -18,11 +15,9 @@ class LikeDislikeRowWidget extends StatelessWidget {
   final int index;
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  Widget build(BuildContext context) => SizedBox(
       width: double.maxFinite,
       child: Wrap(
-        alignment: WrapAlignment.start,
         spacing: width * 0.02545,
         children: [
           InkWell(
@@ -31,7 +26,7 @@ class LikeDislikeRowWidget extends StatelessWidget {
                 .add(ItemEvent.addLikeToComment(review.id)),
             child: Container(
               padding: EdgeInsets.symmetric(
-                  horizontal: width * 0.038175, vertical: width * 0.02545),
+                  horizontal: width * 0.038175, vertical: width * 0.02545,),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 color: AppThemeColor.grey,
@@ -51,7 +46,7 @@ class LikeDislikeRowWidget extends StatelessWidget {
                             isLike
                                 ? AppThemeColor.blueColor
                                 : AppThemeColor.gris,
-                            BlendMode.srcIn),
+                            BlendMode.srcIn,),
                         'assets/icons/like.svg',
                       );
                     },
@@ -61,11 +56,9 @@ class LikeDislikeRowWidget extends StatelessWidget {
                     buildWhen: (previous, current) =>
                         previous.itemRating.data[index].likesCount !=
                         current.itemRating.data[index].likesCount,
-                    builder: (context, state) {
-                      return Text(
+                    builder: (context, state) => Text(
                         state.itemRating.data[index].likesCount.toString(),
-                      );
-                    },
+                      ),
                   ),
                 ],
               ),
@@ -77,7 +70,7 @@ class LikeDislikeRowWidget extends StatelessWidget {
                 .add(ItemEvent.addDislikeToComment(review.id)),
             child: Container(
               padding: EdgeInsets.symmetric(
-                  horizontal: width * 0.038175, vertical: width * 0.02545),
+                  horizontal: width * 0.038175, vertical: width * 0.02545,),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 color: AppThemeColor.grey,
@@ -100,7 +93,7 @@ class LikeDislikeRowWidget extends StatelessWidget {
                               isDislike
                                   ? AppThemeColor.blueColor
                                   : AppThemeColor.gris,
-                              BlendMode.srcIn),
+                              BlendMode.srcIn,),
                           'assets/icons/like.svg',
                         );
                       },
@@ -111,18 +104,15 @@ class LikeDislikeRowWidget extends StatelessWidget {
                     buildWhen: (previous, current) =>
                         previous.itemRating.data[index].dislikesCount !=
                         current.itemRating.data[index].dislikesCount,
-                    builder: (context, state) {
-                      return Text(
+                    builder: (context, state) => Text(
                         state.itemRating.data[index].dislikesCount.toString(),
-                      );
-                    },
+                      ),
                   ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
-  }
 }

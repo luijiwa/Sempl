@@ -3,25 +3,21 @@ import 'package:sempl/src/feature/item/ui/widgets/full_screen_review_widget.dart
 
 class MediaInCommentRowWidget extends StatelessWidget {
   const MediaInCommentRowWidget({
-    super.key,
-    required this.images,
-    required this.video,
+    required this.images, required this.video, super.key,
   });
 
   final List<String> images;
   final String? video;
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
+  Widget build(BuildContext context) => Row(
       children: [
         Wrap(
           spacing: 10.0,
           runSpacing: 10.0,
           children: [
             ...images.map(
-              (imageUrl) {
-                return GestureDetector(
+              (imageUrl) => GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
@@ -44,8 +40,7 @@ class MediaInCommentRowWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                );
-              },
+                ),
             ),
             if (video != null)
               GestureDetector(
@@ -86,7 +81,6 @@ class MediaInCommentRowWidget extends StatelessWidget {
         const SizedBox(height: 30),
       ],
     );
-  }
 }
   // Transform.scale(
   //                         scale: -1,

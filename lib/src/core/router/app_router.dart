@@ -31,29 +31,21 @@ class AppRouter {
       GoRoute(
         name: AppRoutes.cart.name,
         path: AppRoutes.cart.path,
-        builder: (context, state) {
-          return const CartScreen();
-        },
+        builder: (context, state) => const CartScreen(),
       ),
       GoRoute(
         name: AppRoutes.surveyOrder.name,
         path: AppRoutes.surveyOrder.path,
-        builder: (context, state) {
-          return const SurveyOrderScreen();
-        },
+        builder: (context, state) => const SurveyOrderScreen(),
         routes: <GoRoute>[
           GoRoute(
               name: AppRoutes.confirmationOrderTypeOneScreen.name,
               path: AppRoutes.confirmationOrderTypeOneScreen.path,
-              builder: (context, state) {
-                return const ConfirmationOrderTypeOneScreen();
-              }),
+              builder: (context, state) => const ConfirmationOrderTypeOneScreen(),),
           GoRoute(
               name: AppRoutes.confirmationOrderTypeTwoScreen.name,
               path: AppRoutes.confirmationOrderTypeTwoScreen.path,
-              builder: (context, state) {
-                return const ConfirmationOrderTypeTwoScreen();
-              }),
+              builder: (context, state) => const ConfirmationOrderTypeTwoScreen(),),
         ],
       ),
       GoRoute(
@@ -66,16 +58,12 @@ class AppRouter {
       GoRoute(
         name: AppRoutes.survey.name,
         path: AppRoutes.survey.path,
-        builder: (context, state) {
-          return const SurveyScreen();
-        },
+        builder: (context, state) => const SurveyScreen(),
       ),
       GoRoute(
         name: AppRoutes.onboarding.name,
         path: AppRoutes.onboarding.path,
-        builder: (context, state) {
-          return const OnboardinScreen();
-        },
+        builder: (context, state) => const OnboardinScreen(),
       ),
       GoRoute(
         name: AppRoutes.main.name,
@@ -86,32 +74,24 @@ class AppRouter {
           GoRoute(
               name: AppRoutes.profile.name,
               path: AppRoutes.profile.path,
-              builder: (context, state) {
-                return const ProfileScreen();
-              },
+              builder: (context, state) => const ProfileScreen(),
               routes: <GoRoute>[
                 GoRoute(
                     name: AppRoutes.reviewItemsScreen.name,
                     path: AppRoutes.reviewItemsScreen.path,
-                    builder: (context, state) {
-                      return const ReviewItemsScreen();
-                    },
+                    builder: (context, state) => const ReviewItemsScreen(),
                     routes: [
                       GoRoute(
                           name: AppRoutes.feedback.name,
                           path: AppRoutes.feedback.path,
-                          builder: (context, state) {
-                            return const FeedbackScreen();
-                          },
+                          builder: (context, state) => const FeedbackScreen(),
                           routes: [
                             GoRoute(
                                 name: AppRoutes.feedbackConfirmation.name,
                                 path: AppRoutes.feedbackConfirmation.path,
-                                builder: (context, state) {
-                                  return const ConfirmationFeedbackScreen();
-                                }),
-                          ]),
-                    ]),
+                                builder: (context, state) => const ConfirmationFeedbackScreen(),),
+                          ],),
+                    ],),
                 // GoRoute(
                 //     name: AppRoutes.profileEdit.name,
                 //     path: AppRoutes.profileEdit.path,
@@ -121,10 +101,8 @@ class AppRouter {
                 GoRoute(
                     name: AppRoutes.finishedSempls.name,
                     path: AppRoutes.finishedSempls.path,
-                    builder: (context, state) {
-                      return const FinishedSemplsScreen();
-                    }),
-              ]),
+                    builder: (context, state) => const FinishedSemplsScreen(),),
+              ],),
           // GoRoute(
           //   name: AppRoutes.recentProducts.name,
           //   path: AppRoutes.recentProducts.path,
@@ -156,9 +134,7 @@ class AppRouter {
       GoRoute(
         name: AppRoutes.loginConfirmation.name,
         path: AppRoutes.loginConfirmation.path,
-        builder: (context, state) {
-          return const ConfirmationAuthScreen();
-        },
+        builder: (context, state) => const ConfirmationAuthScreen(),
       ),
       GoRoute(
           name: AppRoutes.delivery.name,
@@ -189,7 +165,7 @@ class AppRouter {
             //         }),
             //   ],
             // ),
-          ]),
+          ],),
     ],
     redirect: RedirectBuilder({
       RedirectIfAuthenticatedGuard(),

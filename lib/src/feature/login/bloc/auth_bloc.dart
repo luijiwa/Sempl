@@ -36,7 +36,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
     authRepository
         .getAuthenticationStatusStream()
         .map(($status) =>
-            AuthState(status: $status, loginStatus: state.loginStatus))
+            AuthState(status: $status, loginStatus: state.loginStatus),)
         .listen(($state) {
       if ($state != state) {
         setState($state);
@@ -61,7 +61,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
         log('case 1 unauthenticated', name: '_onAuthenticationStatusChanged');
 
         return emit(
-            state.copyWith(status: AuthenticationStatus.unauthenticated));
+            state.copyWith(status: AuthenticationStatus.unauthenticated),);
 
       case AuthenticationStatus.authenticated:
         log('case 2 authenticated', name: '_onAuthenticationStatusChanged');
@@ -86,7 +86,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
       if (isRegistered == 0) {
         await _authRepository.registrationRequest(phone);
         emit(state.copyWith(
-            loginStatus: LoginStatus.unregistered, phone: phone));
+            loginStatus: LoginStatus.unregistered, phone: phone,),);
       }
       if (isRegistered == 1) {
         emit(state.copyWith(loginStatus: LoginStatus.registered, phone: phone));
@@ -128,7 +128,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with SetStateMixin {
   }
 
   Future<void> _onRetrySendCode(
-      _RetrySendCode event, Emitter<AuthState> emit) async {
+      _RetrySendCode event, Emitter<AuthState> emit,) async {
     if (state.loginStatus == LoginStatus.registered) {
       await _authRepository.signInFirstStepWithPhone(state.phone);
       if (state.loginStatus == LoginStatus.unregistered) {

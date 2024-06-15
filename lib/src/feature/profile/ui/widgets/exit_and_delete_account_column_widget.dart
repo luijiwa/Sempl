@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sempl/src/core/constant/generated/assets.gen.dart';
 import 'package:sempl/src/core/theme/theme.dart';
-import 'package:sempl/src/feature/delivery/delivery_modal_widget.dart';
 import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 
 class ExitAndDeleteAccountColumnWidget extends StatelessWidget {
@@ -10,8 +9,7 @@ class ExitAndDeleteAccountColumnWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return SliverPadding(
+  Widget build(BuildContext context) => SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22.0),
       sliver: SliverMainAxisGroup(
         slivers: [
@@ -39,7 +37,7 @@ class ExitAndDeleteAccountColumnWidget extends StatelessWidget {
                 showDialog(
                     useSafeArea: false,
                     context: context,
-                    builder: (context) => const DeleteProfileModalWidget());
+                    builder: (context) => const DeleteProfileModalWidget(),);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +52,6 @@ class ExitAndDeleteAccountColumnWidget extends StatelessWidget {
         ],
       ),
     );
-  }
 }
 
 class DeleteProfileModalWidget extends StatelessWidget {
@@ -81,7 +78,6 @@ class DeleteProfileModalWidget extends StatelessWidget {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Удалить аккаунт'.toUpperCase(),
@@ -105,7 +101,6 @@ class DeleteProfileModalWidget extends StatelessWidget {
                   onPressed: () => AuthScope.of(context).signOut(),
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(
-                      width: 1,
                       color: AppThemeColor.blueColor,
                     ),
                   ),
@@ -142,6 +137,6 @@ class DeleteProfileModalWidget extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        ),);
   }
 }

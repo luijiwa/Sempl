@@ -19,8 +19,7 @@ class _SurveyOrderScreenState extends State<SurveyOrderScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       body: PageView.builder(
         physics: const NeverScrollableScrollPhysics(),
         controller: _pageViewController,
@@ -36,7 +35,6 @@ class _SurveyOrderScreenState extends State<SurveyOrderScreen> {
         },
       ),
     );
-  }
 
   void _nextPage() {
     setState(() {

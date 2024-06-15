@@ -61,19 +61,13 @@ final class AuthRepositoryImpl<T> implements AuthRepository<T> {
           );
 
   @override
-  Future<int> signInFirstStepWithPhone(String phone) async {
-    return await _dataSource.signInFirstStepWithPhone(phone);
-  }
+  Future<int> signInFirstStepWithPhone(String phone) async => await _dataSource.signInFirstStepWithPhone(phone);
 
   @override
-  Future<void> registrationRequest(String phone) async {
-    return await _dataSource.registrationRequest(phone);
-  }
+  Future<void> registrationRequest(String phone) async => await _dataSource.registrationRequest(phone);
 
   @override
-  Future<T> submitRegistrationForm(Map<String, String> form) async {
-    return await _dataSource.submitRegistrationForm(form);
-  }
+  Future<T> submitRegistrationForm(Map<String, String> form) async => await _dataSource.submitRegistrationForm(form);
 
   @override
   Future<T> registrationWithPhoneAndCode(String phone, String code) async {

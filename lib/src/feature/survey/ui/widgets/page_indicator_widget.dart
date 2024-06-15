@@ -3,15 +3,13 @@ import 'package:sempl/src/core/widget/page_indicator_row_widget.dart';
 
 class PageIndicatorWidget extends StatelessWidget {
   const PageIndicatorWidget({
-    super.key,
-    required int currentPageIndex,
+    required int currentPageIndex, super.key,
   }) : _currentPageIndex = currentPageIndex;
 
   final int _currentPageIndex;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context) => Container(
       margin: const EdgeInsets.only(top: 20),
       child: Column(
         children: [
@@ -20,9 +18,8 @@ class PageIndicatorWidget extends StatelessWidget {
           Text('шаг ${_currentPageIndex + 1} из 5',
               style: const TextStyle(
                 fontSize: 12,
-              )),
+              ),),
         ],
       ),
     );
-  }
 }

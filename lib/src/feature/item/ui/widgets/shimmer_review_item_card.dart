@@ -12,10 +12,9 @@ class ShimmerReviewItemCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
+  Widget build(BuildContext context) => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 23),
-      child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+      child: Column(children: [
         Row(children: [
           SizedBox(
             width: width * 0.1,
@@ -28,13 +27,12 @@ class ShimmerReviewItemCard extends StatelessWidget {
                     color: AppThemeColor.blueColor,
                     border: Border.all(
                       color: AppThemeColor.blueColor,
-                      width: 1.0,
                     ),
                   ),
                 ),
                 const ClipOval(
                   child: Material(
-                      shape: CircleBorder(), color: Colors.transparent),
+                      shape: CircleBorder(), color: Colors.transparent,),
                 ),
               ],
             ),
@@ -44,9 +42,9 @@ class ShimmerReviewItemCard extends StatelessWidget {
             width: width * 0.12,
             height: width * 0.02,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8), color: Colors.white),
+                borderRadius: BorderRadius.circular(8), color: Colors.white,),
           ),
-        ]),
+        ],),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Row(
@@ -60,7 +58,7 @@ class ShimmerReviewItemCard extends StatelessWidget {
                 height: width * 0.02,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.white),
+                    color: Colors.white,),
               ),
             ],
           ),
@@ -71,7 +69,7 @@ class ShimmerReviewItemCard extends StatelessWidget {
           width: double.maxFinite,
           height: width * 0.18,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8), color: Colors.white),
+              borderRadius: BorderRadius.circular(8), color: Colors.white,),
         ),
         Row(
           children: [
@@ -108,11 +106,10 @@ class ShimmerReviewItemCard extends StatelessWidget {
                 height: width * 0.04,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.white),
+                    color: Colors.white,),
               ),
           ],
-        )
-      ]),
+        ),
+      ],),
     );
-  }
 }

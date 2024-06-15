@@ -7,14 +7,11 @@ class HeaderSection extends StatelessWidget {
   final double maxWidth;
 
   const HeaderSection({
-    super.key,
-    required this.maxHeight,
-    required this.maxWidth,
+    required this.maxHeight, required this.maxWidth, super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  Widget build(BuildContext context) => SizedBox(
       height: maxWidth * 0.5952711864,
       width: double.infinity,
       child: DecoratedBox(
@@ -41,7 +38,7 @@ class HeaderSection extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    right: maxWidth * 0.0509, top: maxWidth * 0.03),
+                    right: maxWidth * 0.0509, top: maxWidth * 0.03,),
                 child: AutoSizeText(
                   'Для входа или регистрации в приложении введите свой номер телефона:',
                   style: Theme.of(context)
@@ -58,5 +55,4 @@ class HeaderSection extends StatelessWidget {
         ),
       ),
     );
-  }
 }

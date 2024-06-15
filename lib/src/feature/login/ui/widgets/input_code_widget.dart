@@ -13,8 +13,7 @@ import 'package:sempl/src/feature/login/ui/auth_scope.dart';
 
 class InputCodeWidget extends StatefulWidget {
   const InputCodeWidget({
-    super.key,
-    required this.codeController,
+    required this.codeController, super.key,
   });
   final TextEditingController codeController;
   @override
@@ -71,14 +70,14 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
     const blueColor = Color(0xFF99BFD4);
     final richTextStyle = TextStyle(
         fontSize: 14,
-        color: _start == 0 ? AppThemeColor.black : const Color(0xFFB9B9B9));
+        color: _start == 0 ? AppThemeColor.black : const Color(0xFFB9B9B9),);
     final linkTextStyle = TextStyle(
       fontSize: 14,
       decoration: TextDecoration.underline,
       decorationColor: _start == 0 ? blueColor : const Color(0xFFDEEAF1),
       color: _start == 0 ? blueColor : const Color(0xFFDEEAF1),
     );
-    var pinTheme = PinTheme(
+    final pinTheme = PinTheme(
       width: MediaQuery.of(context).size.width - 32,
       height: MediaQuery.of(context).size.height * 0.078,
       textStyle: const TextStyle(fontSize: 20),
@@ -91,7 +90,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
       ),
     );
 
-    var errorPinTheme = pinTheme.copyWith(
+    final errorPinTheme = pinTheme.copyWith(
       decoration: BoxDecoration(
         border: Border.all(
           color: const Color(0xFFE36F6F),
@@ -106,10 +105,8 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
           bloc: DependenciesScope.of(context).authBloc,
           buildWhen: (previous, current) =>
               previous.statusSend2 != current.statusSend2,
-          builder: (context, state) {
-            return Pinput(
+          builder: (context, state) => Pinput(
               controller: widget.codeController,
-              keyboardType: TextInputType.number,
               length: 5,
               defaultPinTheme:
                   state.statusSend2.isFailure ? errorPinTheme : pinTheme,
@@ -127,8 +124,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
               ),
               errorBuilder: (_, __) => const SizedBox.shrink(),
               errorText: state.statusSend2.isFailure ? '' : null,
-            );
-          },
+            ),
         ),
         Row(
           children: [
@@ -137,7 +133,7 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
               style: const TextStyle(color: blueColor, fontSize: 14),
             ),
             Text(' Не получили код?',
-                style: richTextStyle.copyWith(fontSize: 12)),
+                style: richTextStyle.copyWith(fontSize: 12),),
             TextButton(
                 onPressed: () {
                   if (_start == 0) {
@@ -149,9 +145,9 @@ class _InputCodeWidgetState extends State<InputCodeWidget> {
                 },
                 style: TextButton.styleFrom(foregroundColor: blueColor),
                 child: Text('Отправь еще раз',
-                    style: linkTextStyle.copyWith(fontSize: 12))),
+                    style: linkTextStyle.copyWith(fontSize: 12),),),
           ],
-        )
+        ),
       ],
     );
   }

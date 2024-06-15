@@ -2,14 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 
 class ItemInListWidget extends StatelessWidget {
   const ItemInListWidget(
-      {super.key, this.applyColorFilter = false, required this.index});
+      {required this.index, super.key, this.applyColorFilter = false,});
   final bool applyColorFilter;
   final int index;
   @override
@@ -27,12 +27,11 @@ class ItemInListWidget extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           context.pushNamed(AppRoutes.itemScreen.name,
-              pathParameters: {'id': item.id.toString()});
+              pathParameters: {'id': item.id.toString()},);
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: width * 0.05),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: offset),
               SizedBox(
@@ -62,7 +61,7 @@ class ItemInListWidget extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
-                  )),
+                  ),),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.25)
                     .copyWith(top: 4, bottom: 11),
@@ -72,7 +71,7 @@ class ItemInListWidget extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       height: 1,
-                    )),
+                    ),),
               ),
               Text(
                 "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
@@ -81,7 +80,7 @@ class ItemInListWidget extends StatelessWidget {
               ),
               const SizedBox(height: 11),
               StarRatingWidget(
-                  size: width * 0.038175, rating: item.rating.toInt()),
+                  size: width * 0.038175, rating: item.rating.toInt(),),
               SizedBox(height: offset),
             ],
           ),

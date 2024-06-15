@@ -58,7 +58,7 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
 
     return Stack(
       children: [
-        Container(
+        DecoratedBox(
           decoration: const BoxDecoration(
             color: Color(0xffEEEEEE),
             borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -70,7 +70,7 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                       vertical: width * 0.02803813559,
-                      horizontal: width * 0.0496059322),
+                      horizontal: width * 0.0496059322,),
                   child: const Align(
                     alignment: Alignment.centerLeft,
                     child: Row(
@@ -78,7 +78,7 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
                         Padding(
                           padding: EdgeInsets.only(right: 4),
                           child: Icon(Icons.search,
-                              size: 24, color: AppThemeColor.black),
+                              size: 24, color: AppThemeColor.black,),
                         ),
                         Text(
                           'Поиск в категориях',
@@ -96,7 +96,7 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
                     Theme.of(context).inputDecorationTheme.searchInput.copyWith(
                           contentPadding: EdgeInsets.symmetric(
                               vertical: height * 0.013,
-                              horizontal: height * 0.023),
+                              horizontal: height * 0.023,),
                         ),
               ),
             ],

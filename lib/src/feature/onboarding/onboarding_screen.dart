@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/onboarding/widgets/fifth_page.dart';
 import 'package:sempl/src/feature/onboarding/widgets/first_page.dart';
 import 'package:sempl/src/feature/onboarding/widgets/fourth_page.dart';
-import 'package:sempl/src/core/theme/theme.dart';
-
 import 'package:sempl/src/feature/onboarding/widgets/second_page.dart';
 import 'package:sempl/src/feature/onboarding/widgets/third_page.dart';
 
@@ -43,7 +42,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
       const SecondPage(),
       const ThirdPage(),
       const FourthPage(),
-      const FifthPage()
+      const FifthPage(),
     ];
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -61,7 +60,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
             child: Padding(
               padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
               child: Text("SEMPL!",
-                  style: Theme.of(context).textTheme.appTitleMedium),
+                  style: Theme.of(context).textTheme.appTitleMedium,),
             ),
           ),
           Padding(
@@ -87,7 +86,7 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
                         minHeight: 50,
                         minWidth: 50,
                         maxHeight: 70,
-                        maxWidth: 70),
+                        maxWidth: 70,),
                     child: FloatingActionButton(
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15)),

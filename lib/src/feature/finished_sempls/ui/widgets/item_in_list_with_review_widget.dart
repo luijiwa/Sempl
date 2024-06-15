@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/star_rating_widget.dart';
 
 class ItemInListWithReviewWidget extends StatefulWidget {
   const ItemInListWithReviewWidget({super.key, this.applyColorFilter = false});
@@ -50,7 +50,7 @@ class _ItemInListWithReviewWidgetState extends State<ItemInListWithReviewWidget>
         onTap: () =>
             context.pushNamed(AppRoutes.itemScreen.name, pathParameters: {
           'id': '1',
-        }),
+        },),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: width * 0.05),
           decoration: BoxDecoration(
@@ -58,7 +58,6 @@ class _ItemInListWithReviewWidgetState extends State<ItemInListWithReviewWidget>
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: offset),
               Padding(
@@ -81,7 +80,7 @@ class _ItemInListWithReviewWidgetState extends State<ItemInListWithReviewWidget>
                     style: const TextStyle(
                       fontSize: 13,
                       height: 1,
-                    )),
+                    ),),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.3),
@@ -111,12 +110,12 @@ class _ItemInListWithReviewWidgetState extends State<ItemInListWithReviewWidget>
                     padding: EdgeInsets.symmetric(
                   vertical: width * 0.04,
                   horizontal: width * 0.05,
-                )),
+                ),),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("see review".toUpperCase(),
-                        style: Theme.of(context).textTheme.appBodyMedium),
+                        style: Theme.of(context).textTheme.appBodyMedium,),
                     AnimatedRotation(
                       duration: const Duration(milliseconds: 200),
                       turns: _showReview.value ? 0.5 : 0,
@@ -164,7 +163,7 @@ class ReviewExpandedWidget extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(
-          top: width * 0.05629, bottom: width * 0.05629, right: width * 0.03),
+          top: width * 0.05629, bottom: width * 0.05629, right: width * 0.03,),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -174,7 +173,8 @@ class ReviewExpandedWidget extends StatelessWidget {
           ),
           SizedBox(height: width * 0.02545),
           Text(
-            '''Запах сыворотки неприятный. Для меня это просто «ух». Есть намек на что-то алкогольное, а также смесь трав. Возможно, такое неприятное сочетание вызвано эфирными маслами, которые я уже указала в составе.
+            '''
+Запах сыворотки неприятный. Для меня это просто «ух». Есть намек на что-то алкогольное, а также смесь трав. Возможно, такое неприятное сочетание вызвано эфирными маслами, которые я уже указала в составе.
     
 При нанесении сыворотки стараюсь сильно не дышать 🤪 жаль, что запах еще какое-то время задерживается на коже.
     
@@ -187,26 +187,22 @@ class ReviewExpandedWidget extends StatelessWidget {
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 2,
-            itemBuilder: (context, index) {
-              return const PlusMinusDescriptionWidget(
+            itemBuilder: (context, index) => const PlusMinusDescriptionWidget(
                 icon: Icons.add_rounded,
                 text: 'Эффекта сужения пор в течение дня не получите',
-              );
-            },
+              ),
           ),
           ListView.builder(
             shrinkWrap: true,
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 2,
-            itemBuilder: (context, index) {
-              return const PlusMinusDescriptionWidget(
+            itemBuilder: (context, index) => const PlusMinusDescriptionWidget(
                 icon: Icons.remove_outlined,
                 text:
                     'После ночного нанесения и умывания эффект не так выражен, как мне кажется',
-              );
-            },
-          )
+              ),
+          ),
         ],
       ),
     );
@@ -215,9 +211,7 @@ class ReviewExpandedWidget extends StatelessWidget {
 
 class PlusMinusDescriptionWidget extends StatelessWidget {
   const PlusMinusDescriptionWidget({
-    super.key,
-    required this.icon,
-    required this.text,
+    required this.icon, required this.text, super.key,
   });
   final IconData icon;
   final String text;
@@ -226,7 +220,6 @@ class PlusMinusDescriptionWidget extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Icon(
           icon,

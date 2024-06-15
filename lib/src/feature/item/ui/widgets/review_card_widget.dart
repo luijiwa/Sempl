@@ -1,16 +1,10 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
-import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
-import 'package:sempl/src/feature/item/ui/widgets/full_screen_review_widget.dart';
-import 'package:sempl/src/core/theme/theme.dart';
-import 'package:shimmer/shimmer.dart';
-
 import 'package:sempl/src/feature/item/ui/widgets/comment_item.dart';
 import 'package:sempl/src/feature/item/ui/widgets/shimmer_review_item_card.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ReviewCardWidget extends StatelessWidget {
   const ReviewCardWidget({
@@ -50,13 +44,11 @@ class ReviewCardWidget extends StatelessWidget {
                     shrinkWrap: true,
                     separatorBuilder: (context, index) =>
                         SizedBox(height: width * 0.08),
-                    itemBuilder: (context, index) {
-                      return ShimmerReviewItemCard(
+                    itemBuilder: (context, index) => ShimmerReviewItemCard(
                         width: width,
                         height: height,
-                      );
-                    },
-                    itemCount: 3),
+                      ),
+                    itemCount: 3,),
               ),
             );
         }

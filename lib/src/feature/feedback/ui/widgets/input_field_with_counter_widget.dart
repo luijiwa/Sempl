@@ -4,9 +4,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class InputFieldWithCounterWidget extends StatefulWidget {
   const InputFieldWithCounterWidget({
-    super.key,
-    required this.hint,
-    required this.enabled,
+    required this.hint, required this.enabled, super.key,
   });
   final String hint;
   final bool enabled;
@@ -78,6 +76,6 @@ class _InputFieldWithCounterWidgetState
               ),
             ),
           ],
-        ));
+        ),);
   }
 }

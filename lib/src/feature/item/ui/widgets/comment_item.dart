@@ -5,14 +5,13 @@ import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
 
-import 'comment_user_avatar_and_name_row_widget.dart';
-import 'like_dislike_row_widget.dart';
-import 'media_in_comment_row_widget.dart';
+import 'package:sempl/src/feature/item/ui/widgets/comment_user_avatar_and_name_row_widget.dart';
+import 'package:sempl/src/feature/item/ui/widgets/like_dislike_row_widget.dart';
+import 'package:sempl/src/feature/item/ui/widgets/media_in_comment_row_widget.dart';
 
 class CommentItem extends StatelessWidget {
   const CommentItem({
-    super.key,
-    required this.index,
+    required this.index, super.key,
   });
   final int index;
   @override
@@ -39,10 +38,9 @@ class CommentItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15).copyWith(bottom: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CommentUserAvatarAndNameRowWidget(
-                  width: width, image: image, review: review),
+                  width: width, image: image, review: review,),
               SizedBox(height: width * 0.02545),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,7 +49,7 @@ class CommentItem extends StatelessWidget {
                   Text(
                     review.created,
                     style: const TextStyle(
-                        fontSize: 12, color: AppThemeColor.grisTwo),
+                        fontSize: 12, color: AppThemeColor.grisTwo,),
                   ),
                 ],
               ),
@@ -96,7 +94,7 @@ class CommentItem extends StatelessWidget {
               if (images != null)
                 MediaInCommentRowWidget(images: images, video: video),
               SizedBox(height: width * 0.05),
-              LikeDislikeRowWidget(width: width, review: review, index: index)
+              LikeDislikeRowWidget(width: width, review: review, index: index),
             ],
           ),
         ),

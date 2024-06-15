@@ -3,7 +3,7 @@ part of 'settings_bloc.dart';
 /// States for the [SettingsBloc].
 sealed class SettingsState {
   const SettingsState(
-      {this.locale, this.appTheme, this.onBoardingCompleted = false});
+      {this.locale, this.appTheme, this.onBoardingCompleted = false,});
 
   /// Application locale.
   final Locale? locale;

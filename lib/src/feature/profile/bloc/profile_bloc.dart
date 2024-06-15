@@ -31,7 +31,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         screenStatus: ScreenStatus.success,
         userFields: userData.user,
         orders: userSamples.orders,
-      ));
+      ),);
     } on Object catch (e) {
       emit(state.copyWith(screenStatus: ScreenStatus.failure));
       logger.e(e);
@@ -39,7 +39,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   }
 
   FutureOr<void> _updateAgreement(
-      _UpdateAgreement event, Emitter<ProfileState> emit) {}
+      _UpdateAgreement event, Emitter<ProfileState> emit,) {}
 
   Future<void> _save(_Save event, Emitter<ProfileState> emit) async {
     final newData = {
@@ -60,7 +60,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       logger.e(e);
       emit(state.copyWith(
           errorMessage: 'Произошла ошибка',
-          statusChangeProfileFields: ButtonPushStatus.failure));
+          statusChangeProfileFields: ButtonPushStatus.failure,),);
     }
   }
 }

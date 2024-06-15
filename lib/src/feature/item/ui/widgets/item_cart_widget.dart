@@ -2,15 +2,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
-import 'package:sempl/src/core/router/app_routes.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
 import 'package:sempl/src/feature/item/ui/widgets/shimmer_cart_item.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:shimmer/shimmer.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
@@ -39,13 +36,11 @@ class ItemCard extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: const BorderRadius.all(Radius.circular(30.0)),
                   border: Border.all(
-                      width: 0.5, color: AppThemeColor.gris.withOpacity(0.5)),
+                      width: 0.5, color: AppThemeColor.gris.withOpacity(0.5),),
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -63,7 +58,7 @@ class ItemCard extends StatelessWidget {
                               style: const TextStyle(
                                 fontSize: 12,
                               ),
-                            )
+                            ),
                           ],
                         ),
                         const Spacer(),
@@ -75,12 +70,12 @@ class ItemCard extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             Share.share(
-                                'Я Получил этот товар на https://sempl.com');
+                                'Я Получил этот товар на https://sempl.com',);
                           },
                           child: SvgPicture.asset(
                             'assets/icons/share_icon.svg',
                             colorFilter: const ColorFilter.mode(
-                                AppThemeColor.blueColor, BlendMode.srcIn),
+                                AppThemeColor.blueColor, BlendMode.srcIn,),
                           ),
                         ),
                         SizedBox(width: width * 0.02),
@@ -107,7 +102,7 @@ class ItemCard extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 14,
                             height: 1.2,
-                          )),
+                          ),),
                     ),
                     SizedBox(height: height * 0.016),
                     SizedBox(

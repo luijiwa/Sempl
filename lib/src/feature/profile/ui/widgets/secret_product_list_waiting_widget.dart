@@ -57,7 +57,7 @@ class _SecretProductWaitingListWidgetState
         if (context.read<ProfileBloc>().state.orders.isEmpty)
           const EmptyReviewWidget(),
         // const ReviewListWidget(),
-      ]),
+      ],),
     );
   }
 }
@@ -90,7 +90,6 @@ class ReviewListWidget extends StatelessWidget {
               right: 0.0509 * width,
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   height: 0.3563 * width,

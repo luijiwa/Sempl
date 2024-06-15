@@ -1,6 +1,11 @@
+import 'package:curl_logger_dio_interceptor/curl_logger_dio_interceptor.dart';
 import 'package:dio/dio.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/components/rest_client/src/rest_client_dio.dart';
+import 'package:sempl/src/core/constant/config.dart';
+import 'package:sempl/src/core/utils/logger.dart';
+import 'package:sempl/src/feature/app/logic/tracking_manager.dart';
+import 'package:sempl/src/feature/initialization/model/dependencies.dart';
 import 'package:sempl/src/feature/item/data/data_source/item_data_source.dart';
 import 'package:sempl/src/feature/item/data/repository/item_repository.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
@@ -11,21 +16,16 @@ import 'package:sempl/src/feature/main/data/data_source/main_screen_data_source.
 import 'package:sempl/src/feature/main/data/repository/main_screen_repository.dart';
 import 'package:sempl/src/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
-import 'package:sempl/src/feature/settings/data/onboarding_repository.dart';
-import 'package:sempl/src/feature/survey/data/survey_data_source.dart';
-import 'package:sempl/src/feature/survey/data/survey_repository.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sempl/src/core/constant/config.dart';
-import 'package:sempl/src/core/utils/logger.dart';
-import 'package:sempl/src/feature/app/logic/tracking_manager.dart';
-import 'package:sempl/src/feature/initialization/model/dependencies.dart';
 import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
 import 'package:sempl/src/feature/settings/data/locale_datasource.dart';
 import 'package:sempl/src/feature/settings/data/locale_repository.dart';
+import 'package:sempl/src/feature/settings/data/onboarding_repository.dart';
 import 'package:sempl/src/feature/settings/data/theme_datasource.dart';
 import 'package:sempl/src/feature/settings/data/theme_mode_codec.dart';
 import 'package:sempl/src/feature/settings/data/theme_repository.dart';
-import 'package:curl_logger_dio_interceptor/curl_logger_dio_interceptor.dart';
+import 'package:sempl/src/feature/survey/data/survey_data_source.dart';
+import 'package:sempl/src/feature/survey/data/survey_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// {@template composition_root}
 /// A place where all dependencies are initialized.
@@ -89,12 +89,12 @@ final class CompositionRoot {
       dio: interceptedDio,
     );
     final surveyRepository = SurveyRepositoryImpl(
-        dataSource: SurveyDataSourceNetwork(restClient), storage: storage);
+        dataSource: SurveyDataSourceNetwork(restClient), storage: storage,);
     final itemRepository = ItemRepositoryImpl(
       ItemDataSourceNetwork(restClient),
     );
     final mainScreenRepository = MainScreenRepositoryImpl(
-        dataSource: MainScreenDataSourceNetwork(restClient), storage: storage);
+        dataSource: MainScreenDataSourceNetwork(restClient), storage: storage,);
     final profileRepository = ProfileRepositoryImpl(
       dataSource: ProfileDataSourceNetwork(restClient),
       storage: storage,

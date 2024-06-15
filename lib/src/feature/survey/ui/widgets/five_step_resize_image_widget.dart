@@ -1,18 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/core/widget/out_button.dart';
-import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/survey/bloc/survey_bloc.dart';
 import 'package:sempl/src/feature/survey/ui/confirmation_survey_screen.dart';
 
 /// Сделать его состоянием пятого экрана
 class SetPhotoWidget extends StatefulWidget {
   const SetPhotoWidget({
-    super.key,
-    required this.surveyBloc,
+    required this.surveyBloc, super.key,
   });
   final SurveyBloc surveyBloc;
   @override
@@ -21,7 +20,7 @@ class SetPhotoWidget extends StatefulWidget {
 
 class _SetPhotoWidgetState extends State<SetPhotoWidget> {
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     final bloc = context.read<SurveyBloc>();
@@ -38,7 +37,6 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
@@ -106,11 +104,9 @@ class _SetPhotoWidgetState extends State<SetPhotoWidget> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  widget.surveyBloc.add(SurveyEvent.sendResultSurvey());
+                  widget.surveyBloc.add(const SurveyEvent.sendResultSurvey());
 
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ConfirmationSurveyScreen();
-                  }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ConfirmationSurveyScreen(),),);
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 0,

@@ -4,7 +4,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 class BlueItemWithCross extends StatelessWidget {
   final String text;
 
-  const BlueItemWithCross({super.key, required this.text});
+  const BlueItemWithCross({required this.text, super.key});
 
   @override
   Widget build(BuildContext context) {

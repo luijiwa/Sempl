@@ -6,8 +6,7 @@ class FifthPage extends StatelessWidget {
   const FifthPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       backgroundColor: const Color(0xFFFFEF7D),
       body: Container(
         alignment: Alignment.topCenter,
@@ -34,7 +33,7 @@ class FifthPage extends StatelessWidget {
               SizedBox(height: MediaQuery.of(context).size.height * 0.011),
               Padding(
                 padding: EdgeInsets.only(
-                    right: MediaQuery.of(context).size.width * 0.2),
+                    right: MediaQuery.of(context).size.width * 0.2,),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: AutoSizeText(
@@ -48,5 +47,4 @@ class FifthPage extends StatelessWidget {
         ),
       ),
     );
-  }
 }

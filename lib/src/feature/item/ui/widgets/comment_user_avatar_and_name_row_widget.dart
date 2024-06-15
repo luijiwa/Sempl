@@ -5,10 +5,7 @@ import 'package:sempl/src/feature/item/data/model/rating/rating.dart';
 
 class CommentUserAvatarAndNameRowWidget extends StatelessWidget {
   const CommentUserAvatarAndNameRowWidget({
-    super.key,
-    required this.width,
-    required this.image,
-    required this.review,
+    required this.width, required this.image, required this.review, super.key,
   });
 
   final double width;
@@ -16,8 +13,7 @@ class CommentUserAvatarAndNameRowWidget extends StatelessWidget {
   final ReviewData review;
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
+  Widget build(BuildContext context) => Row(
       children: [
         SizedBox(
           width: width * 0.1,
@@ -34,7 +30,6 @@ class CommentUserAvatarAndNameRowWidget extends StatelessWidget {
                   ),
                   border: Border.all(
                     color: AppThemeColor.blueColor,
-                    width: 1.0,
                   ),
                 ),
               ),
@@ -44,7 +39,7 @@ class CommentUserAvatarAndNameRowWidget extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       onTap: () {},
-                    )),
+                    ),),
               ),
             ],
           ),
@@ -61,5 +56,4 @@ class CommentUserAvatarAndNameRowWidget extends StatelessWidget {
         ),
       ],
     );
-  }
 }

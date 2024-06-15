@@ -95,14 +95,14 @@ final class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   }
 
   Future<void> _checkViewedOnboarding(
-      _CheckViewedOnboardingEvent e, Emitter<SettingsState> emit) async {
+      _CheckViewedOnboardingEvent e, Emitter<SettingsState> emit,) async {
     final onboardingViewed = await _onboardingRepo.getOnboardingViewed();
 
     emit(SettingsState.idle(
       appTheme: state.appTheme,
       locale: state.locale,
       onBoardingCompleted: onboardingViewed,
-    ));
+    ),);
   }
 
   _viewedOnboarding(_ViewedOnboardingEvent e, Emitter<SettingsState> emit) {
@@ -119,7 +119,7 @@ final class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       SettingsState.idle(
           appTheme: state.appTheme,
           locale: state.locale,
-          onBoardingCompleted: true),
+          onBoardingCompleted: true,),
     );
   }
 }

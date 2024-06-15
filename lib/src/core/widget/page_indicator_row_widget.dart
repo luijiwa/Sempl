@@ -3,8 +3,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class PageIndicatorRowWidget extends StatelessWidget {
   const PageIndicatorRowWidget({
-    super.key,
-    required int currentPageIndex,
+    required int currentPageIndex, super.key,
   }) : _currentPageIndex = currentPageIndex;
 
   final int _currentPageIndex;
@@ -31,7 +30,7 @@ class PageIndicatorRowWidget extends StatelessWidget {
                       : const Color(0xFFE3E3E3),
               borderRadius: BorderRadius.circular(10),
             ),
-          )
+          ),
       ],
     );
   }

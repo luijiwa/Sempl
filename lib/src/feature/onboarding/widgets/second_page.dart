@@ -49,7 +49,7 @@ class SecondPage extends StatelessWidget {
               ),
               SizedBox(
                 height: height * 0.27,
-              )
+              ),
             ],
           ),
         ),

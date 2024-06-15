@@ -13,7 +13,7 @@ class FeedbackStepOne extends StatelessWidget {
       'Уменьшает и предотвращает образование пятен',
       'Держите дыхание свежим',
       'Многофункциональный полоскание рта (например, Listerine Total Care)',
-      'Помогает поддерживать крепкие зубы и здоровые десны'
+      'Помогает поддерживать крепкие зубы и здоровые десны',
     ];
     final width = MediaQuery.sizeOf(context).width;
     return Column(
@@ -25,9 +25,7 @@ class FeedbackStepOne extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: text.length,
-            itemBuilder: (context, index) {
-              return QuestionWidget(index: index + 1, text: text);
-            },
+            itemBuilder: (context, index) => QuestionWidget(index: index + 1, text: text),
             separatorBuilder: (__, _) => SizedBox(height: width * 0.035),
           ),
         ),

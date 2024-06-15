@@ -5,9 +5,7 @@ import 'package:sempl/src/core/theme/theme.dart';
 
 class NextStepButton extends StatelessWidget {
   const NextStepButton({
-    super.key,
-    required this.title,
-    required this.onPressed,
+    required this.title, required this.onPressed, super.key,
     this.enable = true,
   });
   final String title;

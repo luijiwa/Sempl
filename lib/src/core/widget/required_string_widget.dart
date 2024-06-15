@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 
 class RequiredStringWidget extends StatelessWidget {
-  const RequiredStringWidget({super.key, required this.hintText});
+  const RequiredStringWidget({required this.hintText, super.key});
   final String hintText;
   @override
-  Widget build(BuildContext context) {
-    return AutoSizeText.rich(
+  Widget build(BuildContext context) => AutoSizeText.rich(
       TextSpan(
         text: hintText,
         children: const [
@@ -17,7 +16,7 @@ class RequiredStringWidget extends StatelessWidget {
               color: Colors.red,
               fontSize: 14,
             ),
-          )
+          ),
         ],
       ),
       style: const TextStyle(
@@ -27,5 +26,4 @@ class RequiredStringWidget extends StatelessWidget {
       minFontSize: 5,
       maxLines: 1,
     );
-  }
 }

@@ -76,7 +76,7 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
     final double width = MediaQuery.sizeOf(context).width;
 
     final edgeInsets = EdgeInsets.symmetric(
-        vertical: width * 0.02803813559, horizontal: width * 0.0496059322);
+        vertical: width * 0.02803813559, horizontal: width * 0.0496059322,);
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +90,7 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
         TextFormField(
           keyboardType: TextInputType.name,
           inputFormatters: [
-            FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Zа-яА-Я]')),
+            FilteringTextInputFormatter.allow(RegExp('[a-zA-Zа-яА-Я]')),
           ],
           decoration: InputDecoration(
             contentPadding: edgeInsets,
@@ -104,7 +104,7 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
         const SizedBox(height: 4),
         TextFormField(
           inputFormatters: [
-            FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Zа-яА-Я]')),
+            FilteringTextInputFormatter.allow(RegExp('[a-zA-Zа-яА-Я]')),
           ],
           keyboardType: TextInputType.name,
           decoration: InputDecoration(
@@ -180,7 +180,7 @@ class _PersonalDataFieldsWidgetState extends State<PersonalDataFieldsWidget> {
 class DateOfBirthInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+      TextEditingValue oldValue, TextEditingValue newValue,) {
     final text = _formatDate(newValue.text);
     return newValue.copyWith(
       text: text,
@@ -189,7 +189,7 @@ class DateOfBirthInputFormatter extends TextInputFormatter {
   }
 
   String _formatDate(String value) {
-    final String newValue = value.replaceAll(RegExp(r'[^0-9]'), '');
+    final String newValue = value.replaceAll(RegExp('[^0-9]'), '');
     if (newValue.length <= 2) {
       if (int.parse(newValue) > 31) {
         return newValue.substring(0, 1);
@@ -212,14 +212,14 @@ class DateOfBirthInputFormatter extends TextInputFormatter {
 class DateInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+      TextEditingValue oldValue, TextEditingValue newValue,) {
     final newText = newValue.text;
     if (newText.length > 8) {
       // If the new text is longer than the format, do not allow the edit.
       return oldValue;
     }
 
-    var formattedText = newText.replaceAll(RegExp(r'[^0-9]'), '');
+    var formattedText = newText.replaceAll(RegExp('[^0-9]'), '');
     String day = '';
     String month = '';
     String year = '';
@@ -227,7 +227,7 @@ class DateInputFormatter extends TextInputFormatter {
 // Extract day
     if (formattedText.length >= 2) {
       day = formattedText.substring(0, 2);
-      int dayValue = int.parse(day);
+      final int dayValue = int.parse(day);
       if (dayValue > 31) {
         day = '31';
       } else if (dayValue < 1) {
@@ -241,7 +241,7 @@ class DateInputFormatter extends TextInputFormatter {
 // Extract month
     if (formattedText.length >= 4) {
       month = formattedText.substring(2, 4);
-      int monthValue = int.parse(month);
+      final int monthValue = int.parse(month);
       if (monthValue > 12) {
         month = '12';
       } else if (monthValue < 1) {
@@ -260,7 +260,7 @@ class DateInputFormatter extends TextInputFormatter {
       year = formattedText.substring(4); // Take the rest as year
       if (year.length == 4) {
         // Check if all four digits of the year are entered
-        int yearValue = int.parse(year);
+        final int yearValue = int.parse(year);
         if (yearValue > 2024) {
           year = '2024';
         } else if (yearValue < 1900) {

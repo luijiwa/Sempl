@@ -18,7 +18,7 @@ abstract class AuthState with _$AuthState {
   const AuthState._();
 
   factory AuthState.initial() =>
-      const AuthState(status: AuthenticationStatus.initial);
+      const AuthState();
 
   factory AuthState.authenticated() =>
       const AuthState(status: AuthenticationStatus.authenticated);

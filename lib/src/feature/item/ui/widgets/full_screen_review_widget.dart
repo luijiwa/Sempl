@@ -7,7 +7,7 @@ class FullScreenPageView extends StatefulWidget {
   final int index;
 
   const FullScreenPageView(
-      {super.key, required this.images, this.videoUrl, required this.index});
+      {required this.images, required this.index, super.key, this.videoUrl,});
 
   @override
   State<FullScreenPageView> createState() => _FullScreenPageViewState();
@@ -39,8 +39,7 @@ class _FullScreenPageViewState extends State<FullScreenPageView> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       backgroundColor: Colors.black,
       body: Stack(
         children: [
@@ -100,5 +99,4 @@ class _FullScreenPageViewState extends State<FullScreenPageView> {
         ],
       ),
     );
-  }
 }

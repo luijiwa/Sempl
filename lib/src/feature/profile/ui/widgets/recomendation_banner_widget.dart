@@ -32,9 +32,8 @@ class RecomendationBannerWidget extends StatelessWidget {
               top: width * 0.02545,
               bottom: width * 0.06108,
               left: width * 0.05,
-              right: width * 0.05),
+              right: width * 0.05,),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: EdgeInsets.only(top: width * 0.0280381356)
@@ -71,12 +70,12 @@ class RecomendationBannerWidget extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       padding:
                           EdgeInsets.symmetric(vertical: width * 0.0388220339),
-                      backgroundColor: Colors.white),
+                      backgroundColor: Colors.white,),
                   onPressed: () {},
                   child: Text('ХОЧУ ЭТО!',
-                      style: Theme.of(context).textTheme.appBodyMedium),
+                      style: Theme.of(context).textTheme.appBodyMedium,),
                 ),
-              )
+              ),
             ],
           ),
         ),

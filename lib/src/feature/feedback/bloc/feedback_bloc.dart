@@ -14,16 +14,16 @@ class FeedbackBloc extends Bloc<FeedbackEvent, FeedbackState> {
   }
 
   FutureOr<void> _onMinusChange(
-      FeedbackMinusChange event, Emitter<FeedbackState> emit) {
+      FeedbackMinusChange event, Emitter<FeedbackState> emit,) {
     emit(state.copyWith(
       minusIsEnabeled: !state.minusIsEnabeled,
-    ));
+    ),);
   }
 
   FutureOr<void> _onPlusChange(
-      FeedbackPlusChange event, Emitter<FeedbackState> emit) {
+      FeedbackPlusChange event, Emitter<FeedbackState> emit,) {
     emit(state.copyWith(
       plusIsEnabeled: !state.plusIsEnabeled,
-    ));
+    ),);
   }
 }
