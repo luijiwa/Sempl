@@ -13,51 +13,53 @@ class CategoriesButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return SliverToBoxAdapter(
-        child: SizedBox(
-      height: 0.1099957627 * width,
-      width: double.infinity,
-      child: OutlinedButton(
-        onPressed: () {
-          final myBloc = BlocProvider.of<MainScreenBloc>(context);
+      child: SizedBox(
+        height: 0.1099957627 * width,
+        width: double.infinity,
+        child: OutlinedButton(
+          onPressed: () {
+            final myBloc = BlocProvider.of<MainScreenBloc>(context);
 
-          // Переход на второй экран с передачей блока
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => BlocProvider.value(
-                value: myBloc,
-                child: const CategoriesListScreen(),
+            // Переход на второй экран с передачей блока
+            Navigator.of(context).push(
+              MaterialPageRoute<CategoriesListScreen>(
+                builder: (context) => BlocProvider.value(
+                  value: myBloc,
+                  child: const CategoriesListScreen(),
+                ),
               ),
-            ),
-          );
-        },
-        child: Row(
-          children: [
-            SvgPicture.asset(
-              'assets/icons/subject_icon.svg',
-              colorFilter: const ColorFilter.mode(
-                  AppThemeColor.blueColor, BlendMode.srcIn,),
-            ),
-            const SizedBox(width: 5),
-            AutoSizeText(
-              'Категории',
-              style: TextStyle(
-                fontSize: width > 320 ? 15 : 12,
+            );
+          },
+          child: Row(
+            children: [
+              SvgPicture.asset(
+                'assets/icons/subject_icon.svg',
+                colorFilter: const ColorFilter.mode(
+                  AppThemeColor.blueColor,
+                  BlendMode.srcIn,
+                ),
+              ),
+              const SizedBox(width: 5),
+              AutoSizeText(
+                'Категории',
+                style: TextStyle(
+                  fontSize: width > 320 ? 15 : 12,
+                  color: AppThemeColor.black,
+                ),
+              ),
+              const Spacer(),
+              const Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 15,
+                weight: 500,
                 color: AppThemeColor.black,
               ),
-            ),
-            const Spacer(),
-            const Icon(
-              Icons.arrow_forward_ios_rounded,
-              size: 15,
-              weight: 500,
-              color: AppThemeColor.black,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-    ),);
+    );
   }
 }
