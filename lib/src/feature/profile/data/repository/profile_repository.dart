@@ -26,7 +26,7 @@ final class ProfileRepositoryImpl implements ProfileRepository {
     final response = await _dataSource.loadUserData();
     if (response is Map<String, dynamic> &&
         response.containsKey('access_token')) {
-      final newToken = Token(response['access_token']);
+      final newToken = Token(response['access_token'] as String);
       await _storage.save(newToken);
     }
     return UserData.fromJson(response as Map<String, dynamic>);
@@ -38,7 +38,7 @@ final class ProfileRepositoryImpl implements ProfileRepository {
       final response = await _dataSource.loadUserSamples();
       if (response is Map<String, dynamic> &&
           response.containsKey('access_token')) {
-        final newToken = Token(response['access_token']);
+        final newToken = Token(response['access_token'] as String);
         await _storage.save(newToken);
       }
       return UserOrders.fromJson(response as Map<String, dynamic>);

@@ -16,7 +16,7 @@ final class SurveyDataSourceNetwork<T> implements SurveyDataSource {
           body: survey);
       if (response is Map<String, dynamic> &&
           response.containsKey('access_token')) {
-        return Token(response['access_token']);
+        return Token(response['access_token'] as String);
       } else {
         throw Exception('Wrong response');
       }

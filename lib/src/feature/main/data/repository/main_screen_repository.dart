@@ -28,7 +28,7 @@ final class MainScreenRepositoryImpl implements MainScreenRepository {
       final response = await _dataSource.loadSemplsData();
       if (response is Map<String, dynamic> &&
           response.containsKey('access_token')) {
-        final newToken = Token(response['access_token']);
+        final newToken = Token(response['access_token'] as String);
         _storage.save(newToken);
       }
       logger.i(response.toString());
@@ -47,7 +47,7 @@ final class MainScreenRepositoryImpl implements MainScreenRepository {
       final response = await _dataSource.loadRatingItem(id);
       if (response is Map<String, dynamic> &&
           response.containsKey('access_token')) {
-        final newToken = Token(response['access_token']);
+        final newToken = Token(response['access_token'] as String);
         _storage.save(newToken);
       }
       logger.i(response.toString());

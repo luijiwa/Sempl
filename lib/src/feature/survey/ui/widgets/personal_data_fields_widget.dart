@@ -189,22 +189,22 @@ class DateOfBirthInputFormatter extends TextInputFormatter {
   }
 
   String _formatDate(String value) {
-    value = value.replaceAll(RegExp(r'[^0-9]'), '');
-    if (value.length <= 2) {
-      if (int.parse(value) > 31) {
-        return value.substring(0, 1);
+    final String newValue = value.replaceAll(RegExp(r'[^0-9]'), '');
+    if (newValue.length <= 2) {
+      if (int.parse(newValue) > 31) {
+        return newValue.substring(0, 1);
       }
-      return value;
-    } else if (value.length <= 4) {
-      if (int.parse(value.substring(0, 2)) > 12) {
-        return value.substring(0, 2);
+      return newValue;
+    } else if (newValue.length <= 4) {
+      if (int.parse(newValue.substring(0, 2)) > 12) {
+        return newValue.substring(0, 2);
       }
-      return '${value.substring(0, 2)}/${value.substring(2)}';
+      return '${newValue.substring(0, 2)}/${newValue.substring(2)}';
     } else {
-      if (int.parse(value.substring(0, 2)) > 12) {
-        return value.substring(0, 3);
+      if (int.parse(newValue.substring(0, 2)) > 12) {
+        return newValue.substring(0, 3);
       }
-      return '${value.substring(0, 2)}/${value.substring(2, 4)}/${value.substring(4, 8)}';
+      return '${newValue.substring(0, 2)}/${newValue.substring(2, 4)}/${newValue.substring(4, 8)}';
     }
   }
 }

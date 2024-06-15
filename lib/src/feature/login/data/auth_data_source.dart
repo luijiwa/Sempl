@@ -80,7 +80,7 @@ final class AuthDataSourceNetwork implements AuthDataSource<Token> {
 
       if (response is Map<String, dynamic> &&
           response.containsKey('access_token')) {
-        return Token(response['access_token']);
+        return Token(response['access_token'] as String);
       }
 
       throw FormatException('Непонятный ответ сервера', response);
@@ -107,7 +107,7 @@ final class AuthDataSourceNetwork implements AuthDataSource<Token> {
 
       if (response is Map<String, dynamic> &&
           response.containsKey('access_token')) {
-        return Token(response['access_token']);
+        return Token(response['access_token'] as String);
       }
 
       throw FormatException('Непонятный ответ сервера', response);
@@ -156,7 +156,7 @@ final class AuthDataSourceNetwork implements AuthDataSource<Token> {
 
     if (response is Map<String, dynamic> &&
         response.containsKey('access_token')) {
-      return Token(response['access_token']);
+      return Token(response['access_token'] as String);
     }
 
     throw FormatException('Непонятный ответ сервера', response);
@@ -170,7 +170,10 @@ final class AuthDataSourceNetwork implements AuthDataSource<Token> {
 
       throw switch (code) {
         WrongCredentialsException.code => const WrongCredentialsException(),
-        _ => UnknownAuthenticationException(code: code, error: message),
+        _ => UnknownAuthenticationException(
+            code: code as int,
+            error: message as Object,
+          ),
       };
     }
   }

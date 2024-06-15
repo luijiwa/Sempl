@@ -126,8 +126,8 @@ class _RequiredInputFieldState extends State<RequiredInputField> {
     );
   }
 
-  String? _defaultValidator(value) {
-    if (value == null || value.isEmpty) {
+  String? _defaultValidator(String? value) {
+    if (value == null || value.isEmpty == true) {
       return '';
     }
     return null;
