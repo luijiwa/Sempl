@@ -9,10 +9,13 @@ import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/item_in_list_widget.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
+import 'package:sempl/src/core/widget/shimmer.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
-import 'package:sempl/src/feature/main/main_screen_app_bar.dart';
+import 'package:sempl/src/feature/main/ui/widget/main_screen_app_bar.dart';
 import 'package:sempl/src/feature/recent_products/ui/recent_products_screen.dart';
+
+import 'widget/empty_list_in_main_page_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -84,19 +87,14 @@ class MainScreenView extends StatelessWidget {
               previous.screenStatus != current.screenStatus,
           builder: (context, state) {
             switch (state.screenStatus) {
+              // case ScreenStatus.success:
+              //   return SliverList.builder(
+              //     itemCount: state.newSemplsCount,
+              //     itemBuilder: (BuildContext context, int index) =>
+              //         ItemInListWidget(item: state.newSempls[index]),
+              //   );
               case ScreenStatus.success:
-                return SliverList.builder(
-                  itemCount: state.newSemplsCount,
-                  itemBuilder: (BuildContext context, int index) =>
-                      ItemInListWidget(item: state.newSempls[index]),
-                );
-              case ScreenStatus.loading:
-                return SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) =>
-                      ItemInListWidget(item: state.newSempls[index]),
-                  childCount: 2,
-                ));
+                return EmptyListInMainPageWidget(width: width);
               case ScreenStatus.failure:
                 return const SliverFillRemaining(
                   hasScrollBody: false,

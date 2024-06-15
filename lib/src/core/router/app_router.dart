@@ -11,7 +11,7 @@ import 'package:sempl/src/feature/feedback/ui/widgets/%D1%81onfirmation_feedback
 import 'package:sempl/src/feature/finished_sempls/ui/finishes_sempls_screen.dart';
 import 'package:sempl/src/feature/item/ui/item_screen.dart';
 import 'package:sempl/src/feature/login/ui/login_screen.dart';
-import 'package:sempl/src/feature/main/main_screen.dart';
+import 'package:sempl/src/feature/main/ui/main_screen.dart';
 import 'package:sempl/src/feature/onboarding/onboarding_screen.dart';
 import 'package:sempl/src/feature/profile/ui/profile_screen.dart';
 import 'package:sempl/src/feature/review_items/widgets/review_items_screen.dart';
@@ -39,13 +39,15 @@ class AppRouter {
         builder: (context, state) => const SurveyOrderScreen(),
         routes: <GoRoute>[
           GoRoute(
-              name: AppRoutes.confirmationOrderTypeOneScreen.name,
-              path: AppRoutes.confirmationOrderTypeOneScreen.path,
-              builder: (context, state) => const ConfirmationOrderTypeOneScreen(),),
+            name: AppRoutes.confirmationOrderTypeOneScreen.name,
+            path: AppRoutes.confirmationOrderTypeOneScreen.path,
+            builder: (context, state) => const ConfirmationOrderTypeOneScreen(),
+          ),
           GoRoute(
-              name: AppRoutes.confirmationOrderTypeTwoScreen.name,
-              path: AppRoutes.confirmationOrderTypeTwoScreen.path,
-              builder: (context, state) => const ConfirmationOrderTypeTwoScreen(),),
+            name: AppRoutes.confirmationOrderTypeTwoScreen.name,
+            path: AppRoutes.confirmationOrderTypeTwoScreen.path,
+            builder: (context, state) => const ConfirmationOrderTypeTwoScreen(),
+          ),
         ],
       ),
       GoRoute(
@@ -72,37 +74,43 @@ class AppRouter {
             const MainScreen(),
         routes: <GoRoute>[
           GoRoute(
-              name: AppRoutes.profile.name,
-              path: AppRoutes.profile.path,
-              builder: (context, state) => const ProfileScreen(),
-              routes: <GoRoute>[
-                GoRoute(
-                    name: AppRoutes.reviewItemsScreen.name,
-                    path: AppRoutes.reviewItemsScreen.path,
-                    builder: (context, state) => const ReviewItemsScreen(),
+            name: AppRoutes.profile.name,
+            path: AppRoutes.profile.path,
+            builder: (context, state) => const ProfileScreen(),
+            routes: <GoRoute>[
+              GoRoute(
+                name: AppRoutes.reviewItemsScreen.name,
+                path: AppRoutes.reviewItemsScreen.path,
+                builder: (context, state) => const ReviewItemsScreen(),
+                routes: [
+                  GoRoute(
+                    name: AppRoutes.feedback.name,
+                    path: AppRoutes.feedback.path,
+                    builder: (context, state) => const FeedbackScreen(),
                     routes: [
                       GoRoute(
-                          name: AppRoutes.feedback.name,
-                          path: AppRoutes.feedback.path,
-                          builder: (context, state) => const FeedbackScreen(),
-                          routes: [
-                            GoRoute(
-                                name: AppRoutes.feedbackConfirmation.name,
-                                path: AppRoutes.feedbackConfirmation.path,
-                                builder: (context, state) => const ConfirmationFeedbackScreen(),),
-                          ],),
-                    ],),
-                // GoRoute(
-                //     name: AppRoutes.profileEdit.name,
-                //     path: AppRoutes.profileEdit.path,
-                //     builder: (context, state) {
-                //       return const ProfileEditScreen();
-                //     }),
-                GoRoute(
-                    name: AppRoutes.finishedSempls.name,
-                    path: AppRoutes.finishedSempls.path,
-                    builder: (context, state) => const FinishedSemplsScreen(),),
-              ],),
+                        name: AppRoutes.feedbackConfirmation.name,
+                        path: AppRoutes.feedbackConfirmation.path,
+                        builder: (context, state) =>
+                            const ConfirmationFeedbackScreen(),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              // GoRoute(
+              //     name: AppRoutes.profileEdit.name,
+              //     path: AppRoutes.profileEdit.path,
+              //     builder: (context, state) {
+              //       return const ProfileEditScreen();
+              //     }),
+              GoRoute(
+                name: AppRoutes.finishedSempls.name,
+                path: AppRoutes.finishedSempls.path,
+                builder: (context, state) => const FinishedSemplsScreen(),
+              ),
+            ],
+          ),
           // GoRoute(
           //   name: AppRoutes.recentProducts.name,
           //   path: AppRoutes.recentProducts.path,
@@ -137,35 +145,36 @@ class AppRouter {
         builder: (context, state) => const ConfirmationAuthScreen(),
       ),
       GoRoute(
-          name: AppRoutes.delivery.name,
-          path: AppRoutes.delivery.path,
-          builder: (BuildContext context, GoRouterState state) {
-            final id = state.pathParameters['itemId']!;
-            return DeliveryScreen(id: id);
-          },
-          routes: const <GoRoute>[
-            // GoRoute(
-            //   name: AppRoutes.surveyOrder.name,
-            //   path: AppRoutes.surveyOrder.path,
-            //   builder: (context, state) {
-            //     return const SurveyOrderScreen();
-            //   },
-            //   routes: <GoRoute>[
-            //     GoRoute(
-            //         name: AppRoutes.confirmationOrderTypeOneScreen.name,
-            //         path: AppRoutes.confirmationOrderTypeOneScreen.path,
-            //         builder: (context, state) {
-            //           return const ConfirmationOrderTypeOneScreen();
-            //         }),
-            //     GoRoute(
-            //         name: AppRoutes.confirmationOrderTypeTwoScreen.name,
-            //         path: AppRoutes.confirmationOrderTypeTwoScreen.path,
-            //         builder: (context, state) {
-            //           return const ConfirmationOrderTypeTwoScreen();
-            //         }),
-            //   ],
-            // ),
-          ],),
+        name: AppRoutes.delivery.name,
+        path: AppRoutes.delivery.path,
+        builder: (BuildContext context, GoRouterState state) {
+          final id = state.pathParameters['itemId']!;
+          return DeliveryScreen(id: id);
+        },
+        routes: const <GoRoute>[
+          // GoRoute(
+          //   name: AppRoutes.surveyOrder.name,
+          //   path: AppRoutes.surveyOrder.path,
+          //   builder: (context, state) {
+          //     return const SurveyOrderScreen();
+          //   },
+          //   routes: <GoRoute>[
+          //     GoRoute(
+          //         name: AppRoutes.confirmationOrderTypeOneScreen.name,
+          //         path: AppRoutes.confirmationOrderTypeOneScreen.path,
+          //         builder: (context, state) {
+          //           return const ConfirmationOrderTypeOneScreen();
+          //         }),
+          //     GoRoute(
+          //         name: AppRoutes.confirmationOrderTypeTwoScreen.name,
+          //         path: AppRoutes.confirmationOrderTypeTwoScreen.path,
+          //         builder: (context, state) {
+          //           return const ConfirmationOrderTypeTwoScreen();
+          //         }),
+          //   ],
+          // ),
+        ],
+      ),
     ],
     redirect: RedirectBuilder({
       RedirectIfAuthenticatedGuard(),

@@ -11,6 +11,7 @@ ThemeData createLightTheme() => ThemeData(
         selectionColor: AppThemeColor.blueColor.withOpacity(0.3),
         selectionHandleColor: AppThemeColor.blueColor,
       ),
+      primaryColor: AppThemeColor.blueColor,
       extensions: const <ThemeExtension<dynamic>>[
         // ThemeColors.dark,
       ],

@@ -25,18 +25,12 @@ class ItemInListWidget extends StatelessWidget {
     final Widget image = item.photo.isEmpty
         ? Image.asset("assets/images/empty_avatar.png")
         : Image.network(item.photo);
-    return Ink(
-      color: Colors.transparent,
-      child: GestureDetector(
-        onTap: () {
-          context.pushNamed(
-            AppRoutes.itemScreen.name,
-            pathParameters: {'id': item.id.toString()},
-          );
-        },
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-          child: Column(
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+      child: Stack(
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: offset),
               SizedBox(
@@ -95,7 +89,19 @@ class ItemInListWidget extends StatelessWidget {
               SizedBox(height: offset),
             ],
           ),
-        ),
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(25),
+                onTap: () => context.pushNamed(
+                  AppRoutes.itemScreen.name,
+                  pathParameters: {'id': item.id.toString()},
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
