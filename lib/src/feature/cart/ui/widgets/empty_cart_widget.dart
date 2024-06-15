@@ -75,7 +75,9 @@ class EmptyCartWidget extends StatelessWidget {
                   ),
                 ),
                 SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 23),
+                  padding: const EdgeInsets.symmetric(horizontal: 23).copyWith(
+                    bottom: MediaQuery.paddingOf(context).bottom + 157,
+                  ),
                   sliver: SliverToBoxAdapter(
                     child: FilledButton(
                       style: FilledButton.styleFrom(

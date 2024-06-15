@@ -47,16 +47,15 @@ class _MainScreenState extends State<MainScreen> {
               )
             : null,
         backgroundColor: Colors.white,
-        body: MainScreenView(width: width),
+        body: _MainScreenView(width: width),
       ),
     );
   }
 }
 
-class MainScreenView extends StatelessWidget {
-  const MainScreenView({
+class _MainScreenView extends StatelessWidget {
+  const _MainScreenView({
     required this.width,
-    super.key,
   });
 
   final double width;
@@ -87,13 +86,13 @@ class MainScreenView extends StatelessWidget {
               previous.screenStatus != current.screenStatus,
           builder: (context, state) {
             switch (state.screenStatus) {
-              // case ScreenStatus.success:
-              //   return SliverList.builder(
-              //     itemCount: state.newSemplsCount,
-              //     itemBuilder: (BuildContext context, int index) =>
-              //         ItemInListWidget(item: state.newSempls[index]),
-              //   );
               case ScreenStatus.success:
+                return SliverList.builder(
+                  itemCount: state.newSemplsCount,
+                  itemBuilder: (BuildContext context, int index) =>
+                      ItemInListWidget(item: state.newSempls[index]),
+                );
+              case ScreenStatus.loading:
                 return EmptyListInMainPageWidget(width: width);
               case ScreenStatus.failure:
                 return const SliverFillRemaining(
