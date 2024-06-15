@@ -1,4 +1,5 @@
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
+import 'package:sempl/src/feature/login/data/auth_data_source.dart';
 import 'package:sempl/src/feature/survey/data/survey_data_source.dart';
 
 abstract interface class SurveyRepository<T> {
@@ -18,8 +19,8 @@ final class SurveyRepositoryImpl<T> implements SurveyRepository {
   @override
   Future<void> sendResultSurvey(Map<String, dynamic> survey) async {
     try {
-      final newToken = await _dataSource.sendResultSurvey(survey);
-      await _storage.save(newToken);
+      final Token newToken = await _dataSource.sendResultSurvey(survey);
+      await _storage.save(newToken as T);
     } catch (e) {
       rethrow;
     }

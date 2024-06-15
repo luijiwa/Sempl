@@ -19,16 +19,19 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_LoadingData value) loadingData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_LoadingData value)? loadingData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_LoadingData value)? loadingData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -96,6 +99,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_LoadingData value) loadingData,
   }) {
     return started(this);
   }
@@ -104,6 +108,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_LoadingData value)? loadingData,
   }) {
     return started?.call(this);
   }
@@ -112,6 +117,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_LoadingData value)? loadingData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -123,6 +129,83 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
 
 abstract class _Started implements CartEvent {
   const factory _Started() = _$StartedImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingDataImplCopyWith<$Res> {
+  factory _$$LoadingDataImplCopyWith(
+          _$LoadingDataImpl value, $Res Function(_$LoadingDataImpl) then) =
+      __$$LoadingDataImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingDataImplCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$LoadingDataImpl>
+    implements _$$LoadingDataImplCopyWith<$Res> {
+  __$$LoadingDataImplCopyWithImpl(
+      _$LoadingDataImpl _value, $Res Function(_$LoadingDataImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingDataImpl with DiagnosticableTreeMixin implements _LoadingData {
+  const _$LoadingDataImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CartEvent.loadingData()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CartEvent.loadingData'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingDataImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_LoadingData value) loadingData,
+  }) {
+    return loadingData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_LoadingData value)? loadingData,
+  }) {
+    return loadingData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_LoadingData value)? loadingData,
+    required TResult orElse(),
+  }) {
+    if (loadingData != null) {
+      return loadingData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingData implements CartEvent {
+  const factory _LoadingData() = _$LoadingDataImpl;
 }
 
 /// @nodoc

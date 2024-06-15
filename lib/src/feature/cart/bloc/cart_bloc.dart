@@ -15,6 +15,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   final ICartRepository _repository;
   CartBloc(this._repository) : super(const CartState()) {
     on<_Started>(_onStarted);
+    on<_LoadingData>(_onLoadingData);
   }
 
   Future<void> _onStarted(_Started event, Emitter<CartState> emit) async {
@@ -22,7 +23,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     try {
       emit(
         state.copyWith(
-          status: ScreenStatus.success,
+          status: ScreenStatus.empty,
         ),
       );
     } catch (e, stackTrace) {
@@ -30,4 +31,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       emit(state.copyWith(status: ScreenStatus.failure));
     }
   }
+
+  FutureOr<void> _onLoadingData(event, Emitter<CartState> emit) {}
 }

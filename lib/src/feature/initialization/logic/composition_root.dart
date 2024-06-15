@@ -5,6 +5,9 @@ import 'package:sempl/src/core/components/rest_client/src/rest_client_dio.dart';
 import 'package:sempl/src/core/constant/config.dart';
 import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/feature/app/logic/tracking_manager.dart';
+import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
+import 'package:sempl/src/feature/cart/data/data_source/cart_data_source_network.dart';
+import 'package:sempl/src/feature/cart/data/repositories/cart_repository.dart';
 import 'package:sempl/src/feature/initialization/model/dependencies.dart';
 import 'package:sempl/src/feature/item/data/data_source/item_data_source.dart';
 import 'package:sempl/src/feature/item/data/repository/item_repository.dart';
@@ -89,16 +92,24 @@ final class CompositionRoot {
       dio: interceptedDio,
     );
     final surveyRepository = SurveyRepositoryImpl(
-        dataSource: SurveyDataSourceNetwork(restClient), storage: storage,);
+      dataSource: SurveyDataSourceNetwork(restClient),
+      storage: storage,
+    );
+
     final itemRepository = ItemRepositoryImpl(
       ItemDataSourceNetwork(restClient),
     );
+
     final mainScreenRepository = MainScreenRepositoryImpl(
-        dataSource: MainScreenDataSourceNetwork(restClient), storage: storage,);
+      dataSource: MainScreenDataSourceNetwork(restClient),
+      storage: storage,
+    );
+
     final profileRepository = ProfileRepositoryImpl(
       dataSource: ProfileDataSourceNetwork(restClient),
       storage: storage,
     );
+
     final authBloc = AuthBloc(
       AuthState(
         status: token != null
@@ -111,7 +122,13 @@ final class CompositionRoot {
       ),
     );
 
+    final cartBloc = CartBloc(
+      CartRepository(
+        dataSource: CartDataSourceNetwork(restClient),
+      ),
+    )..add(const CartEvent.started());
     return Dependencies(
+      cartBloc: cartBloc,
       settingsBloc: settingsBloc,
       errorTrackingManager: errorTrackingManager,
       authBloc: authBloc,

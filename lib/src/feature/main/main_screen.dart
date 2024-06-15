@@ -52,7 +52,8 @@ class _MainScreenState extends State<MainScreen> {
 
 class MainScreenView extends StatelessWidget {
   const MainScreenView({
-    required this.width, super.key,
+    required this.width,
+    super.key,
   });
 
   final double width;
@@ -84,11 +85,23 @@ class MainScreenView extends StatelessWidget {
           builder: (context, state) {
             switch (state.screenStatus) {
               case ScreenStatus.success:
+                return SliverList.builder(
+                  itemCount: state.newSemplsCount,
+                  itemBuilder: (BuildContext context, int index) =>
+                      ItemInListWidget(item: state.newSempls[index]),
+                );
+              case ScreenStatus.loading:
                 return SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) =>
-                        ItemInListWidget(index: index),
-                    childCount: state.newSemplsCount,
+                    delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) =>
+                      ItemInListWidget(item: state.newSempls[index]),
+                  childCount: 2,
+                ));
+              case ScreenStatus.failure:
+                return const SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Center(
+                    child: Text('Что-то пошло не так'),
                   ),
                 );
               default:
@@ -115,7 +128,7 @@ class MainScreenView extends StatelessWidget {
 
                 // Переход на второй экран с передачей блока
                 Navigator.of(context).push(
-                  MaterialPageRoute(
+                  MaterialPageRoute<RecentProductsScreen>(
                     builder: (context) => BlocProvider.value(
                       value: myBloc,
                       child: RecentProductsScreen(bloc: bloc),

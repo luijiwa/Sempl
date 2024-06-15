@@ -1,5 +1,6 @@
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/feature/app/logic/tracking_manager.dart';
+import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
 import 'package:sempl/src/feature/initialization/logic/composition_root.dart';
 import 'package:sempl/src/feature/item/data/repository/item_repository.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
@@ -22,6 +23,7 @@ base class Dependencies {
     required this.errorTrackingManager,
     required this.restClient,
     required this.authBloc,
+    required this.cartBloc,
     required this.surveyRepository,
     required this.profileRepository,
     required this.itemRepository,
@@ -36,6 +38,8 @@ base class Dependencies {
 
   /// [SettingsBloc] instance, used to manage theme and locale.
   final SettingsBloc settingsBloc;
+
+  final CartBloc cartBloc;
 
   final SurveyRepository surveyRepository;
   final ProfileRepository profileRepository;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sempl/src/feature/app/widget/material_context.dart';
+import 'package:sempl/src/feature/cart/cart_scope.dart';
 import 'package:sempl/src/feature/initialization/logic/composition_root.dart';
 import 'package:sempl/src/feature/initialization/model/dependencies.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
@@ -26,9 +27,11 @@ class App extends StatelessWidget {
         child: DependenciesScope(
           dependencies: result.dependencies,
           child: AuthScope(
-            child: SettingsScope(
-              settingsBloc: result.dependencies.settingsBloc,
-              child: const MaterialContext(),
+            child: CartScope(
+              child: SettingsScope(
+                settingsBloc: result.dependencies.settingsBloc,
+                child: const MaterialContext(),
+              ),
             ),
           ),
         ),

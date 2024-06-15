@@ -77,9 +77,9 @@ class RecentProductsScreen extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (_, int index) => ItemInListWidget(
-                    index: index,
-                    applyColorFilter: true,
-                  ),
+                  item: bloc.state.newSempls[index],
+                  applyColorFilter: true,
+                ),
                 childCount: bloc
                     .state.newSempls.length, // Количество элементов в списке
               ),

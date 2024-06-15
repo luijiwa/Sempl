@@ -46,6 +46,9 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
     ];
     return Scaffold(
       extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: const Text("SEMPL!"),
+      ),
       body: Stack(
         children: [
           PageView.builder(
@@ -55,14 +58,16 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
             itemBuilder: (BuildContext context, int index) =>
                 listScreens[index],
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-              child: Text("SEMPL!",
-                  style: Theme.of(context).textTheme.appTitleMedium,),
-            ),
-          ),
+          // Align(
+          //   alignment: Alignment.topCenter,
+          //   child: Padding(
+          //     padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+          //     child: Text(
+          //       "SEMPL!",
+          //       style: Theme.of(context).textTheme.appTitleMedium,
+          //     ),
+          //   ),
+          // ),
           Padding(
             padding: EdgeInsets.only(bottom: bottomOffset, left: 22, right: 22),
             child: Align(
@@ -83,10 +88,11 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
                     height: width * 0.153131,
                     width: width * 0.153131,
                     constraints: const BoxConstraints(
-                        minHeight: 50,
-                        minWidth: 50,
-                        maxHeight: 70,
-                        maxWidth: 70,),
+                      minHeight: 50,
+                      minWidth: 50,
+                      maxHeight: 70,
+                      maxWidth: 70,
+                    ),
                     child: FloatingActionButton(
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15)),

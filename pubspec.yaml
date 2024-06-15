@@ -186,7 +186,8 @@ flutter:
    
 
 
-        
+  shaders:
+    - assets/shaders/shimmer.frag        
 
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -200,8 +201,7 @@ flutter:
     # - assets/images/3.0x/
     # - assets/images/4.0x/
     - assets/images/
-    - assets/shaders/shimmer.frag
-
+    
     # - assets/images/Background 3.png
     # - assets/images/Background 4.png
     # - assets/images/Background 2.png
