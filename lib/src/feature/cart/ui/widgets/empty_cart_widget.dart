@@ -59,22 +59,23 @@ class EmptyCartWidget extends StatelessWidget {
                   ),
                 ),
                 SliverFillRemaining(
-                  child: SizedBox(
-                    height: 200,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (context, index) =>
-                          const ItemInEmptyListWidget(
-                        item: NewSemplsData(
-                          id: 1,
-                          name: 'Семпл',
-                          description:
-                              'Sérum salicylique Anti-imperfections 30ml - Caudalie',
-                          photo:
-                              'https://via.placeholder.com/640x480.png/005599?text=optio',
-                          rating: 5.0,
-                          countRating: 10,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    itemBuilder: (context, index) => const ClipRect(
+                      child: SizedBox(
+                        width: 200,
+                        child: ItemInEmptyListWidget(
+                          item: NewSemplsData(
+                            id: 1,
+                            name: 'Семпл',
+                            description:
+                                'Sérum salicylique Anti-imperfections 30ml - Caudalie',
+                            photo:
+                                'https://via.placeholder.com/640x480.png/005599?text=optio',
+                            rating: 5.0,
+                            countRating: 10,
+                          ),
                         ),
                       ),
                     ),

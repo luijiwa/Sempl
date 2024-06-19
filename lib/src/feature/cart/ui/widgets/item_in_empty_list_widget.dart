@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/utils/extentions/build_context_ext.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/feature/main/data/model/new_sempls/new_sempls.dart';
 
@@ -28,7 +29,6 @@ class ItemInEmptyListWidget extends StatelessWidget {
         builder: (context, constraints) {
           final width = constraints.maxWidth;
           final height = constraints.maxHeight;
-          final imageSize = width * 0.357;
           final offset = height * 0.029;
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.05),
@@ -38,26 +38,15 @@ class ItemInEmptyListWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: offset),
-                    ClipRect(
-                      child: image,
+                    SizedBox(
+                      width: width * 0.32576,
+                      child: ClipRect(
+                        child: image,
+                      ),
                     ),
-                    // if (applyColorFilter) // Проверяем, нужно ли применять фильтр
-                    //   ColorFiltered(
-                    //     colorFilter: const ColorFilter.mode(
-                    //       AppThemeColor.grey,
-                    //       BlendMode.multiply,
-                    //     ),
-                    //     child: Image.asset("assets/images/item_image.png"),
-                    //   )
-                    // else
-                    //   Image.asset("assets/images/item_image.png"),
                     Text(
                       item.name.toUpperCase(),
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: context.text.itemName,
                     ),
                     ConstrainedBox(
                       constraints: BoxConstraints(
@@ -72,24 +61,20 @@ class ItemInEmptyListWidget extends StatelessWidget {
                           item.description.toUpperCase(),
                           textAlign: TextAlign.center,
                           maxLines: 3,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            height: 1,
-                          ),
+                          style: context.text.itemDescription,
                         ),
                       ),
                     ),
                     Text(
                       "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
                           .toUpperCase(),
-                      style: const TextStyle(fontSize: 10),
+                      style: context.text.itemRatingDescription,
                     ),
                     const SizedBox(height: 11),
                     StarRatingWidget(
                       size: width * 0.038175,
                       rating: item.rating.toInt(),
                     ),
-                    SizedBox(height: offset),
                   ],
                 ),
                 Positioned.fill(
