@@ -16,7 +16,7 @@ class ProductCard extends StatelessWidget {
             Flexible(
               child: AspectRatio(
                 aspectRatio: 1 / 1,
-                child: SizedBox(
+                child: ClipRect(
                   // width: 0.272315 * MediaQuery.of(context).size.width,
                   child: Image.network(
                     item.image,

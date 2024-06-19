@@ -145,8 +145,15 @@ class ItemCard extends StatelessWidget {
                               padding: EdgeInsets.symmetric(
                                   horizontal: width * 0.05),
                               elevation: 0,
-                              foregroundColor: Colors.white,
-                              backgroundColor: const Color(0xFF99BFD4),
+                              foregroundColor: cartItem == null
+                                  ? Colors.white
+                                  : AppThemeColor.black,
+                              backgroundColor: cartItem == null
+                                  ? AppThemeColor.blueColor
+                                  : Colors.white,
+                              shape: cartItem != null
+                                  ? const StadiumBorder(side: BorderSide())
+                                  : null,
                             ),
                             child: AutoSizeText(
                               cartItem == null
