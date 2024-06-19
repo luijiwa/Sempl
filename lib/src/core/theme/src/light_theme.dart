@@ -12,8 +12,9 @@ ThemeData createLightTheme() => ThemeData(
         selectionHandleColor: AppThemeColor.blueColor,
       ),
       primaryColor: AppThemeColor.blueColor,
-      extensions: const <ThemeExtension<dynamic>>[
+      extensions: <ThemeExtension<dynamic>>[
         // ThemeColors.dark,
+        ThemeTextStyles.light,
       ],
       appBarTheme: const AppBarTheme(
         scrolledUnderElevation: 0,
