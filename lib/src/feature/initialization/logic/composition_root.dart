@@ -1,12 +1,13 @@
 import 'package:curl_logger_dio_interceptor/curl_logger_dio_interceptor.dart';
 import 'package:dio/dio.dart';
+import 'package:sempl/src/core/components/database/database.dart';
 import 'package:sempl/src/core/components/rest_client/rest_client.dart';
 import 'package:sempl/src/core/components/rest_client/src/rest_client_dio.dart';
 import 'package:sempl/src/core/constant/config.dart';
 import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/feature/app/logic/tracking_manager.dart';
 import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
-import 'package:sempl/src/feature/cart/data/data_source/cart_data_source_network.dart';
+import 'package:sempl/src/feature/cart/data/data_source/cart_items_dao.dart';
 import 'package:sempl/src/feature/cart/data/repositories/cart_repository.dart';
 import 'package:sempl/src/feature/initialization/model/dependencies.dart';
 import 'package:sempl/src/feature/item/data/data_source/item_data_source.dart';
@@ -95,6 +96,7 @@ final class CompositionRoot {
       dataSource: SurveyDataSourceNetwork(restClient),
       storage: storage,
     );
+    final database = AppDatabase();
 
     final itemRepository = ItemRepositoryImpl(
       ItemDataSourceNetwork(restClient),
@@ -124,7 +126,7 @@ final class CompositionRoot {
 
     final cartBloc = CartBloc(
       CartRepository(
-        dataSource: CartDataSourceNetwork(restClient),
+        dataSource: CartItemsDao(database),
       ),
     )..add(const CartEvent.started());
     return Dependencies(

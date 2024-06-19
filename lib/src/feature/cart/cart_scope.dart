@@ -12,6 +12,19 @@ abstract interface class CartController {
 
   /// Load data
   void loadData();
+
+  void addItemToCart({
+    required int itemId,
+    required String name,
+    required String description,
+    required String image,
+  });
+
+  /// Delete a [CartItem] from the cart.
+  void deleteItemFromCart(int id);
+
+  /// Clear all items from the cart.
+  void clearCart();
 }
 
 /// Scope that controls the cart state
@@ -60,6 +73,32 @@ class _CartScopeState extends State<CartScope> implements CartController {
           );
         },
       );
+
+  @override
+  void addItemToCart(
+      {required int itemId,
+      required String name,
+      required String description,
+      required String image}) {
+    _cartBloc.add(
+      CartEvent.addItemToCart(
+        id: itemId,
+        name: name,
+        description: description,
+        image: image,
+      ),
+    );
+  }
+
+  @override
+  void clearCart() {
+    _cartBloc.add(const CartEvent.clearCart());
+  }
+
+  @override
+  void deleteItemFromCart(int id) {
+    _cartBloc.add(CartEvent.deleteItemFromCart(id: id));
+  }
 }
 
 final class _CartInherited extends InheritedWidget {

@@ -1,10 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
+import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
+import 'package:sempl/src/feature/cart/cart_scope.dart';
+import 'package:sempl/src/feature/cart/model/cart_item.dart';
+import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
 import 'package:sempl/src/feature/item/ui/widgets/shimmer_cart_item.dart';
 import 'package:share_plus/share_plus.dart';
@@ -36,7 +42,9 @@ class ItemCard extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: const BorderRadius.all(Radius.circular(30.0)),
                   border: Border.all(
-                      width: 0.5, color: AppThemeColor.gris.withOpacity(0.5),),
+                    width: 0.5,
+                    color: AppThemeColor.gris.withOpacity(0.5),
+                  ),
                 ),
                 child: Column(
                   children: [
@@ -70,12 +78,15 @@ class ItemCard extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             Share.share(
-                                'Я Получил этот товар на https://sempl.com',);
+                              'Я Получил этот товар на https://sempl.com',
+                            );
                           },
                           child: SvgPicture.asset(
                             'assets/icons/share_icon.svg',
                             colorFilter: const ColorFilter.mode(
-                                AppThemeColor.blueColor, BlendMode.srcIn,),
+                              AppThemeColor.blueColor,
+                              BlendMode.srcIn,
+                            ),
                           ),
                         ),
                         SizedBox(width: width * 0.02),
@@ -96,32 +107,58 @@ class ItemCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: width * 0.12),
-                      child: AutoSizeText(item.description,
-                          textAlign: TextAlign.center,
-                          maxLines: 3,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            height: 1.2,
-                          ),),
+                      child: AutoSizeText(
+                        item.description,
+                        textAlign: TextAlign.center,
+                        maxLines: 3,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          height: 1.2,
+                        ),
+                      ),
                     ),
                     SizedBox(height: height * 0.016),
                     SizedBox(
-                      height: 0.1186228814 * width,
                       width: double.maxFinite,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          foregroundColor: Colors.white,
-                          backgroundColor: const Color(0xFF99BFD4),
-                        ),
-                        child: AutoSizeText(
-                          'ПОЛОЖИТЬ В КОРЗИНУ',
-                          style: TextStyle(
-                            fontSize: width > 320 ? 15 : 12,
-                            color: AppThemeColor.grey,
-                          ),
-                        ),
+                      child: BlocBuilder<CartBloc, CartState>(
+                        bloc: DependenciesScope.of(context).cartBloc,
+                        builder: (context, cartState) {
+                          final CartItem? cartItem =
+                              cartState.items.firstWhereOrNull(
+                            (element) => element.id == state.item.data.id,
+                          );
+
+                          return ElevatedButton(
+                            onPressed: () {
+                              if (cartItem == null) {
+                                HapticFeedback.lightImpact();
+
+                                CartScope.of(context).addItemToCart(
+                                  itemId: state.item.data.id,
+                                  name: state.item.data.name,
+                                  description: state.item.data.description,
+                                  image: state.item.data.photo,
+                                );
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: width * 0.05),
+                              elevation: 0,
+                              foregroundColor: Colors.white,
+                              backgroundColor: const Color(0xFF99BFD4),
+                            ),
+                            child: AutoSizeText(
+                              cartItem == null
+                                  ? 'ПОЛОЖИТЬ В КОРЗИНУ'
+                                  : 'ДОБАВЛЕНО',
+                              style: TextStyle(
+                                fontSize: width > 320 ? 15 : 12,
+                                color: AppThemeColor.grey,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],

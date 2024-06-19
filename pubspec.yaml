@@ -52,7 +52,7 @@ dependencies:
  
   # Persisting
   shared_preferences: ^2.2.2
-  # drift: ^2.13.1
+  drift: ^2.13.1
   sqlite3_flutter_libs: ^0.5.18
 
   # Logging
@@ -106,7 +106,7 @@ dev_dependencies:
   # Codegen
   freezed: ^2.4.5
   json_serializable: ^6.7.1
-  # drift_dev: ^2.13.1
+  drift_dev: ^2.13.1 
   build_runner: ^2.4.9
 
 # For information on the generic Dart part of this file, see the

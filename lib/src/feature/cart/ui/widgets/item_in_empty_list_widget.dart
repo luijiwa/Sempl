@@ -27,70 +27,62 @@ class ItemInEmptyListWidget extends StatelessWidget {
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          final width = constraints.maxWidth;
-          final height = constraints.maxHeight;
+          final width = MediaQuery.of(context).size.width;
+          final height = MediaQuery.of(context).size.height;
           final offset = height * 0.029;
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-            child: Stack(
-              children: [
+            child:
+                // Stack(
+                //   children: [
                 Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: width * 0.32576,
-                      child: ClipRect(
-                        child: image,
-                      ),
-                    ),
-                    Text(
-                      item.name.toUpperCase(),
-                      style: context.text.itemName,
-                    ),
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxWidth: MediaQuery.sizeOf(context).width > 400
-                            ? 400
-                            : width,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: width * 0.25)
-                            .copyWith(top: 4, bottom: 11),
-                        child: AutoSizeText(
-                          item.description.toUpperCase(),
-                          textAlign: TextAlign.center,
-                          maxLines: 3,
-                          style: context.text.itemDescription,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
-                          .toUpperCase(),
-                      style: context.text.itemRatingDescription,
-                    ),
-                    const SizedBox(height: 11),
-                    StarRatingWidget(
-                      size: width * 0.038175,
-                      rating: item.rating.toInt(),
-                    ),
-                  ],
-                ),
-                Positioned.fill(
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(25),
-                      onTap: () => context.pushNamed(
-                        AppRoutes.itemScreen.name,
-                        pathParameters: {'id': item.id.toString()},
-                      ),
-                    ),
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: width * 0.32576,
+                  child: ClipRect(
+                    child: image,
                   ),
+                ),
+                Text(
+                  item.name.toUpperCase(),
+                  style: context.text.itemName,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 4, bottom: 11),
+                  child: AutoSizeText(
+                    item.description.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    maxLines: 3,
+                    style: context.text.itemDescription,
+                  ),
+                ),
+                Text(
+                  "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
+                      .toUpperCase(),
+                  style: context.text.itemRatingDescription,
+                ),
+                const SizedBox(height: 11),
+                StarRatingWidget(
+                  size: width * 0.038175,
+                  rating: item.rating.toInt(),
                 ),
               ],
             ),
+            // Positioned.fill(
+            //   child: Material(
+            //     color: Colors.transparent,
+            //     child: InkWell(
+            //       borderRadius: BorderRadius.circular(25),
+            //       onTap: () => context.pushNamed(
+            //         AppRoutes.itemScreen.name,
+            //         pathParameters: {'id': item.id.toString()},
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            //   ],
+            // ),
           );
         },
       ),

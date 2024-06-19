@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 import 'package:sempl/src/core/constant/generated/assets.gen.dart';
+import 'package:sempl/src/core/utils/extentions/build_context_ext.dart';
+import 'package:sempl/src/feature/cart/model/cart_item.dart';
 
 class ProductCard extends StatelessWidget {
+  final CartItem item;
+
+  const ProductCard({super.key, required this.item});
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.all(16.0),
@@ -10,10 +16,10 @@ class ProductCard extends StatelessWidget {
             Flexible(
               child: AspectRatio(
                 aspectRatio: 1 / 1,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: Image.asset(
-                    Assets.images.diamond.path,
+                child: SizedBox(
+                  // width: 0.272315 * MediaQuery.of(context).size.width,
+                  child: Image.network(
+                    item.image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -24,19 +30,14 @@ class ProductCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'DIAMOND',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
-                    ),
+                  Text(
+                    item.name.toUpperCase(),
+                    style: context.text.itemName,
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    'Ополаскиватели для полости рта и десен, 15мл ',
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                    ),
+                    item.description.toUpperCase(),
+                    style: context.text.itemDescription,
                   ),
                   InkWell(
                     onTap: () {},
