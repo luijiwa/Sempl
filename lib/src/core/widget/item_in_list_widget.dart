@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/utils/extentions/build_context_ext.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
 import 'package:sempl/src/feature/main/data/model/new_sempls/new_sempls.dart';
@@ -65,10 +66,7 @@ class ItemInListWidget extends StatelessWidget {
                     //   Image.asset("assets/images/item_image.png"),
                     Text(
                       item.name.toUpperCase(),
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: context.text.itemName,
                     ),
                     ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 400),
@@ -79,17 +77,15 @@ class ItemInListWidget extends StatelessWidget {
                           item.description.toUpperCase(),
                           textAlign: TextAlign.center,
                           maxLines: 3,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            height: 1,
-                          ),
+                          style: context.text.itemDescription,
                         ),
                       ),
                     ),
                     Text(
-                      "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
+                      '${item.rating.toStringAsFixed(1)} '
+                              'из ${item.countRating} отзывов'
                           .toUpperCase(),
-                      style: const TextStyle(fontSize: 10),
+                      style: context.text.itemRatingDescription,
                     ),
                     const SizedBox(height: 11),
                     StarRatingWidget(

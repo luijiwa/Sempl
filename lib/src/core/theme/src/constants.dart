@@ -101,3 +101,8 @@ const linkTextStyle = TextStyle(
   decorationColor: Color(0xFF99BFD4),
   color: Color(0xFF99BFD4),
 );
+
+const defaultText = TextStyle(
+  fontSize: 14,
+  color: AppThemeColor.black,
+);
