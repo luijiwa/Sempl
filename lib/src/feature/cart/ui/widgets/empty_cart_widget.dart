@@ -1,6 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/item_in_list_widget.dart';
+import 'package:sempl/src/core/widget/star_rating_widget.dart';
+import 'package:sempl/src/feature/cart/ui/widgets/item_in_empty_list_widget.dart';
 import 'package:sempl/src/feature/main/data/model/new_sempls/new_sempls.dart';
 
 class EmptyCartWidget extends StatelessWidget {
@@ -59,7 +64,8 @@ class EmptyCartWidget extends StatelessWidget {
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 10,
-                      itemBuilder: (context, index) => const ItemInListWidget(
+                      itemBuilder: (context, index) =>
+                          const ItemInEmptyListWidget(
                         item: NewSemplsData(
                           id: 1,
                           name: 'Семпл',
