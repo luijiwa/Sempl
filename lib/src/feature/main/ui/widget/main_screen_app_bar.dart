@@ -12,6 +12,8 @@ import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 
+import '../../../../core/widget/cart_with_badge_icon_widget.dart';
+
 class MainScreenAppBar extends StatelessWidget {
   const MainScreenAppBar({super.key});
 
@@ -43,45 +45,7 @@ class MainScreenAppBar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       // const PointsWidget(),
-                      BlocBuilder<CartBloc, CartState>(
-                        bloc: DependenciesScope.of(context).cartBloc,
-                        buildWhen: (previous, current) =>
-                            previous.items != current.items,
-                        builder: (context, state) {
-                          final length = state.items.isNotEmpty
-                              ? state.items.length
-                              : null;
-                          return badges.Badge(
-                            position:
-                                badges.BadgePosition.topEnd(top: 5, end: 10),
-                            badgeStyle: badges.BadgeStyle(
-                              shape: badges.BadgeShape.instagram,
-                              badgeColor: AppThemeColor.yellow,
-                              borderRadius: BorderRadius.circular(
-                                  length != null && length < 10 ? 5 : 10),
-                            ),
-                            badgeContent: length != null
-                                ? Text(
-                                    length.toString(),
-                                    style: context.text.itemRatingDescription
-                                        .copyWith(fontSize: 8, height: 1),
-                                  )
-                                : null,
-                            showBadge: state.items.isNotEmpty,
-                            child: IconButton(
-                              onPressed: () =>
-                                  context.pushNamed(AppRoutes.cart.name),
-                              icon: Assets.icons.cart.svg(
-                                width: 23,
-                                colorFilter: const ColorFilter.mode(
-                                  Colors.white,
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                      const CartWithBadgeIconWidget(),
                       SizedBox(width: width * 0.02),
                       const AppBarProfileIconButtonWidget(),
                     ],

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/star_rating_widget.dart';
@@ -131,7 +133,8 @@ class ItemCard extends StatelessWidget {
                           return ElevatedButton(
                             onPressed: () {
                               if (cartItem == null) {
-                                HapticFeedback.lightImpact();
+                                HapticFeedback.mediumImpact();
+                                HapticFeedback.selectionClick();
 
                                 CartScope.of(context).addItemToCart(
                                   itemId: state.item.data.id,
@@ -139,6 +142,8 @@ class ItemCard extends StatelessWidget {
                                   description: state.item.data.description,
                                   image: state.item.data.photo,
                                 );
+                              } else {
+                                context.pushNamed(AppRoutes.cart.name);
                               }
                             },
                             style: ElevatedButton.styleFrom(
@@ -152,16 +157,22 @@ class ItemCard extends StatelessWidget {
                                   ? AppThemeColor.blueColor
                                   : Colors.white,
                               shape: cartItem != null
-                                  ? const StadiumBorder(side: BorderSide())
+                                  ? const StadiumBorder(
+                                      side: BorderSide(
+                                        color: AppThemeColor.blueColor,
+                                      ),
+                                    )
                                   : null,
                             ),
                             child: AutoSizeText(
                               cartItem == null
                                   ? 'ПОЛОЖИТЬ В КОРЗИНУ'
-                                  : 'ДОБАВЛЕНО',
+                                  : 'В КОРЗИНЕ',
                               style: TextStyle(
                                 fontSize: width > 320 ? 15 : 12,
-                                color: AppThemeColor.grey,
+                                color: cartItem == null
+                                    ? AppThemeColor.grey
+                                    : AppThemeColor.black,
                               ),
                             ),
                           );

@@ -5,15 +5,18 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
   final TextStyle itemDescription;
   final TextStyle itemRatingDescription;
 
-  final TextStyle searchHint;
+  final TextStyle iteminCartName;
+
+  final TextStyle appBarStyle2;
   final TextStyle searchInput;
 
   ThemeTextStyles({
     required this.itemName,
     required this.itemDescription,
     required this.itemRatingDescription,
-    required this.searchHint,
+    required this.appBarStyle2,
     required this.searchInput,
+    required this.iteminCartName,
   });
 
   @override
@@ -21,16 +24,18 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     TextStyle? itemName,
     TextStyle? itemDescription,
     TextStyle? itemRatingDescription,
-    TextStyle? searchHint,
+    TextStyle? appBarStyle2,
     TextStyle? searchInput,
+    TextStyle? iteminCartName,
   }) =>
       ThemeTextStyles(
         itemName: itemName ?? this.itemName,
         itemDescription: itemDescription ?? this.itemDescription,
         itemRatingDescription:
             itemRatingDescription ?? this.itemRatingDescription,
-        searchHint: searchHint ?? this.searchHint,
+        appBarStyle2: appBarStyle2 ?? this.appBarStyle2,
         searchInput: searchInput ?? this.searchInput,
+        iteminCartName: iteminCartName ?? this.iteminCartName,
       );
 
   @override
@@ -48,8 +53,9 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
           TextStyle.lerp(itemDescription, other.itemDescription, t)!,
       itemRatingDescription: TextStyle.lerp(
           itemRatingDescription, other.itemRatingDescription, t)!,
-      searchHint: TextStyle.lerp(searchHint, other.searchHint, t)!,
+      appBarStyle2: TextStyle.lerp(appBarStyle2, other.appBarStyle2, t)!,
       searchInput: TextStyle.lerp(searchInput, other.searchInput, t)!,
+      iteminCartName: TextStyle.lerp(iteminCartName, other.iteminCartName, t)!,
     );
   }
 
@@ -64,15 +70,23 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
         itemRatingDescription: defaultText.copyWith(
           fontSize: 10,
         ),
-        searchHint: defaultText,
+        appBarStyle2: defaultText.copyWith(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
         searchInput: defaultText,
+        iteminCartName: defaultText.copyWith(
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+        ),
       );
 
   static ThemeTextStyles get dark => ThemeTextStyles(
         itemName: defaultText,
         itemDescription: defaultText,
         itemRatingDescription: defaultText,
-        searchHint: defaultText,
+        appBarStyle2: defaultText,
         searchInput: defaultText,
+        iteminCartName: defaultText,
       );
 }

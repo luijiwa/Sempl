@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/theme/theme.dart';
+import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
+import 'package:sempl/src/core/widget/cart_with_badge_icon_widget.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/item/bloc/item_bloc.dart';
@@ -36,35 +38,44 @@ class _ItemScreenState extends State<ItemScreen> {
     return BlocProvider(
       create: (context) => _itemBloc,
       child: Scaffold(
-          floatingActionButton:
-              kDebugMode ? FloatingActionButton(onPressed: () {}) : null,
-          body: CustomScrollView(
-            slivers: [
-              SliverAppBar(
-                leading: const CustomBackButton(),
-                backgroundColor: AppThemeColor.grey,
-                title: Text(
-                  'Страница продукта',
-                  style: TextStyle(
-                    fontSize: width > 320 ? 18 : 15,
-                    fontWeight: FontWeight.w700,
-                  ),
+        floatingActionButton:
+            kDebugMode ? FloatingActionButton(onPressed: () {}) : null,
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              leading: const CustomBackButton(),
+              backgroundColor: AppThemeColor.grey,
+              // title: Text(
+              //   'Страница продукта',
+              //   style: TextStyle(
+              //     fontSize: width > 320 ? 18 : 15,
+              //     fontWeight: FontWeight.w700,
+              //   ),
+              // ),
+              // centerTitle: true,
+              actions: [
+                const CartWithBadgeIconWidget(
+                  color: AppThemeColor.blueColor,
                 ),
-                centerTitle: true,
-              ),
-              SliverPadding(padding: EdgeInsets.only(top: height * 0.02)),
-              const ItemCard(),
-              SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 22)
-                    .copyWith(top: 27, bottom: 15),
-                sliver: const CommentsRowWidget(),
-              ),
-              const ReviewCardWidget(),
-              const SliverToBoxAdapter(
-                child: BottomPadding(),
-              ),
-            ],
-          ),),
+                SizedBox(width: width * 0.02),
+                const AppBarProfileIconButtonWidget(),
+                const SizedBox(width: 23),
+              ],
+            ),
+            SliverPadding(padding: EdgeInsets.only(top: height * 0.02)),
+            const ItemCard(),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 22)
+                  .copyWith(top: 27, bottom: 15),
+              sliver: const CommentsRowWidget(),
+            ),
+            const ReviewCardWidget(),
+            const SliverToBoxAdapter(
+              child: BottomPadding(),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

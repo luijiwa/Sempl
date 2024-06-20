@@ -57,14 +57,14 @@ class ItemInEmptyListWidget extends StatelessWidget {
                     style: context.text.itemDescription,
                   ),
                 ),
-                Text(
-                  "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
-                      .toUpperCase(),
-                  style: context.text.itemRatingDescription,
-                ),
-                const SizedBox(height: 11),
+                // Text(
+                //   "${item.rating.toStringAsFixed(1)}  из ${item.countRating} отзывов"
+                //       .toUpperCase(),
+                //   style: context.text.itemRatingDescription,
+                // ),
+                // const SizedBox(height: 11),
                 StarRatingWidget(
-                  size: width * 0.038175,
+                  size: width * 0.025,
                   rating: item.rating.toInt(),
                 ),
               ],

@@ -148,8 +148,8 @@ class AppRouter {
         name: AppRoutes.delivery.name,
         path: AppRoutes.delivery.path,
         builder: (BuildContext context, GoRouterState state) {
-          final id = state.pathParameters['itemId']!;
-          return DeliveryScreen(id: id);
+          // final id = state.pathParameters['itemId']!;
+          return const DeliveryScreen();
         },
         routes: const <GoRoute>[
           // GoRoute(

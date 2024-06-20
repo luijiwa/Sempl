@@ -8,8 +8,7 @@ import 'package:sempl/src/feature/delivery/delivery_modal_widget.dart';
 import 'package:sempl/src/feature/survey/ui/widgets/address_data_fields_widget.dart';
 
 class DeliveryScreen extends StatelessWidget {
-  const DeliveryScreen({required this.id, super.key});
-  final String id;
+  const DeliveryScreen({super.key});
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -21,10 +20,11 @@ class DeliveryScreen extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         backgroundColor: AppThemeColor.grey,
         appBar: PreferredSize(
-            preferredSize: Size.fromHeight(
-              height * 0.24,
-            ),
-            child: const CustomAppBar(),),
+          preferredSize: Size.fromHeight(
+            height * 0.24,
+          ),
+          child: const CustomAppBar(),
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22.0),
           child: Column(
@@ -69,9 +69,10 @@ class DeliveryScreen extends StatelessWidget {
               NextStepButton(
                 title: 'ПРОДОЛЖИТЬ',
                 onPressed: () => showDialog(
-                    useSafeArea: false,
-                    context: context,
-                    builder: (context) => const DeliveryModalWidget(),),
+                  useSafeArea: false,
+                  context: context,
+                  builder: (context) => const DeliveryModalWidget(),
+                ),
               ),
               const BottomPadding(),
             ],

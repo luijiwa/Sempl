@@ -90,8 +90,8 @@ class _MainScreenView extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) =>
                       ItemInListWidget(item: state.newSempls[index]),
                 );
-              case ScreenStatus.loading:
-                return EmptyListInMainPageWidget(width: width);
+              // case ScreenStatus.loading:
+              //   return EmptyListInMainPageWidget(width: width);
               case ScreenStatus.failure:
                 return const SliverFillRemaining(
                   hasScrollBody: false,

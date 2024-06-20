@@ -42,7 +42,7 @@ enum AppRoutes {
   ),
   delivery(
     name: 'delivery',
-    path: '/delivery:itemId',
+    path: '/delivery', //  path: '/delivery:itemId',
   ),
   surveyOrder(
     name: 'surveyOrder',

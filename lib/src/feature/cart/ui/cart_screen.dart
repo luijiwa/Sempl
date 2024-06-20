@@ -34,9 +34,11 @@ class _CartScreenState extends State<CartScreen> {
             builder: (context, state) {
               switch (state.status) {
                 case ScreenStatus.empty:
-                  return const EmptyCartWidget();
+                  return EmptyCartWidget(width: constraint.maxWidth);
                 case ScreenStatus.success:
-                  return const ListCartItemsWidget();
+                  return ListCartItemsWidget(
+                    width: constraint.maxWidth,
+                  );
                 case ScreenStatus.loading:
                   return Scaffold(
                     body: CustomScrollView(
