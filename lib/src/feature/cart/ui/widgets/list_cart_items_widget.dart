@@ -36,24 +36,35 @@ class ListCartItemsWidget extends StatelessWidget {
                   topRight: Radius.circular(50),
                 ),
               ),
-              sliver: SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 23.0).copyWith(
-                  top: 50,
-                  bottom: MediaQuery.paddingOf(context).bottom + 60,
-                ),
-                sliver: BlocBuilder<CartBloc, CartState>(
-                  bloc: DependenciesScope.of(context).cartBloc,
-                  buildWhen: (previous, current) =>
-                      previous.items != current.items,
-                  builder: (context, state) => SliverList.separated(
-                    separatorBuilder: (context, index) =>
-                        const _CustomDivider(),
-                    itemCount: state.items.length,
-                    itemBuilder: (context, index) => ProductCard(
-                      item: state.items[index],
+              sliver: SliverMainAxisGroup(
+                slivers: [
+                  SliverPadding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 23.0).copyWith(
+                      top: 50,
+                      bottom: MediaQuery.paddingOf(context).bottom + 60,
+                    ),
+                    sliver: BlocBuilder<CartBloc, CartState>(
+                      bloc: DependenciesScope.of(context).cartBloc,
+                      buildWhen: (previous, current) =>
+                          previous.items != current.items ||
+                          previous.status != current.status,
+                      builder: (context, state) => SliverList.separated(
+                        itemCount: state.items.length,
+                        separatorBuilder: (context, index) =>
+                            const _CustomDivider(),
+                        itemBuilder: (context, index) => ProductCard(
+                          item: state.items[index],
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  const SliverFillRemaining(
+                    fillOverscroll: true,
+                    hasScrollBody: false,
+                    child: SizedBox(),
+                  )
+                ],
               ),
             ),
           ],

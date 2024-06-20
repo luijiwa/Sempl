@@ -33,48 +33,54 @@ class _CartScreenState extends State<CartScreen> {
             buildWhen: (previous, current) => previous.status != current.status,
             builder: (context, state) {
               switch (state.status) {
-                case ScreenStatus.success:
-                  return const ListCartItemsWidget();
                 case ScreenStatus.empty:
                   return const EmptyCartWidget();
+                case ScreenStatus.success:
+                  return const ListCartItemsWidget();
                 case ScreenStatus.loading:
-                  return DecoratedSliver(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(50),
-                        topRight: Radius.circular(50),
-                      ),
-                    ),
-                    sliver: SliverPadding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 23.0).copyWith(
-                        top: 50,
-                        bottom: MediaQuery.paddingOf(context).bottom + 60,
-                      ),
-                      sliver: SliverList.separated(
-                        itemCount: 3,
-                        separatorBuilder: (context, index) => Divider(
-                          color: Colors.black.withOpacity(0.1),
-                          thickness: 0.5,
-                          height: 0.5,
-                        ),
-                        itemBuilder: (context, index) => Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Shimmer(
-                            size: Size(constraint.maxWidth, 200),
-                            color: AppThemeColor.blueColor,
+                  return Scaffold(
+                    body: CustomScrollView(
+                      slivers: [
+                        DecoratedSliver(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(50),
+                              topRight: Radius.circular(50),
+                            ),
+                          ),
+                          sliver: SliverPadding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 23.0)
+                                    .copyWith(
+                              top: 50,
+                              bottom: MediaQuery.paddingOf(context).bottom + 60,
+                            ),
+                            sliver: SliverList.separated(
+                              itemCount: 3,
+                              separatorBuilder: (context, index) => Divider(
+                                color: Colors.black.withOpacity(0.1),
+                                thickness: 0.5,
+                                height: 0.5,
+                              ),
+                              itemBuilder: (context, index) => Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Shimmer(
+                                  size: Size(constraint.maxWidth, 200),
+                                  color: AppThemeColor.blueColor,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
                   );
                 // case ScreenStatus.failure:
                 //   return const ListCartItemsWidget();
                 default:
-                  return const SliverFillRemaining(
-                    hasScrollBody: false,
-                    child: Center(
+                  return const Scaffold(
+                    body: Center(
                       child: CircularProgressIndicator(),
                     ),
                   );

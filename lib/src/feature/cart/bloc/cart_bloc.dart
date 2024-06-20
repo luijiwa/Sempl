@@ -32,6 +32,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         emit(
           state.copyWith(
             status: ScreenStatus.success,
+            items: cartItems,
           ),
         );
       }
@@ -82,6 +83,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           items: state.items.where((element) => element.id != id).toList(),
         ),
       );
+      if (state.items.isEmpty) {
+        emit(state.copyWith(status: ScreenStatus.empty));
+      }
     } catch (e, stackTrace) {
       logger.e(e.toString(), error: e, stackTrace: stackTrace);
     }

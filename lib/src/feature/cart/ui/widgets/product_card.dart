@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sempl/src/core/constant/generated/assets.gen.dart';
 import 'package:sempl/src/core/utils/extentions/build_context_ext.dart';
+import 'package:sempl/src/feature/cart/cart_scope.dart';
 import 'package:sempl/src/feature/cart/model/cart_item.dart';
 
 class ProductCard extends StatelessWidget {
@@ -39,17 +40,29 @@ class ProductCard extends StatelessWidget {
                     item.description.toUpperCase(),
                     style: context.text.itemDescription,
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: const Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Icon(Icons.delete),
+                  Stack(
+                    children: [
+                      const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Icon(Icons.delete),
+                          ),
+                          Text('Удалить'),
+                        ],
+                      ),
+                      Positioned.fill(
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(25),
+                            onTap: () => CartScope.of(context)
+                                .deleteItemFromCart(item.id),
+                          ),
                         ),
-                        Text('Удалить'),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),
