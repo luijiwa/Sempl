@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:sempl/src/core/constant/generated/assets.gen.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/extentions/build_context_ext.dart';
@@ -58,7 +57,6 @@ class ProductCard extends StatelessWidget {
 class _DeleteButtonRowWidget extends StatelessWidget {
   const _DeleteButtonRowWidget({
     required this.item,
-    super.key,
   });
 
   final CartItem item;

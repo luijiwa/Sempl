@@ -29,7 +29,7 @@ class CartWithBadgeIconWidget extends StatelessWidget {
                 shape: badges.BadgeShape.instagram,
                 badgeColor: AppThemeColor.yellow,
                 borderRadius: BorderRadius.circular(
-                    length != null && length < 10 ? 5 : 10),
+                    length != null && length < 10 ? 5 : 10,),
               ),
               badgeContent: length != null
                   ? Text(

@@ -3,8 +3,7 @@ import 'package:sempl/src/core/widget/shimmer.dart';
 
 class EmptyListInMainPageWidget extends StatelessWidget {
   const EmptyListInMainPageWidget({
-    super.key,
-    required this.width,
+    required this.width, super.key,
   });
 
   final double width;
@@ -14,7 +13,7 @@ class EmptyListInMainPageWidget extends StatelessWidget {
         itemCount: 2,
         itemBuilder: (BuildContext context, int index) => Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: width * 0.05, vertical: width * 0.05),
+              horizontal: width * 0.05, vertical: width * 0.05,),
           child: Container(
             width: double.maxFinite,
             color: Colors.amber,

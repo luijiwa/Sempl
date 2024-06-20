@@ -11,7 +11,6 @@ import 'package:sempl/src/core/widget/item_in_list_widget.dart';
 import 'package:sempl/src/core/widget/next_step_button.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
-import 'package:sempl/src/feature/main/ui/widget/empty_list_in_main_page_widget.dart';
 import 'package:sempl/src/feature/main/ui/widget/main_screen_app_bar.dart';
 import 'package:sempl/src/feature/recent_products/ui/recent_products_screen.dart';
 

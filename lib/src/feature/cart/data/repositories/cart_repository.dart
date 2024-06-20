@@ -17,7 +17,7 @@ final class CartRepository implements ICartRepository {
       {required int itemId,
       required String name,
       required String description,
-      required String image}) async {
+      required String image,}) async {
     await _dataSource.addItemToCart(
       itemId: itemId,
       name: name,

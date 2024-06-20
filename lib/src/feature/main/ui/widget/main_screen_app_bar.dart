@@ -1,18 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
-import 'package:sempl/src/core/constant/generated/assets.gen.dart';
-import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
-import 'package:sempl/src/core/utils/extentions/build_context_ext.dart';
 import 'package:sempl/src/core/widget/app_bar_profile_icon_button_widget.dart';
-import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
-import 'package:badges/badges.dart' as badges;
-import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
-
-import '../../../../core/widget/cart_with_badge_icon_widget.dart';
+import 'package:sempl/src/core/widget/cart_with_badge_icon_widget.dart';
 
 class MainScreenAppBar extends StatelessWidget {
   const MainScreenAppBar({super.key});

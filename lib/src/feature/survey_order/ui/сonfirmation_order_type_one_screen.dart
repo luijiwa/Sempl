@@ -119,7 +119,7 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
                                     SizedBox(height: maxHeight * 0.0237),
                                     Padding(
                                       padding: EdgeInsets.only(
-                                          right: maxWidth * 0.078),
+                                          right: maxWidth * 0.078,),
                                       child: const AutoSizeText(
                                         'Товар будет отправлен в ближайшее время. Сроки и статус доставки можно отслеживать в личном кабинете',
                                         style: TextStyle(

@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
-import 'package:sempl/src/core/widget/custom_back_button.dart';
-import 'package:sempl/src/core/widget/next_step_button.dart';
 import 'package:sempl/src/core/widget/shimmer.dart';
 import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
 import 'package:sempl/src/feature/cart/ui/widgets/empty_cart_widget.dart';

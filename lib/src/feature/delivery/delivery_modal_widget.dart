@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
-import 'package:sempl/src/core/utils/enums/button_push.dart';
-import 'package:sempl/src/feature/delivery/bloc/delivery_bloc.dart';
 
 class DeliveryModalWidget extends StatelessWidget {
   const DeliveryModalWidget({

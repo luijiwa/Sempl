@@ -77,7 +77,7 @@ class ListCartItemsWidget extends StatelessWidget {
                       fillOverscroll: true,
                       hasScrollBody: false,
                       child: SizedBox(),
-                    )
+                    ),
                   ],
                 ),
               ),

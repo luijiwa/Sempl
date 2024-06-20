@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/utils/extentions/context_extension.dart';
 import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
+import 'package:sempl/src/feature/cart/model/cart_item.dart';
 import 'package:sempl/src/feature/initialization/widget/dependencies_scope.dart';
 
 /// Cart controller
@@ -79,7 +80,7 @@ class _CartScopeState extends State<CartScope> implements CartController {
       {required int itemId,
       required String name,
       required String description,
-      required String image}) {
+      required String image,}) {
     _cartBloc.add(
       CartEvent.addItemToCart(
         id: itemId,

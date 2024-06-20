@@ -148,7 +148,7 @@ class ItemCard extends StatelessWidget {
                             },
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: width * 0.05),
+                                  horizontal: width * 0.05,),
                               elevation: 0,
                               foregroundColor: cartItem == null
                                   ? Colors.white
