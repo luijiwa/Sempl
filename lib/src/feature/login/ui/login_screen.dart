@@ -92,100 +92,100 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
-      builder: (context, constraints) {
-        final double maxHeight = constraints.maxHeight;
-        final double maxWidth = constraints.maxWidth;
-        final bottomOffset =
-            (maxHeight * 0.07) - MediaQuery.of(context).viewPadding.bottom;
+        builder: (context, constraints) {
+          final double maxHeight = constraints.maxHeight;
+          final double maxWidth = constraints.maxWidth;
+          final bottomOffset =
+              (maxHeight * 0.07) - MediaQuery.of(context).viewPadding.bottom;
 
-        return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: BlocListener<AuthBloc, AuthState>(
-            bloc: DependenciesScope.of(context).authBloc,
-            listenWhen: (previous, current) =>
-                previous.errorMessage != current.errorMessage ||
-                previous.loginStatus != current.loginStatus ||
-                previous.code != current.code,
-            listener: _handleAuthState,
-            child: Scaffold(
-              extendBodyBehindAppBar: true,
-              resizeToAvoidBottomInset: false,
-              floatingActionButton: kDebugMode
-                  ? FloatingActionButton(
-                      onPressed: () {
-                        logger.i(DependenciesScope.of(context)
-                            .authBloc
-                            .state
-                            .status,);
-                        // logger.i(_currentPageIndex);
-                      },
-                      child: const Icon(Icons.arrow_forward),
-                    )
-                  : null,
-              backgroundColor: Colors.white,
-              appBar: AppBar(
-                backgroundColor: Colors.transparent,
-                title: const Text("SEMPL!"),
-                leading: _currentPageIndex == 0
-                    ? null
-                    : CustomBackButton(
+          return GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: BlocListener<AuthBloc, AuthState>(
+              bloc: DependenciesScope.of(context).authBloc,
+              listenWhen: (previous, current) =>
+                  previous.errorMessage != current.errorMessage ||
+                  previous.loginStatus != current.loginStatus ||
+                  previous.code != current.code,
+              listener: _handleAuthState,
+              child: Scaffold(
+                extendBodyBehindAppBar: true,
+                // resizeToAvoidBottomInset: false,
+                floatingActionButton: kDebugMode
+                    ? FloatingActionButton(
                         onPressed: () {
-                          setState(() {
-                            _currentPageIndex--;
-                          });
-                          _pageViewController.previousPage(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.easeIn,
+                          logger.i(
+                            DependenciesScope.of(context).authBloc.state.status,
                           );
+                          // logger.i(_currentPageIndex);
                         },
-                      ),
-              ),
-              body: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  HeaderSection(maxHeight: maxHeight, maxWidth: maxWidth),
-                  Expanded(
-                    child: SafeArea(
-                      maintainBottomViewPadding: true,
-                      top: false,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 22),
-                        child: Column(
-                          children: [
-                            SizedBox(height: 0.045 * maxHeight),
-                            Expanded(
-                              child: PageView(
-                                physics: const NeverScrollableScrollPhysics(),
-                                controller: _pageViewController,
-                                children: [
-                                  PhoneInputWidget(
-                                    formKey: _formKey,
-                                    controller: _phoneController,
-                                    maskFormatter: maskFormatter,
-                                  ),
-                                  InputCodeWidget(
-                                    codeController: _codeController,
-                                  ),
-                                ],
+                        child: const Icon(Icons.arrow_forward),
+                      )
+                    : null,
+                backgroundColor: Colors.white,
+                appBar: AppBar(
+                  backgroundColor: Colors.transparent,
+                  title: const Text("SEMPL!"),
+                  leading: _currentPageIndex == 0
+                      ? null
+                      : CustomBackButton(
+                          onPressed: () {
+                            setState(() {
+                              _currentPageIndex--;
+                            });
+                            _pageViewController.previousPage(
+                              duration: const Duration(milliseconds: 200),
+                              curve: Curves.easeIn,
+                            );
+                          },
+                        ),
+                ),
+                body: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    HeaderSection(maxHeight: maxHeight, maxWidth: maxWidth),
+                    Expanded(
+                      child: SafeArea(
+                        maintainBottomViewPadding: true,
+                        top: false,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 22),
+                          child: Column(
+                            children: [
+                              SizedBox(height: 0.045 * maxHeight),
+                              Expanded(
+                                child: PageView(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  controller: _pageViewController,
+                                  children: [
+                                    PhoneInputWidget(
+                                      formKey: _formKey,
+                                      controller: _phoneController,
+                                      maskFormatter: maskFormatter,
+                                    ),
+                                    InputCodeWidget(
+                                      codeController: _codeController,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            TermOfUse(
-                              isChecked: isChecked,
-                              onChanged: (value) {
-                                if (value == null) return;
-                                setState(() {
-                                  isChecked = value;
-                                });
-                              },
-                            ),
-                            SizedBox(height: 0.02 * maxHeight),
-                            SizedBox(
-                              height: 0.058 * maxHeight,
-                              child: BlocBuilder<AuthBloc, AuthState>(
-                                bloc: DependenciesScope.of(context).authBloc,
-                                buildWhen: (previous, current) =>
-                                    previous.loginStatus != current.loginStatus,
-                                builder: (context, state) => ElevatedButton(
+                              TermOfUse(
+                                isChecked: isChecked,
+                                onChanged: (value) {
+                                  if (value == null) return;
+                                  setState(() {
+                                    isChecked = value;
+                                  });
+                                },
+                              ),
+                              SizedBox(height: 0.02 * maxHeight),
+                              SizedBox(
+                                height: 0.058 * maxHeight,
+                                child: BlocBuilder<AuthBloc, AuthState>(
+                                  bloc: DependenciesScope.of(context).authBloc,
+                                  buildWhen: (previous, current) =>
+                                      previous.loginStatus !=
+                                      current.loginStatus,
+                                  builder: (context, state) => ElevatedButton(
                                     onPressed: () {
                                       bool isPush = true;
                                       if (_currentPageIndex == 0 &&
@@ -194,15 +194,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                         if (_formKey.currentState!.validate()) {
                                           AuthScope.of(context)
                                               .signInFirstStepWithPhone(
-                                                  maskFormatter
-                                                      .getUnmaskedText(),);
+                                            maskFormatter.getUnmaskedText(),
+                                          );
 
                                           setState(() {
                                             _currentPageIndex++;
                                           });
                                           _pageViewController.nextPage(
                                             duration: const Duration(
-                                                milliseconds: 300,),
+                                              milliseconds: 300,
+                                            ),
                                             curve: Curves.easeIn,
                                           );
 
@@ -219,7 +220,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       if (_currentPageIndex == 1 && isPush) {
                                         AuthScope.of(context)
                                             .signInWithPhoneAndCode(
-                                                _codeController.text,);
+                                          _codeController.text,
+                                        );
                                         isPush = false;
 
                                         // if (state.loginStatus ==
@@ -241,19 +243,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ],
                                     ),
                                   ),
+                                ),
                               ),
-                            ),
-                            SizedBox(height: bottomOffset),
-                          ],
+                              SizedBox(height: bottomOffset),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
-    );
+          );
+        },
+      );
 }

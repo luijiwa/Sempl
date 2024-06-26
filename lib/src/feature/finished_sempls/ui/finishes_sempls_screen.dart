@@ -29,14 +29,16 @@ class FinishedSemplsScreen extends StatelessWidget {
               slivers: [
                 SliverToBoxAdapter(
                   child: AutoSizeText(
-                    'МОИ ЗАВЕРШЕННЫЕ ОБРАЗЦЫ',
+                    'МОИ ЗАВЕРШЕННЫЕ СЕМПЛЫ',
                     maxLines: 2,
                     style: Theme.of(context).textTheme.appTitleMedium,
                   ),
                 ),
                 SliverPadding(
                   padding: EdgeInsets.only(
-                      top: width * 0.063625, bottom: width * 0.02036,),
+                    top: width * 0.063625,
+                    bottom: width * 0.02036,
+                  ),
                   sliver: const CategoriesButtonWidget(),
                 ),
                 const SliverToBoxAdapter(
@@ -54,45 +56,56 @@ class FinishedSemplsScreen extends StatelessWidget {
                 ),
                 SliverPadding(
                   padding: EdgeInsets.only(
-                      top: width * 0.08653, bottom: width * 0.03563,),
+                    top: width * 0.08653,
+                    bottom: width * 0.03563,
+                  ),
                   sliver: SliverToBoxAdapter(
-                      child: Row(
-                    children: [
-                      const AutoSizeText(
-                        '87 СЕМПЛОВ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 15,),
-                      ),
-                      const Spacer(),
-                      Wrap(
-                        children: [
-                          const AutoSizeText('новые'),
-                          SvgPicture.asset(
-                            colorFilter: const ColorFilter.mode(
-                                AppThemeColor.blueColor, BlendMode.srcIn,),
-                            'assets/icons/step_into.svg',
+                    child: Row(
+                      children: [
+                        const AutoSizeText(
+                          '87 СЕМПЛОВ',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
                           ),
-                        ],
-                      ),
-                      SizedBox(width: width * 0.02),
-                      Wrap(
-                        children: [
-                          const AutoSizeText('оценка'),
-                          SvgPicture.asset(
-                            colorFilter: const ColorFilter.mode(
-                                AppThemeColor.blueColor, BlendMode.srcIn,),
-                            'assets/icons/step_into_up.svg',
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),),
+                        ),
+                        const Spacer(),
+                        Wrap(
+                          children: [
+                            const AutoSizeText('новые'),
+                            SvgPicture.asset(
+                              colorFilter: const ColorFilter.mode(
+                                AppThemeColor.blueColor,
+                                BlendMode.srcIn,
+                              ),
+                              'assets/icons/step_into.svg',
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: width * 0.02),
+                        Wrap(
+                          children: [
+                            const AutoSizeText('оценка'),
+                            SvgPicture.asset(
+                              colorFilter: const ColorFilter.mode(
+                                AppThemeColor.blueColor,
+                                BlendMode.srcIn,
+                              ),
+                              'assets/icons/step_into_up.svg',
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 SliverList.separated(
-                    itemCount: 4,
-                    itemBuilder: (BuildContext context, int index) => const ItemInListWithReviewWidget(),
-                    separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(height: width * 0.02),),
+                  itemCount: 4,
+                  itemBuilder: (BuildContext context, int index) =>
+                      const ItemInListWithReviewWidget(),
+                  separatorBuilder: (BuildContext context, int index) =>
+                      SizedBox(height: width * 0.02),
+                ),
               ],
             ),
           ),

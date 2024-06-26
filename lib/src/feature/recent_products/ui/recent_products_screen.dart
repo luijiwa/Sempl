@@ -25,7 +25,7 @@ class RecentProductsScreen extends StatelessWidget {
                 .copyWith(top: height * 0.02),
             sliver: SliverToBoxAdapter(
               child: AutoSizeText(
-                "НЕДАВНО ОПРОБОВАЛИ",
+                "КАТАЛОГ И НЕДАВНО ОПРОБОВАННЫЕ СЕМПЛЫ",
                 style: Theme.of(context)
                     .textTheme
                     .appTitleMedium

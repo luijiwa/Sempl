@@ -16,7 +16,7 @@ class SecondPage extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'assets/images/Background 2.png',
+              'assets/images/Background 1.png',
             ),
             fit: BoxFit.cover,
           ),
@@ -29,7 +29,7 @@ class SecondPage extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "НАБИРАЙТЕ ОЧКИ",
+                  "ЧТО ТАКОЕ СЕМПЛ?",
                   style: Theme.of(context).textTheme.appTitleMedium,
                 ),
               ),
@@ -41,7 +41,7 @@ class SecondPage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: AutoSizeText(
-                    "Получайте баллы за отзывы о продукте\nи приглашения новых пользователей, покупайте на них продукты",
+                    "Семпл - это бесплатный образец, который вы можете попробовать перед покупкой полноразмерного продукта :)",
                     style: Theme.of(context).textTheme.appBodyMedium,
                     maxLines: 3,
                   ),

@@ -37,8 +37,8 @@ class _OnboardinScreenState extends State<OnboardinScreen> {
     final width = MediaQuery.sizeOf(context).width;
 
     final listScreens = [
-      const FirstPage(),
       const SecondPage(),
+      const FirstPage(),
       const ThirdPage(),
       const FourthPage(),
       const FifthPage(),

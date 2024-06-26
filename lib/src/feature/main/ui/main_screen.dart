@@ -69,7 +69,7 @@ class _MainScreenView extends StatelessWidget {
               .copyWith(right: width * 0.2),
           sliver: SliverToBoxAdapter(
             child: AutoSizeText(
-              "НЕДАВНО ОПРОБОВАЛИ",
+              "КАТАЛОГ И НЕДАВНО ОПРОБОВАННЫЕ СЕМПЛЫ",
               style: Theme.of(context)
                   .textTheme
                   .appTitleMedium

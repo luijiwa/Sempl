@@ -28,13 +28,11 @@ class _SurveyScreenState extends State<SurveyScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    // log(bottomOffset.toString());
-    return BlocProvider(
-      create: (context) => _surveyBloc,
-      child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Scaffold(
+  Widget build(BuildContext context) => BlocProvider(
+        create: (context) => _surveyBloc,
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
               title: const Text('SEMPL!'),
@@ -48,48 +46,52 @@ class _SurveyScreenState extends State<SurveyScreen> {
                 onPressed: _previousPage,
               ),
             ),
-            body: Column(children: [
-              PageIndicatorWidget(currentPageIndex: _currentPageIndex),
-              Expanded(
-                child: PageView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: _pageViewController,
-                  itemBuilder: (_, index) {
-                    switch (index) {
-                      case 0:
-                        return FirstStepWidget(
-                          onNextPage: _nextPage,
-                        );
-                      case 1:
-                        return SecondStepWidget(
-                          onNextPage: _nextPage,
-                        );
-                      case 2:
-                        return ThirthStepWidget(
-                          onNextPage: _nextPage,
-                        );
-                      case 3:
-                        return FourStepWidget(
-                          onNextPage: _nextPage,
-                        );
-                      case 4:
-                        return FifthStepWidget(onNextPage: () {
-                          setState(() {
-                            _currentPageIndex = 0;
-                          });
-                          _pageViewController.jumpToPage(0);
-                        },);
-                      default:
-                        return Container();
-                    }
-                  },
-                  itemCount: 5,
+            body: Column(
+              children: [
+                PageIndicatorWidget(currentPageIndex: _currentPageIndex),
+                Expanded(
+                  child: PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: _pageViewController,
+                    itemBuilder: (_, index) {
+                      switch (index) {
+                        case 0:
+                          return FirstStepWidget(
+                            onNextPage: _nextPage,
+                          );
+                        case 1:
+                          return SecondStepWidget(
+                            onNextPage: _nextPage,
+                          );
+                        case 2:
+                          return ThirthStepWidget(
+                            onNextPage: _nextPage,
+                          );
+                        case 3:
+                          return FourStepWidget(
+                            onNextPage: _nextPage,
+                          );
+                        case 4:
+                          return FifthStepWidget(
+                            onNextPage: () {
+                              setState(() {
+                                _currentPageIndex = 0;
+                              });
+                              _pageViewController.jumpToPage(0);
+                            },
+                          );
+                        default:
+                          return Container();
+                      }
+                    },
+                    itemCount: 5,
+                  ),
                 ),
-              ),
-            ],),),
-      ),
-    );
-  }
+              ],
+            ),
+          ),
+        ),
+      );
 
   void _nextPage() {
     setState(() {
