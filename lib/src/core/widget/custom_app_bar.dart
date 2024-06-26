@@ -45,20 +45,12 @@ class CustomAppBar extends StatelessWidget {
                       context.pop();
                     }
                   } else {
-                    onTapBack;
+                    onTapBack!();
                   }
                 },
               ),
               const Spacer(),
-              IconButton(
-                onPressed: () => context.pushNamed(AppRoutes.cart.name),
-                icon: Assets.icons.cart.svg(
-                  colorFilter: const ColorFilter.mode(
-                    AppThemeColor.blueColor,
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
+
               // // const PointsWidget(),
               SizedBox(width: width * 0.02),
               const AppBarProfileIconButtonWidget(),

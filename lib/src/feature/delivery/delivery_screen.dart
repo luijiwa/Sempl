@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/custom_app_bar.dart';
@@ -23,7 +24,26 @@ class DeliveryScreen extends StatelessWidget {
           preferredSize: Size.fromHeight(
             height * 0.24,
           ),
-          child: const CustomAppBar(),
+          child: CustomAppBar(
+            onTapBack: () => showDialog<Widget>(
+              useSafeArea: false,
+              context: context,
+              builder: (context) => ReusableModalWidget(
+                message:
+                    'Вы уверены, что хотите покинуть страницу?Данные анкеты сохранятся',
+                firstButtonText: 'Покинуть',
+                secondButtonText: 'Остаться',
+                firstButtonAction: () {
+                  if (context.canPop()) {
+                    context.pop();
+                  }
+                },
+                secondButtonAction: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22.0),
@@ -68,7 +88,7 @@ class DeliveryScreen extends StatelessWidget {
               const SizedBox(height: 10),
               NextStepButton(
                 title: 'ПРОДОЛЖИТЬ',
-                onPressed: () => showDialog(
+                onPressed: () => showDialog<Widget>(
                   useSafeArea: false,
                   context: context,
                   builder: (context) => const DeliveryModalWidget(),

@@ -27,11 +27,16 @@ class ItemWithButtonWidget extends StatelessWidget {
         padding: padding ??
             EdgeInsets.only(top: height * 0.0118, bottom: height * 0.0294),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-          border:
-              Border.all(color: AppThemeColor.gris.withOpacity(0.1)),
-        ),
+            color: Colors.white,
+            borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+            border: Border.all(color: AppThemeColor.gris.withOpacity(0.1)),
+            boxShadow: [
+              BoxShadow(
+                color: AppThemeColor.black.withOpacity(0.02),
+                blurRadius: 10,
+                spreadRadius: 10,
+              ),
+            ]),
         child: Column(
           children: [
             SizedBox(height: height * 0.01),
@@ -40,6 +45,13 @@ class ItemWithButtonWidget extends StatelessWidget {
               height: height * 0.22,
             ),
             SizedBox(height: height * 0.016),
+            Text(
+              title,
+              style: Theme.of(context)
+                  .textTheme
+                  .appBodySemiBold
+                  .copyWith(color: AppThemeColor.black),
+            ),
             Text(
               title,
               style: Theme.of(context)
@@ -58,25 +70,25 @@ class ItemWithButtonWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: height * 0.016),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.021),
-              child: SizedBox(
-                height: 0.1186228814 * width,
-                width: double.maxFinite,
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.goNamed(AppRoutes.feedback.name);
-                  },
-                  child: AutoSizeText(
-                    'НАПИСАТЬ ОБЗОР',
-                    style: TextStyle(
-                      fontSize: width > 320 ? 15 : 12,
-                      color: AppThemeColor.grey,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: width * 0.021),
+            //   child: SizedBox(
+            //     height: 0.1186228814 * width,
+            //     width: double.maxFinite,
+            //     child: ElevatedButton(
+            //       onPressed: () {
+            //         context.goNamed(AppRoutes.feedback.name);
+            //       },
+            //       child: AutoSizeText(
+            //         'НАПИСАТЬ ОБЗОР',
+            //         style: TextStyle(
+            //           fontSize: width > 320 ? 15 : 12,
+            //           color: AppThemeColor.grey,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             if (withDate)
               Padding(
                 padding: const EdgeInsets.only(top: 5),

@@ -3,9 +3,22 @@ import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 
-class DeliveryModalWidget extends StatelessWidget {
-  const DeliveryModalWidget({
+class ReusableModalWidget extends StatelessWidget {
+  final String? title;
+  final String message;
+  final String firstButtonText;
+  final String secondButtonText;
+  final VoidCallback firstButtonAction;
+  final VoidCallback secondButtonAction;
+
+  const ReusableModalWidget({
     super.key,
+    this.title,
+    required this.message,
+    required this.firstButtonText,
+    required this.secondButtonText,
+    required this.firstButtonAction,
+    required this.secondButtonAction,
   });
 
   @override
@@ -28,14 +41,15 @@ class DeliveryModalWidget extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            if (title != null)
+              Text(
+                title!.toUpperCase(),
+                maxLines: 2,
+                style: Theme.of(context).textTheme.appProfileTitle,
+              ),
+            if (title != null) SizedBox(height: height * 0.01),
             Text(
-              'Адрес доставки'.toUpperCase(),
-              maxLines: 2,
-              style: Theme.of(context).textTheme.appProfileTitle,
-            ),
-            SizedBox(height: height * 0.01),
-            Text(
-              'Адрес доставки изменен, сохранить\n его как основной адрес доставки?',
+              message,
               maxLines: 2,
               style: TextStyle(
                 fontSize: width > 320 ? 15 : 12,
@@ -47,16 +61,14 @@ class DeliveryModalWidget extends StatelessWidget {
               height: 0.1186228814 * width,
               width: double.maxFinite,
               child: OutlinedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+                onPressed: firstButtonAction,
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(
                     color: AppThemeColor.blueColor,
                   ),
                 ),
                 child: Text(
-                  'НЕ МЕНЯТЬ',
+                  firstButtonText,
                   style: TextStyle(
                     fontSize: width > 320 ? 14 : 12,
                     color: AppThemeColor.black,
@@ -68,28 +80,15 @@ class DeliveryModalWidget extends StatelessWidget {
             SizedBox(
               height: 0.1186228814 * width,
               width: double.maxFinite,
-              // child:
-              //  BlocListener<DeliveryBloc, DeliveryState>(
-              //   listenWhen: (previous, current) =>
-              //       previous.statusSend != current.statusSend,
-              //   listener: (context, state) {
-              //     if (state.statusSend == ButtonPushStatus.success) {
-              //       context.goNamed(AppRoutes.surveyOrder.name);
-              //     }
-              //   },
               child: ElevatedButton(
-                onPressed: () {
-                  // context.read<DeliveryBloc>().add();
-                  context
-                      .goNamed(AppRoutes.confirmationOrderTypeOneScreen.name);
-                },
+                onPressed: secondButtonAction,
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFF99BFD4),
                 ),
                 child: Text(
-                  'СОХРАНИТЬ И ПРОДОЛЖИТЬ',
+                  secondButtonText,
                   style: TextStyle(
                     fontSize: width > 320 ? 14 : 12,
                     color: AppThemeColor.grey,
@@ -97,10 +96,31 @@ class DeliveryModalWidget extends StatelessWidget {
                 ),
               ),
             ),
-            // ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class DeliveryModalWidget extends StatelessWidget {
+  const DeliveryModalWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    return ReusableModalWidget(
+      title: 'Адрес доставки',
+      message:
+          'Адрес доставки изменен, сохранить\n его как основной адрес доставки?',
+      firstButtonText: 'НЕ МЕНЯТЬ',
+      secondButtonText: 'СОХРАНИТЬ И ПРОДОЛЖИТЬ',
+      firstButtonAction: () => Navigator.pop(context),
+      secondButtonAction: () =>
+          context.goNamed(AppRoutes.confirmationOrderTypeOneScreen.name),
     );
   }
 }

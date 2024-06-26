@@ -21,8 +21,6 @@ mixin _$CartEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_LoadingData value) loadingData,
     required TResult Function(_AddItemToCart value) addItemToCart,
-    required TResult Function(_CartItemDecrement value) cartItemDecrement,
-    required TResult Function(_CartItemIncrement value) cartItemIncrement,
     required TResult Function(_DeleteItemFromCart value) deleteItemFromCart,
     required TResult Function(_ClearCart value) clearCart,
   }) =>
@@ -32,8 +30,6 @@ mixin _$CartEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_LoadingData value)? loadingData,
     TResult? Function(_AddItemToCart value)? addItemToCart,
-    TResult? Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult? Function(_CartItemIncrement value)? cartItemIncrement,
     TResult? Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult? Function(_ClearCart value)? clearCart,
   }) =>
@@ -43,8 +39,6 @@ mixin _$CartEvent {
     TResult Function(_Started value)? started,
     TResult Function(_LoadingData value)? loadingData,
     TResult Function(_AddItemToCart value)? addItemToCart,
-    TResult Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult Function(_CartItemIncrement value)? cartItemIncrement,
     TResult Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult Function(_ClearCart value)? clearCart,
     required TResult orElse(),
@@ -116,8 +110,6 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_LoadingData value) loadingData,
     required TResult Function(_AddItemToCart value) addItemToCart,
-    required TResult Function(_CartItemDecrement value) cartItemDecrement,
-    required TResult Function(_CartItemIncrement value) cartItemIncrement,
     required TResult Function(_DeleteItemFromCart value) deleteItemFromCart,
     required TResult Function(_ClearCart value) clearCart,
   }) {
@@ -130,8 +122,6 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_LoadingData value)? loadingData,
     TResult? Function(_AddItemToCart value)? addItemToCart,
-    TResult? Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult? Function(_CartItemIncrement value)? cartItemIncrement,
     TResult? Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult? Function(_ClearCart value)? clearCart,
   }) {
@@ -144,8 +134,6 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_LoadingData value)? loadingData,
     TResult Function(_AddItemToCart value)? addItemToCart,
-    TResult Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult Function(_CartItemIncrement value)? cartItemIncrement,
     TResult Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult Function(_ClearCart value)? clearCart,
     required TResult orElse(),
@@ -208,8 +196,6 @@ class _$LoadingDataImpl with DiagnosticableTreeMixin implements _LoadingData {
     required TResult Function(_Started value) started,
     required TResult Function(_LoadingData value) loadingData,
     required TResult Function(_AddItemToCart value) addItemToCart,
-    required TResult Function(_CartItemDecrement value) cartItemDecrement,
-    required TResult Function(_CartItemIncrement value) cartItemIncrement,
     required TResult Function(_DeleteItemFromCart value) deleteItemFromCart,
     required TResult Function(_ClearCart value) clearCart,
   }) {
@@ -222,8 +208,6 @@ class _$LoadingDataImpl with DiagnosticableTreeMixin implements _LoadingData {
     TResult? Function(_Started value)? started,
     TResult? Function(_LoadingData value)? loadingData,
     TResult? Function(_AddItemToCart value)? addItemToCart,
-    TResult? Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult? Function(_CartItemIncrement value)? cartItemIncrement,
     TResult? Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult? Function(_ClearCart value)? clearCart,
   }) {
@@ -236,8 +220,6 @@ class _$LoadingDataImpl with DiagnosticableTreeMixin implements _LoadingData {
     TResult Function(_Started value)? started,
     TResult Function(_LoadingData value)? loadingData,
     TResult Function(_AddItemToCart value)? addItemToCart,
-    TResult Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult Function(_CartItemIncrement value)? cartItemIncrement,
     TResult Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult Function(_ClearCart value)? clearCart,
     required TResult orElse(),
@@ -362,8 +344,6 @@ class _$AddItemToCartImpl
     required TResult Function(_Started value) started,
     required TResult Function(_LoadingData value) loadingData,
     required TResult Function(_AddItemToCart value) addItemToCart,
-    required TResult Function(_CartItemDecrement value) cartItemDecrement,
-    required TResult Function(_CartItemIncrement value) cartItemIncrement,
     required TResult Function(_DeleteItemFromCart value) deleteItemFromCart,
     required TResult Function(_ClearCart value) clearCart,
   }) {
@@ -376,8 +356,6 @@ class _$AddItemToCartImpl
     TResult? Function(_Started value)? started,
     TResult? Function(_LoadingData value)? loadingData,
     TResult? Function(_AddItemToCart value)? addItemToCart,
-    TResult? Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult? Function(_CartItemIncrement value)? cartItemIncrement,
     TResult? Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult? Function(_ClearCart value)? clearCart,
   }) {
@@ -390,8 +368,6 @@ class _$AddItemToCartImpl
     TResult Function(_Started value)? started,
     TResult Function(_LoadingData value)? loadingData,
     TResult Function(_AddItemToCart value)? addItemToCart,
-    TResult Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult Function(_CartItemIncrement value)? cartItemIncrement,
     TResult Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult Function(_ClearCart value)? clearCart,
     required TResult orElse(),
@@ -416,264 +392,6 @@ abstract class _AddItemToCart implements CartEvent {
   String get image;
   @JsonKey(ignore: true)
   _$$AddItemToCartImplCopyWith<_$AddItemToCartImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$CartItemDecrementImplCopyWith<$Res> {
-  factory _$$CartItemDecrementImplCopyWith(_$CartItemDecrementImpl value,
-          $Res Function(_$CartItemDecrementImpl) then) =
-      __$$CartItemDecrementImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int id});
-}
-
-/// @nodoc
-class __$$CartItemDecrementImplCopyWithImpl<$Res>
-    extends _$CartEventCopyWithImpl<$Res, _$CartItemDecrementImpl>
-    implements _$$CartItemDecrementImplCopyWith<$Res> {
-  __$$CartItemDecrementImplCopyWithImpl(_$CartItemDecrementImpl _value,
-      $Res Function(_$CartItemDecrementImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$CartItemDecrementImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$CartItemDecrementImpl
-    with DiagnosticableTreeMixin
-    implements _CartItemDecrement {
-  const _$CartItemDecrementImpl({required this.id});
-
-  @override
-  final int id;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CartEvent.cartItemDecrement(id: $id)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CartEvent.cartItemDecrement'))
-      ..add(DiagnosticsProperty('id', id));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CartItemDecrementImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CartItemDecrementImplCopyWith<_$CartItemDecrementImpl> get copyWith =>
-      __$$CartItemDecrementImplCopyWithImpl<_$CartItemDecrementImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_LoadingData value) loadingData,
-    required TResult Function(_AddItemToCart value) addItemToCart,
-    required TResult Function(_CartItemDecrement value) cartItemDecrement,
-    required TResult Function(_CartItemIncrement value) cartItemIncrement,
-    required TResult Function(_DeleteItemFromCart value) deleteItemFromCart,
-    required TResult Function(_ClearCart value) clearCart,
-  }) {
-    return cartItemDecrement(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_LoadingData value)? loadingData,
-    TResult? Function(_AddItemToCart value)? addItemToCart,
-    TResult? Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult? Function(_CartItemIncrement value)? cartItemIncrement,
-    TResult? Function(_DeleteItemFromCart value)? deleteItemFromCart,
-    TResult? Function(_ClearCart value)? clearCart,
-  }) {
-    return cartItemDecrement?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_LoadingData value)? loadingData,
-    TResult Function(_AddItemToCart value)? addItemToCart,
-    TResult Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult Function(_CartItemIncrement value)? cartItemIncrement,
-    TResult Function(_DeleteItemFromCart value)? deleteItemFromCart,
-    TResult Function(_ClearCart value)? clearCart,
-    required TResult orElse(),
-  }) {
-    if (cartItemDecrement != null) {
-      return cartItemDecrement(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CartItemDecrement implements CartEvent {
-  const factory _CartItemDecrement({required final int id}) =
-      _$CartItemDecrementImpl;
-
-  int get id;
-  @JsonKey(ignore: true)
-  _$$CartItemDecrementImplCopyWith<_$CartItemDecrementImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$CartItemIncrementImplCopyWith<$Res> {
-  factory _$$CartItemIncrementImplCopyWith(_$CartItemIncrementImpl value,
-          $Res Function(_$CartItemIncrementImpl) then) =
-      __$$CartItemIncrementImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int id});
-}
-
-/// @nodoc
-class __$$CartItemIncrementImplCopyWithImpl<$Res>
-    extends _$CartEventCopyWithImpl<$Res, _$CartItemIncrementImpl>
-    implements _$$CartItemIncrementImplCopyWith<$Res> {
-  __$$CartItemIncrementImplCopyWithImpl(_$CartItemIncrementImpl _value,
-      $Res Function(_$CartItemIncrementImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$CartItemIncrementImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$CartItemIncrementImpl
-    with DiagnosticableTreeMixin
-    implements _CartItemIncrement {
-  const _$CartItemIncrementImpl({required this.id});
-
-  @override
-  final int id;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CartEvent.cartItemIncrement(id: $id)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CartEvent.cartItemIncrement'))
-      ..add(DiagnosticsProperty('id', id));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CartItemIncrementImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CartItemIncrementImplCopyWith<_$CartItemIncrementImpl> get copyWith =>
-      __$$CartItemIncrementImplCopyWithImpl<_$CartItemIncrementImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_LoadingData value) loadingData,
-    required TResult Function(_AddItemToCart value) addItemToCart,
-    required TResult Function(_CartItemDecrement value) cartItemDecrement,
-    required TResult Function(_CartItemIncrement value) cartItemIncrement,
-    required TResult Function(_DeleteItemFromCart value) deleteItemFromCart,
-    required TResult Function(_ClearCart value) clearCart,
-  }) {
-    return cartItemIncrement(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_LoadingData value)? loadingData,
-    TResult? Function(_AddItemToCart value)? addItemToCart,
-    TResult? Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult? Function(_CartItemIncrement value)? cartItemIncrement,
-    TResult? Function(_DeleteItemFromCart value)? deleteItemFromCart,
-    TResult? Function(_ClearCart value)? clearCart,
-  }) {
-    return cartItemIncrement?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_LoadingData value)? loadingData,
-    TResult Function(_AddItemToCart value)? addItemToCart,
-    TResult Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult Function(_CartItemIncrement value)? cartItemIncrement,
-    TResult Function(_DeleteItemFromCart value)? deleteItemFromCart,
-    TResult Function(_ClearCart value)? clearCart,
-    required TResult orElse(),
-  }) {
-    if (cartItemIncrement != null) {
-      return cartItemIncrement(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CartItemIncrement implements CartEvent {
-  const factory _CartItemIncrement({required final int id}) =
-      _$CartItemIncrementImpl;
-
-  int get id;
-  @JsonKey(ignore: true)
-  _$$CartItemIncrementImplCopyWith<_$CartItemIncrementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -755,8 +473,6 @@ class _$DeleteItemFromCartImpl
     required TResult Function(_Started value) started,
     required TResult Function(_LoadingData value) loadingData,
     required TResult Function(_AddItemToCart value) addItemToCart,
-    required TResult Function(_CartItemDecrement value) cartItemDecrement,
-    required TResult Function(_CartItemIncrement value) cartItemIncrement,
     required TResult Function(_DeleteItemFromCart value) deleteItemFromCart,
     required TResult Function(_ClearCart value) clearCart,
   }) {
@@ -769,8 +485,6 @@ class _$DeleteItemFromCartImpl
     TResult? Function(_Started value)? started,
     TResult? Function(_LoadingData value)? loadingData,
     TResult? Function(_AddItemToCart value)? addItemToCart,
-    TResult? Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult? Function(_CartItemIncrement value)? cartItemIncrement,
     TResult? Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult? Function(_ClearCart value)? clearCart,
   }) {
@@ -783,8 +497,6 @@ class _$DeleteItemFromCartImpl
     TResult Function(_Started value)? started,
     TResult Function(_LoadingData value)? loadingData,
     TResult Function(_AddItemToCart value)? addItemToCart,
-    TResult Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult Function(_CartItemIncrement value)? cartItemIncrement,
     TResult Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult Function(_ClearCart value)? clearCart,
     required TResult orElse(),
@@ -853,8 +565,6 @@ class _$ClearCartImpl with DiagnosticableTreeMixin implements _ClearCart {
     required TResult Function(_Started value) started,
     required TResult Function(_LoadingData value) loadingData,
     required TResult Function(_AddItemToCart value) addItemToCart,
-    required TResult Function(_CartItemDecrement value) cartItemDecrement,
-    required TResult Function(_CartItemIncrement value) cartItemIncrement,
     required TResult Function(_DeleteItemFromCart value) deleteItemFromCart,
     required TResult Function(_ClearCart value) clearCart,
   }) {
@@ -867,8 +577,6 @@ class _$ClearCartImpl with DiagnosticableTreeMixin implements _ClearCart {
     TResult? Function(_Started value)? started,
     TResult? Function(_LoadingData value)? loadingData,
     TResult? Function(_AddItemToCart value)? addItemToCart,
-    TResult? Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult? Function(_CartItemIncrement value)? cartItemIncrement,
     TResult? Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult? Function(_ClearCart value)? clearCart,
   }) {
@@ -881,8 +589,6 @@ class _$ClearCartImpl with DiagnosticableTreeMixin implements _ClearCart {
     TResult Function(_Started value)? started,
     TResult Function(_LoadingData value)? loadingData,
     TResult Function(_AddItemToCart value)? addItemToCart,
-    TResult Function(_CartItemDecrement value)? cartItemDecrement,
-    TResult Function(_CartItemIncrement value)? cartItemIncrement,
     TResult Function(_DeleteItemFromCart value)? deleteItemFromCart,
     TResult Function(_ClearCart value)? clearCart,
     required TResult orElse(),

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/profile/bloc/profile_bloc.dart';
+import 'package:sempl/src/feature/review_items/widgets/item_with_button_widget.dart';
 
 class SecretProductWaitingListWidget extends StatefulWidget {
   const SecretProductWaitingListWidget({
@@ -26,38 +27,40 @@ class _SecretProductWaitingListWidgetState
     final height = MediaQuery.sizeOf(context).height;
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      sliver: SliverMainAxisGroup(slivers: [
-        SliverPadding(
-          padding:
-              EdgeInsets.only(bottom: height * 0.0153, right: width * 0.08),
-          sliver: SliverToBoxAdapter(
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  _index = _index == 2 ? 0 : _index + 1;
-                });
-              },
-              child: AutoSizeText(
-                'МОИ ОЖИДАЕМЫЕ ОБРАЗЦЫ:',
-                style: Theme.of(context).textTheme.appProfileTitle,
-                maxLines: 1,
+      sliver: SliverMainAxisGroup(
+        slivers: [
+          SliverPadding(
+            padding:
+                EdgeInsets.only(bottom: height * 0.0153, right: width * 0.08),
+            sliver: SliverToBoxAdapter(
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _index = _index == 2 ? 0 : _index + 1;
+                  });
+                },
+                child: AutoSizeText(
+                  'МОИ ОЖИДАЕМЫЕ СЕМПЛЫ:',
+                  style: Theme.of(context).textTheme.appProfileTitle,
+                  maxLines: 1,
+                ),
               ),
             ),
           ),
-        ),
 
-        // const ItemWithButtonWidget(
-        //   imageUrl: 'assets/images/diamond.png',
-        //   title: 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ',
-        //   subtitle: 'Ожидаемое время доставки: 15 января в 18:00',
-        //   withDate: false,
-        // ),
+          const ItemWithButtonWidget(
+            imageUrl: 'assets/images/diamond.png',
+            title: 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ',
+            subtitle: 'Ожидаемое время доставки: 15 января в 18:00',
+            withDate: false,
+          ),
 
-        ///TODO Если нет товаров для отзывов
-        if (context.read<ProfileBloc>().state.orders.isEmpty)
-          const EmptyReviewWidget(),
-        // const ReviewListWidget(),
-      ],),
+          ///TODO Если нет товаров для отзывов
+          // if (context.read<ProfileBloc>().state.orders.isEmpty)
+          // const EmptyReviewWidget(),
+          // const ReviewListWidget(),
+        ],
+      ),
     );
   }
 }

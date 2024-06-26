@@ -30,7 +30,7 @@ class RecentProductsScreen extends StatelessWidget {
                     .textTheme
                     .appTitleMedium
                     .copyWith(fontSize: 28),
-                maxLines: 2,
+                maxLines: 3,
               ),
             ),
           ),

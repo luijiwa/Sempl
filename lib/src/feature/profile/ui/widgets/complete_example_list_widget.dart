@@ -17,21 +17,22 @@ class CompleteExampleListWidget extends StatelessWidget {
 
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      sliver: SliverMainAxisGroup(slivers: [
-        SliverPadding(
-          padding:
-              EdgeInsets.only(bottom: height * 0.0153, right: width * 0.08),
-          sliver: SliverToBoxAdapter(
-            child: AutoSizeText(
-              'МОИ ЗАВЕРШЁННЫЕ ОБРАЗЦЫ:',
-              style: Theme.of(context).textTheme.appProfileTitle,
-              maxLines: 1,
+      sliver: SliverMainAxisGroup(
+        slivers: [
+          SliverPadding(
+            padding:
+                EdgeInsets.only(bottom: height * 0.0153, right: width * 0.08),
+            sliver: SliverToBoxAdapter(
+              child: AutoSizeText(
+                'МОИ ЗАВЕРШЁННЫЕ СЕМПЛЫ:',
+                style: Theme.of(context).textTheme.appProfileTitle,
+                maxLines: 1,
+              ),
             ),
           ),
-        ),
-        SliverList.separated(
-          itemCount: 2,
-          itemBuilder: (context, index) => Material(
+          SliverList.separated(
+            itemCount: 2,
+            itemBuilder: (context, index) => Material(
               shadowColor: AppThemeColor.black.withOpacity(0.02),
               elevation: 10,
               borderRadius: BorderRadius.circular(20),
@@ -79,9 +80,10 @@ class CompleteExampleListWidget extends StatelessWidget {
                 ),
               ),
             ),
-          separatorBuilder: (_, __) => const SizedBox(height: 4),
-        ),
-      ],),
+            separatorBuilder: (_, __) => const SizedBox(height: 4),
+          ),
+        ],
+      ),
     );
   }
 }
