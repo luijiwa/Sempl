@@ -18,6 +18,7 @@ class ItemWithButtonWidget extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final String title;
   final String subtitle;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -42,7 +43,7 @@ class ItemWithButtonWidget extends StatelessWidget {
             SizedBox(height: height * 0.01),
             Image.asset(
               imageUrl,
-              height: height * 0.22,
+              width: width * 0.34103,
             ),
             SizedBox(height: height * 0.016),
             Text(
@@ -52,43 +53,37 @@ class ItemWithButtonWidget extends StatelessWidget {
                   .appBodySemiBold
                   .copyWith(color: AppThemeColor.black),
             ),
-            Text(
-              title,
-              style: Theme.of(context)
-                  .textTheme
-                  .appBodySemiBold
-                  .copyWith(color: AppThemeColor.black),
-            ),
-            SizedBox(height: height * 0.00826),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.08),
+              padding:
+                  EdgeInsets.symmetric(horizontal: width * 0.08, vertical: 7)
+                      .copyWith(bottom: 13),
               child: AutoSizeText(
                 subtitle,
                 textAlign: TextAlign.center,
                 maxLines: 1,
-                style: Theme.of(context).textTheme.itemDateDelivery,
+                style: Theme.of(context).textTheme.itemDateDelivery.copyWith(
+                      color: AppThemeColor.black,
+                    ),
               ),
             ),
-            SizedBox(height: height * 0.016),
-            // Padding(
-            //   padding: EdgeInsets.symmetric(horizontal: width * 0.021),
-            //   child: SizedBox(
-            //     height: 0.1186228814 * width,
-            //     width: double.maxFinite,
-            //     child: ElevatedButton(
-            //       onPressed: () {
-            //         context.goNamed(AppRoutes.feedback.name);
-            //       },
-            //       child: AutoSizeText(
-            //         'НАПИСАТЬ ОБЗОР',
-            //         style: TextStyle(
-            //           fontSize: width > 320 ? 15 : 12,
-            //           color: AppThemeColor.grey,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: width * 0.021),
+              child: SizedBox(
+                width: double.maxFinite,
+                child: ElevatedButton(
+                  onPressed: () {
+                    context.goNamed(AppRoutes.feedback.name);
+                  },
+                  child: AutoSizeText(
+                    'НАПИСАТЬ ОТЗЫВ',
+                    style: TextStyle(
+                      fontSize: width > 320 ? 15 : 12,
+                      color: AppThemeColor.grey,
+                    ),
+                  ),
+                ),
+              ),
+            ),
             if (withDate)
               Padding(
                 padding: const EdgeInsets.only(top: 5),

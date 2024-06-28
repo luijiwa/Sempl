@@ -14,37 +14,74 @@ class ReviewItemsScreen extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
     return Scaffold(
-        body: CustomScrollView(
-      slivers: [
-        const SliverAppBar(
-          leading: CustomBackButton(),
-          title: Text('SEMPL!'),
-        ),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
-          sliver: SliverMainAxisGroup(slivers: [
-            SliverPadding(
-              padding: EdgeInsets.only(
-                  top: height * 0.03068,
-                  bottom: width * 0.04,
-                  right: width * 0.05,),
-              sliver: SliverToBoxAdapter(
-                  child: AutoSizeText(
-                'СЕКРЕТНЫЙ ЛОТ СПEЦИАЛЬНО ДЛЯ ВАС!',
-                style: Theme.of(context).textTheme.appProfileTitle,
-                maxLines: 2,
-              ),),
+      body: CustomScrollView(
+        slivers: [
+          const SliverAppBar(
+            leading: CustomBackButton(),
+            title: Text('SEMPL!'),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 22),
+            sliver: SliverMainAxisGroup(
+              slivers: [
+                TitleOfStatusReview(height: height, width: width),
+                SliverPadding(padding: EdgeInsets.only(top: height * 0.0177)),
+                const ItemWithDateWidget(),
+                const SliverPadding(padding: EdgeInsets.only(top: 4)),
+                const ItemWithButtonWidget(),
+                const SliverToBoxAdapter(
+                  child: BottomPadding(),
+                ),
+              ],
             ),
-            SliverPadding(padding: EdgeInsets.only(top: height * 0.0177)),
-            const ItemWithDateWidget(),
-            const SliverPadding(padding: EdgeInsets.only(top: 4)),
-            const ItemWithButtonWidget(),
-            const SliverToBoxAdapter(
-              child: BottomPadding(),
-            ),
-          ],),
-        ),
-      ],
-    ),);
+          ),
+        ],
+      ),
+    );
   }
+}
+
+class TitleOfStatusReview extends StatelessWidget {
+  const TitleOfStatusReview({
+    super.key,
+    required this.height,
+    required this.width,
+  });
+
+  final double height;
+  final double width;
+
+  @override
+  Widget build(BuildContext context) => SliverPadding(
+        padding: EdgeInsets.only(
+          top: height * 0.03068,
+          bottom: width * 0.04,
+          right: width * 0.05,
+        ),
+        sliver: SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Flexible(
+                child: AutoSizeText(
+                  'МОИ ОЖИДАЕМЫЕ СЕМПЛЫ:',
+                  style: Theme.of(context).textTheme.appProfileTitle,
+                  maxLines: 1,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Flexible(
+                child: AutoSizeText(
+                  'Ожидаемое время доставки: 15 января в 18:00',
+                  style: Theme.of(context).textTheme.appBodyMedium.copyWith(
+                        color: AppThemeColor.blueColor,
+                      ),
+                  maxLines: 1,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
 }

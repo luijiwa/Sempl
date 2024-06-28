@@ -6,7 +6,8 @@ import 'package:sempl/src/feature/feedback/ui/widgets/card_item_in_feedback_widg
 
 class CartItemWithStepIndicatorWidget extends StatelessWidget {
   const CartItemWithStepIndicatorWidget({
-    required int currentPageIndex, super.key,
+    required int currentPageIndex,
+    super.key,
   }) : _currentPageIndex = currentPageIndex;
 
   final int _currentPageIndex;
@@ -19,17 +20,19 @@ class CartItemWithStepIndicatorWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const CardItemInFeedbackWidget(),
-        SizedBox(height: width * 0.05),
+        SizedBox(height: 9),
         AutoSizeText(
           '2/14 дней до конца возможности оставить отзыв',
           style: Theme.of(context)
               .textTheme
               .appBodyMedium
-              .copyWith(color: AppThemeColor.blueColor, fontSize: 12),
+              .copyWith(color: AppThemeColor.rose, fontSize: 12),
         ),
-        SizedBox(height: width * 0.12),
-        AutoSizeText('ШАГ ${_currentPageIndex + 1}',
-            style: Theme.of(context).textTheme.appTitleMedium,),
+        SizedBox(height: width * 0.12725),
+        AutoSizeText(
+          'ШАГ ${_currentPageIndex + 1}',
+          style: Theme.of(context).textTheme.appTitleMedium,
+        ),
         SizedBox(height: width * 0.041),
         PageIndicatorRowWidget(
           currentPageIndex: _currentPageIndex,

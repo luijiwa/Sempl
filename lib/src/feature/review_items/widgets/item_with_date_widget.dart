@@ -17,8 +17,7 @@ class ItemWithDateWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-          border:
-              Border.all(color: AppThemeColor.gris.withOpacity(0.1)),
+          border: Border.all(color: AppThemeColor.gris.withOpacity(0.1)),
         ),
         child: Column(
           children: [
@@ -35,11 +34,10 @@ class ItemWithDateWidget extends StatelessWidget {
                   .appBodySemiBold
                   .copyWith(color: AppThemeColor.black),
             ),
-            SizedBox(height: height * 0.00826),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.12),
               child: AutoSizeText(
-                "Доставлено 15 января 2023г.",
+                "Доставлено: 15.03.23",
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 style: Theme.of(context).textTheme.itemDateDelivery,
@@ -50,14 +48,19 @@ class ItemWithDateWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText('ОТЗЫВ ОСТАВЛЕН',
-                    style: Theme.of(context)
-                        .textTheme
-                        .itemDateDelivery
-                        .copyWith(color: AppThemeColor.green),),
+                AutoSizeText(
+                  'ОТЗЫВ ОСТАВЛЕН',
+                  style: Theme.of(context)
+                      .textTheme
+                      .itemDateDelivery
+                      .copyWith(color: AppThemeColor.green),
+                ),
                 SizedBox(width: width * 0.02),
-                const Icon(Icons.check_outlined,
-                    color: AppThemeColor.green, size: 20,),
+                const Icon(
+                  Icons.check_outlined,
+                  color: AppThemeColor.green,
+                  size: 20,
+                ),
                 // SvgPicture.asset('assets/icons/review_icon.svg'),
               ],
             ),

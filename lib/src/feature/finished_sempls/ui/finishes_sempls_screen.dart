@@ -29,7 +29,7 @@ class FinishedSemplsScreen extends StatelessWidget {
               slivers: [
                 SliverToBoxAdapter(
                   child: AutoSizeText(
-                    'МОИ ЗАВЕРШЕННЫЕ СЕМПЛЫ',
+                    'МОИ ЗАВЕРШЕННЫЕ ОБРАЗЦЫ',
                     maxLines: 2,
                     style: Theme.of(context).textTheme.appTitleMedium,
                   ),

@@ -92,14 +92,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const RecomendationBannerWidget(),
                     SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
                     const CompleteExampleListWidget(),
-                    SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
+                    SliverToBoxAdapter(
+                      child: SizedBox(height: width * 0.23414),
+                    ),
                     const ExitAndDeleteAccountColumnWidget(),
                     SliverToBoxAdapter(child: SizedBox(height: bottomOffset)),
                     SliverPadding(
                       padding: const EdgeInsets.all(8.0),
                       sliver: SliverToBoxAdapter(
-                          child: SizedBox(
-                              height: MediaQuery.of(context).padding.bottom,),),
+                        child: SizedBox(
+                          height: MediaQuery.of(context).padding.bottom,
+                        ),
+                      ),
                     ),
                   ],
                 );

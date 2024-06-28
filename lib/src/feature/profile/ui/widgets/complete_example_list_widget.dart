@@ -55,14 +55,14 @@ class CompleteExampleListWidget extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           AutoSizeText(
-                            'ОЧИСТИТЕЛЬ ЗУБОВ',
+                            'Заказ №0001',
                             style: Theme.of(context)
                                 .textTheme
                                 .appBodySemiBold
                                 .copyWith(color: AppThemeColor.black),
                           ),
                           AutoSizeText(
-                            'Доставлено 15 января 2023г.',
+                            'Заказ завершен 15.01.23',
                             style: Theme.of(context).textTheme.itemDateDelivery,
                           ),
                         ],

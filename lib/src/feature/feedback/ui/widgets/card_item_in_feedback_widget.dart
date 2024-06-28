@@ -12,7 +12,7 @@ class CardItemInFeedbackWidget extends StatelessWidget {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
     const String title = 'ПРОДУКТ ДЛЯ БЕЛЕНИЯ ЗУБОВ';
-    const String subtitle = 'Доставлено: 15 января В 18:00';
+    const String subtitle = 'Доставлено: 15.03.23';
     const String imageUrl = 'assets/images/diamond.png';
 
     return Padding(
@@ -24,15 +24,16 @@ class CardItemInFeedbackWidget extends StatelessWidget {
           bottom: width * 0.055,
         ),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-            boxShadow: [
-              BoxShadow(
-                color: AppThemeColor.black.withOpacity(0.02),
-                blurRadius: 10,
-                spreadRadius: 10,
-              ),
-            ],),
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+          boxShadow: [
+            BoxShadow(
+              color: AppThemeColor.black.withOpacity(0.02),
+              blurRadius: 10,
+              spreadRadius: 10,
+            ),
+          ],
+        ),
         child: Column(
           children: [
             Image.asset(
@@ -54,7 +55,10 @@ class CardItemInFeedbackWidget extends StatelessWidget {
                 subtitle,
                 textAlign: TextAlign.center,
                 maxLines: 1,
-                style: Theme.of(context).textTheme.itemDateDelivery,
+                style: Theme.of(context)
+                    .textTheme
+                    .itemDateDelivery
+                    .copyWith(color: AppThemeColor.black),
               ),
             ),
           ],
