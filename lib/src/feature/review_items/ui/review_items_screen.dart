@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
-import 'package:sempl/src/feature/review_items/widgets/item_with_button_widget.dart';
-import 'package:sempl/src/feature/review_items/widgets/item_with_date_widget.dart';
+import 'package:sempl/src/feature/review_items/ui/widgets/item_with_button_widget.dart';
+import 'package:sempl/src/feature/review_items/ui/widgets/item_with_date_widget.dart';
 
 class ReviewItemsScreen extends StatelessWidget {
   const ReviewItemsScreen({super.key});
