@@ -6,7 +6,6 @@ class ItemWithDateWidget extends StatelessWidget {
   const ItemWithDateWidget({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -40,7 +39,9 @@ class ItemWithDateWidget extends StatelessWidget {
                 "Доставлено: 15.03.23",
                 textAlign: TextAlign.center,
                 maxLines: 1,
-                style: Theme.of(context).textTheme.itemDateDelivery,
+                style: Theme.of(context).textTheme.itemDateDelivery.copyWith(
+                      color: AppThemeColor.black,
+                    ),
               ),
             ),
             SizedBox(height: height * 0.016),

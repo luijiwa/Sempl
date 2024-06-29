@@ -191,6 +191,9 @@ class $AssetsImagesGen {
   AssetGenImage get pickPhotoImage =>
       const AssetGenImage('assets/images/pick_photo_image.png');
 
+  /// File path: assets/images/pomade.png
+  AssetGenImage get pomade => const AssetGenImage('assets/images/pomade.png');
+
   /// File path: assets/images/profile.jpg
   AssetGenImage get profile => const AssetGenImage('assets/images/profile.jpg');
 
@@ -260,6 +263,7 @@ class $AssetsImagesGen {
         mainHeader,
         orangeStar,
         pickPhotoImage,
+        pomade,
         profile,
         reviewPhoto1,
         reviewPhoto2,

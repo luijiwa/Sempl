@@ -4,5 +4,6 @@ part of 'review_items_bloc.dart';
 class ReviewItemsState with _$ReviewItemsState {
   const factory ReviewItemsState({
     @Default(ScreenStatus.initial) ScreenStatus status,
+    @Default(StatusOfOrder.deliveyWaiting) StatusOfOrder statusOfOrder,
   }) = _ReviewItemsState;
 }

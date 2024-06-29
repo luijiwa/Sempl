@@ -74,16 +74,21 @@ class ItemWithSemplsCountBannerWidget extends StatelessWidget {
                   SizedBox(height: height * 0.00826),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: width * 0.08),
-                    child: AutoSizeText(
-                      alredyToReview ? 'Ждут отзывов!' : subtitle,
-                      textAlign: TextAlign.center,
-                      maxLines: 1,
-                      style:
-                          Theme.of(context).textTheme.itemDateDelivery.copyWith(
-                                color: alredyToReview
-                                    ? AppThemeColor.rose
-                                    : AppThemeColor.black,
-                              ),
+                    child: SizedBox(
+                      width: double.maxFinite,
+                      child: AutoSizeText(
+                        alredyToReview ? 'Ждут отзывов!' : subtitle,
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        style: Theme.of(context)
+                            .textTheme
+                            .itemDateDelivery
+                            .copyWith(
+                              color: alredyToReview
+                                  ? AppThemeColor.rose
+                                  : AppThemeColor.black,
+                            ),
+                      ),
                     ),
                   ),
                   if (withDate)

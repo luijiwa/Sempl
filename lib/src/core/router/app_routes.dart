@@ -61,6 +61,10 @@ enum AppRoutes {
     name: 'profile',
     path: 'profile',
   ),
+  profileDeleteConfirmation(
+    name: 'profileDeleteConfirmation',
+    path: 'profile_delete_confirmation',
+  ),
   profileEdit(
     name: 'profileEdit',
     path: 'edit',

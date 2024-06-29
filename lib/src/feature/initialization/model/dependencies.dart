@@ -6,6 +6,7 @@ import 'package:sempl/src/feature/item/data/repository/item_repository.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/main/data/repository/main_screen_repository.dart';
 import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
+import 'package:sempl/src/feature/review_items/data/repositories/i_review_items_repository.dart';
 import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
 import 'package:sempl/src/feature/survey/data/survey_repository.dart';
 
@@ -26,6 +27,7 @@ base class Dependencies {
     required this.cartBloc,
     required this.surveyRepository,
     required this.profileRepository,
+    required this.reviewItemsRepository,
     required this.itemRepository,
     required this.mainScreenRepository,
   });
@@ -45,6 +47,7 @@ base class Dependencies {
   final ProfileRepository profileRepository;
   final ItemRepository itemRepository;
   final MainScreenRepository mainScreenRepository;
+  final IReviewItemsRepository reviewItemsRepository;
 
   /// [ErrorTrackingManager] instance, used to report errors.
   final ErrorTrackingManager errorTrackingManager;

@@ -12,12 +12,14 @@ class ItemWithButtonWidget extends StatelessWidget {
     this.padding,
     this.title = 'ОЧИСТИТЕЛЬ ЗУБОВ',
     this.subtitle = 'Доставлено 15 января 2023г.',
+    this.isReviewExist = false,
   });
   final bool withDate;
   final String imageUrl;
   final EdgeInsetsGeometry? padding;
   final String title;
   final String subtitle;
+  final bool isReviewExist;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,7 @@ class ItemWithButtonWidget extends StatelessWidget {
                     context.goNamed(AppRoutes.feedback.name);
                   },
                   child: AutoSizeText(
-                    'НАПИСАТЬ ОТЗЫВ',
+                    isReviewExist ? 'ПРОСМОТРЕТЬ ОТЗЫВ' : 'НАПИСАТЬ ОТЗЫВ',
                     style: TextStyle(
                       fontSize: width > 320 ? 15 : 12,
                       color: AppThemeColor.grey,
@@ -84,7 +86,7 @@ class ItemWithButtonWidget extends StatelessWidget {
                 ),
               ),
             ),
-            if (withDate)
+            if (withDate && !isReviewExist)
               Padding(
                 padding: const EdgeInsets.only(top: 5),
                 child: AutoSizeText(

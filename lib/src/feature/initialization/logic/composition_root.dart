@@ -20,6 +20,9 @@ import 'package:sempl/src/feature/main/data/data_source/main_screen_data_source.
 import 'package:sempl/src/feature/main/data/repository/main_screen_repository.dart';
 import 'package:sempl/src/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
+import 'package:sempl/src/feature/review_items/data/data_source/review_items_data_source.dart';
+import 'package:sempl/src/feature/review_items/data/data_source/review_items_data_source_network.dart';
+import 'package:sempl/src/feature/review_items/data/repositories/review_items_repository.dart';
 import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
 import 'package:sempl/src/feature/settings/data/locale_datasource.dart';
 import 'package:sempl/src/feature/settings/data/locale_repository.dart';
@@ -101,6 +104,9 @@ final class CompositionRoot {
     final itemRepository = ItemRepositoryImpl(
       ItemDataSourceNetwork(restClient),
     );
+    final ReviewItemsRepository reviewItemsRepository = ReviewItemsRepository(
+      dataSource: ReviewItemsDataSourceNetwork(restClient),
+    );
 
     final mainScreenRepository = MainScreenRepositoryImpl(
       dataSource: MainScreenDataSourceNetwork(restClient),
@@ -137,6 +143,7 @@ final class CompositionRoot {
       restClient: restClient,
       surveyRepository: surveyRepository,
       profileRepository: profileRepository,
+      reviewItemsRepository: reviewItemsRepository,
       itemRepository: itemRepository,
       mainScreenRepository: mainScreenRepository,
     );

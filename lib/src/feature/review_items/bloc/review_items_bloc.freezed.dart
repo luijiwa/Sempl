@@ -19,16 +19,19 @@ mixin _$ReviewItemsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ChangeStatusOfOrder value) changeStatusOfOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeStatusOfOrder value)? changeStatusOfOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ChangeStatusOfOrder value)? changeStatusOfOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -97,6 +100,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ChangeStatusOfOrder value) changeStatusOfOrder,
   }) {
     return started(this);
   }
@@ -105,6 +109,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeStatusOfOrder value)? changeStatusOfOrder,
   }) {
     return started?.call(this);
   }
@@ -113,6 +118,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ChangeStatusOfOrder value)? changeStatusOfOrder,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -127,8 +133,90 @@ abstract class _Started implements ReviewItemsEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangeStatusOfOrderImplCopyWith<$Res> {
+  factory _$$ChangeStatusOfOrderImplCopyWith(_$ChangeStatusOfOrderImpl value,
+          $Res Function(_$ChangeStatusOfOrderImpl) then) =
+      __$$ChangeStatusOfOrderImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeStatusOfOrderImplCopyWithImpl<$Res>
+    extends _$ReviewItemsEventCopyWithImpl<$Res, _$ChangeStatusOfOrderImpl>
+    implements _$$ChangeStatusOfOrderImplCopyWith<$Res> {
+  __$$ChangeStatusOfOrderImplCopyWithImpl(_$ChangeStatusOfOrderImpl _value,
+      $Res Function(_$ChangeStatusOfOrderImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeStatusOfOrderImpl
+    with DiagnosticableTreeMixin
+    implements _ChangeStatusOfOrder {
+  const _$ChangeStatusOfOrderImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ReviewItemsEvent.changeStatusOfOrder()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'ReviewItemsEvent.changeStatusOfOrder'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeStatusOfOrderImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeStatusOfOrder value) changeStatusOfOrder,
+  }) {
+    return changeStatusOfOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeStatusOfOrder value)? changeStatusOfOrder,
+  }) {
+    return changeStatusOfOrder?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeStatusOfOrder value)? changeStatusOfOrder,
+    required TResult orElse(),
+  }) {
+    if (changeStatusOfOrder != null) {
+      return changeStatusOfOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeStatusOfOrder implements ReviewItemsEvent {
+  const factory _ChangeStatusOfOrder() = _$ChangeStatusOfOrderImpl;
+}
+
+/// @nodoc
 mixin _$ReviewItemsState {
   ScreenStatus get status => throw _privateConstructorUsedError;
+  StatusOfOrder get statusOfOrder => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ReviewItemsStateCopyWith<ReviewItemsState> get copyWith =>
@@ -141,7 +229,7 @@ abstract class $ReviewItemsStateCopyWith<$Res> {
           ReviewItemsState value, $Res Function(ReviewItemsState) then) =
       _$ReviewItemsStateCopyWithImpl<$Res, ReviewItemsState>;
   @useResult
-  $Res call({ScreenStatus status});
+  $Res call({ScreenStatus status, StatusOfOrder statusOfOrder});
 }
 
 /// @nodoc
@@ -158,12 +246,17 @@ class _$ReviewItemsStateCopyWithImpl<$Res, $Val extends ReviewItemsState>
   @override
   $Res call({
     Object? status = null,
+    Object? statusOfOrder = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
+      statusOfOrder: null == statusOfOrder
+          ? _value.statusOfOrder
+          : statusOfOrder // ignore: cast_nullable_to_non_nullable
+              as StatusOfOrder,
     ) as $Val);
   }
 }
@@ -176,7 +269,7 @@ abstract class _$$ReviewItemsStateImplCopyWith<$Res>
       __$$ReviewItemsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ScreenStatus status});
+  $Res call({ScreenStatus status, StatusOfOrder statusOfOrder});
 }
 
 /// @nodoc
@@ -191,12 +284,17 @@ class __$$ReviewItemsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? statusOfOrder = null,
   }) {
     return _then(_$ReviewItemsStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ScreenStatus,
+      statusOfOrder: null == statusOfOrder
+          ? _value.statusOfOrder
+          : statusOfOrder // ignore: cast_nullable_to_non_nullable
+              as StatusOfOrder,
     ));
   }
 }
@@ -206,15 +304,20 @@ class __$$ReviewItemsStateImplCopyWithImpl<$Res>
 class _$ReviewItemsStateImpl
     with DiagnosticableTreeMixin
     implements _ReviewItemsState {
-  const _$ReviewItemsStateImpl({this.status = ScreenStatus.initial});
+  const _$ReviewItemsStateImpl(
+      {this.status = ScreenStatus.initial,
+      this.statusOfOrder = StatusOfOrder.deliveyWaiting});
 
   @override
   @JsonKey()
   final ScreenStatus status;
+  @override
+  @JsonKey()
+  final StatusOfOrder statusOfOrder;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ReviewItemsState(status: $status)';
+    return 'ReviewItemsState(status: $status, statusOfOrder: $statusOfOrder)';
   }
 
   @override
@@ -222,7 +325,8 @@ class _$ReviewItemsStateImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'ReviewItemsState'))
-      ..add(DiagnosticsProperty('status', status));
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('statusOfOrder', statusOfOrder));
   }
 
   @override
@@ -230,11 +334,13 @@ class _$ReviewItemsStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReviewItemsStateImpl &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.statusOfOrder, statusOfOrder) ||
+                other.statusOfOrder == statusOfOrder));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status);
+  int get hashCode => Object.hash(runtimeType, status, statusOfOrder);
 
   @JsonKey(ignore: true)
   @override
@@ -245,11 +351,14 @@ class _$ReviewItemsStateImpl
 }
 
 abstract class _ReviewItemsState implements ReviewItemsState {
-  const factory _ReviewItemsState({final ScreenStatus status}) =
-      _$ReviewItemsStateImpl;
+  const factory _ReviewItemsState(
+      {final ScreenStatus status,
+      final StatusOfOrder statusOfOrder}) = _$ReviewItemsStateImpl;
 
   @override
   ScreenStatus get status;
+  @override
+  StatusOfOrder get statusOfOrder;
   @override
   @JsonKey(ignore: true)
   _$$ReviewItemsStateImplCopyWith<_$ReviewItemsStateImpl> get copyWith =>

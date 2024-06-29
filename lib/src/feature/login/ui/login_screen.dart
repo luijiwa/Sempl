@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
               listener: _handleAuthState,
               child: Scaffold(
                 extendBodyBehindAppBar: true,
-                // resizeToAvoidBottomInset: false,
+                resizeToAvoidBottomInset: false,
                 floatingActionButton: kDebugMode
                     ? FloatingActionButton(
                         onPressed: () {
