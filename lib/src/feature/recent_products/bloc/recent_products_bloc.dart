@@ -10,6 +10,7 @@ import 'package:sempl/src/feature/main/data/model/categories/categories.dart';
 import 'package:sempl/src/feature/main/data/model/new_sempls/new_sempls.dart';
 import 'package:sempl/src/feature/main/data/repository/main_screen_repository.dart';
 import 'package:sempl/src/feature/recent_products/data/repositories/i_recent_products_repository.dart';
+import 'package:sempl/src/feature/recent_products/model/selected_categories.dart';
 
 part 'recent_products_bloc.freezed.dart';
 part 'recent_products_event.dart';
@@ -23,6 +24,8 @@ class RecentProductsBloc
       : super(const RecentProductsState()) {
     on<_Started>(_onStarted);
     on<_LoadCategories>(_onLoadCategories);
+    on<_PickMainCategory>(_onPickMainCategory);
+    on<_PickSubCategory>(_onPickSubCategory);
   }
 
   Future<void> _onStarted(
@@ -58,4 +61,13 @@ class RecentProductsBloc
       emit(state.copyWith(screenCategoriesStatus: ScreenStatus.failure));
     }
   }
+
+  FutureOr<void> _onPickMainCategory(
+      _PickMainCategory event, Emitter<RecentProductsState> emit) {
+        final SelectedCategories selectedCategory = SelectedCategories(id:state.categories[event.index].id, name: state.categories[event.index].name) ;
+    // emit(state.copyWith(selectedCategories: event.));
+  }
+
+  FutureOr<void> _onPickSubCategory(
+      _PickSubCategory event, Emitter<RecentProductsState> emit) {}
 }

@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sempl/src/core/constant/generated/assets.gen.dart';
 import 'package:sempl/src/core/router/app_routes.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/core/widget/bottom_padding.dart';
@@ -25,11 +26,13 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
                     Container(
                       height: maxHeight * 0.45,
                       width: double.maxFinite,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           alignment: Alignment.topCenter,
-                          image: AssetImage("assets/images/face_header.png"),
+                          image: AssetImage(
+                            Assets.images.afterOrderedHeader.path,
+                          ),
                         ),
                       ),
                     ),
@@ -109,12 +112,13 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     AutoSizeText(
-                                      "Спасибо за ваши ответы!".toUpperCase(),
+                                      'СПАСИБО ЗА ЗАКАЗ!',
+                                      // "Спасибо за ваши ответы!".toUpperCase(),
                                       style: Theme.of(context)
                                           .textTheme
                                           .appTitleMedium
                                           .copyWith(color: Colors.white),
-                                      maxLines: 2,
+                                      maxLines: 1,
                                     ),
                                     SizedBox(height: maxHeight * 0.0237),
                                     Padding(
@@ -122,7 +126,9 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
                                         right: maxWidth * 0.078,
                                       ),
                                       child: const AutoSizeText(
-                                        'Семпл будет отправлен в ближайшее время. Сроки и статус доставки можно отслеживать в личном кабинете',
+                                        'Он будет оформлен в течение нескольких дней,'
+                                        ' за статусом заказа можно следить в личном профиле',
+                                        // 'Семпл будет отправлен в ближайшее время. Сроки и статус доставки можно отслеживать в личном кабинете',
                                         style: TextStyle(
                                           fontSize: 15,
                                           color: Colors.white,
@@ -153,7 +159,7 @@ class ConfirmationOrderTypeOneScreen extends StatelessWidget {
                                           MainAxisAlignment.center,
                                       children: [
                                         AutoSizeText(
-                                          'НА ГЛАВНЫЙ ЭКРАН ',
+                                          'НА ГЛАВНУЮ ',
                                           style: TextStyle(
                                             fontSize: maxWidth > 320 ? 15 : 12,
                                             color: const Color(0xFF86A6B8),

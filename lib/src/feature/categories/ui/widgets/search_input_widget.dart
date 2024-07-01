@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
+import 'package:sempl/src/feature/recent_products/bloc/recent_products_bloc.dart';
 
 @Deprecated('Не используется так как дизайнеру не понравилось')
 class SearchInputWidget extends StatefulWidget {
@@ -43,8 +44,8 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () {
       context
-          .read<MainScreenBloc>()
-          .add(MainScreenEvent.searchCategory(query: _controller.text));
+          .read<RecentProductsBloc>()
+          .add(RecentProductsEvent.searchCategory(_controller.text));
     });
   }
 
@@ -69,16 +70,20 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
               if (_isTextEmpty)
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: width * 0.02803813559,
-                      horizontal: width * 0.0496059322,),
+                    vertical: width * 0.02803813559,
+                    horizontal: width * 0.0496059322,
+                  ),
                   child: const Align(
                     alignment: Alignment.centerLeft,
                     child: Row(
                       children: [
                         Padding(
                           padding: EdgeInsets.only(right: 4),
-                          child: Icon(Icons.search,
-                              size: 24, color: AppThemeColor.black,),
+                          child: Icon(
+                            Icons.search,
+                            size: 24,
+                            color: AppThemeColor.black,
+                          ),
                         ),
                         Text(
                           'Поиск в категориях',
@@ -95,8 +100,9 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
                 decoration:
                     Theme.of(context).inputDecorationTheme.searchInput.copyWith(
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: height * 0.013,
-                              horizontal: height * 0.023,),
+                            vertical: height * 0.013,
+                            horizontal: height * 0.023,
+                          ),
                         ),
               ),
             ],

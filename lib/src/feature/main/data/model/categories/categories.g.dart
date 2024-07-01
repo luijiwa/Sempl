@@ -27,6 +27,7 @@ _$CategoriesDataImpl _$$CategoriesDataImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => Subcategories.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <Subcategories>[],
+      isSelected: json['is_selected'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$CategoriesDataImplToJson(
@@ -35,16 +36,19 @@ Map<String, dynamic> _$$CategoriesDataImplToJson(
       'id': instance.id,
       'name': instance.name,
       'subcategories': instance.subcategories,
+      'is_selected': instance.isSelected,
     };
 
 _$SubcategoriesImpl _$$SubcategoriesImplFromJson(Map<String, dynamic> json) =>
     _$SubcategoriesImpl(
       id: json['id'] as int? ?? 0,
       name: json['name'] as String? ?? '',
+      isSelected: json['is_selected'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$SubcategoriesImplToJson(_$SubcategoriesImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'is_selected': instance.isSelected,
     };

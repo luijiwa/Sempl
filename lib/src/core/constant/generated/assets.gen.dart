@@ -114,6 +114,10 @@ class $AssetsImagesGen {
   AssetGenImage get background5 =>
       const AssetGenImage('assets/images/Background 5.png');
 
+  /// File path: assets/images/after_ordered_header.png
+  AssetGenImage get afterOrderedHeader =>
+      const AssetGenImage('assets/images/after_ordered_header.png');
+
   /// File path: assets/images/arrow_return.png
   AssetGenImage get arrowReturn =>
       const AssetGenImage('assets/images/arrow_return.png');
@@ -243,6 +247,7 @@ class $AssetsImagesGen {
         background3,
         background4,
         background5,
+        afterOrderedHeader,
         arrowReturn,
         blueWithNoise,
         confirmationBodyBackground,

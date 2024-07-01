@@ -20,6 +20,7 @@ class CategoriesData with _$CategoriesData {
     @Default(0) int id,
     @Default('') String name,
     @Default(<Subcategories>[]) List<Subcategories> subcategories,
+    @Default(false) bool isSelected,
   }) = _CategoriesData;
 
   factory CategoriesData.fromJson(Map<String, Object?> json) =>
@@ -31,6 +32,7 @@ class Subcategories with _$Subcategories {
   const factory Subcategories({
     @Default(0) int id,
     @Default('') String name,
+    @Default(false) bool isSelected,
   }) = _Subcategories;
 
   factory Subcategories.fromJson(Map<String, Object?> json) =>

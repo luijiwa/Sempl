@@ -14,7 +14,7 @@ class CategoriesListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoriesData = context.read<MainScreenBloc>().state.categories;
+    final categoriesData = context.read<RecentProductsBloc>().state.categories;
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       sliver: BlocBuilder<RecentProductsBloc, RecentProductsState>(
@@ -25,81 +25,83 @@ class CategoriesListWidget extends StatelessWidget {
           final length = state.searchQuery.isEmpty
               ? categoriesData.length
               : categoriesData.length; // state.searchResults.length;
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              childCount: length,
-              (context, index) {
-                final category = state.searchQuery.isEmpty
-                    ? categoriesData.elementAt(index)
-                    : categoriesData.elementAt(
-                        index); // state.searchResults.elementAt(index);
-                final categoryName = category.name;
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: GestureDetector(
-                        onTap: () {},
+          return SliverList.builder(
+            itemCount: length,
+            itemBuilder: (context, index) {
+              final category = state.searchQuery.isEmpty
+                  ? categoriesData.elementAt(index)
+                  : categoriesData.elementAt(
+                      index); // state.searchResults.elementAt(index);
+              final categoryName = category.name;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 2.5),
+                              child: Text(
+                                categoryName,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ),
+                          CustomRadioButton(
+                            value: category.isSelected,
+                            onChanged: (value) {},
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: height * 0.01),
+                  ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: category.subcategories.length,
+                    itemBuilder: (context, subIndex) {
+                      final products = category.subcategories[subIndex];
+
+                      final product = products.name;
+                      final productisSelected = products.isSelected;
+
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 22),
                         child: Row(
                           children: [
                             Expanded(
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(vertical: 2.5),
+                                    const EdgeInsets.symmetric(vertical: 4),
                                 child: Text(
-                                  categoryName,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15,
-                                  ),
+                                  product,
+                                  style: const TextStyle(fontSize: 15),
                                 ),
                               ),
                             ),
                             CustomRadioButton(
+                              value: productisSelected,
                               onChanged: (value) {},
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                    SizedBox(height: height * 0.01),
-                    ListView.builder(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: category.subcategories.length,
-                      itemBuilder: (context, subIndex) {
-                        final products = category.subcategories[subIndex];
-
-                        final product = products.name;
-                        return Padding(
-                          padding: const EdgeInsets.only(left: 22),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 4),
-                                  child: Text(
-                                    product,
-                                    style: const TextStyle(fontSize: 15),
-                                  ),
-                                ),
-                              ),
-                              CustomRadioButton(
-                                onChanged: (value) {},
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
           );
         },
       ),

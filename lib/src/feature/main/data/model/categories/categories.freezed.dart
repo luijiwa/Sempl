@@ -177,6 +177,7 @@ mixin _$CategoriesData {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<Subcategories> get subcategories => throw _privateConstructorUsedError;
+  bool get isSelected => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -190,7 +191,11 @@ abstract class $CategoriesDataCopyWith<$Res> {
           CategoriesData value, $Res Function(CategoriesData) then) =
       _$CategoriesDataCopyWithImpl<$Res, CategoriesData>;
   @useResult
-  $Res call({int id, String name, List<Subcategories> subcategories});
+  $Res call(
+      {int id,
+      String name,
+      List<Subcategories> subcategories,
+      bool isSelected});
 }
 
 /// @nodoc
@@ -209,6 +214,7 @@ class _$CategoriesDataCopyWithImpl<$Res, $Val extends CategoriesData>
     Object? id = null,
     Object? name = null,
     Object? subcategories = null,
+    Object? isSelected = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -223,6 +229,10 @@ class _$CategoriesDataCopyWithImpl<$Res, $Val extends CategoriesData>
           ? _value.subcategories
           : subcategories // ignore: cast_nullable_to_non_nullable
               as List<Subcategories>,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -235,7 +245,11 @@ abstract class _$$CategoriesDataImplCopyWith<$Res>
       __$$CategoriesDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, List<Subcategories> subcategories});
+  $Res call(
+      {int id,
+      String name,
+      List<Subcategories> subcategories,
+      bool isSelected});
 }
 
 /// @nodoc
@@ -252,6 +266,7 @@ class __$$CategoriesDataImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? subcategories = null,
+    Object? isSelected = null,
   }) {
     return _then(_$CategoriesDataImpl(
       id: null == id
@@ -266,6 +281,10 @@ class __$$CategoriesDataImplCopyWithImpl<$Res>
           ? _value._subcategories
           : subcategories // ignore: cast_nullable_to_non_nullable
               as List<Subcategories>,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -278,7 +297,8 @@ class _$CategoriesDataImpl
   const _$CategoriesDataImpl(
       {this.id = 0,
       this.name = '',
-      final List<Subcategories> subcategories = const <Subcategories>[]})
+      final List<Subcategories> subcategories = const <Subcategories>[],
+      this.isSelected = false})
       : _subcategories = subcategories;
 
   factory _$CategoriesDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -300,8 +320,12 @@ class _$CategoriesDataImpl
   }
 
   @override
+  @JsonKey()
+  final bool isSelected;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoriesData(id: $id, name: $name, subcategories: $subcategories)';
+    return 'CategoriesData(id: $id, name: $name, subcategories: $subcategories, isSelected: $isSelected)';
   }
 
   @override
@@ -311,7 +335,8 @@ class _$CategoriesDataImpl
       ..add(DiagnosticsProperty('type', 'CategoriesData'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('subcategories', subcategories));
+      ..add(DiagnosticsProperty('subcategories', subcategories))
+      ..add(DiagnosticsProperty('isSelected', isSelected));
   }
 
   @override
@@ -322,13 +347,15 @@ class _$CategoriesDataImpl
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
-                .equals(other._subcategories, _subcategories));
+                .equals(other._subcategories, _subcategories) &&
+            (identical(other.isSelected, isSelected) ||
+                other.isSelected == isSelected));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name,
-      const DeepCollectionEquality().hash(_subcategories));
+      const DeepCollectionEquality().hash(_subcategories), isSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -349,7 +376,8 @@ abstract class _CategoriesData implements CategoriesData {
   const factory _CategoriesData(
       {final int id,
       final String name,
-      final List<Subcategories> subcategories}) = _$CategoriesDataImpl;
+      final List<Subcategories> subcategories,
+      final bool isSelected}) = _$CategoriesDataImpl;
 
   factory _CategoriesData.fromJson(Map<String, dynamic> json) =
       _$CategoriesDataImpl.fromJson;
@@ -360,6 +388,8 @@ abstract class _CategoriesData implements CategoriesData {
   String get name;
   @override
   List<Subcategories> get subcategories;
+  @override
+  bool get isSelected;
   @override
   @JsonKey(ignore: true)
   _$$CategoriesDataImplCopyWith<_$CategoriesDataImpl> get copyWith =>
@@ -374,6 +404,7 @@ Subcategories _$SubcategoriesFromJson(Map<String, dynamic> json) {
 mixin _$Subcategories {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  bool get isSelected => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -387,7 +418,7 @@ abstract class $SubcategoriesCopyWith<$Res> {
           Subcategories value, $Res Function(Subcategories) then) =
       _$SubcategoriesCopyWithImpl<$Res, Subcategories>;
   @useResult
-  $Res call({int id, String name});
+  $Res call({int id, String name, bool isSelected});
 }
 
 /// @nodoc
@@ -405,6 +436,7 @@ class _$SubcategoriesCopyWithImpl<$Res, $Val extends Subcategories>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? isSelected = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -415,6 +447,10 @@ class _$SubcategoriesCopyWithImpl<$Res, $Val extends Subcategories>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -427,7 +463,7 @@ abstract class _$$SubcategoriesImplCopyWith<$Res>
       __$$SubcategoriesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name});
+  $Res call({int id, String name, bool isSelected});
 }
 
 /// @nodoc
@@ -443,6 +479,7 @@ class __$$SubcategoriesImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? isSelected = null,
   }) {
     return _then(_$SubcategoriesImpl(
       id: null == id
@@ -453,6 +490,10 @@ class __$$SubcategoriesImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -462,7 +503,8 @@ class __$$SubcategoriesImplCopyWithImpl<$Res>
 class _$SubcategoriesImpl
     with DiagnosticableTreeMixin
     implements _Subcategories {
-  const _$SubcategoriesImpl({this.id = 0, this.name = ''});
+  const _$SubcategoriesImpl(
+      {this.id = 0, this.name = '', this.isSelected = false});
 
   factory _$SubcategoriesImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubcategoriesImplFromJson(json);
@@ -473,10 +515,13 @@ class _$SubcategoriesImpl
   @override
   @JsonKey()
   final String name;
+  @override
+  @JsonKey()
+  final bool isSelected;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Subcategories(id: $id, name: $name)';
+    return 'Subcategories(id: $id, name: $name, isSelected: $isSelected)';
   }
 
   @override
@@ -485,7 +530,8 @@ class _$SubcategoriesImpl
     properties
       ..add(DiagnosticsProperty('type', 'Subcategories'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name));
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('isSelected', isSelected));
   }
 
   @override
@@ -494,12 +540,14 @@ class _$SubcategoriesImpl
         (other.runtimeType == runtimeType &&
             other is _$SubcategoriesImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.isSelected, isSelected) ||
+                other.isSelected == isSelected));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, id, name, isSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -516,8 +564,10 @@ class _$SubcategoriesImpl
 }
 
 abstract class _Subcategories implements Subcategories {
-  const factory _Subcategories({final int id, final String name}) =
-      _$SubcategoriesImpl;
+  const factory _Subcategories(
+      {final int id,
+      final String name,
+      final bool isSelected}) = _$SubcategoriesImpl;
 
   factory _Subcategories.fromJson(Map<String, dynamic> json) =
       _$SubcategoriesImpl.fromJson;
@@ -526,6 +576,8 @@ abstract class _Subcategories implements Subcategories {
   int get id;
   @override
   String get name;
+  @override
+  bool get isSelected;
   @override
   @JsonKey(ignore: true)
   _$$SubcategoriesImplCopyWith<_$SubcategoriesImpl> get copyWith =>

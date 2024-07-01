@@ -7,6 +7,8 @@ class RecentProductsState with _$RecentProductsState {
     @Default(<NewSemplsData>[]) List<NewSemplsData> newSempls,
     @Default(ScreenStatus.initial) ScreenStatus screenCategoriesStatus,
     @Default(<CategoriesData>[]) List<CategoriesData> categories,
+    @Default(<SelectedCategories>[])
+    List<SelectedCategories> selectedCategories,
     @Default('') String searchQuery,
     @Default('') String errorText,
   }) = _RecentProductsState;
