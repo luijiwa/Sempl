@@ -5,6 +5,7 @@ import 'package:sempl/src/core/utils/enums/screen_status.dart';
 import 'package:sempl/src/core/widget/custom_back_button.dart';
 import 'package:sempl/src/feature/categories/ui/widgets/categories_list_widget.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
+import 'package:sempl/src/feature/recent_products/bloc/recent_products_bloc.dart';
 
 class CategoriesListScreen extends StatefulWidget {
   const CategoriesListScreen({super.key});
@@ -14,12 +15,12 @@ class CategoriesListScreen extends StatefulWidget {
 }
 
 class _CategoriesListScreenState extends State<CategoriesListScreen> {
-  String? selectedCategory;
-
   @override
   void initState() {
     super.initState();
-    context.read<MainScreenBloc>().add(const MainScreenEvent.loadCategories());
+    context
+        .read<RecentProductsBloc>()
+        .add(const RecentProductsEvent.loadCategories());
   }
 
   @override
@@ -62,7 +63,7 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
                 //  SearchInputWidget(),
               ),
             ),
-            BlocBuilder<MainScreenBloc, MainScreenState>(
+            BlocBuilder<RecentProductsBloc, RecentProductsState>(
               buildWhen: (previous, current) =>
                   previous.screenCategoriesStatus !=
                   current.screenCategoriesStatus,

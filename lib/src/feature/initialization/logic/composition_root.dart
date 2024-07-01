@@ -7,7 +7,7 @@ import 'package:sempl/src/core/constant/config.dart';
 import 'package:sempl/src/core/utils/logger.dart';
 import 'package:sempl/src/feature/app/logic/tracking_manager.dart';
 import 'package:sempl/src/feature/cart/bloc/cart_bloc.dart';
-import 'package:sempl/src/feature/cart/data/data_source/cart_items_dao.dart';
+import 'package:sempl/src/feature/cart/data/data_source/dao/cart_items_dao.dart';
 import 'package:sempl/src/feature/cart/data/repositories/cart_repository.dart';
 import 'package:sempl/src/feature/initialization/model/dependencies.dart';
 import 'package:sempl/src/feature/item/data/data_source/item_data_source.dart';
@@ -20,7 +20,8 @@ import 'package:sempl/src/feature/main/data/data_source/main_screen_data_source.
 import 'package:sempl/src/feature/main/data/repository/main_screen_repository.dart';
 import 'package:sempl/src/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
-import 'package:sempl/src/feature/review_items/data/data_source/review_items_data_source.dart';
+import 'package:sempl/src/feature/recent_products/data/data_source/recent_products_data_source_network.dart';
+import 'package:sempl/src/feature/recent_products/data/repositories/recent_products_repository.dart';
 import 'package:sempl/src/feature/review_items/data/data_source/review_items_data_source_network.dart';
 import 'package:sempl/src/feature/review_items/data/repositories/review_items_repository.dart';
 import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
@@ -118,6 +119,9 @@ final class CompositionRoot {
       storage: storage,
     );
 
+    final recentProductsRepository = RecentProductsRepository(
+        dataSource: RecentProductsDataSourceNetwork(restClient));
+
     final authBloc = AuthBloc(
       AuthState(
         status: token != null
@@ -131,7 +135,7 @@ final class CompositionRoot {
     );
 
     final cartBloc = CartBloc(
-      CartRepository(
+      LocalCartRepository(
         dataSource: CartItemsDao(database),
       ),
     )..add(const CartEvent.started());
@@ -146,6 +150,7 @@ final class CompositionRoot {
       reviewItemsRepository: reviewItemsRepository,
       itemRepository: itemRepository,
       mainScreenRepository: mainScreenRepository,
+      recentProductsRepository: recentProductsRepository,
     );
   }
 

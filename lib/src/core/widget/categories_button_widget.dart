@@ -2,9 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sempl/src/core/constant/generated/assets.gen.dart';
 import 'package:sempl/src/core/theme/theme.dart';
 import 'package:sempl/src/feature/categories/ui/categories_list_screen.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
+import 'package:sempl/src/feature/recent_products/bloc/recent_products_bloc.dart';
 
 class CategoriesButtonWidget extends StatelessWidget {
   const CategoriesButtonWidget({
@@ -20,7 +22,7 @@ class CategoriesButtonWidget extends StatelessWidget {
         width: double.infinity,
         child: OutlinedButton(
           onPressed: () {
-            final myBloc = BlocProvider.of<MainScreenBloc>(context);
+            final myBloc = BlocProvider.of<RecentProductsBloc>(context);
 
             // Переход на второй экран с передачей блока
             Navigator.of(context).push(
@@ -34,8 +36,7 @@ class CategoriesButtonWidget extends StatelessWidget {
           },
           child: Row(
             children: [
-              SvgPicture.asset(
-                'assets/icons/subject_icon.svg',
+              Assets.icons.subjectIcon.svg(
                 colorFilter: const ColorFilter.mode(
                   AppThemeColor.blueColor,
                   BlendMode.srcIn,

@@ -6,6 +6,7 @@ import 'package:sempl/src/feature/item/data/repository/item_repository.dart';
 import 'package:sempl/src/feature/login/bloc/auth_bloc.dart';
 import 'package:sempl/src/feature/main/data/repository/main_screen_repository.dart';
 import 'package:sempl/src/feature/profile/data/repository/profile_repository.dart';
+import 'package:sempl/src/feature/recent_products/data/repositories/i_recent_products_repository.dart';
 import 'package:sempl/src/feature/review_items/data/repositories/i_review_items_repository.dart';
 import 'package:sempl/src/feature/settings/bloc/settings_bloc.dart';
 import 'package:sempl/src/feature/survey/data/survey_repository.dart';
@@ -30,6 +31,7 @@ base class Dependencies {
     required this.reviewItemsRepository,
     required this.itemRepository,
     required this.mainScreenRepository,
+    required this.recentProductsRepository,
   });
 
   /// [RestClient] instance, used to make requests.
@@ -43,11 +45,12 @@ base class Dependencies {
 
   final CartBloc cartBloc;
 
-  final SurveyRepository surveyRepository;
-  final ProfileRepository profileRepository;
-  final ItemRepository itemRepository;
-  final MainScreenRepository mainScreenRepository;
+  final SurveyRepository<dynamic> surveyRepository;
+  final ProfileRepository<dynamic> profileRepository;
+  final ItemRepository<dynamic> itemRepository;
+  final IMainScreenRepository<dynamic> mainScreenRepository;
   final IReviewItemsRepository reviewItemsRepository;
+  final IRecentProductsRepository recentProductsRepository;
 
   /// [ErrorTrackingManager] instance, used to report errors.
   final ErrorTrackingManager errorTrackingManager;

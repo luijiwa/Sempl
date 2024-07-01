@@ -6,14 +6,14 @@ import 'package:sempl/src/feature/main/data/data_source/main_screen_data_source.
 import 'package:sempl/src/feature/main/data/model/categories/categories.dart';
 import 'package:sempl/src/feature/main/data/model/new_sempls/new_sempls.dart';
 
-abstract interface class MainScreenRepository<T> {
+abstract interface class IMainScreenRepository<T> {
   /// Загрузка информации о недавних примерах
   Future<NewSempls> loadNewSemplsData();
   Future<Rating> loadRatingItem(int id);
-  Future<Categories> loadCategoryData();
+  // Future<Categories> loadCategoryData();
 }
 
-final class MainScreenRepositoryImpl implements MainScreenRepository {
+final class MainScreenRepositoryImpl implements IMainScreenRepository {
   final MainScreenDataSource _dataSource;
   final TokenStorage _storage;
   const MainScreenRepositoryImpl({
@@ -60,17 +60,17 @@ final class MainScreenRepositoryImpl implements MainScreenRepository {
     }
   }
 
-  @override
-  Future<Categories> loadCategoryData() async {
-    try {
-      final response = await _dataSource.loadCategoryData();
-      logger.i(response.toString());
-      if (response == null) {
-        throw Exception('Item not found');
-      }
-      return Categories.fromJson(response);
-    } catch (e) {
-      rethrow;
-    }
-  }
+  // @override
+  // Future<Categories> loadCategoryData() async {
+  //   try {
+  //     final response = await _dataSource.loadCategoryData();
+  //     logger.i(response.toString());
+  //     if (response == null) {
+  //       throw Exception('Item not found');
+  //     }
+  //     return Categories.fromJson(response);
+  //   } catch (e) {
+  //     rethrow;
+  //   }
+  // }
 }

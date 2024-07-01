@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sempl/src/core/widget/custom_radio_button.dart';
 import 'package:sempl/src/feature/main/bloc/main_screen_bloc.dart';
+import 'package:sempl/src/feature/recent_products/bloc/recent_products_bloc.dart';
 
 class CategoriesListWidget extends StatelessWidget {
   const CategoriesListWidget({
@@ -16,21 +17,22 @@ class CategoriesListWidget extends StatelessWidget {
     final categoriesData = context.read<MainScreenBloc>().state.categories;
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      sliver: BlocBuilder<MainScreenBloc, MainScreenState>(
+      sliver: BlocBuilder<RecentProductsBloc, RecentProductsState>(
         buildWhen: (previous, current) =>
-            previous.searchResults != current.searchResults ||
-            previous.searchQuery != current.searchQuery,
+            previous.screenCategoriesStatus != current.screenCategoriesStatus ||
+            previous.categories != current.categories,
         builder: (context, state) {
           final length = state.searchQuery.isEmpty
               ? categoriesData.length
-              : state.searchResults.length;
+              : categoriesData.length; // state.searchResults.length;
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               childCount: length,
               (context, index) {
                 final category = state.searchQuery.isEmpty
                     ? categoriesData.elementAt(index)
-                    : state.searchResults.elementAt(index);
+                    : categoriesData.elementAt(
+                        index); // state.searchResults.elementAt(index);
                 final categoryName = category.name;
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

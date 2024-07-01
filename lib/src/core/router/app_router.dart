@@ -15,6 +15,7 @@ import 'package:sempl/src/feature/main/ui/main_screen.dart';
 import 'package:sempl/src/feature/onboarding/onboarding_screen.dart';
 import 'package:sempl/src/feature/profile/ui/profile_screen.dart';
 import 'package:sempl/src/feature/profile/ui/widgets/delete_account_confirmation_screen.dart';
+import 'package:sempl/src/feature/recent_products/ui/recent_products_screen.dart';
 import 'package:sempl/src/feature/review_items/ui/review_items_screen.dart';
 import 'package:sempl/src/feature/survey/ui/survey_screen.dart';
 import 'package:sempl/src/feature/survey_order/ui/%D1%81onfirmation_order_type_one_screen.dart';
@@ -118,20 +119,20 @@ class AppRouter {
               ),
             ],
           ),
-          // GoRoute(
-          //   name: AppRoutes.recentProducts.name,
-          //   path: AppRoutes.recentProducts.path,
-          //   builder: (BuildContext context, GoRouterState state) =>
-          //       const RecentProductsScreen(),
-          //   routes: <GoRoute>[
-          //     GoRoute(
-          //       name: AppRoutes.categories.name,
-          //       path: AppRoutes.categories.path,
-          //       builder: (BuildContext context, GoRouterState state) =>
-          //           const CategoriesListScreen(),
-          //     )
-          //   ],
-          // ),
+          GoRoute(
+            name: AppRoutes.recentProducts.name,
+            path: AppRoutes.recentProducts.path,
+            builder: (BuildContext context, GoRouterState state) =>
+                const RecentProductsScreen(),
+            routes: <GoRoute>[
+              // GoRoute(
+              //   name: AppRoutes.categories.name,
+              //   path: AppRoutes.categories.path,
+              //   builder: (BuildContext context, GoRouterState state) =>
+              //       const CategoriesListScreen(),
+              // )
+            ],
+          ),
         ],
       ),
       GoRoute(

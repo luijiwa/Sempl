@@ -1,7 +1,7 @@
 import 'package:sempl/src/feature/cart/data/repositories/cart_repository.dart';
 import 'package:sempl/src/feature/cart/model/cart_item.dart';
 
-/// Interface for [CartRepository].
+/// Interface for [LocalCartRepository].
 // TODO(anyone): Explain what this repository is used for.
 abstract interface class ICartRepository {
   Future<List<CartItem>> getAllCartItems();

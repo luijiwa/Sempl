@@ -5,19 +5,20 @@ import 'package:sempl/src/feature/cart/model/cart_item.dart';
 /// {@template cart_repository.class}
 /// Implementation of [ICartRepository].
 /// {@endtemplate}
-final class CartRepository implements ICartRepository {
+final class LocalCartRepository implements ICartRepository {
   final CartDataSource _dataSource;
 
   /// {@macro cart_repository.class}
-  const CartRepository({
+  const LocalCartRepository({
     required CartDataSource dataSource,
   }) : _dataSource = dataSource;
   @override
-  Future<void> addItemToCart(
-      {required int itemId,
-      required String name,
-      required String description,
-      required String image,}) async {
+  Future<void> addItemToCart({
+    required int itemId,
+    required String name,
+    required String description,
+    required String image,
+  }) async {
     await _dataSource.addItemToCart(
       itemId: itemId,
       name: name,

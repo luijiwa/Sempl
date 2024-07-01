@@ -19,7 +19,6 @@ mixin _$MainScreenEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadCategories value) loadCategories,
     required TResult Function(_SearchCategory value) searchCategory,
     required TResult Function(_PickCategory value) pickCategory,
   }) =>
@@ -27,7 +26,6 @@ mixin _$MainScreenEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadCategories value)? loadCategories,
     TResult? Function(_SearchCategory value)? searchCategory,
     TResult? Function(_PickCategory value)? pickCategory,
   }) =>
@@ -35,7 +33,6 @@ mixin _$MainScreenEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadCategories value)? loadCategories,
     TResult Function(_SearchCategory value)? searchCategory,
     TResult Function(_PickCategory value)? pickCategory,
     required TResult orElse(),
@@ -106,7 +103,6 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadCategories value) loadCategories,
     required TResult Function(_SearchCategory value) searchCategory,
     required TResult Function(_PickCategory value) pickCategory,
   }) {
@@ -117,7 +113,6 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadCategories value)? loadCategories,
     TResult? Function(_SearchCategory value)? searchCategory,
     TResult? Function(_PickCategory value)? pickCategory,
   }) {
@@ -128,7 +123,6 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadCategories value)? loadCategories,
     TResult Function(_SearchCategory value)? searchCategory,
     TResult Function(_PickCategory value)? pickCategory,
     required TResult orElse(),
@@ -142,92 +136,6 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
 
 abstract class _Started implements MainScreenEvent {
   const factory _Started() = _$StartedImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadCategoriesImplCopyWith<$Res> {
-  factory _$$LoadCategoriesImplCopyWith(_$LoadCategoriesImpl value,
-          $Res Function(_$LoadCategoriesImpl) then) =
-      __$$LoadCategoriesImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadCategoriesImplCopyWithImpl<$Res>
-    extends _$MainScreenEventCopyWithImpl<$Res, _$LoadCategoriesImpl>
-    implements _$$LoadCategoriesImplCopyWith<$Res> {
-  __$$LoadCategoriesImplCopyWithImpl(
-      _$LoadCategoriesImpl _value, $Res Function(_$LoadCategoriesImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoadCategoriesImpl
-    with DiagnosticableTreeMixin
-    implements _LoadCategories {
-  const _$LoadCategoriesImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MainScreenEvent.loadCategories()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'MainScreenEvent.loadCategories'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadCategoriesImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_LoadCategories value) loadCategories,
-    required TResult Function(_SearchCategory value) searchCategory,
-    required TResult Function(_PickCategory value) pickCategory,
-  }) {
-    return loadCategories(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_LoadCategories value)? loadCategories,
-    TResult? Function(_SearchCategory value)? searchCategory,
-    TResult? Function(_PickCategory value)? pickCategory,
-  }) {
-    return loadCategories?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_LoadCategories value)? loadCategories,
-    TResult Function(_SearchCategory value)? searchCategory,
-    TResult Function(_PickCategory value)? pickCategory,
-    required TResult orElse(),
-  }) {
-    if (loadCategories != null) {
-      return loadCategories(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadCategories implements MainScreenEvent {
-  const factory _LoadCategories() = _$LoadCategoriesImpl;
 }
 
 /// @nodoc
@@ -306,7 +214,6 @@ class _$SearchCategoryImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadCategories value) loadCategories,
     required TResult Function(_SearchCategory value) searchCategory,
     required TResult Function(_PickCategory value) pickCategory,
   }) {
@@ -317,7 +224,6 @@ class _$SearchCategoryImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadCategories value)? loadCategories,
     TResult? Function(_SearchCategory value)? searchCategory,
     TResult? Function(_PickCategory value)? pickCategory,
   }) {
@@ -328,7 +234,6 @@ class _$SearchCategoryImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadCategories value)? loadCategories,
     TResult Function(_SearchCategory value)? searchCategory,
     TResult Function(_PickCategory value)? pickCategory,
     required TResult orElse(),
@@ -395,7 +300,6 @@ class _$PickCategoryImpl with DiagnosticableTreeMixin implements _PickCategory {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadCategories value) loadCategories,
     required TResult Function(_SearchCategory value) searchCategory,
     required TResult Function(_PickCategory value) pickCategory,
   }) {
@@ -406,7 +310,6 @@ class _$PickCategoryImpl with DiagnosticableTreeMixin implements _PickCategory {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadCategories value)? loadCategories,
     TResult? Function(_SearchCategory value)? searchCategory,
     TResult? Function(_PickCategory value)? pickCategory,
   }) {
@@ -417,7 +320,6 @@ class _$PickCategoryImpl with DiagnosticableTreeMixin implements _PickCategory {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadCategories value)? loadCategories,
     TResult Function(_SearchCategory value)? searchCategory,
     TResult Function(_PickCategory value)? pickCategory,
     required TResult orElse(),

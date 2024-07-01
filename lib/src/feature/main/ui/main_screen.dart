@@ -117,18 +117,18 @@ class _MainScreenView extends StatelessWidget {
             child: NextStepButton(
               title: 'СМОТРЕТЬ ВСЕ',
               onPressed: () {
-                // context.goNamed(AppRoutes.recentProducts.name);
-                final myBloc = BlocProvider.of<MainScreenBloc>(context);
+                context.goNamed(AppRoutes.recentProducts.name);
 
+                // final myBloc = BlocProvider.of<MainScreenBloc>(context);
                 // Переход на второй экран с передачей блока
-                Navigator.of(context).push(
-                  MaterialPageRoute<RecentProductsScreen>(
-                    builder: (context) => BlocProvider.value(
-                      value: myBloc,
-                      child: RecentProductsScreen(bloc: bloc),
-                    ),
-                  ),
-                );
+                // Navigator.of(context).push(
+                //   MaterialPageRoute<RecentProductsScreen>(
+                //     builder: (context) => BlocProvider.value(
+                //       value: myBloc,
+                //       child: RecentProductsScreen(bloc: bloc),
+                //     ),
+                //   ),
+                // );
               },
             ),
           ),
